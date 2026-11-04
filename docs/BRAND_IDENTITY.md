@@ -70,28 +70,33 @@ Motocross in Bangladesh is an emerging, high-octane motorsport that has historic
 
 BMCA uses a high-performance, dark motorsports aesthetic inspired by factory racing paddocks (KTM, Monster Energy Pro Circuit, Honda HRC).
 
-### 3.1 Color Palette & CSS Variables
+### 3.1 Color Palette & CSS Variables (Pitch 02 Factory Works Redline)
 
 ```css
 :root {
   /* ==========================================================================
-     DARK CANVAS & PADDOCK OBSIDIAN SURFACES
+     DARK CANVAS & FACTORY PADDOCK SURFACES (Pitch 02)
      ========================================================================== */
-  --bg-deep: #07090c;         /* Deep canvas foundation / Page background */
-  --bg-primary: #0d1117;      /* Primary section background alternation */
-  --bg-surface: #141a23;      /* Elevated panels, forms, and containers */
-  --bg-card: #18202c;         /* Interactive cards, dossiers, table rows */
-  --bg-card-hover: #1f2a3a;   /* Card hover state */
-  --bg-glass: rgba(13, 17, 23, 0.85); /* Glassmorphism navigation bar */
+  --bg-deep: #08090b;         /* Pure Paddock Void / Page background */
+  --bg-primary: #101216;      /* Factory Garage Canvas / Section alternation */
+  --bg-surface: #15181f;      /* Elevated Machine Bench: panels & forms */
+  --bg-card: #1a1e27;         /* Carbon Composite Modules: cards & dossiers */
+  --bg-card-hover: #222733;   /* Card hover state */
+  --bg-glass: rgba(16, 18, 22, 0.88); /* Glassmorphism navigation bar */
 
   /* ==========================================================================
-     MOTORSPORT ACCENT PALETTE
+     MOTORSPORT ACCENT PALETTE (Pitch 02 Factory Works Redline)
      ========================================================================== */
-  /* Racing Red: Primary brand energy, urgent actions, podium heat */
-  --red-racing: #e11d48;      /* Primary brand accent / Main CTA button */
-  --red-bright: #ff2b56;      /* Hover states, focus rings, active indicators */
-  --red-deep: #9f1239;        /* Gradients, subtle card borders */
-  --red-glow: rgba(225, 29, 72, 0.35); /* Ambient paddock backlights */
+  /* Factory Redline: Primary brand energy, urgent actions, podium heat */
+  --red-racing: #dc2626;      /* Factory Crimson / Main CTA button (.btn-primary) */
+  --red-bright: #ef4444;      /* Bright Redline: hover states, focus rings, active glows */
+  --red-deep: #991b1b;        /* Deep Paddock Red: gradients, card accents */
+  --red-glow: rgba(220, 38, 38, 0.35); /* Ambient paddock backlights */
+
+  /* Technical Silver: Machined titanium hardware, telemetry logs */
+  --silver-tech: #e2e8f0;     /* Titanium accents & secondary buttons (.btn-silver) */
+  --silver-dim: #94a3b8;      /* Hardware borders & data badges */
+  --silver-glow: rgba(226, 232, 240, 0.25);
 
   /* Track Green: Safety clearance, live race alerts, direct WhatsApp channel */
   --green-track: #22c55e;     /* WhatsApp buttons, verified status, green flags */
@@ -104,41 +109,41 @@ BMCA uses a high-performance, dark motorsports aesthetic inspired by factory rac
   /* ==========================================================================
      TYPOGRAPHY & ACCESSIBILITY CONTRAST (WCAG AA COMPLIANT)
      ========================================================================== */
-  --text-main: #f8fafc;       /* Highest contrast: Titles, headings, primary values */
+  --text-main: #ffffff;       /* Pure Grid White: Titles, headings, primary values */
   --text-muted: #cbd5e1;      /* Secondary reading: Body paragraphs, descriptions */
-  --text-dim: #94a3b8;        /* Minimum 4.5:1 ratio on #07090c for meta & dates */
+  --text-dim: #94a3b8;        /* Minimum 4.5:1 ratio on #08090b for meta & dates */
 
   /* ==========================================================================
      BORDERS & ELEVATIONS
      ========================================================================== */
   --border-subtle: rgba(255, 255, 255, 0.08); /* Card separation */
-  --border-card: rgba(255, 255, 255, 0.12);   /* Default container outline */
-  --border-hover: rgba(225, 29, 72, 0.45);    /* Active card highlight */
+  --border-card: rgba(220, 38, 38, 0.22);     /* Default container outline */
+  --border-hover: #ef4444;                    /* Active card highlight */
 
   /* ==========================================================================
      SPACING & RADII
      ========================================================================== */
-  --radius-sm: 6px;           /* Tags, badges, small buttons */
-  --radius-md: 12px;          /* Cards, modals, form inputs */
-  --radius-lg: 18px;          /* Featured banners, hero enclosures */
+  --radius-sm: 4px;           /* Tags, badges, small buttons */
+  --radius-md: 8px;           /* Cards, modals, form inputs */
+  --radius-lg: 14px;          /* Featured banners, hero enclosures */
   --container-max: 1200px;    /* Max readable content width */
   --nav-height: 76px;         /* Fixed sticky navbar height */
 }
 ```
 
-### 3.2 Typography Stack
+### 3.2 Typography Stack (Pitch 03 Kinetic Stance)
 
-BMCA pairs high-impact motorsport display typography with a modern, highly legible sans-serif for UI and body text:
+BMCA pairs futuristic wide-stance kinetic display typography with sharp mechanical headings and an ultra-readable contemporary sans for body text:
 
 | Role | Font Family | Weights | Text Transform | Ideal Use Case |
 | :--- | :--- | :--- | :--- | :--- |
-| **Display / Numbers** | `'Teko', impact, sans-serif` | 500, 600, 700 | Uppercase | Big countdown timers, racing numbers (#99, #07), lap times, hero callouts |
-| **Headings & Badges** | `'Barlow Semi Condensed', sans-serif` | 600, 700, 800 | Uppercase | Section titles, card headings, navigation links, eyebrow tags |
+| **Display / Numbers** | `'Unbounded', sans-serif` | 700, 800, 900 | Uppercase | Big countdown timers, racing numbers (#99, #07), gate drops, hero headlines |
+| **Headings & Badges** | `'Space Grotesk', sans-serif` | 600, 700, 800 | Uppercase | Section titles, card headings, navigation links, eyebrow tags, action buttons |
 | **Body & Forms** | `'Plus Jakarta Sans', sans-serif` | 400, 500, 600, 700 | Normal | Paragraphs, curriculum breakdowns, form labels, machine specifications |
 
 **Google Fonts Import:**
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap">
 ```
 
 ### 3.3 Visual Motifs & Paddock Textures

@@ -1,23 +1,30 @@
 /* ==========================================================================
    Bangladesh Motocross Club & Academy (BMCA) - Official Stylesheet
-   Modern High-Performance Motorsports Theme
+   Championship Hybrid Theme: Factory Works Redline × Kinetic Stance
+   Color System: Pitch 02 (Factory Redline & Carbon Slate)
+   Typography:   Pitch 03 (Unbounded Display, Space Grotesk Headings, Plus Jakarta Sans Body)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Teko:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap');
 
 :root {
-  /* Colors */
-  --bg-deep: #07090c;
-  --bg-primary: #0d1117;
-  --bg-surface: #141a23;
-  --bg-card: #18202c;
-  --bg-card-hover: #1f2a3a;
-  --bg-glass: rgba(13, 17, 23, 0.85);
+  /* Colors: Pitch 02 Factory Works Redline */
+  --bg-deep: #08090b;        /* Pure Paddock Void */
+  --bg-primary: #101216;     /* Factory Garage Canvas */
+  --bg-surface: #15181f;     /* Elevated Machine Bench */
+  --bg-card: #1a1e27;        /* Carbon Composite Modules */
+  --bg-card-hover: #222733;
+  --bg-glass: rgba(16, 18, 22, 0.88);
 
-  --red-racing: #e11d48;
-  --red-bright: #ff2b56;
-  --red-deep: #9f1239;
-  --red-glow: rgba(225, 29, 72, 0.35);
+  --red-racing: #dc2626;     /* Factory Crimson */
+  --red-bright: #ef4444;     /* Bright Redline */
+  --red-deep: #991b1b;       /* Deep Paddock Red */
+  --red-glow: rgba(220, 38, 38, 0.35);
+
+  /* Pitch 02 Technical Metallics */
+  --silver-tech: #e2e8f0;
+  --silver-dim: #94a3b8;
+  --silver-glow: rgba(226, 232, 240, 0.25);
 
   --green-track: #22c55e;
   --green-glow: rgba(34, 197, 94, 0.3);
@@ -25,25 +32,25 @@
   --yellow-trophy: #f59e0b;
   --yellow-glow: rgba(245, 158, 11, 0.35);
 
-  --text-main: #f8fafc;
+  --text-main: #ffffff;      /* Pure Grid White */
   --text-muted: #cbd5e1;
   --text-dim: #94a3b8;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.12);
-  --border-hover: rgba(225, 29, 72, 0.45);
+  --border-card: rgba(220, 38, 38, 0.22);
+  --border-hover: #ef4444;
 
-  /* Typography */
-  --font-heading: 'Barlow Semi Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Teko', impact, sans-serif;
+  /* Typography: Pitch 03 Kinetic Stance */
+  --font-display: 'Unbounded', sans-serif;
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Layout & Spacing */
   --container-max: 1200px;
   --nav-height: 76px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -56,12 +63,16 @@
   --bg-surface: #f1f5f9;
   --bg-card: #ffffff;
   --bg-card-hover: #f8fafc;
-  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass: rgba(255, 255, 255, 0.95);
 
-  --red-racing: #e11d48;
-  --red-bright: #dc2626;
+  --red-racing: #dc2626;
+  --red-bright: #ef4444;
   --red-deep: #991b1b;
-  --red-glow: rgba(225, 29, 72, 0.18);
+  --red-glow: rgba(220, 38, 38, 0.18);
+
+  --silver-tech: #475569;
+  --silver-dim: #64748b;
+  --silver-glow: rgba(71, 85, 105, 0.15);
 
   --green-track: #15803d;
   --green-glow: rgba(21, 128, 61, 0.18);
@@ -75,7 +86,7 @@
 
   --border-subtle: rgba(15, 23, 42, 0.08);
   --border-card: rgba(15, 23, 42, 0.12);
-  --border-hover: rgba(225, 29, 72, 0.45);
+  --border-hover: #ef4444;
 }
 
 /* Base Reset */
@@ -209,10 +220,10 @@ textarea:focus-visible {
   justify-content: center;
   gap: 8px;
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   padding-inline: 24px;
   padding-block: 13px;
   border-radius: var(--radius-sm);
@@ -270,7 +281,7 @@ textarea:focus-visible {
 .btn-outline:hover {
   border-color: var(--red-racing);
   color: var(--red-bright);
-  background-color: rgba(225, 29, 72, 0.08);
+  background-color: rgba(220, 38, 38, 0.08);
 }
 
 .btn-sm {
@@ -329,9 +340,9 @@ textarea:focus-visible {
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 900;
-  letter-spacing: 0.8px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-main);
   line-height: 1.15;
@@ -354,9 +365,9 @@ textarea:focus-visible {
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-muted);
   position: relative;
@@ -615,16 +626,16 @@ textarea:focus-visible {
   border-radius: var(--radius-lg);
   box-shadow: 
     0 24px 60px rgba(0, 0, 0, 0.7),
-    0 0 35px rgba(225, 29, 72, 0.18);
+    0 0 35px rgba(220, 38, 38, 0.18);
   overflow: hidden;
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .hero-video-card:hover {
-  border-color: rgba(225, 29, 72, 0.4);
+  border-color: rgba(220, 38, 38, 0.4);
   box-shadow: 
     0 30px 70px rgba(0, 0, 0, 0.8),
-    0 0 45px rgba(225, 29, 72, 0.28);
+    0 0 45px rgba(220, 38, 38, 0.28);
 }
 
 .video-card-header {
@@ -807,17 +818,17 @@ textarea:focus-visible {
 }
 
 .video-section-pill:hover {
-  background: rgba(225, 29, 72, 0.15);
-  border-color: rgba(225, 29, 72, 0.4);
+  background: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.4);
   transform: translateX(3px);
   color: #fff;
 }
 
 .video-section-pill.active {
-  background: linear-gradient(90deg, rgba(225, 29, 72, 0.3), rgba(225, 29, 72, 0.08));
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.3), rgba(220, 38, 38, 0.08));
   border-color: var(--red-bright);
   color: #fff;
-  box-shadow: 0 0 14px rgba(225, 29, 72, 0.35);
+  box-shadow: 0 0 14px rgba(220, 38, 38, 0.35);
 }
 
 .pill-time {
@@ -899,8 +910,8 @@ textarea:focus-visible {
   gap: 6px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(225, 29, 72, 0.15);
-  border: 1px solid rgba(225, 29, 72, 0.4);
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.4);
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 800;
@@ -924,12 +935,12 @@ textarea:focus-visible {
 }
 
 .hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 1.05;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
   margin-block-end: 22px;
 }
 
@@ -1018,7 +1029,7 @@ textarea:focus-visible {
    ========================================================================== */
 .race-alert-bar {
   background: linear-gradient(90deg, #18202c, #261219, #18202c);
-  border-block: 1px solid rgba(225, 29, 72, 0.3);
+  border-block: 1px solid rgba(220, 38, 38, 0.3);
   padding-block: 18px;
   position: relative;
   z-index: 10;
@@ -1254,8 +1265,8 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(225, 29, 72, 0.1);
-  border: 1px solid rgba(225, 29, 72, 0.3);
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
   border-radius: var(--radius-sm);
   font-size: 1.75rem;
   margin-block-end: 20px;
@@ -1280,7 +1291,7 @@ textarea:focus-visible {
    Leadership & Director Feature
    ========================================================================== */
 .director-feature {
-  background: radial-gradient(circle at top right, rgba(225, 29, 72, 0.12), transparent 70%), var(--bg-card);
+  background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 70%), var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 48px);
@@ -1484,7 +1495,7 @@ textarea:focus-visible {
   position: absolute;
   inset-block-end: 12px;
   inset-inline-start: 12px;
-  background: rgba(225, 29, 72, 0.92);
+  background: rgba(220, 38, 38, 0.92);
   color: #fff;
   font-family: var(--font-heading);
   font-size: 0.72rem;
@@ -1688,7 +1699,7 @@ textarea:focus-visible {
 
 .package-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(225, 29, 72, 0.4);
+  border-color: rgba(220, 38, 38, 0.4);
 }
 
 .package-card.featured {
@@ -1790,8 +1801,8 @@ textarea:focus-visible {
 }
 
 .brand-positioning-banner {
-  background: linear-gradient(135deg, rgba(225, 29, 72, 0.15) 0%, rgba(20, 26, 35, 0.95) 100%);
-  border: 1px solid rgba(225, 29, 72, 0.4);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(20, 26, 35, 0.95) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.4);
   border-radius: var(--radius-md);
   padding: 36px 32px;
   text-align: center;
@@ -1819,7 +1830,7 @@ textarea:focus-visible {
   color: #fff;
   line-height: 1.25;
   margin-block-end: 14px;
-  text-shadow: 0 0 25px rgba(225, 29, 72, 0.35);
+  text-shadow: 0 0 25px rgba(220, 38, 38, 0.35);
 }
 
 .brand-quote-sub {
@@ -2113,8 +2124,8 @@ textarea:focus-visible {
 }
 
 .event-type-badge.type-championship {
-  background-color: rgba(225, 29, 72, 0.18);
-  border-color: rgba(225, 29, 72, 0.45);
+  background-color: rgba(220, 38, 38, 0.18);
+  border-color: rgba(220, 38, 38, 0.45);
   color: var(--red-bright);
 }
 
@@ -2413,8 +2424,8 @@ textarea:focus-visible {
   block-size: 42px;
   min-inline-size: 42px;
   border-radius: var(--radius-sm);
-  background-color: rgba(225, 29, 72, 0.12);
-  border: 1px solid rgba(225, 29, 72, 0.3);
+  background-color: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.3);
   display: grid;
   place-items: center;
   font-size: 1.2rem;
@@ -2516,7 +2527,7 @@ textarea:focus-visible {
 .form-textarea:focus {
   outline: none;
   border-color: var(--red-racing);
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
 }
 
 .form-select option {
@@ -3058,7 +3069,7 @@ textarea:focus-visible {
 [data-theme="light"] .hero-video-card {
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 25px rgba(225, 29, 72, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 25px rgba(220, 38, 38, 0.1);
 }
 
 [data-theme="light"] .video-card-header {
@@ -3077,13 +3088,13 @@ textarea:focus-visible {
 }
 
 [data-theme="light"] .video-section-pill:hover {
-  background: rgba(225, 29, 72, 0.08);
-  border-color: rgba(225, 29, 72, 0.3);
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.3);
   color: var(--red-bright);
 }
 
 [data-theme="light"] .video-section-pill.active {
-  background: linear-gradient(90deg, rgba(225, 29, 72, 0.15), rgba(225, 29, 72, 0.04));
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.04));
   border-color: var(--red-bright);
   color: var(--red-deep);
 }
@@ -3095,7 +3106,7 @@ textarea:focus-visible {
 
 [data-theme="light"] .race-alert-bar {
   background: linear-gradient(90deg, #f8fafc, #ffe4e6, #f8fafc);
-  border-block: 1px solid rgba(225, 29, 72, 0.2);
+  border-block: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 [data-theme="light"] .race-alert-title {
@@ -3135,8 +3146,8 @@ textarea:focus-visible {
 }
 
 [data-theme="light"] .brand-positioning-banner {
-  background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, #ffffff 100%);
-  border-color: rgba(225, 29, 72, 0.3);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, #ffffff 100%);
+  border-color: rgba(220, 38, 38, 0.3);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
