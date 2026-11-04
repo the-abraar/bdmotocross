@@ -12,3 +12,4 @@ Thumbs.db
 .mcp.json
 builder/
 
+.agents/mcp_config.json
