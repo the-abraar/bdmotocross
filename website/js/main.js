@@ -3,6 +3,68 @@
  * Main Interactive Engine - Production Version
  */
 
+/**
+ * Analytics Event Abstraction (GA4 / Meta Pixel / Console)
+ */
+function trackEvent(eventName, params = {}) {
+  const payload = {
+    event: eventName,
+    timestamp: new Date().toISOString(),
+    ...params
+  };
+
+  // Safe console telemetry for auditing
+  console.log('[BMCA Analytics]', eventName, payload);
+
+  // Google Tag Manager / GA4 dataLayer
+  if (window.dataLayer && Array.isArray(window.dataLayer)) {
+    window.dataLayer.push(payload);
+  }
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  }
+
+  // Meta Pixel
+  if (typeof window.fbq === 'function') {
+    window.fbq('trackCustom', eventName, params);
+  }
+}
+
+/**
+ * Resilient Offline/Local Lead Vault
+ * Appends inquiries and registrations to localStorage to prevent dropped leads.
+ */
+function saveToLeadVault(type, data) {
+  try {
+    const raw = localStorage.getItem('bmca_lead_vault');
+    const vault = raw ? JSON.parse(raw) : [];
+    const lead = {
+      id: 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+      type: type,
+      timestamp: new Date().toISOString(),
+      data: data
+    };
+    vault.push(lead);
+    localStorage.setItem('bmca_lead_vault', JSON.stringify(vault));
+    console.log('[BMCA Lead Vault] Saved lead:', lead.id, type);
+    return lead;
+  } catch (err) {
+    console.warn('[BMCA Lead Vault] Failed to save lead to localStorage', err);
+    return null;
+  }
+}
+
+// Progressive Web App: Register Service Worker
+if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
+      console.log('[BMCA SW] Registered successfully, scope:', reg.scope);
+    }).catch((err) => {
+      console.warn('[BMCA SW] Registration skipped/failed:', err);
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initNavigation();
@@ -13,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryAndLightbox();
   initRegistrationForm();
   initAlertBarAction();
+  initFeniTrialModal();
+  initPackageAnalytics();
+  initCostEstimator();
+  initPaddockVault();
 });
 
 /* ==========================================================================
@@ -170,7 +236,8 @@ function initAlertBarAction() {
 
   alertBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    triggerEventRegistration('Feni Track Trial (15 Nov 2026)');
+    trackEvent('feni_alert_bar_click');
+    openFeniTrialModal();
   });
 }
 
@@ -465,7 +532,66 @@ function initCalendarFilters() {
   });
 }
 
+let activeFeniCleanupTrap = null;
+
+function openFeniTrialModal() {
+  const modal = document.getElementById('feni-trial-modal');
+  if (!modal) return;
+
+  trackEvent('feni_modal_open', { trigger: 'modal_open' });
+
+  modal.style.display = 'grid';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  activeFeniCleanupTrap = setupFocusTrap(modal, closeFeniTrialModal);
+
+  const closeBtn = document.getElementById('feni-modal-close');
+  if (closeBtn) {
+    closeBtn.onclick = (e) => {
+      e.preventDefault();
+      closeFeniTrialModal();
+    };
+  }
+
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closeFeniTrialModal();
+    }
+  };
+
+  const nameInput = document.getElementById('feni-name');
+  if (nameInput) {
+    setTimeout(() => nameInput.focus(), 60);
+  }
+}
+
+function closeFeniTrialModal() {
+  const modal = document.getElementById('feni-trial-modal');
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+
+  if (typeof activeFeniCleanupTrap === 'function') {
+    activeFeniCleanupTrap();
+    activeFeniCleanupTrap = null;
+  }
+
+  const alertBtn = document.getElementById('alert-feni-register-btn') || document.querySelector('.alert-entry-btn');
+  if (alertBtn) {
+    alertBtn.focus();
+  }
+}
+
 function triggerEventRegistration(eventName) {
+  if (eventName && eventName.toLowerCase().includes('feni')) {
+    trackEvent('feni_fixture_click', { eventName });
+    openFeniTrialModal();
+    return;
+  }
+
   const programSelect = document.getElementById('form-program');
   const commentsInput = document.getElementById('form-message');
   const formTitle = document.getElementById('form-card-title');
@@ -478,11 +604,9 @@ function triggerEventRegistration(eventName) {
     formSubtitle.textContent = `Official entry submission for: ${eventName}`;
   }
   if (programSelect) {
-    let matched = false;
     for (let opt of programSelect.options) {
-      if (opt.value.toLowerCase().includes('entry') || opt.value.toLowerCase().includes('feni')) {
+      if (opt.value.toLowerCase().includes('entry')) {
         programSelect.value = opt.value;
-        matched = true;
         break;
       }
     }
@@ -692,6 +816,23 @@ function initRegistrationForm() {
 
     saveDraft();
 
+    // Resilient Lead Vault Persistence & Analytics
+    const leadPayload = {
+      name,
+      phone,
+      city: city || 'Chittagong',
+      program,
+      equipment,
+      experience,
+      message: message || ''
+    };
+    saveToLeadVault('admission_inquiry', leadPayload);
+    trackEvent('academy_inquiry_submit', {
+      program,
+      equipment,
+      city: city || 'Chittagong'
+    });
+
     // Build WhatsApp Message Payload
     const text = encodeURIComponent(
       `*BMCA Official Inquiry / Registration*\n` +
@@ -725,6 +866,555 @@ function initRegistrationForm() {
       }
     }
   });
+}
+
+/* ==========================================================================
+   7. Feni Track Trial Modal Logic & Lead Vault Dispatch
+   ========================================================================== */
+function initFeniTrialModal() {
+  const form = document.getElementById('feni-registration-form');
+  const statusEl = document.getElementById('feni-form-status');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('feni-name')?.value.trim();
+    const phone = document.getElementById('feni-phone')?.value.trim();
+    const entryType = document.getElementById('feni-entry-type')?.value;
+    const category = document.getElementById('feni-category')?.value;
+    const machine = document.getElementById('feni-machine')?.value.trim();
+    const city = document.getElementById('feni-city')?.value.trim();
+    const bloodGroup = document.getElementById('feni-blood')?.value || 'Not Disclosed';
+    const emergency = document.getElementById('feni-emergency')?.value.trim();
+    const safetyAck = document.getElementById('feni-safety-ack')?.checked;
+
+    if (!name || !phone || !machine || !city || !emergency) {
+      if (statusEl) {
+        statusEl.textContent = 'Please fill out all required fields marked with * (including Emergency Contact).';
+        statusEl.style.color = '#ff3b3b';
+      }
+      return;
+    }
+
+    // Phone format check for Bangladesh (11 digits e.g. 01XXXXXXXXX)
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      if (statusEl) {
+        statusEl.textContent = 'Please enter a valid 11-digit mobile/WhatsApp number.';
+        statusEl.style.color = '#ff3b3b';
+      }
+      return;
+    }
+
+    if (!safetyAck) {
+      if (statusEl) {
+        statusEl.textContent = 'Please acknowledge track safety & marshal regulations.';
+        statusEl.style.color = '#ff3b3b';
+      }
+      return;
+    }
+
+    // Generate unique scrutineering identification code for track entry
+    const scrutCode = 'BMCA-SCRUT-' + Math.floor(1000 + Math.random() * 9000);
+
+    const leadData = {
+      name,
+      phone,
+      entryType,
+      category,
+      machine,
+      city,
+      bloodGroup,
+      emergency,
+      scrutCode,
+      event: 'Feni Track Trial (15 Nov 2026)',
+      safetyAck: true
+    };
+
+    saveToLeadVault('feni_race_entry', leadData);
+    trackEvent('feni_registration_submit', leadData);
+
+    const text = encodeURIComponent(
+      `*BMCA Official Race Entry — Feni Track Trial (15 Nov 2026)*\n` +
+      `-----------------------------------------------------\n` +
+      `*Scrutineering Code:* ${scrutCode}\n` +
+      `*Competitor / Attendee:* ${name}\n` +
+      `*WhatsApp:* ${phone}\n` +
+      `*Registration Type:* ${entryType}\n` +
+      `*Class / Category:* ${category}\n` +
+      `*Motorcycle Model:* ${machine}\n` +
+      `*District / City:* ${city}\n` +
+      `*Blood Group (Trauma Standby):* ${bloodGroup}\n` +
+      `*Emergency Contact:* ${emergency}\n` +
+      `*Track Safety Standard:* Confirmed & Acknowledged\n` +
+      `*Date of Submission:* ${new Date().toLocaleDateString('en-GB')}`
+    );
+
+    const waUrl = `https://wa.me/8801975376114?text=${text}`;
+
+    if (statusEl) {
+      statusEl.innerHTML = `Entry saved to lead vault! Connecting to WhatsApp... <a href="${waUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;color:var(--green-track);margin-inline-start:6px;font-weight:700;">Click here if WhatsApp doesn't open</a>`;
+      statusEl.className = 'form-status success';
+    }
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = waUrl;
+    } else {
+      const newWin = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+        window.location.href = waUrl;
+      }
+    }
+  });
+}
+
+function initPackageAnalytics() {
+  document.querySelectorAll('.package-cta-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tier = btn.getAttribute('data-cta-tier') || 'admission_tier';
+      trackEvent('cta_click_' + tier, {
+        tier: tier,
+        text: btn.textContent.trim()
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   8. Admissions & Equipment Cost Estimator
+   ========================================================================== */
+function initCostEstimator() {
+  const container = document.getElementById('cost-estimator');
+  if (!container) return;
+
+  const pathwayRadios = container.querySelectorAll('input[name="calc-pathway"]');
+  const bikeCheck = document.getElementById('addon-bike');
+  const armorCheck = document.getElementById('addon-armor');
+  const fuelCheck = document.getElementById('addon-fuel');
+  const coachCheck = document.getElementById('addon-coach');
+
+  const bikeNote = document.getElementById('addon-bike-note');
+  const bikeCost = document.getElementById('addon-bike-cost');
+  const armorNote = document.getElementById('addon-armor-note');
+  const armorCost = document.getElementById('addon-armor-cost');
+
+  const totalAmountEl = document.getElementById('calc-total-amount');
+  const totalPeriodEl = document.getElementById('calc-total-period');
+  const breakdownListEl = document.getElementById('calc-summary-breakdown');
+  const bookBtn = document.getElementById('calc-book-btn');
+
+  function updateEstimator() {
+    let pathway = 'clinic';
+    pathwayRadios.forEach(r => {
+      const pill = r.closest('.pathway-pill');
+      if (r.checked) {
+        pathway = r.value;
+        if (pill) pill.classList.add('active');
+      } else {
+        if (pill) pill.classList.remove('active');
+      }
+    });
+
+    let basePrice = 3500;
+    let periodText = '/ weekend';
+    let pathwayName = 'Weekend Starter Clinic';
+    const breakdown = [];
+
+    if (pathway === 'clinic') {
+      basePrice = 3500;
+      periodText = '/ weekend';
+      pathwayName = 'Weekend Starter Clinic';
+      breakdown.push({ item: 'Weekend Starter Clinic', price: '৳3,500' });
+
+      // In clinic, bike & armor are included
+      bikeCheck.checked = true;
+      bikeCheck.disabled = true;
+      if (bikeNote) bikeNote.textContent = 'Included with Starter Clinic';
+      if (bikeCost) bikeCost.textContent = '৳0';
+      breakdown.push({ item: 'BMCA Fleet Dirt Bike', price: 'Included' });
+
+      armorCheck.checked = true;
+      armorCheck.disabled = true;
+      if (armorNote) armorNote.textContent = 'Included with Starter Clinic';
+      if (armorCost) armorCost.textContent = '৳0';
+      breakdown.push({ item: 'DOT/ECE Helmet & Armor', price: 'Included' });
+    } else if (pathway === 'cadet') {
+      basePrice = 12000;
+      periodText = '/ month';
+      pathwayName = 'Monthly Academy Cadet';
+      breakdown.push({ item: 'Monthly Academy Cadet', price: '৳12,000' });
+
+      bikeCheck.disabled = false;
+      if (bikeNote) bikeNote.textContent = 'BMCA Fleet Dirt Bike (+৳4,000/mo)';
+      if (bikeCost) bikeCost.textContent = '+৳4,000';
+      if (bikeCheck.checked) {
+        basePrice += 4000;
+        breakdown.push({ item: 'BMCA Fleet 150-250cc Bike', price: '৳4,000' });
+      }
+
+      armorCheck.disabled = false;
+      if (armorNote) armorNote.textContent = 'Sanitized Helmet & Armor (+৳1,500/mo)';
+      if (armorCost) armorCost.textContent = '+৳1,500';
+      if (armorCheck.checked) {
+        basePrice += 1500;
+        breakdown.push({ item: 'Sanitized Protective Armor', price: '৳1,500' });
+      }
+    } else if (pathway === 'paddock') {
+      basePrice = 1500;
+      periodText = '/ day';
+      pathwayName = 'Open Paddock Pass';
+      breakdown.push({ item: 'Open Paddock Pass (Own Machine)', price: '৳1,500' });
+
+      bikeCheck.disabled = false;
+      if (bikeNote) bikeNote.textContent = 'Loaner Track Bike (+৳2,000/day)';
+      if (bikeCost) bikeCost.textContent = '+৳2,000';
+      if (bikeCheck.checked) {
+        basePrice += 2000;
+        breakdown.push({ item: 'Loaner Track Bike', price: '৳2,000' });
+      }
+
+      armorCheck.disabled = false;
+      if (armorNote) armorNote.textContent = 'DOT/ECE Armor Set (+৳800/day)';
+      if (armorCost) armorCost.textContent = '+৳800';
+      if (armorCheck.checked) {
+        basePrice += 800;
+        breakdown.push({ item: 'DOT/ECE Armor Set', price: '৳800' });
+      }
+    }
+
+    if (fuelCheck && fuelCheck.checked) {
+      basePrice += 500;
+      breakdown.push({ item: 'Track High-Octane Fuel & Premix', price: '৳500' });
+    }
+
+    if (coachCheck && coachCheck.checked) {
+      basePrice += 1200;
+      breakdown.push({ item: '1-on-1 Dedicated Coach Supervision', price: '৳1,200' });
+    }
+
+    if (totalAmountEl) totalAmountEl.textContent = basePrice.toLocaleString('en-US');
+    if (totalPeriodEl) totalPeriodEl.textContent = periodText;
+
+    // Render breakdown items
+    if (breakdownListEl) {
+      breakdownListEl.innerHTML = '';
+      breakdown.forEach(b => {
+        const div = document.createElement('div');
+        div.className = 'breakdown-item' + (b.price === 'Included' ? ' text-muted' : '');
+        div.innerHTML = `<span>${b.item}</span> <span>${b.price}</span>`;
+        breakdownListEl.appendChild(div);
+      });
+    }
+
+    return { pathway, pathwayName, totalPrice: basePrice, periodText, breakdown };
+  }
+
+  pathwayRadios.forEach(r => r.addEventListener('change', updateEstimator));
+  [bikeCheck, armorCheck, fuelCheck, coachCheck].forEach(chk => {
+    if (chk) chk.addEventListener('change', updateEstimator);
+  });
+
+  if (bookBtn) {
+    bookBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const config = updateEstimator();
+      trackEvent('estimator_book_click', config);
+
+      const programSelect = document.getElementById('form-program');
+      const messageInput = document.getElementById('form-message');
+
+      if (programSelect) {
+        if (config.pathway === 'clinic') {
+          programSelect.value = 'Weekend Starter Clinic (Turnkey Arrive & Ride)';
+        } else if (config.pathway === 'cadet') {
+          programSelect.value = 'Monthly Academy Cadet (Junior 12+ & Adult)';
+        } else {
+          programSelect.value = 'Open Paddock Practice Pass (Bring Own Machine)';
+        }
+      }
+
+      if (messageInput) {
+        const items = config.breakdown.map(b => `${b.item} (${b.price})`).join(', ');
+        messageInput.value = `Estimated Package: ${config.pathwayName} — Total ৳${config.totalPrice.toLocaleString('en-US')} ${config.periodText}. Included Items: ${items}`;
+      }
+
+      const formSection = document.getElementById('contact');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          const nameInput = document.getElementById('form-name');
+          if (nameInput) nameInput.focus();
+        }, 600);
+      }
+    });
+  }
+
+  updateEstimator();
+}
+
+/* ==========================================================================
+   9. Paddock Lead Vault & CSV Manager UI
+   ========================================================================== */
+let activePaddockVaultTrap = null;
+
+function openPaddockVaultModal() {
+  const modal = document.getElementById('paddock-vault-modal');
+  if (!modal) return;
+
+  trackEvent('paddock_vault_open');
+  modal.style.display = 'grid';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  activePaddockVaultTrap = setupFocusTrap(modal, closePaddockVaultModal);
+
+  const closeBtn = document.getElementById('paddock-vault-close');
+  if (closeBtn) {
+    closeBtn.onclick = (e) => {
+      e.preventDefault();
+      closePaddockVaultModal();
+    };
+  }
+
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closePaddockVaultModal();
+    }
+  };
+
+  renderVaultLeads('all');
+}
+
+function closePaddockVaultModal() {
+  const modal = document.getElementById('paddock-vault-modal');
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+
+  if (typeof activePaddockVaultTrap === 'function') {
+    activePaddockVaultTrap();
+    activePaddockVaultTrap = null;
+  }
+
+  const trigger = document.getElementById('paddock-vault-trigger');
+  if (trigger) trigger.focus();
+}
+
+function renderVaultLeads(activeFilter = 'all') {
+  const listEl = document.getElementById('vault-leads-list');
+  const totalCountEl = document.getElementById('vault-total-count');
+  const feniCountEl = document.getElementById('vault-feni-count');
+  const inquiryCountEl = document.getElementById('vault-inquiry-count');
+  if (!listEl) return;
+
+  let raw = localStorage.getItem('bmca_lead_vault');
+  let leads = [];
+  try {
+    leads = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    leads = [];
+  }
+
+  const feniEntries = leads.filter(l => l.type === 'feni_race_entry');
+  const inquiries = leads.filter(l => l.type === 'admission_inquiry');
+
+  if (totalCountEl) totalCountEl.textContent = `Total: ${leads.length}`;
+  if (feniCountEl) feniCountEl.textContent = `Feni Entries: ${feniEntries.length}`;
+  if (inquiryCountEl) inquiryCountEl.textContent = `Inquiries: ${inquiries.length}`;
+
+  const filtered = leads.filter(l => activeFilter === 'all' || l.type === activeFilter);
+
+  listEl.innerHTML = '';
+  if (!filtered.length) {
+    listEl.innerHTML = `<div class="vault-empty-state">No submissions found in the offline vault. Submit an inquiry or Feni trial registration to see it recorded here.</div>`;
+    return;
+  }
+
+  // Render leads newest first
+  filtered.slice().reverse().forEach(lead => {
+    const card = document.createElement('div');
+    card.className = 'vault-lead-card';
+
+    const d = lead.data || {};
+    const isFeni = lead.type === 'feni_race_entry';
+    const badgeText = isFeni ? '⚡ Feni Race Entry' : '🏁 Admission Inquiry';
+    const badgeClass = isFeni ? 'feni' : 'academy';
+    const dateFormatted = lead.timestamp ? new Date(lead.timestamp).toLocaleString('en-GB') : 'Unknown';
+
+    const cleanPhone = (d.phone || '').replace(/\D/g, '');
+    const waLink = cleanPhone ? `https://wa.me/880${cleanPhone.replace(/^0+/, '')}` : '#';
+
+    card.innerHTML = `
+      <div class="vault-lead-header">
+        <span class="vault-lead-badge ${badgeClass}">${badgeText}</span>
+        <span class="vault-lead-time">🕒 ${dateFormatted}</span>
+      </div>
+      <div class="vault-lead-main">
+        <div class="lead-data-field"><strong>Name:</strong> <span>${escapeHtml(d.name || 'N/A')}</span></div>
+        <div class="lead-data-field"><strong>WhatsApp:</strong> <span>${escapeHtml(d.phone || 'N/A')}</span></div>
+        <div class="lead-data-field"><strong>City:</strong> <span>${escapeHtml(d.city || 'N/A')}</span></div>
+        <div class="lead-data-field"><strong>${isFeni ? 'Category' : 'Program'}:</strong> <span>${escapeHtml(d.category || d.program || 'N/A')}</span></div>
+        ${d.machine ? `<div class="lead-data-field"><strong>Machine:</strong> <span>${escapeHtml(d.machine)}</span></div>` : ''}
+        ${d.bloodGroup ? `<div class="lead-data-field"><strong>Blood Group:</strong> <span>${escapeHtml(d.bloodGroup)}</span></div>` : ''}
+        ${d.emergency ? `<div class="lead-data-field"><strong>Emergency Contact:</strong> <span>${escapeHtml(d.emergency)}</span></div>` : ''}
+        ${d.scrutCode ? `<div class="lead-data-field"><strong>Scrutineering:</strong> <span>${escapeHtml(d.scrutCode)}</span></div>` : ''}
+      </div>
+      <div class="vault-lead-actions">
+        <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">💬 WhatsApp Lead</a>
+        <button type="button" class="btn btn-secondary btn-sm copy-lead-btn" data-lead-id="${lead.id}">📋 Copy Details</button>
+      </div>
+    `;
+
+    card.querySelector('.copy-lead-btn')?.addEventListener('click', (e) => {
+      const btn = e.currentTarget;
+      const text = JSON.stringify(lead, null, 2);
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy Details'; }, 2000);
+      });
+    });
+
+    listEl.appendChild(card);
+  });
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function exportVaultToCSV() {
+  let raw = localStorage.getItem('bmca_lead_vault');
+  let leads = [];
+  try {
+    leads = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    leads = [];
+  }
+
+  if (!leads.length) {
+    alert('No leads recorded in the vault to export.');
+    return;
+  }
+
+  trackEvent('paddock_vault_export_csv', { count: leads.length });
+
+  const headers = [
+    'Lead ID',
+    'Timestamp (UTC)',
+    'Submission Type',
+    'Name',
+    'WhatsApp Phone',
+    'City/District',
+    'Program / Category',
+    'Machine Model',
+    'Blood Group',
+    'Emergency Contact',
+    'Scrutineering Code',
+    'Safety Acknowledged'
+  ];
+
+  function escapeCSV(val) {
+    if (val === null || val === undefined) return '""';
+    const s = String(val).replace(/"/g, '""');
+    return `"${s}"`;
+  }
+
+  const rows = [headers.join(',')];
+
+  leads.forEach(l => {
+    const d = l.data || {};
+    const row = [
+      escapeCSV(l.id),
+      escapeCSV(l.timestamp),
+      escapeCSV(l.type),
+      escapeCSV(d.name),
+      escapeCSV(d.phone),
+      escapeCSV(d.city),
+      escapeCSV(d.program || d.category),
+      escapeCSV(d.machine || d.equipment || 'N/A'),
+      escapeCSV(d.bloodGroup || 'Not Disclosed'),
+      escapeCSV(d.emergency || 'N/A'),
+      escapeCSV(d.scrutCode || 'N/A'),
+      escapeCSV(d.safetyAck ? 'Yes' : 'No')
+    ];
+    rows.push(row.join(','));
+  });
+
+  const csvContent = rows.join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const now = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  a.href = url;
+  a.download = `bmca_paddock_leads_${now}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function initPaddockVault() {
+  const trigger = document.getElementById('paddock-vault-trigger');
+  if (trigger) {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPaddockVaultModal();
+    });
+  }
+
+  // Keyboard shortcut: Ctrl + Shift + L or Cmd + Shift + L
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'l') {
+      e.preventDefault();
+      const modal = document.getElementById('paddock-vault-modal');
+      if (modal && modal.classList.contains('active')) {
+        closePaddockVaultModal();
+      } else {
+        openPaddockVaultModal();
+      }
+    }
+  });
+
+  // URL query parameter check: ?admin=leads
+  if (window.location.search && window.location.search.includes('admin=leads')) {
+    setTimeout(openPaddockVaultModal, 300);
+  }
+
+  // Filter tabs
+  const tabBtns = document.querySelectorAll('.vault-tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-vault-filter') || 'all';
+      renderVaultLeads(filter);
+    });
+  });
+
+  // CSV Export button
+  const exportBtn = document.getElementById('vault-export-csv-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', exportVaultToCSV);
+  }
+
+  // Clear Vault button
+  const clearBtn = document.getElementById('vault-clear-btn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear all leads from this browser’s offline vault? This action cannot be undone.')) {
+        localStorage.removeItem('bmca_lead_vault');
+        renderVaultLeads('all');
+      }
+    });
+  }
 }
 
 /* ==========================================================================

@@ -1,0 +1,45 @@
+{
+  "name": "Bangladesh Motocross Club & Academy",
+  "short_name": "BMCA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#08090b",
+  "theme_color": "#dc2626",
+  "description": "Official Web Platform of Bangladesh Motocross Club & Academy. Leading motocross racing, rider academy, and motorsports community in Chittagong, Bangladesh.",
+  "icons": [
+    {
+      "src": "images/logo-transparent.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-transparent.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Feni Track Trial",
+      "short_name": "Feni Trial",
+      "url": "/#fixtures",
+      "description": "Feni Track Trial race fixtures & competitor registration"
+    },
+    {
+      "name": "Academy Admissions",
+      "short_name": "Academy",
+      "url": "/#academy",
+      "description": "Admissions packages, fleet dirt bikes, and cadet coaching"
+    },
+    {
+      "name": "Guardians' Safety Hub",
+      "short_name": "Safety Hub",
+      "url": "/#safety",
+      "description": "FIM flag signals, DOT/ECE armor standards, and trauma standby"
+    }
+  ]
+}

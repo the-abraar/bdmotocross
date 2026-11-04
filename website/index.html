@@ -8,23 +8,133 @@
   <meta name="keywords" content="Bangladesh Motocross Club, Motocross Academy Bangladesh, Dirt Bike Bangladesh, Chittagong Motocross, MR99, Baundal Bulbul, Motocross Racing Bangladesh">
   <meta name="author" content="Bangladesh Motocross Club & Academy">
   <meta name="theme-color" content="#08090b">
+  <link rel="canonical" href="https://bdmotocross.com/">
 
   <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="Bangladesh Motocross Club & Academy (BMCA)">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://the-abraar.github.io/bdmotocross/">
+  <meta property="og:url" content="https://bdmotocross.com/">
   <meta property="og:title" content="Bangladesh Motocross Club & Academy | Chittagong">
   <meta property="og:description" content="Ride Safe • Train Hard • Race Strong. The official platform for motocross racing, champion riders, and academy training in Bangladesh.">
-  <meta property="og:image" content="images/logo-transparent.png">
+  <meta property="og:image" content="https://bdmotocross.com/images/logo-transparent.png">
+  <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Bangladesh Motocross Club & Academy | Chittagong">
   <meta property="twitter:description" content="Ride Safe • Train Hard • Race Strong. The official platform for motocross racing, champion riders, and academy training in Bangladesh.">
-  <meta property="twitter:image" content="images/logo-transparent.png">
+  <meta property="twitter:image" content="https://bdmotocross.com/images/logo-transparent.png">
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA Manifest -->
   <link rel="icon" type="image/png" href="images/logo-transparent.png">
   <link rel="apple-touch-icon" href="images/logo-transparent.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SportsClub",
+        "@id": "https://bdmotocross.com/#club",
+        "name": "Bangladesh Motocross Club & Academy (BMCA)",
+        "alternateName": "BMCA",
+        "url": "https://bdmotocross.com/",
+        "logo": "https://bdmotocross.com/images/logo-transparent.png",
+        "image": "https://bdmotocross.com/images/team-photo.jpg",
+        "description": "Official motocross racing club, athlete development academy, and motorsports community based in Chittagong, Bangladesh.",
+        "telephone": "+8801975376114",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chittagong",
+          "addressRegion": "Chittagong Division",
+          "addressCountry": "BD"
+        },
+        "sport": "Motocross",
+        "location": {
+          "@type": "Place",
+          "name": "Chittagong Dirt Arena",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chittagong",
+            "addressCountry": "BD"
+          }
+        }
+      },
+      {
+        "@type": "SportsEvent",
+        "@id": "https://bdmotocross.com/#feni-trial",
+        "name": "BMCA Feni Track Trial 2026",
+        "description": "20-Gate Sanctioned Motocross & Enduro Season Opener at Feni Off-Road Arena featuring Pro 250cc-450cc and Novice heats.",
+        "startDate": "2026-11-15T09:00:00+06:00",
+        "endDate": "2026-11-15T18:00:00+06:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Feni Off-Road Arena",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Feni",
+            "addressCountry": "BD"
+          }
+        },
+        "organizer": {
+          "@id": "https://bdmotocross.com/#club"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Paddock VIP Spectator Pass",
+            "price": "500",
+            "priceCurrency": "BDT",
+            "availability": "https://schema.org/InStock",
+            "url": "https://bdmotocross.com/#fixtures"
+          },
+          {
+            "@type": "Offer",
+            "name": "Competitor Racer Heat Registration",
+            "price": "1500",
+            "priceCurrency": "BDT",
+            "availability": "https://schema.org/InStock",
+            "url": "https://bdmotocross.com/#fixtures"
+          }
+        ]
+      },
+      {
+        "@type": "Course",
+        "@id": "https://bdmotocross.com/#starter-clinic",
+        "name": "Weekend Starter Clinic (Turnkey Arrive & Ride)",
+        "description": "Intensive 2-day beginner motocross training clinic including BMCA fleet 150cc-250cc motorcycle, sanitized DOT/ECE armor, and 1-on-1 coach.",
+        "provider": {
+          "@id": "https://bdmotocross.com/#club"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "3500",
+          "priceCurrency": "BDT",
+          "category": "Paid"
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://bdmotocross.com/#academy-cadet",
+        "name": "Monthly Academy Cadet Program",
+        "description": "4-week progressive motocross racing curriculum covering rut cornering, gate starts, suspension setup, and FIM flag protocols.",
+        "provider": {
+          "@id": "https://bdmotocross.com/#club"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "12000",
+          "priceCurrency": "BDT",
+          "category": "Paid"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Hybrid Typography Stack: Pitch 03 Kinetic Stance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -298,7 +408,7 @@
       </div>
 
       <div class="race-alert-action">
-        <a href="#calendar" class="btn alert-entry-btn">Register for Feni Trial</a>
+        <button class="btn alert-entry-btn" id="alert-feni-register-btn" aria-haspopup="dialog" aria-controls="feni-trial-modal">Register for Feni Trial</button>
       </div>
     </div>
   </aside>
@@ -630,6 +740,12 @@
               <div class="package-header">
                 <h4 class="package-name">Weekend Starter Clinic</h4>
                 <div class="package-type">Turnkey Arrive &amp; Ride</div>
+                <div class="package-price">
+                  <span class="price-prefix">From</span>
+                  <span class="price-currency">৳</span>
+                  <span class="price-amount">3,500</span>
+                  <span class="price-period">/ weekend</span>
+                </div>
               </div>
               <p class="package-summary">Ideal for first-time riders. Full training motorcycle and sanitized protective armor provided.</p>
               <ul class="package-features">
@@ -641,7 +757,8 @@
               <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" 
                  target="_blank" 
                  rel="noopener noreferrer" 
-                 class="btn btn-primary btn-full">
+                 class="btn btn-primary btn-full package-cta-btn"
+                 data-cta-tier="starter_clinic">
                 Book Starter Clinic →
               </a>
             </div>
@@ -651,6 +768,12 @@
               <div class="package-header">
                 <h4 class="package-name">Monthly Academy Cadet</h4>
                 <div class="package-type">Junior (12+) &amp; Senior Division</div>
+                <div class="package-price">
+                  <span class="price-prefix">From</span>
+                  <span class="price-currency">৳</span>
+                  <span class="price-amount">12,000</span>
+                  <span class="price-period">/ month</span>
+                </div>
               </div>
               <p class="package-summary">Comprehensive 4-week progressive training from cornering ruts to official race gate starts.</p>
               <ul class="package-features">
@@ -662,7 +785,8 @@
               <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20am%20interested%20in%20the%20Monthly%20Academy%20Cadet%20Program" 
                  target="_blank" 
                  rel="noopener noreferrer" 
-                 class="btn btn-primary btn-full">
+                 class="btn btn-primary btn-full package-cta-btn"
+                 data-cta-tier="cadet">
                 Enroll as Cadet →
               </a>
             </div>
@@ -672,6 +796,12 @@
               <div class="package-header">
                 <h4 class="package-name">Open Paddock Pass</h4>
                 <div class="package-type">Bring Your Own Machine</div>
+                <div class="package-price">
+                  <span class="price-prefix">From</span>
+                  <span class="price-currency">৳</span>
+                  <span class="price-amount">1,500</span>
+                  <span class="price-period">/ day</span>
+                </div>
               </div>
               <p class="package-summary">For licensed off-road and dual-sport owners wanting sanctioned track practice.</p>
               <ul class="package-features">
@@ -683,9 +813,115 @@
               <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20want%20to%20register%20for%20an%20Open%20Paddock%20Practice%20Pass" 
                  target="_blank" 
                  rel="noopener noreferrer" 
-                 class="btn btn-secondary btn-full">
+                 class="btn btn-secondary btn-full package-cta-btn"
+                 data-cta-tier="paddock_pass">
                 Get Track Pass →
               </a>
+            </div>
+          </div>
+
+          <!-- Interactive Equipment & Admissions Cost Estimator -->
+          <div class="cost-estimator-container" id="cost-estimator">
+            <div class="estimator-header">
+              <div class="estimator-badge">⚡ Real-Time Price Estimator</div>
+              <h3 class="estimator-title">Equipment &amp; Training Cost Calculator</h3>
+              <p class="estimator-desc">
+                Customize your training pathway: calculate instant pricing based on whether you borrow academy machinery or bring your own equipment.
+              </p>
+            </div>
+
+            <div class="estimator-grid">
+              <!-- Options Column -->
+              <div class="estimator-options">
+                <div class="estimator-group">
+                  <label class="estimator-group-label">1. Select Training Pathway</label>
+                  <div class="estimator-pathway-pills">
+                    <label class="pathway-pill active" id="pill-clinic">
+                      <input type="radio" name="calc-pathway" value="clinic" checked>
+                      <div class="pill-title">Starter Clinic</div>
+                      <div class="pill-price">৳3,500 <span class="pill-unit">/ weekend</span></div>
+                      <div class="pill-note">Includes Fleet Bike &amp; Armor</div>
+                    </label>
+                    <label class="pathway-pill" id="pill-cadet">
+                      <input type="radio" name="calc-pathway" value="cadet">
+                      <div class="pill-title">Monthly Cadet</div>
+                      <div class="pill-price">৳12,000 <span class="pill-unit">/ month</span></div>
+                      <div class="pill-note">4 Weekend Training Blocks</div>
+                    </label>
+                    <label class="pathway-pill" id="pill-paddock">
+                      <input type="radio" name="calc-pathway" value="paddock">
+                      <div class="pill-title">Open Paddock Pass</div>
+                      <div class="pill-price">৳1,500 <span class="pill-unit">/ day</span></div>
+                      <div class="pill-note">Own Bike Track Practice</div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="estimator-group">
+                  <label class="estimator-group-label">2. Equipment &amp; Track Add-ons</label>
+                  <div class="estimator-addon-list">
+                    <label class="addon-checkbox-card" id="addon-bike-wrapper">
+                      <input type="checkbox" id="addon-bike" value="2000" disabled checked>
+                      <div class="addon-info">
+                        <div class="addon-name">BMCA Fleet 150cc–250cc Dirt Bike</div>
+                        <div class="addon-sub" id="addon-bike-note">Included with Starter Clinic</div>
+                      </div>
+                      <div class="addon-cost" id="addon-bike-cost">৳0</div>
+                    </label>
+
+                    <label class="addon-checkbox-card" id="addon-armor-wrapper">
+                      <input type="checkbox" id="addon-armor" value="800" disabled checked>
+                      <div class="addon-info">
+                        <div class="addon-name">Sanitized DOT/ECE Helmet &amp; Full Armor</div>
+                        <div class="addon-sub" id="addon-armor-note">Included with Starter Clinic</div>
+                      </div>
+                      <div class="addon-cost" id="addon-armor-cost">৳0</div>
+                    </label>
+
+                    <label class="addon-checkbox-card">
+                      <input type="checkbox" id="addon-fuel" value="500">
+                      <div class="addon-info">
+                        <div class="addon-name">Track High-Octane Fuel &amp; Premix</div>
+                        <div class="addon-sub">Full tank track fuel provided at Chittagong Dirt Arena</div>
+                      </div>
+                      <div class="addon-cost">+৳500</div>
+                    </label>
+
+                    <label class="addon-checkbox-card">
+                      <input type="checkbox" id="addon-coach" value="1200">
+                      <div class="addon-info">
+                        <div class="addon-name">1-on-1 Dedicated Coach Supervision</div>
+                        <div class="addon-sub">Dedicated posture, clutch control, and rut cornering coaching</div>
+                      </div>
+                      <div class="addon-cost">+৳1,200</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Total Card -->
+              <div class="estimator-summary-card">
+                <div class="summary-card-inner">
+                  <div class="summary-tag">ESTIMATED INVESTMENT</div>
+                  <div class="summary-total-price">
+                    <span class="total-currency">৳</span>
+                    <span class="total-amount" id="calc-total-amount">3,500</span>
+                    <span class="total-period" id="calc-total-period">/ weekend</span>
+                  </div>
+                  <div class="summary-breakdown" id="calc-summary-breakdown">
+                    <div class="breakdown-item"><span>Weekend Starter Clinic</span> <span>৳3,500</span></div>
+                    <div class="breakdown-item text-muted"><span>BMCA Fleet Dirt Bike</span> <span>Included</span></div>
+                    <div class="breakdown-item text-muted"><span>Helmet &amp; Body Armor</span> <span>Included</span></div>
+                  </div>
+
+                  <button type="button" class="btn btn-primary btn-full" id="calc-book-btn" style="margin-block-start: 20px;">
+                    Book with this Configuration →
+                  </button>
+                  <p class="summary-disclaimer">
+                    * Final pricing confirmed on WhatsApp based on rider experience &amp; session schedule. Zero payment required until on-site safety scrutineering.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1600,6 +1836,140 @@
     </div>
   </div>
 
+  <!-- Interactive Feni Track Trial Registration Modal (Focus-Trapped) -->
+  <div class="feni-modal" id="feni-trial-modal" role="dialog" aria-modal="true" aria-labelledby="feni-modal-title" style="display: none;">
+    <div class="feni-modal-card">
+      <button class="racer-modal-close" id="feni-modal-close" aria-label="Close Feni race registration modal">×</button>
+      <div class="feni-modal-inner">
+        <div class="feni-modal-header">
+          <div class="feni-modal-badge">⚡ Official Race Entry • 15 November 2026</div>
+          <h3 class="feni-modal-title" id="feni-modal-title">Feni Track Trial Registration</h3>
+          <p class="feni-modal-desc">
+            Sanctioned 20-Gate Motocross &amp; Enduro Competition at Feni Off-Road Arena. Register your machine into official race heats or reserve your Paddock VIP Spectator Pass.
+          </p>
+        </div>
+
+        <form id="feni-registration-form" novalidate>
+          <div class="feni-form-grid">
+            <div class="form-group">
+              <label for="feni-name" class="form-label">Competitor / Attendee Name *</label>
+              <input type="text" id="feni-name" class="form-input" placeholder="e.g. Tanvir Ahmed" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="feni-phone" class="form-label">WhatsApp Number *</label>
+              <input type="tel" id="feni-phone" class="form-input" placeholder="e.g. 017XXXXXXXX" required autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+              <label for="feni-entry-type" class="form-label">Registration Type *</label>
+              <select id="feni-entry-type" class="form-select" required>
+                <option value="Competitor Racer Entry">Competitor Racer Entry (Track Trial)</option>
+                <option value="Paddock VIP Spectator / Pit Crew">Paddock VIP Spectator / Pit Crew</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="feni-category" class="form-label">Competition Class / Category *</label>
+              <select id="feni-category" class="form-select" required>
+                <option value="Pro Track 250cc–450cc">Pro Track (250cc–450cc 4-Stroke)</option>
+                <option value="Novice / Beginner 150cc">Novice / Beginner (150cc Class)</option>
+                <option value="Junior Division (Ages 12–17)">Junior Division (Ages 12–17)</option>
+                <option value="Open Enduro Trail">Open Enduro Trail</option>
+                <option value="Spectator Paddock Pass">Spectator Paddock Access Pass</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="feni-machine" class="form-label">Motorcycle Model &amp; CC *</label>
+              <input type="text" id="feni-machine" class="form-input" placeholder="e.g. Honda CRF250R / Borrow BMCA Fleet Bike" required>
+            </div>
+
+            <div class="form-group">
+              <label for="feni-city" class="form-label">Home City / District *</label>
+              <input type="text" id="feni-city" class="form-input" placeholder="e.g. Feni, Chittagong, Dhaka" required>
+            </div>
+
+            <div class="form-group">
+              <label for="feni-blood" class="form-label">Rider Blood Group (Optional for Trauma Standby)</label>
+              <select id="feni-blood" class="form-select">
+                <option value="Not Disclosed">Select Blood Group (Optional)</option>
+                <option value="A+">A Positive (A+)</option>
+                <option value="A-">A Negative (A-)</option>
+                <option value="B+">B Positive (B+)</option>
+                <option value="B-">B Negative (B-)</option>
+                <option value="O+">O Positive (O+)</option>
+                <option value="O-">O Negative (O-)</option>
+                <option value="AB+">AB Positive (AB+)</option>
+                <option value="AB-">AB Negative (AB-)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="feni-emergency" class="form-label">Emergency Contact (Name &amp; Phone) *</label>
+              <input type="text" id="feni-emergency" class="form-input" placeholder="e.g. Father/Guardian: 018XXXXXXXX" required>
+            </div>
+
+            <div class="form-group col-full">
+              <div class="feni-safety-box">
+                🛡️ <strong>Safety &amp; Scrutineering Standard:</strong> Full-face DOT/ECE helmet, chest &amp; roost protector, rigid motocross boots, and knee guards mandatory. FIM flag marshal signals strictly enforced. Ambulance &amp; paramedic standby on site.
+              </div>
+              <label class="feni-safety-checkbox-label">
+                <input type="checkbox" id="feni-safety-ack" required checked>
+                <span>I agree to BMCA track safety standards, vehicle scrutineering, and marshal rules.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions" style="margin-block-start: 20px;">
+            <button type="submit" class="btn btn-primary btn-full" id="feni-submit-btn">
+              Confirm &amp; Dispatch Race Entry via WhatsApp →
+            </button>
+          </div>
+          <div class="form-status" id="feni-form-status" role="status" aria-live="polite" style="margin-block-start: 12px;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Paddock Desk Lead Vault & CSV Manager Modal -->
+  <div class="feni-modal" id="paddock-vault-modal" role="dialog" aria-modal="true" aria-labelledby="paddock-vault-title" style="display: none;">
+    <div class="feni-modal-card paddock-vault-card">
+      <button class="racer-modal-close" id="paddock-vault-close" aria-label="Close Paddock Lead Vault modal">×</button>
+      <div class="feni-modal-inner">
+        <div class="feni-modal-header">
+          <div class="feni-modal-badge">🛡️ Paddock Desk Operations • Offline Lead Vault</div>
+          <h3 class="feni-modal-title" id="paddock-vault-title">Paddock Lead Vault &amp; Export</h3>
+          <p class="feni-modal-desc">
+            All admission inquiries and Feni trial race registrations committed to browser storage. Export as CSV for Excel/Google Sheets or follow up with riders via WhatsApp.
+          </p>
+        </div>
+
+        <div class="vault-toolbar">
+          <div class="vault-stats">
+            <span class="vault-stat-pill" id="vault-total-count">Total: 0</span>
+            <span class="vault-stat-pill feni-pill" id="vault-feni-count">Feni Entries: 0</span>
+            <span class="vault-stat-pill academy-pill" id="vault-inquiry-count">Inquiries: 0</span>
+          </div>
+          <div class="vault-actions">
+            <button type="button" class="btn btn-primary btn-sm" id="vault-export-csv-btn">📥 Export to CSV</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="vault-clear-btn">Clear Vault</button>
+          </div>
+        </div>
+
+        <div class="vault-filter-tabs">
+          <button type="button" class="vault-tab-btn active" data-vault-filter="all">All Submissions</button>
+          <button type="button" class="vault-tab-btn" data-vault-filter="feni_race_entry">Feni Race Entries</button>
+          <button type="button" class="vault-tab-btn" data-vault-filter="admission_inquiry">Admission Inquiries</button>
+        </div>
+
+        <div class="vault-leads-list" id="vault-leads-list" role="region" aria-live="polite">
+          <!-- Populated dynamically via main.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
@@ -1655,6 +2025,11 @@
       <div class="footer-bottom">
         <div>
           © 2026 Bangladesh Motocross Club &amp; Academy • All Rights Reserved.
+        </div>
+        <div class="footer-paddock-access">
+          <a href="#paddock-vault-modal" id="paddock-vault-trigger" class="footer-paddock-link" title="Open Paddock Desk Lead Vault">
+            🛡️ Paddock Desk Leads Vault
+          </a>
         </div>
         <div class="footer-motto">
           Ride Safe • Train Hard • Race Strong

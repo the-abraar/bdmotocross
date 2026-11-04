@@ -100,6 +100,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 16px);
   color-scheme: dark;
+  overflow-x: hidden;
 }
 
 body {
@@ -1767,6 +1768,50 @@ textarea:focus-visible {
   letter-spacing: 0.8px;
 }
 
+.package-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-block: 10px 14px;
+  padding: 6px 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-sm);
+  inline-size: fit-content;
+}
+
+.price-prefix {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  margin-inline-end: 2px;
+}
+
+.price-currency {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--yellow-trophy);
+}
+
+.price-amount {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.price-period {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
 .package-summary {
   font-size: 0.92rem;
   color: var(--text-muted);
@@ -2768,6 +2813,8 @@ textarea:focus-visible {
 .contact-detail-text span {
   color: #f1f5f9;
   font-size: 1rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .contact-detail-text a:hover {
@@ -3050,6 +3097,111 @@ textarea:focus-visible {
 }
 
 /* ==========================================================================
+   Feni Track Trial Registration Modal (Interactive Entry & Spectator Hub)
+   ========================================================================== */
+.feni-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  background: rgba(7, 9, 12, 0.92);
+  backdrop-filter: blur(14px);
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+
+.feni-modal.active {
+  display: grid;
+}
+
+.feni-modal-card {
+  position: relative;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  max-inline-size: 680px;
+  inline-size: 100%;
+  max-block-size: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+.feni-modal-inner {
+  padding: clamp(24px, 4vw, 36px);
+}
+
+.feni-modal-header {
+  border-block-end: 1px solid var(--border-subtle);
+  padding-block-end: 18px;
+  margin-block-end: 22px;
+}
+
+.feni-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--yellow-trophy);
+  margin-block-end: 6px;
+}
+
+.feni-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-block-end: 6px;
+}
+
+.feni-modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.feni-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.feni-form-grid .col-full {
+  grid-column: span 2;
+}
+
+.feni-safety-box {
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-block-start: 6px;
+}
+
+.feni-safety-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-block: 10px 4px;
+}
+
+.feni-safety-checkbox-label input[type="checkbox"] {
+  margin-block-start: 3px;
+  accent-color: var(--red-bright);
+}
+
+/* ==========================================================================
    Site Footer
    ========================================================================== */
 .site-footer {
@@ -3273,11 +3425,13 @@ textarea:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .form-grid {
+  .form-grid,
+  .feni-form-grid {
     grid-template-columns: 1fr;
   }
 
-  .form-group.col-full {
+  .form-group.col-full,
+  .feni-form-grid .col-full {
     grid-column: span 1;
   }
 
@@ -3477,8 +3631,51 @@ textarea:focus-visible {
 [data-theme="light"] .sponsor-item,
 [data-theme="light"] .contact-info-card,
 [data-theme="light"] .form-card,
-[data-theme="light"] .racer-modal-card {
+[data-theme="light"] .racer-modal-card,
+[data-theme="light"] .feni-modal-card {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .feni-modal-card {
+  background-color: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .feni-modal-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .feni-modal-badge {
+  color: #b45309;
+}
+
+[data-theme="light"] .feni-safety-box {
+  background: rgba(220, 38, 38, 0.05);
+  border-color: rgba(220, 38, 38, 0.2);
+  color: #475569;
+}
+
+[data-theme="light"] .feni-safety-checkbox-label {
+  color: #0f172a;
+}
+
+[data-theme="light"] .package-price {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+[data-theme="light"] .package-price .price-amount {
+  color: #0f172a;
+}
+
+[data-theme="light"] .package-price .price-currency {
+  color: #b45309;
+}
+
+[data-theme="light"] .package-price .price-prefix,
+[data-theme="light"] .package-price .price-period {
+  color: #475569;
 }
 
 [data-theme="light"] .package-card.featured {
@@ -3645,3 +3842,662 @@ textarea:focus-visible {
   border-color: var(--red-racing);
   color: var(--red-racing);
 }
+
+/* ==========================================================================
+   Equipment & Admissions Cost Estimator Widget
+   ========================================================================== */
+.cost-estimator-container {
+  margin-block-start: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: clamp(16px, 3vw, 36px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  overflow-x: hidden;
+}
+
+.estimator-header {
+  border-block-end: 1px solid var(--border-subtle);
+  padding-block-end: 18px;
+  margin-block-end: 24px;
+}
+
+.estimator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--yellow-trophy);
+  margin-block-end: 6px;
+}
+
+.estimator-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-block-end: 8px;
+}
+
+.estimator-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.estimator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.estimator-options {
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.estimator-group {
+  margin-block-end: 24px;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.estimator-group-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-main);
+  margin-block-end: 12px;
+}
+
+.estimator-pathway-pills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.pathway-pill {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.pathway-pill input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pathway-pill:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.pathway-pill.active {
+  border-color: var(--yellow-trophy);
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.15);
+}
+
+.pill-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-block-end: 4px;
+}
+
+.pill-price {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--yellow-trophy);
+  margin-block-end: 4px;
+}
+
+.pill-unit {
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.pill-note {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  line-height: 1.35;
+}
+
+.estimator-addon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addon-checkbox-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.addon-checkbox-card:hover {
+  border-color: var(--border-hover);
+}
+
+.addon-checkbox-card input[type="checkbox"] {
+  accent-color: var(--red-racing);
+  inline-size: 18px;
+  block-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.addon-info {
+  flex-grow: 1;
+}
+
+.addon-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.addon-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.addon-cost {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--yellow-trophy);
+  white-space: nowrap;
+}
+
+.estimator-summary-card {
+  background: linear-gradient(145deg, rgba(220, 38, 38, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%), var(--bg-surface);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 90px;
+}
+
+.summary-tag {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-block-end: 8px;
+}
+
+.summary-total-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-block-end: 18px;
+}
+
+.total-currency {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--yellow-trophy);
+}
+
+.total-amount {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.2vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.total-period {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.summary-breakdown {
+  border-block: 1px solid var(--border-subtle);
+  padding-block: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block-end: 16px;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.breakdown-item.text-muted {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.summary-disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+  margin-block-start: 12px;
+}
+
+/* ==========================================================================
+   Paddock Lead Vault Modal & Manager UI
+   ========================================================================== */
+.paddock-vault-card {
+  max-inline-size: 820px !important;
+}
+
+.vault-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block-end: 18px;
+  padding-block-end: 14px;
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+.vault-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vault-stat-pill {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.vault-stat-pill.feni-pill {
+  border-color: rgba(245, 158, 11, 0.35);
+  color: var(--yellow-trophy);
+}
+
+.vault-stat-pill.academy-pill {
+  border-color: rgba(34, 197, 94, 0.35);
+  color: var(--green-track);
+}
+
+.vault-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.vault-filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-block-end: 18px;
+}
+
+.vault-tab-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.vault-tab-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-hover);
+}
+
+.vault-tab-btn.active {
+  background: var(--red-racing);
+  color: #fff;
+  border-color: var(--red-racing);
+}
+
+.vault-leads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-block-size: 55vh;
+  overflow-y: auto;
+  padding-inline-end: 4px;
+}
+
+.vault-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.vault-lead-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color var(--transition-fast);
+}
+
+.vault-lead-card:hover {
+  border-color: var(--border-hover);
+}
+
+.vault-lead-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vault-lead-badge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.vault-lead-badge.feni {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--yellow-trophy);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.vault-lead-badge.academy {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--green-track);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.vault-lead-time {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.vault-lead-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.lead-data-field strong {
+  color: var(--text-dim);
+  font-weight: 500;
+  display: inline-block;
+  margin-inline-end: 4px;
+}
+
+.lead-data-field span {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.vault-lead-actions {
+  display: flex;
+  gap: 10px;
+  margin-block-start: 4px;
+  padding-block-start: 8px;
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+.footer-paddock-access {
+  margin-block: 4px;
+}
+
+.footer-paddock-link {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.footer-paddock-link:hover {
+  color: var(--yellow-trophy);
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.06);
+}
+
+/* ==========================================================================
+   Light Mode Overrides for Cost Estimator & Lead Vault
+   ========================================================================== */
+[data-theme="light"] .cost-estimator-container {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .estimator-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .estimator-desc {
+  color: #475569;
+}
+
+[data-theme="light"] .estimator-badge {
+  color: #b45309;
+}
+
+[data-theme="light"] .estimator-group-label {
+  color: #0f172a;
+}
+
+[data-theme="light"] .pathway-pill {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .pathway-pill.active {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: #d97706;
+}
+
+[data-theme="light"] .pill-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .pill-price {
+  color: #b45309;
+}
+
+[data-theme="light"] .pill-note {
+  color: #64748b;
+}
+
+[data-theme="light"] .addon-checkbox-card {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .addon-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .addon-sub {
+  color: #64748b;
+}
+
+[data-theme="light"] .addon-cost {
+  color: #b45309;
+}
+
+[data-theme="light"] .estimator-summary-card {
+  background: #ffffff;
+  border-color: rgba(220, 38, 38, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .total-currency {
+  color: #b45309;
+}
+
+[data-theme="light"] .total-amount {
+  color: #0f172a;
+}
+
+[data-theme="light"] .breakdown-item {
+  color: #0f172a;
+}
+
+[data-theme="light"] .breakdown-item.text-muted {
+  color: #64748b;
+}
+
+[data-theme="light"] .paddock-vault-card {
+  background-color: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .vault-stat-pill {
+  background: #f1f5f9;
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+
+[data-theme="light"] .vault-stat-pill.feni-pill {
+  color: #b45309;
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+[data-theme="light"] .vault-stat-pill.academy-pill {
+  color: #15803d;
+  border-color: rgba(21, 128, 61, 0.3);
+}
+
+[data-theme="light"] .vault-tab-btn {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+
+[data-theme="light"] .vault-lead-card {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .lead-data-field span {
+  color: #0f172a;
+}
+
+[data-theme="light"] .lead-data-field strong {
+  color: #64748b;
+}
+
+[data-theme="light"] .footer-paddock-link {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .cost-estimator-container {
+    padding: 16px 12px;
+    margin-inline: 0;
+    max-inline-size: 100%;
+  }
+
+  .estimator-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    max-inline-size: 100%;
+  }
+
+  .estimator-options,
+  .estimator-summary-card,
+  .estimator-group,
+  .estimator-addon-list,
+  .addon-checkbox-card {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
+  }
+
+  .estimator-pathway-pills {
+    grid-template-columns: minmax(0, 1fr);
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
+  }
+
+  .pathway-pill {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
+  }
+
+  .estimator-summary-card {
+    position: static;
+  }
+}
+
