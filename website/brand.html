@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Identity & Design System | Bangladesh Motocross Club & Academy</title>
+  <meta name="description" content="Official Brand Identity, Design System, Color Tokens, Typography, and Voice Guidelines for Bangladesh Motocross Club & Academy (BMCA).">
+  <link rel="icon" type="image/png" href="images/logo-transparent.png">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('bmca_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'light' || (!saved && !prefersDark && false)) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    /* Dedicated Brand Showroom Enhancements */
+    .brand-hero {
+      padding: 60px 0 40px;
+      background: radial-gradient(circle at top right, rgba(225, 29, 72, 0.15), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(34, 197, 94, 0.12), transparent 50%),
+                  var(--bg-primary);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .brand-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(225, 29, 72, 0.15);
+      border: 1px solid var(--red-deep);
+      border-radius: 999px;
+      color: var(--red-bright);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .brand-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .brand-nav-pill {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .brand-nav-pill:hover {
+      color: var(--text-main);
+      border-color: var(--red-racing);
+      background: var(--bg-card);
+    }
+
+    /* Color Swatch Matrix */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .color-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .color-swatch {
+      height: 110px;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      letter-spacing: 1px;
+    }
+
+    .color-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .color-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .color-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .copy-btn {
+      align-self: flex-start;
+      margin-top: 6px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 4px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      color: var(--text-main);
+      border-color: var(--green-track);
+    }
+
+    /* Typography Specimen Section */
+    .type-specimen {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .type-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .type-family-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .type-role-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--yellow-trophy);
+      letter-spacing: 1px;
+    }
+
+    /* Number Plates */
+    .plate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .plate-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plate-number {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 0.9;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-main);
+      transform: skewX(-8deg);
+      margin-bottom: 10px;
+    }
+
+    .plate-rider {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-transform: uppercase;
+    }
+
+    .plate-spec {
+      font-size: 0.85rem;
+      color: var(--yellow-trophy);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Voice Matrix */
+    .voice-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .voice-matrix {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .voice-card {
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid;
+    }
+
+    .voice-do {
+      background: rgba(34, 197, 94, 0.05);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .voice-dont {
+      background: rgba(225, 29, 72, 0.05);
+      border-color: rgba(225, 29, 72, 0.3);
+    }
+
+    .voice-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .voice-do .voice-title { color: var(--green-track); }
+    .voice-dont .voice-title { color: var(--red-bright); }
+
+    .voice-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .voice-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body style="padding-top: var(--nav-height);">
+
+  <!-- Navbar -->
+  <nav class="site-nav" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="images/logo-transparent.png" alt="BMCA Crest Logo" class="nav-logo" width="46" height="46">
+        <div class="brand-text">
+          <span class="brand-name">BD Motocross Club & Academy</span>
+          <span class="brand-sub">Brand Identity & Design System</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Dark vs Light Mode Switch Button -->
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle Dark/Light Mode" role="switch" aria-checked="false">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-icon icon-sun" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </span>
+            <span class="theme-toggle-thumb"></span>
+            <span class="theme-toggle-icon icon-moon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </span>
+        </button>
+        <a href="index.html" class="btn btn-outline btn-sm nav-subpage-back"><span class="desktop-text">← Main Website</span><span class="mobile-text">← Home</span></a>
+        <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-sm nav-subpage-extra">Hotline</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="brand-hero">
+    <div class="container">
+      <div class="brand-hero-badge">
+        <span>⚡ Official Single Source of Truth</span>
+      </div>
+      <h1 style="font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 14px;">
+        BMCA Brand Identity &amp; <span class="text-red">Design System</span>
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 760px; line-height: 1.6;">
+        The visual, verbal, and architectural standard for Bangladesh Motocross Club &amp; Academy. Engineered for designers, developers, AI agents, and partners to ensure unified, high-octane brand execution across all platforms.
+      </p>
+
+      <div class="brand-nav-pills">
+        <a href="#core" class="brand-nav-pill">01. Brand Core</a>
+        <a href="#colors" class="brand-nav-pill">02. Color Tokens</a>
+        <a href="#typography" class="brand-nav-pill">03. Typography</a>
+        <a href="#heraldry" class="brand-nav-pill">04. Number Plates</a>
+        <a href="#voice" class="brand-nav-pill">05. Voice &amp; Tone</a>
+        <a href="#components" class="brand-nav-pill">06. Live UI Components</a>
+        <a href="#contact" class="brand-nav-pill">07. Paddock Registry</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Brand Core & Mission -->
+    <section class="section section-dark" id="core">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-yellow">Foundations</span>
+          <h2 class="section-title">Brand Core, Motto &amp; Positioning</h2>
+          <p class="section-desc">The guiding philosophy separating BMCA from casual recreation and establishing it as Bangladesh's motorsports authority.</p>
+        </div>
+
+        <!-- Brand Positioning Banner -->
+        <div class="brand-positioning-banner" style="margin-bottom: 36px;">
+          <div class="brand-quote-badge">GROUND ZERO FOR SANCTIONED MOTORSPORTS</div>
+          <blockquote class="brand-quote">
+            “Leave the stunts off the streets. Bring your courage to the dirt.”
+          </blockquote>
+          <p class="brand-quote-sub">
+            BMCA delivers a structured, disciplined, and safety-certified alternative to informal street riding. Operating from Chittagong, we develop athletic champions on closed, marshaled dirt circuits with certified personal armor.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <span class="eyebrow eyebrow-green">Official Motto</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin: 8px 0 12px; color: var(--text-main);">
+              Ride Safe • Train Hard • Race Strong
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Encapsulates the triad of academy development: strict protective gear, grueling physical conditioning, and fearless championship racecraft.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <span class="eyebrow eyebrow-yellow">Hero Tagline</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin: 8px 0 12px; color: var(--text-main);">
+              Ride. <span class="text-red">Race.</span> <span class="text-green">Achieve.</span>
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Concise, high-impact call to action driving prospective riders from grassroots balance to gate-drop competition and podium success.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <span class="eyebrow">Paddock Venue</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin: 8px 0 12px; color: var(--text-main);">
+              Chittagong Dirt Arena
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              Natural red clay and loam terrain in Chittagong, Bangladesh, engineered with elevation climbs, banked berms, tabletop jumps, and marshaled safety zones.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Color Palette Tokens -->
+    <section class="section section-surface" id="colors">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-green">Design Tokens</span>
+          <h2 class="section-title">Color Palette &amp; Contrast System</h2>
+          <p class="section-desc">Dark obsidian paddocks paired with high-voltage motorsports accents. All text tokens meet WCAG AA contrast standards (> 4.5:1).</p>
+        </div>
+
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">
+          Primary Accents &amp; Action States
+        </h3>
+        <div class="color-grid" style="margin-bottom: 40px;">
+          <!-- Racing Red -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #e11d48; color: #fff;">--red-racing</div>
+            <div class="color-info">
+              <span class="color-title">Racing Red (Primary Accent)</span>
+              <div class="color-meta"><span>HEX: #e11d48</span><span>RGB: 225, 29, 72</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Primary brand adrenaline, primary action buttons (.btn-primary), badges.</p>
+              <button class="copy-btn" onclick="navigator.clipboard.writeText('#e11d48'); this.textContent='Copied!'">Copy HEX</button>
+            </div>
+          </div>
+
+          <!-- Bright Red -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #ff2b56; color: #fff;">--red-bright</div>
+            <div class="color-info">
+              <span class="color-title">Bright Red (Hover &amp; Focus)</span>
+              <div class="color-meta"><span>HEX: #ff2b56</span><span>RGB: 255, 43, 86</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Interactive focus-visible rings, button hover states, active glows.</p>
+              <button class="copy-btn" onclick="navigator.clipboard.writeText('#ff2b56'); this.textContent='Copied!'">Copy HEX</button>
+            </div>
+          </div>
+
+          <!-- Track Green -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #22c55e; color: #07090c;">--green-track</div>
+            <div class="color-info">
+              <span class="color-title">Track Green (WhatsApp &amp; Safety)</span>
+              <div class="color-meta"><span>HEX: #22c55e</span><span>RGB: 34, 197, 94</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Direct WhatsApp conversion, live race fixtures, verified tags.</p>
+              <button class="copy-btn" onclick="navigator.clipboard.writeText('#22c55e'); this.textContent='Copied!'">Copy HEX</button>
+            </div>
+          </div>
+
+          <!-- Trophy Gold -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #f59e0b; color: #07090c;">--yellow-trophy</div>
+            <div class="color-info">
+              <span class="color-title">Trophy Gold (Podiums &amp; Mentors)</span>
+              <div class="color-meta"><span>HEX: #f59e0b</span><span>RGB: 245, 158, 11</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Accreditations, championship titles, mentor status badges.</p>
+              <button class="copy-btn" onclick="navigator.clipboard.writeText('#f59e0b'); this.textContent='Copied!'">Copy HEX</button>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">
+          Paddock Canvas &amp; Surfaces
+        </h3>
+        <div class="color-grid">
+          <!-- Deep Canvas -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #07090c; color: #94a3b8; border-bottom: 1px solid rgba(255,255,255,0.1);">--bg-deep</div>
+            <div class="color-info">
+              <span class="color-title">Deep Obsidian (Page Canvas)</span>
+              <div class="color-meta"><span>HEX: #07090c</span><span>RGB: 7, 9, 12</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Underlying root background for dark theme.</p>
+            </div>
+          </div>
+
+          <!-- Surface Elevated -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #141a23; color: #fff;">--bg-surface</div>
+            <div class="color-info">
+              <span class="color-title">Elevated Surface</span>
+              <div class="color-meta"><span>HEX: #141a23</span><span>RGB: 20, 26, 35</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Form containers, modal bodies, navigation bar.</p>
+            </div>
+          </div>
+
+          <!-- Card Base -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #18202c; color: #fff;">--bg-card</div>
+            <div class="color-info">
+              <span class="color-title">Card Canvas</span>
+              <div class="color-meta"><span>HEX: #18202c</span><span>RGB: 24, 32, 44</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Interactive cards, dossier panels, package modules.</p>
+            </div>
+          </div>
+
+          <!-- Text Dim -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #94a3b8; color: #07090c;">--text-dim</div>
+            <div class="color-info">
+              <span class="color-title">WCAG AA Compliant Meta</span>
+              <div class="color-meta"><span>HEX: #94a3b8</span><span>Ratio: 4.8:1</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Subtext, dates, captions. Passes WCAG AA contrast on #07090c.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Typography System -->
+    <section class="section section-dark" id="typography">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-yellow">Typography</span>
+          <h2 class="section-title">Motorsport Type Specimen</h2>
+          <p class="section-desc">High-impact condenseds for racing lap times and headers, balanced by an ultra-readable modern sans for data.</p>
+        </div>
+
+        <!-- Specimen 1: Teko -->
+        <div class="type-specimen">
+          <div class="type-header">
+            <span class="type-family-name">'Teko', impact, sans-serif</span>
+            <span class="type-role-badge">Display • Big Numbers • Timers • Lap Records</span>
+          </div>
+          <div style="font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem); line-height: 0.95; text-transform: uppercase; font-weight: 700; color: var(--text-main);">
+            #99 MR99 • 01:42.85 • GATE DROP
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 12px;">
+            Weights: 500, 600, 700. Used exclusively for big countdown units, rider number plates, and hero emphasis words.
+          </p>
+        </div>
+
+        <!-- Specimen 2: Barlow Semi Condensed -->
+        <div class="type-specimen">
+          <div class="type-header">
+            <span class="type-family-name">'Barlow Semi Condensed', sans-serif</span>
+            <span class="type-role-badge">Headings • Eyebrows • Badges • Navigation</span>
+          </div>
+          <div style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; text-transform: uppercase; line-height: 1.15; color: var(--text-main);">
+            PIONEERING SANCTIONED MOTORSPORTS FROM CHITTAGONG
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 12px;">
+            Weights: 600, 700, 800 (and italic). Used for all section headings, card titles, navigation items, and pill badges.
+          </p>
+        </div>
+
+        <!-- Specimen 3: Plus Jakarta Sans -->
+        <div class="type-specimen">
+          <div class="type-header">
+            <span class="type-family-name">'Plus Jakarta Sans', sans-serif</span>
+            <span class="type-role-badge">Body • Form Controls • Logistics • Technical Specs</span>
+          </div>
+          <p style="font-family: var(--font-body); font-size: 1.05rem; line-height: 1.65; color: var(--text-muted); max-width: 800px;">
+            Operating from the rugged hills and challenging coastal terrain of Chittagong, Bangladesh Motocross Club &amp; Academy unifies competitive racers, certified instructors, and mechanical engineers. Students train across 4 progressive curriculum stages adhering strictly to international FIM flag marshaling standards.
+          </p>
+          <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 12px;">
+            Weights: 400, 500, 600, 700. Default body font delivering superior readability on high-DPI screens.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Number Plates & Official Roster -->
+    <section class="section section-surface" id="heraldry">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-green">Paddock Lineup</span>
+          <h2 class="section-title">Official Racing Number Plates &amp; Machines</h2>
+          <p class="section-desc">Every active athlete is officially recognized by their racing plate, machine model, displacement, and origin.</p>
+        </div>
+
+        <div class="plate-grid">
+          <!-- MR99 -->
+          <div class="plate-card" style="border-top: 4px solid var(--red-racing);">
+            <div class="plate-number" style="color: var(--red-bright);">#99</div>
+            <div class="plate-rider">Md. Mahabubur Rahman Hafiz</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Director &amp; Pro Champion</div>
+            <div class="plate-spec">Honda CRF250R • Pro 250cc</div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">Chittagong, Bangladesh</div>
+          </div>
+
+          <!-- Baundal Bulbul -->
+          <div class="plate-card" style="border-top: 4px solid var(--yellow-trophy);">
+            <div class="plate-number" style="color: var(--yellow-trophy);">#07</div>
+            <div class="plate-rider">Salauddin Ahmed Bulbul</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Official Mentor (TWM Certified)</div>
+            <div class="plate-spec">Yamaha YZ250F • Enduro 250cc</div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">Narsingdi, Bangladesh</div>
+          </div>
+
+          <!-- Sharif ON Track -->
+          <div class="plate-card" style="border-top: 4px solid var(--green-track);">
+            <div class="plate-number" style="color: var(--green-track);">#05</div>
+            <div class="plate-rider">Sharif ON Track</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Pro Track Racer</div>
+            <div class="plate-spec">Suzuki RM-Z250 • Pro 250cc</div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">Chittagong, Bangladesh</div>
+          </div>
+
+          <!-- Sultan Sheikh -->
+          <div class="plate-card" style="border-top: 4px solid var(--text-main);">
+            <div class="plate-number" style="color: var(--text-main);">#77</div>
+            <div class="plate-rider">Sultan Sheikh</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Pro Category Racer</div>
+            <div class="plate-spec">KTM 250 SX-F • Open Class</div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">Bangladesh</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Voice & Tone Matrix -->
+    <section class="section section-dark" id="voice">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-yellow">Tone of Voice</span>
+          <h2 class="section-title">Brand Voice: Do's vs. Don'ts</h2>
+          <p class="section-desc">Strict messaging parameters required for marketing copy, social media announcements, and AI-generated text.</p>
+        </div>
+
+        <div class="voice-matrix">
+          <div class="voice-card voice-do">
+            <div class="voice-title">
+              <span>✅ Mandatory BMCA Voice</span>
+            </div>
+            <ul class="voice-list">
+              <li><strong>Authoritative &amp; Paddock Disciplined:</strong> Speak like certified track directors and coaches emphasizing safety, athletic stamina, and mechanical knowledge.</li>
+              <li><strong>Precise Motorsports Terminology:</strong> Use authentic domain vocabulary (e.g., holeshot, berm cornering, loam vs. clay traction, suspension sag, 250cc 4-stroke).</li>
+              <li><strong>Sanctioned Racing Focus:</strong> Champion closed-circuit competition, flag marshaling, and mandatory DOT/ECE armor.</li>
+              <li><strong>Reassuring to Guardians:</strong> Explicitly communicate low-speed junior throttle stops, certified medical standby, and structured progression.</li>
+            </ul>
+          </div>
+
+          <div class="voice-card voice-dont">
+            <div class="voice-title">
+              <span>❌ Strictly Forbidden</span>
+            </div>
+            <ul class="voice-list">
+              <li><strong>Never Generic SaaS Jargon:</strong> "Empowering off-road synergies with next-gen motorcycle solutions."</li>
+              <li><strong>Zero Street Stunting Tropes:</strong> Never glorify public road wheelies, high-speed traffic lane splitting, or riding without gear.</li>
+              <li><strong>No Fake Vanity Metrics:</strong> Avoid unscientific claims like "100% Safety Guaranteed" in an extreme motorsport.</li>
+              <li><strong>No Emoji-Crammed Headers:</strong> Avoid cluttering formal headings with sequences like "⚡🔥🏁🏆💬🚀".</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: UI Component Library Preview -->
+    <section class="section section-surface" id="components">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-green">Component Library</span>
+          <h2 class="section-title">Live Production Components</h2>
+          <p class="section-desc">Core interactive elements implemented across the BMCA web platform.</p>
+        </div>
+
+        <!-- Button Matrix -->
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;">
+          Standard Call-to-Action Buttons
+        </h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 40px; background: var(--bg-card); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+          <button class="btn btn-primary">Primary Action (.btn-primary)</button>
+          <button class="btn btn-green">WhatsApp Hotline (.btn-green)</button>
+          <button class="btn btn-secondary">Secondary Action (.btn-secondary)</button>
+          <button class="btn btn-outline">Outline Action (.btn-outline)</button>
+          <button class="btn btn-primary btn-sm">Small Button (.btn-sm)</button>
+        </div>
+
+        <!-- Package Card Preview -->
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;">
+          Academy Package Cards (Sample: Weekend Starter Clinic)
+        </h3>
+        <div style="max-width: 420px; margin-bottom: 40px;">
+          <div class="package-card featured">
+            <div class="package-badge">Turnkey Arrive &amp; Ride</div>
+            <div class="package-header">
+              <h4 class="package-name">Weekend Starter Clinic</h4>
+              <div class="package-type">Full Fleet Bike &amp; Armor Included</div>
+            </div>
+            <p class="package-summary">Ideal for first-time riders. Complete motorcycle, sanitized protective armor, and coach provided.</p>
+            <ul class="package-features">
+              <li><span class="feature-bullet">✓</span> BMCA Fleet 150cc–250cc Dirt Bike Included</li>
+              <li><span class="feature-bullet">✓</span> Sanitized DOT/ECE Helmet &amp; Full Body Armor</li>
+              <li><span class="feature-bullet">✓</span> 1-on-1 Certified Coach (Clutch, Posture, Pegs)</li>
+              <li><span class="feature-bullet">✓</span> Track Fuel &amp; Chittagong Dirt Arena Access</li>
+            </ul>
+            <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-full">
+              Book Starter Clinic →
+            </a>
+          </div>
+        </div>
+
+        <!-- Safety Card Preview -->
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px;">
+          Parental Safety Hub Cards (Sample: Armor &amp; Flag Discipline)
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div class="safety-card">
+            <div class="safety-card-icon">🛡️</div>
+            <div class="safety-card-badge">Armor Protocol</div>
+            <h4>Mandatory Personal Armor</h4>
+            <p>Zero tolerance for unarmored riding. Mandatory DOT/ECE helmets, roost deflectors, knee guards, and rigid boots before track entry.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-card-icon">⚙️</div>
+            <div class="safety-card-badge">Equipment Control</div>
+            <h4>Low-Speed Throttle Stops</h4>
+            <p>Beginners ride training bikes equipped with adjustable mechanical governor limits until balance and clutch control are certified.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Paddock Registry & Official Links -->
+    <section class="section section-dark" id="contact">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+          <span class="eyebrow eyebrow-yellow">Official Directory</span>
+          <h2 class="section-title">BMCA Paddock Registry</h2>
+          <p class="section-desc">Authoritative operational contacts, sponsors, and repository documentation.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <h4 style="font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; color: var(--text-main); margin-bottom: 12px;">Official Channels</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: var(--text-muted);">
+              <li><strong>Hotline / WhatsApp:</strong> <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" style="color: var(--green-track);">+880 1975-376114</a></li>
+              <li><strong>Official Email:</strong> <a href="mailto:bangladeshmotocrossclubacademy@gmail.com" style="color: var(--red-bright);">bangladeshmotocrossclubacademy@gmail.com</a></li>
+              <li><strong>Paddock Headquarters:</strong> Chittagong Dirt Arena, Chittagong, Bangladesh</li>
+              <li><strong>Director:</strong> Md. Mahabubur Rahman Hafiz (MR99)</li>
+              <li><strong>Head Mentor:</strong> Salauddin Ahmed Bulbul (#07)</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <h4 style="font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; color: var(--text-main); margin-bottom: 12px;">Official Partners</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: var(--text-muted);">
+              <li><strong>DCS:</strong> Official Sponsor (<a href="https://www.facebook.com/share/14vhacSQqj9/" target="_blank" rel="noopener noreferrer" style="color: var(--red-bright);">Facebook Page →</a>)</li>
+              <li><strong>Moto Freak Lab:</strong> Official Service Partner (<a href="https://www.facebook.com/share/1DzcBwjjfJ/" target="_blank" rel="noopener noreferrer" style="color: var(--yellow-trophy);">Facebook Page →</a>)</li>
+              <li><strong>TWM Academy (Kolkata):</strong> International Coaching Accreditation Partner</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
+            <h4 style="font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; color: var(--text-main); margin-bottom: 12px;">Repository Standards</h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: var(--text-muted);">
+              <li><strong>Master Spec:</strong> <code>BRAND_IDENTITY.md</code></li>
+              <li><strong>Benchmark Research:</strong> <code>builder/research_results/international-benchmarks-and-brand-evolution.md</code></li>
+              <li><strong>Dev Handoff:</strong> <code>builder/dev_agent_handoffs/product-and-frontend-implementation-guide.md</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding-block: 32px; border-top: 1px solid var(--border-subtle); background: var(--bg-deep);">
+    <div class="container" style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+      <p style="margin-bottom: 8px;">
+        © 2026 Bangladesh Motocross Club &amp; Academy (BMCA) • Chittagong, Bangladesh
+      </p>
+      <div style="display: flex; justify-content: center; gap: 16px; margin-top: 10px;">
+        <a href="index.html" style="color: var(--red-bright); font-weight: 700;">Home Website</a>
+        <span>•</span>
+        <a href="gallery.html" style="color: var(--text-muted);">Photo Gallery</a>
+        <span>•</span>
+        <a href="brand.html" style="color: var(--yellow-trophy); font-weight: 700;">Brand Identity Showroom</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

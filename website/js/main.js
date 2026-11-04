@@ -34,6 +34,16 @@ function initThemeToggle() {
       btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
       btn.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
     });
+
+    // Theme-specific crest swap for clean navbar integration
+    const navLogos = document.querySelectorAll('.nav-logo');
+    navLogos.forEach(logo => {
+      const src = logo.getAttribute('src');
+      if (!src) return;
+      const isSubpage = src.startsWith('../');
+      const prefix = isSubpage ? '../images/' : 'images/';
+      logo.setAttribute('src', isLight ? `${prefix}bmca-crest-logo-light.jpg` : `${prefix}logo-transparent.png`);
+    });
   }
 
   // Determine current active theme
@@ -689,16 +699,24 @@ function initHeroVideo() {
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   }
 
+  function updatePlayState() {
+    const isPaused = video.paused;
+    if (playIcon) playIcon.textContent = isPaused ? '▶' : '❚❚';
+    if (btnToggle) btnToggle.setAttribute('aria-label', isPaused ? 'Play video' : 'Pause video');
+  }
+
   // Play / Pause toggle
   function togglePlay() {
     if (video.paused) {
-      video.play().catch(() => {});
-      if (playIcon) playIcon.textContent = '❚❚';
-      if (btnToggle) btnToggle.setAttribute('aria-label', 'Pause video');
+      const p = video.play();
+      if (p !== undefined) {
+        p.then(updatePlayState).catch(updatePlayState);
+      } else {
+        updatePlayState();
+      }
     } else {
       video.pause();
-      if (playIcon) playIcon.textContent = '▶';
-      if (btnToggle) btnToggle.setAttribute('aria-label', 'Play video');
+      updatePlayState();
     }
   }
 
@@ -712,15 +730,21 @@ function initHeroVideo() {
   // Clicking video directly toggles play/pause
   video.addEventListener('click', togglePlay);
 
-  video.addEventListener('play', () => {
-    if (playIcon) playIcon.textContent = '❚❚';
-    if (btnToggle) btnToggle.setAttribute('aria-label', 'Pause video');
-  });
+  video.addEventListener('play', updatePlayState);
+  video.addEventListener('pause', updatePlayState);
+  video.addEventListener('playing', updatePlayState);
 
-  video.addEventListener('pause', () => {
-    if (playIcon) playIcon.textContent = '▶';
-    if (btnToggle) btnToggle.setAttribute('aria-label', 'Play video');
-  });
+  // Initial HUD synchronization & low-power / data-saver autoplay rejection handling
+  updatePlayState();
+  if (video.autoplay) {
+    const autoPromise = video.play();
+    if (autoPromise !== undefined) {
+      autoPromise.then(updatePlayState).catch(() => {
+        // Autoplay blocked by mobile browser data-saver or battery saving mode
+        updatePlayState();
+      });
+    }
+  }
 
   // Sound toggle
   if (btnSound) {

@@ -365,7 +365,11 @@ textarea:focus-visible {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #fff;
+  color: var(--text-main);
+}
+
+.nav-subpage-back .mobile-text {
+  display: none;
 }
 
 .nav-link::after {
@@ -2839,7 +2843,17 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 820px) {
+@media (min-width: 1025px) and (max-width: 1140px) {
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+  }
+}
+
+@media (max-width: 1024px) {
   .nav-links {
     display: none;
   }
@@ -2940,6 +2954,34 @@ textarea:focus-visible {
 }
 
 @media (max-width: 580px) {
+  /* Subpage Navigation Mobile Optimization (< 580px) */
+  .nav-subpage-extra {
+    display: none !important;
+  }
+
+  .nav-subpage-back .desktop-text {
+    display: none;
+  }
+
+  .nav-subpage-back .mobile-text {
+    display: inline;
+  }
+
+  .nav-subpage-back {
+    padding-inline: 10px;
+    padding-block: 6px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
   .hero-video-card {
     max-inline-size: 100%;
   }

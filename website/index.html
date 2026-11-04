@@ -49,7 +49,7 @@
   <nav class="site-nav" aria-label="Main Navigation">
     <div class="container nav-container">
       <a href="#home" class="nav-brand" aria-label="Bangladesh Motocross Club and Academy Homepage">
-        <img src="images/logo.png" alt="BMCA Crest Logo" class="nav-logo" width="46" height="46">
+        <img src="images/logo-transparent.png" alt="BMCA Crest Logo" class="nav-logo" width="46" height="46">
         <div class="brand-text">
           <span class="brand-name">BD Motocross Club & Academy</span>
           <span class="brand-sub">Chittagong • Bangladesh</span>
@@ -59,7 +59,6 @@
       <ul class="nav-links">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#director" class="nav-link">Leadership</a></li>
         <li><a href="#roster" class="nav-link">Racers</a></li>
         <li><a href="#academy" class="nav-link">Academy</a></li>
         <li><a href="#calendar" class="nav-link">Events</a></li>
@@ -180,7 +179,7 @@
                    autoplay 
                    muted 
                    loop 
-                   preload="auto" 
+                   preload="metadata" 
                    poster="images/video-poster.jpg"
                    title="Dirt Race in Lal Mai, Cumilla Bangladesh - Furious Track Trial 2025">
               <source src="images/bmca_short.mp4" type="video/mp4">
@@ -192,7 +191,7 @@
               <div class="video-time-chip" id="video-time-display">00:00 / 00:42</div>
               <div class="video-actions-quick">
                 <button type="button" class="video-hud-btn" id="btn-video-toggle" aria-label="Pause or play video">
-                  <span class="icon-play-state" id="play-state-icon">❚❚</span>
+                  <span class="icon-play-state" id="play-state-icon">▶</span>
                 </button>
                 <button type="button" class="video-hud-btn" id="btn-sound-toggle" aria-label="Toggle sound">
                   <span id="sound-state-icon">🔇</span>
@@ -1249,7 +1248,7 @@
               </div>
             </div>
 
-            <h4 style="font-family:var(--font-heading); font-size:1.1rem; text-transform:uppercase; margin-block-end:14px; color:#fff;">
+            <h4 style="font-family:var(--font-heading); font-size:1.1rem; text-transform:uppercase; margin-block-end:14px; color:var(--text-main);">
               Official Social Channels
             </h4>
             <div class="social-links-wrap">
@@ -1360,14 +1359,14 @@
             <div class="eyebrow eyebrow-yellow" id="modal-racer-num">MR99</div>
             <h3 id="modal-racer-name" style="font-family:var(--font-heading); font-size:2rem; text-transform:uppercase; margin-block-end:6px;">Name</h3>
             <div id="modal-racer-role" style="color:var(--red-bright); font-weight:700; font-size:0.95rem; margin-block-end:8px;">Role</div>
-            <div style="font-size:0.85rem; color:var(--text-muted); margin-block-end:4px;">🏍️ Machine: <strong id="modal-racer-machine" style="color:#fff;">Honda CRF250R</strong></div>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-block-end:4px;">🏍️ Machine: <strong id="modal-racer-machine" style="color:var(--text-main);">Honda CRF250R</strong></div>
             <div style="font-size:0.85rem; color:var(--text-muted); margin-block-end:4px;">📍 Origin: <span id="modal-racer-location">Chittagong</span></div>
             <div style="font-size:0.85rem; color:var(--text-muted);">🤝 Partners: <span id="modal-racer-sponsor">DCS / Moto Freak Lab</span></div>
           </div>
         </div>
 
         <div style="margin-block-end: 24px;">
-          <h4 style="font-family:var(--font-heading); font-size:1.15rem; text-transform:uppercase; color:#fff; margin-block-end:8px;">Biography &amp; Racing Profile</h4>
+          <h4 style="font-family:var(--font-heading); font-size:1.15rem; text-transform:uppercase; color:var(--text-main); margin-block-end:8px;">Biography &amp; Racing Profile</h4>
           <p id="modal-racer-bio" style="font-size:0.95rem; color:var(--text-muted); line-height:1.65;"></p>
         </div>
 
@@ -1415,6 +1414,7 @@
             <li><a href="#director">Leadership</a></li>
             <li><a href="#roster">Official Racers</a></li>
             <li><a href="#academy">Training Academy</a></li>
+            <li><a href="brand.html" style="color: var(--yellow-trophy); font-weight: 700;">Brand Identity &amp; System →</a></li>
           </ul>
         </div>
 
