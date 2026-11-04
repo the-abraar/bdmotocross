@@ -375,7 +375,14 @@ function triggerEventRegistration(eventName) {
     formSubtitle.textContent = `Official entry submission for: ${eventName}`;
   }
   if (programSelect) {
-    programSelect.value = 'race_event';
+    let matched = false;
+    for (let opt of programSelect.options) {
+      if (opt.value.toLowerCase().includes('entry') || opt.value.toLowerCase().includes('feni')) {
+        programSelect.value = opt.value;
+        matched = true;
+        break;
+      }
+    }
   }
   if (commentsInput) {
     commentsInput.value = `Official Entry Request for: ${eventName}`;
@@ -516,15 +523,61 @@ function initRegistrationForm() {
 
   if (!form) return;
 
+  const nameInput = document.getElementById('form-name');
+  const phoneInput = document.getElementById('form-phone');
+  const cityInput = document.getElementById('form-city');
+  const programInput = document.getElementById('form-program');
+  const expInput = document.getElementById('form-exp');
+  const messageInput = document.getElementById('form-message');
+
+  // Restore saved form values from sessionStorage if user navigated back
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('bmca_form_draft') || '{}');
+    if (saved.name && nameInput) nameInput.value = saved.name;
+    if (saved.phone && phoneInput) phoneInput.value = saved.phone;
+    if (saved.city && cityInput) cityInput.value = saved.city;
+    if (saved.program && programInput) programInput.value = saved.program;
+    if (saved.exp && expInput) expInput.value = saved.exp;
+    if (saved.message && messageInput) messageInput.value = saved.message;
+    if (saved.equipment) {
+      const radio = document.querySelector(`input[name="form-equipment"][value="${saved.equipment}"]`);
+      if (radio) radio.checked = true;
+    }
+  } catch (err) {
+    // Ignore storage restrictions
+  }
+
+  // Persist form values on input change
+  function saveDraft() {
+    try {
+      const equipEl = document.querySelector('input[name="form-equipment"]:checked');
+      const draft = {
+        name: nameInput ? nameInput.value : '',
+        phone: phoneInput ? phoneInput.value : '',
+        city: cityInput ? cityInput.value : '',
+        program: programInput ? programInput.value : '',
+        exp: expInput ? expInput.value : '',
+        message: messageInput ? messageInput.value : '',
+        equipment: equipEl ? equipEl.value : ''
+      };
+      sessionStorage.setItem('bmca_form_draft', JSON.stringify(draft));
+    } catch (err) {}
+  }
+
+  form.addEventListener('input', saveDraft);
+  form.addEventListener('change', saveDraft);
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('form-name').value.trim();
-    const phone = document.getElementById('form-phone').value.trim();
-    const city = document.getElementById('form-city').value.trim();
-    const program = document.getElementById('form-program').value;
-    const experience = document.getElementById('form-exp').value;
-    const message = document.getElementById('form-message').value.trim();
+    const name = nameInput ? nameInput.value.trim() : '';
+    const phone = phoneInput ? phoneInput.value.trim() : '';
+    const city = cityInput ? cityInput.value.trim() : '';
+    const program = programInput ? programInput.value : '';
+    const experience = expInput ? expInput.value : '';
+    const message = messageInput ? messageInput.value.trim() : '';
+    const equipEl = document.querySelector('input[name="form-equipment"]:checked');
+    const equipment = equipEl ? equipEl.value : 'Need Fleet Bike & Armor';
 
     if (!name || !phone) {
       if (statusEl) {
@@ -534,6 +587,8 @@ function initRegistrationForm() {
       return;
     }
 
+    saveDraft();
+
     // Build WhatsApp Message Payload
     const text = encodeURIComponent(
       `*BMCA Official Inquiry / Registration*\n` +
@@ -541,7 +596,8 @@ function initRegistrationForm() {
       `*Name:* ${name}\n` +
       `*Phone:* ${phone}\n` +
       `*City:* ${city || 'Chittagong'}\n` +
-      `*Subject / Program:* ${program}\n` +
+      `*Selected Package / Program:* ${program}\n` +
+      `*Equipment Status:* ${equipment}\n` +
       `*Experience Level:* ${experience}\n` +
       `*Message:* ${message || 'I would like to connect with Bangladesh Motocross Club & Academy.'}`
     );
@@ -549,22 +605,21 @@ function initRegistrationForm() {
     const waUrl = `https://wa.me/8801975376114?text=${text}`;
 
     if (statusEl) {
-      statusEl.innerHTML = `Opening WhatsApp in a new tab... <a href="${waUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;color:var(--green-track);margin-inline-start:6px;font-weight:700;">Click here if tab didn't open</a>`;
+      statusEl.innerHTML = `Connecting to WhatsApp... <a href="${waUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;color:var(--green-track);margin-inline-start:6px;font-weight:700;">Click here if WhatsApp doesn't open</a>`;
       statusEl.className = 'form-status success';
     }
 
-    // Open WhatsApp in a separate tab/window so the current website remains open
-    // Synchronous call inside submit event handler ensures popup blockers don't intercept it
-    const newWindow = window.open(waUrl, '_blank', 'noopener,noreferrer');
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      // Fallback via virtual anchor click
-      const a = document.createElement('a');
-      a.href = waUrl;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+    // Direct synchronous dispatch for mobile Safari / Chrome compatibility
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      // Synchronous location redirect: prevents popup blocking and launches native WhatsApp app immediately
+      window.location.href = waUrl;
+    } else {
+      // Desktop: Attempt opening in new tab, fallback immediately if popup is blocked
+      const newWin = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+        window.location.href = waUrl;
+      }
     }
   });
 }
