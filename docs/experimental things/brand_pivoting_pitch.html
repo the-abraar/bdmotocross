@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Identity Strategic Pivot & UX Critique | BMCA</title>
+  <meta name="description" content="UX Research critique of the BMCA brand identity and comprehensive strategic pivoting pitch featuring three distinct visual directions with live interactive previews.">
+  <link rel="icon" type="image/png" href="images/logo-transparent.png">
+
+  <!-- Typography Stacks for Live Pivots -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Outfit:wght@600;700;800;900&family=Russo+One&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&family=Unbounded:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Teko:wght@600;700&family=Barlow+Semi+Condensed:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       Global Setup & Resets
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Pitch Page Shell Colors (Neutral Technical Slate) */
+      --shell-bg: #090b0e;
+      --shell-surface: #11141a;
+      --shell-card: #161b24;
+      --shell-border: rgba(255, 255, 255, 0.1);
+      --shell-border-subtle: rgba(255, 255, 255, 0.05);
+      --shell-text: #f1f5f9;
+      --shell-muted: #94a3b8;
+      --shell-accent: #38bdf8;
+      --shell-danger: #f43f5e;
+      --shell-success: #10b981;
+      --shell-warning: #f59e0b;
+
+      /* Dynamic Sandbox Theme Tokens (Default: Pivot 1 - Raw Terra & Apex Ochre) */
+      --preview-bg-deep: #0b0c0e;
+      --preview-bg-surface: #14161b;
+      --preview-bg-card: #1a1d24;
+      --preview-border: rgba(249, 115, 22, 0.25);
+      --preview-accent: #ea580c; /* Deep Terracotta Clay */
+      --preview-accent-hover: #f97316;
+      --preview-accent-glow: rgba(234, 88, 12, 0.25);
+      --preview-secondary: #f59e0b; /* Apex Ochre */
+      --preview-text-main: #f8fafc;
+      --preview-text-muted: #cbd5e1;
+      --preview-text-dim: #94a3b8;
+      --preview-font-display: 'Oswald', sans-serif;
+      --preview-font-heading: 'Space Grotesk', sans-serif;
+      --preview-font-body: 'Inter', sans-serif;
+      --preview-radius: 6px;
+      --preview-badge-bg: rgba(234, 88, 12, 0.15);
+      --preview-badge-color: #fb923c;
+    }
+
+    body {
+      background-color: var(--shell-bg);
+      color: var(--shell-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Nav */
+    .top-nav {
+      background: rgba(9, 11, 14, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--shell-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .top-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--shell-accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn-ghost {
+      background: transparent;
+      color: var(--shell-muted);
+      border: 1px solid var(--shell-border);
+    }
+
+    .nav-btn-ghost:hover {
+      color: #fff;
+      background: var(--shell-card);
+    }
+
+    .nav-btn-action {
+      background: #ea580c;
+      color: #fff;
+      border: 1px solid #f97316;
+    }
+
+    .nav-btn-action:hover {
+      background: #f97316;
+    }
+
+    /* Hero Section */
+    .pitch-hero {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--shell-border);
+      background: radial-gradient(circle at 80% 20%, rgba(234, 88, 12, 0.1), transparent 50%),
+                  radial-gradient(circle at 10% 80%, rgba(56, 189, 248, 0.08), transparent 40%);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ea580c;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.2rem;
+      color: var(--shell-muted);
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .researcher-callout {
+      background: var(--shell-card);
+      border-left: 4px solid var(--shell-accent);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    /* Section Headers */
+    .section-title-wrap {
+      margin: 64px 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--shell-border);
+      padding-bottom: 20px;
+    }
+
+    .section-num {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--shell-accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .section-heading {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      color: var(--shell-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      margin-top: 6px;
+    }
+
+    /* Critique Grid */
+    .critique-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .critique-card {
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .critique-card.flaw {
+      border-top: 4px solid var(--shell-danger);
+    }
+
+    .critique-card.solution {
+      border-top: 4px solid var(--shell-success);
+    }
+
+    .critique-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .tag-danger {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+    }
+
+    .tag-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+    }
+
+    .critique-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .critique-body {
+      font-size: 0.95rem;
+      color: var(--shell-muted);
+      line-height: 1.6;
+    }
+
+    .quote-box {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 2px solid var(--shell-muted);
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+
+    /* Direction Overview Cards */
+    .directions-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .direction-card {
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .direction-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .direction-card.active-card {
+      border: 2px solid #ea580c;
+      box-shadow: 0 0 24px rgba(234, 88, 12, 0.2);
+    }
+
+    .direction-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .direction-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .direction-subtitle {
+      font-size: 0.9rem;
+      color: var(--shell-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .direction-swatches {
+      display: flex;
+      height: 38px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .swatch-item {
+      flex: 1;
+      height: 100%;
+      position: relative;
+    }
+
+    .direction-type-preview {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid var(--shell-border-subtle);
+    }
+
+    .direction-type-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .direction-type-sample {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .select-direction-btn {
+      width: 100%;
+      padding: 10px;
+      background: var(--shell-card);
+      border: 1px solid var(--shell-border);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .select-direction-btn:hover {
+      background: #ea580c;
+      border-color: #f97316;
+    }
+
+    /* ==========================================================================
+       Interactive Live Brand Simulator / Sandbox
+       ========================================================================== */
+    .sandbox-wrapper {
+      background: #000;
+      border: 2px solid var(--shell-border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .sandbox-toolbar {
+      background: #11141a;
+      border-bottom: 1px solid var(--shell-border);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sandbox-toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-selector-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .theme-pill-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #1e2430;
+      border: 1px solid var(--shell-border);
+      color: #94a3b8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .theme-pill-btn:hover {
+      color: #fff;
+      border-color: #64748b;
+    }
+
+    .theme-pill-btn.active {
+      background: #ea580c;
+      border-color: #f97316;
+      color: #fff;
+    }
+
+    .theme-pill-btn.active.baseline {
+      background: #e11d48;
+      border-color: #ff2b56;
+      color: #fff;
+    }
+
+    /* Active Preview Viewport */
+    .preview-viewport {
+      background-color: var(--preview-bg-deep);
+      color: var(--preview-text-main);
+      font-family: var(--preview-font-body);
+      padding: 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .preview-viewport {
+        padding: 20px;
+      }
+    }
+
+    /* Dynamic Preview Components */
+    .preview-hero-banner {
+      background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%),
+                  url('images/hero-bikes.jpg') center/cover no-repeat;
+      border: 1px solid var(--preview-border);
+      border-radius: var(--preview-radius);
+      padding: 60px 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .preview-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--preview-badge-bg);
+      border: 1px solid var(--preview-accent);
+      border-radius: 999px;
+      color: var(--preview-badge-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .preview-hero-headline {
+      font-family: var(--preview-font-display);
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .preview-hero-headline .accent-word {
+      color: var(--preview-accent);
+      text-shadow: 0 0 20px var(--preview-accent-glow);
+    }
+
+    .preview-hero-sub {
+      font-size: 1.15rem;
+      color: var(--preview-text-muted);
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .preview-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Preview Buttons */
+    .preview-btn {
+      padding: 14px 28px;
+      font-family: var(--preview-font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: var(--preview-radius);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .preview-btn-primary {
+      background: var(--preview-accent);
+      border: 1px solid var(--preview-accent-hover);
+      color: #fff;
+      box-shadow: 0 4px 15px var(--preview-accent-glow);
+    }
+
+    .preview-btn-primary:hover {
+      background: var(--preview-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .preview-btn-secondary {
+      background: var(--preview-bg-card);
+      border: 1px solid var(--preview-border);
+      color: var(--preview-text-main);
+    }
+
+    .preview-btn-secondary:hover {
+      background: var(--preview-bg-surface);
+      border-color: var(--preview-accent);
+    }
+
+    .preview-btn-outline {
+      background: transparent;
+      border: 1px solid var(--preview-accent);
+      color: var(--preview-accent);
+    }
+
+    .preview-btn-outline:hover {
+      background: var(--preview-accent);
+      color: #fff;
+    }
+
+    /* Preview Grid Sections */
+    .preview-component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .preview-card {
+      background: var(--preview-bg-surface);
+      border: 1px solid var(--preview-border);
+      border-radius: var(--preview-radius);
+      padding: 28px;
+    }
+
+    .preview-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .preview-card-title {
+      font-family: var(--preview-font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--preview-text-main);
+    }
+
+    .preview-card-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--preview-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Plate Showroom */
+    .preview-plate-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .preview-plate {
+      background: var(--preview-bg-card);
+      border: 2px solid var(--preview-border);
+      border-radius: var(--preview-radius);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .preview-plate-num {
+      font-family: var(--preview-font-display);
+      font-size: 4.5rem;
+      line-height: 0.85;
+      font-weight: 800;
+      color: var(--preview-accent);
+      font-style: italic;
+      transform: skewX(-6deg);
+      margin-bottom: 8px;
+    }
+
+    .preview-plate-name {
+      font-family: var(--preview-font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--preview-text-main);
+    }
+
+    .preview-plate-bike {
+      font-size: 0.8rem;
+      color: var(--preview-secondary);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Package Mockup */
+    .preview-package-card {
+      background: var(--preview-bg-card);
+      border: 2px solid var(--preview-accent);
+      border-radius: var(--preview-radius);
+      padding: 28px;
+      position: relative;
+    }
+
+    .preview-package-featured-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--preview-accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    .preview-package-price {
+      font-family: var(--preview-font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--preview-text-main);
+      line-height: 1;
+      margin: 12px 0 6px;
+    }
+
+    .preview-feature-list {
+      list-style: none;
+      margin: 16px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .preview-feature-list li {
+      font-size: 0.9rem;
+      color: var(--preview-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .preview-check {
+      color: var(--preview-secondary);
+      font-weight: 900;
+    }
+
+    /* Live Color Swatch Matrix in Sandbox */
+    .sandbox-color-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .sandbox-swatch-box {
+      background: var(--preview-bg-card);
+      border: 1px solid var(--preview-border);
+      border-radius: var(--preview-radius);
+      overflow: hidden;
+    }
+
+    .sandbox-swatch-color {
+      height: 80px;
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .sandbox-swatch-info {
+      padding: 12px;
+    }
+
+    .sandbox-swatch-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--preview-text-main);
+    }
+
+    .sandbox-swatch-role {
+      font-size: 0.75rem;
+      color: var(--preview-text-dim);
+    }
+
+    /* Typography Scale Preview */
+    .type-scale-row {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .type-scale-meta {
+      font-size: 0.75rem;
+      color: var(--preview-text-dim);
+      font-family: monospace;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Comparison Matrix Table */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 24px;
+      background: var(--shell-surface);
+      border: 1px solid var(--shell-border);
+      border-radius: 12px;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .matrix-table th, .matrix-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--shell-border-subtle);
+    }
+
+    .matrix-table th {
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .matrix-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .score-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .score-poor { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+    .score-fair { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .score-excellent { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+    /* Decision Card */
+    .decision-panel {
+      margin-top: 64px;
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(17, 20, 26, 0.9) 100%);
+      border: 2px solid #ea580c;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .decision-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .decision-desc {
+      color: var(--shell-muted);
+      max-width: 700px;
+      margin: 0 auto 28px;
+      font-size: 1.05rem;
+    }
+
+    .action-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-btn-primary {
+      background: #ea580c;
+      color: #fff;
+      border: 1px solid #f97316;
+    }
+
+    .cta-btn-primary:hover {
+      background: #f97316;
+      transform: translateY(-2px);
+    }
+
+    .cta-btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid var(--shell-border);
+    }
+
+    .cta-btn-outline:hover {
+      background: var(--shell-card);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="container top-nav-inner">
+      <a href="brand.html" class="nav-brand">
+        <img src="images/logo-transparent.png" alt="BMCA Logo" width="38" height="38">
+        <div>
+          <strong style="display: block; font-size: 0.95rem; color: #fff;">BMCA Brand Strategy Lab</strong>
+          <span style="font-size: 0.75rem; color: var(--shell-muted);">UX Research &amp; Visual Identity Pivot</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <span class="nav-badge">5 Directions • Live Pitches</span>
+        <a href="brand_pitch_1.html" class="nav-btn nav-btn-ghost" style="color: #fb923c; border-color: rgba(234, 88, 12, 0.4);">01: Terra</a>
+        <a href="brand_pitch_2.html" class="nav-btn nav-btn-ghost" style="color: #f87171; border-color: rgba(220, 38, 38, 0.4);">02: Factory</a>
+        <a href="brand_pitch_3.html" class="nav-btn nav-btn-ghost" style="color: #d4ff00; border-color: rgba(212, 255, 0, 0.4);">03: Nitro</a>
+        <a href="brand_pitch_4.html" class="nav-btn nav-btn-ghost" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.4);">04: Club Moto</a>
+        <a href="brand_pitch_5.html" class="nav-btn nav-btn-ghost" style="color: #38bdf8; border-color: rgba(14, 165, 233, 0.4);">05: Swiss MX</a>
+        <a href="brand.html" class="nav-btn nav-btn-ghost">← Legacy</a>
+        <a href="#interactive-sandbox" class="nav-btn nav-btn-action">Simulator ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pitch-hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span>⚡ UX Researcher Strategic Briefing</span>
+      </div>
+      <h1 class="hero-title">
+        The Dirt &amp; Grit Pivot: <br>
+        <span>From SaaS Discord to Authentic Motocross</span>
+      </h1>
+      <p class="hero-lead">
+        You are completely right to hate the current palette and typography in <code>brand.html</code>. It fell into the classic tech-startup trap: cold GitHub slates, clashing neon reds and greens, and generic web-app fonts. Here is our rigorous empirical critique and three high-octane alternative identities engineered specifically for Chittagong's dirt tracks.
+      </p>
+
+      <div class="researcher-callout">
+        <div style="font-size: 1.5rem; line-height: 1;">💡</div>
+        <div>
+          <strong>UX Researcher Diagnostic Summary:</strong>
+          BMCA's visual identity must solve two radically different user motivations simultaneously:
+          <em>(1) Young riders seeking high-octane extreme sports adrenaline</em> (like Red Bull, Fox Racing, or Supercross), and
+          <em>(2) Affluent parents and corporate sponsors seeking absolute safety, discipline, and athletic prestige</em>.
+          The current palette fails both: it feels like an e-commerce crypto dashboard rather than raw loam and high-revving machinery.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 01. The UX Critique -->
+    <section>
+      <div class="section-title-wrap">
+        <div>
+          <span class="section-num">01 / The Evidence</span>
+          <h2 class="section-heading">Detailed Critique: Why the Current Identity Collapses</h2>
+          <p class="section-desc">Analyzing the cognitive friction, emotional misalignment, and ergonomic failures of <code>website/brand.html</code>.</p>
+        </div>
+      </div>
+
+      <div class="critique-grid">
+        <!-- Flaw 1: Color Scheme -->
+        <div class="critique-card flaw">
+          <span class="critique-tag tag-danger">Palette Failure</span>
+          <h3 class="critique-title">The "Christmas Tree / Discord Bot" Syndrome</h3>
+          <div class="critique-body">
+            The current system pairs <strong>#e11d48 (Rose Red)</strong> with <strong>#22c55e (Neon Green)</strong> and <strong>#f59e0b (Trophy Gold)</strong> on a <strong>#0d1117 (GitHub dark slate)</strong> canvas.
+            <ul style="margin: 12px 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Semantic Chaos:</strong> Red and green are competing alert primaries (Stop vs Go, Error vs Success). In UI design, pairing them equally causes cognitive fatigue.</li>
+              <li><strong>Zero Physical Connection:</strong> Real motocross happens on orange-red clay, dark wet loam, sun-baked earth, rubber tires, and matte carbon. The current palette has zero organic earthiness.</li>
+              <li><strong>Gamer Aesthetic:</strong> The deep blue-gray canvas makes the brand look like a video game tournament or a cryptocurrency exchange rather than an outdoor motorsports facility.</li>
+            </ul>
+          </div>
+          <div class="quote-box">
+            "It looks like a dark-mode admin panel for a web hosting company, not a gate-drop at 8,000 RPM."
+          </div>
+        </div>
+
+        <!-- Flaw 2: Typography -->
+        <div class="critique-card flaw">
+          <span class="critique-tag tag-danger">Typography Mismatch</span>
+          <h3 class="critique-title">'Teko' is Flimsy; 'Jakarta' is Corporate</h3>
+          <div class="critique-body">
+            The trio of <strong>'Teko'</strong>, <strong>'Barlow Semi Condensed'</strong>, and <strong>'Plus Jakarta Sans'</strong> creates a jarring stylistic void:
+            <ul style="margin: 12px 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>'Teko' is vertically pinched:</strong> Motocross requires wide track stance, power, torque, and mass. Teko is tall, narrow, and hollow—resembling YouTube clickbait thumbnails rather than authentic race typography.</li>
+              <li><strong>'Barlow Semi Condensed' lacks bite:</strong> It feels like a municipal transit sign or airport gate board. It has no kinetic grit, speed slants, or mechanical edge.</li>
+              <li><strong>'Plus Jakarta Sans' is pure SaaS:</strong> Designed for fintech and CRM dashboards, it sterilizes the academy's copy and strips away the physical danger, courage, and grit of off-road racing.</li>
+            </ul>
+          </div>
+          <div class="quote-box">
+            "You cannot convey the roar of a 250cc 4-stroke single with a font built for venture capital pitch decks."
+          </div>
+        </div>
+
+        <!-- Flaw 3: Audience Psychology -->
+        <div class="critique-card flaw">
+          <span class="critique-tag tag-danger">User Psychology Gap</span>
+          <h3 class="critique-title">Failing Both the Athlete &amp; the Sponsor</h3>
+          <div class="critique-body">
+            A successful sports academy brand must establish credibility across three strict touchpoints:
+            <ul style="margin: 12px 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Rider Merch &amp; Decals:</strong> Try putting the current colors on a motocross jersey or bike graphics kit. Neon pink-red, bright green, and gold turn into a muddy carnival mess.</li>
+              <li><strong>Parental Reassurance:</strong> Parents who fear motorcycle accidents need to see military-grade discipline and certified European safety rigor—not flashy neon lights.</li>
+              <li><strong>Sponsor Lockups:</strong> Global sponsors (Honda, Yamaha, DCS, Motul, Alpinestars) demand high-contrast editorial backdrops where their logos look pristine.</li>
+            </ul>
+          </div>
+          <div class="quote-box">
+            "A championship brand should feel like a factory racing paddock, not an RGB gaming keyboard."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. The Three Strategic Pivots -->
+    <section>
+      <div class="section-title-wrap">
+        <div>
+          <span class="section-num">02 / The Strategic Options</span>
+          <h2 class="section-heading">Three High-Impact Brand Directions</h2>
+          <p class="section-desc">Each concept is fully engineered with distinct psychological positioning, color palettes, and typographic torque.</p>
+        </div>
+      </div>
+
+      <div class="directions-container">
+
+        <!-- Direction 1: Raw Terra & Apex Ochre -->
+        <div class="direction-card active-card" id="dir-card-1" onclick="switchSandboxTheme('terra')">
+          <div>
+            <div class="direction-badge" style="color: #fb923c;">
+              <span>★ RECOMMENDED DIRECTION</span>
+            </div>
+            <h3 class="direction-title">01. Raw Terra &amp; Apex Ochre</h3>
+            <p class="direction-subtitle">
+              <strong>"Earth, Grit &amp; High-Vis Speed."</strong> Grounded directly in Chittagong's red clay hills, wet loam, and track caution markers. Inspired by Dakar Rally, KTM Factory Enduro, and Fox Legion gear.
+            </p>
+
+            <div class="direction-swatches">
+              <div class="swatch-item" style="background: #0b0c0e;" title="Pitch Asphalt #0B0C0E"></div>
+              <div class="swatch-item" style="background: #1a1d24;" title="Carbon Mesh #1A1D24"></div>
+              <div class="swatch-item" style="background: #ea580c;" title="Terracotta Loam #EA580C"></div>
+              <div class="swatch-item" style="background: #f59e0b;" title="Apex Ochre #F59E0B"></div>
+              <div class="swatch-item" style="background: #f8fafc;" title="Chalk White #F8FAFC"></div>
+            </div>
+
+            <div class="direction-type-preview">
+              <div class="direction-type-label">Typography Stack</div>
+              <div class="direction-type-sample" style="font-family: 'Oswald', sans-serif; text-transform: uppercase;">
+                OSWALD • SPACE GROTESK
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px; font-family: 'Inter', sans-serif;">
+                Body: Inter (Ultra-legible, rugged geometry, authoritative)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button type="button" class="select-direction-btn" style="flex: 1;">
+              <span>Simulate ↓</span>
+            </button>
+            <a href="brand_pitch_1.html" class="select-direction-btn" style="flex: 1.2; text-decoration: none; background: #ea580c; border-color: #f97316;">
+              <span>Full Showcase ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direction 2: Factory Works Redline -->
+        <div class="direction-card" id="dir-card-2" onclick="switchSandboxTheme('factory')">
+          <div>
+            <div class="direction-badge" style="color: #f87171;">
+              <span>PRESTIGE MOTORSPORT</span>
+            </div>
+            <h3 class="direction-title">02. Factory Works Redline</h3>
+            <p class="direction-subtitle">
+              <strong>"Pure Championship Pedigree."</strong> Inspired by Honda HRC, Ducati Corse, and Alpinestars Pro. Strips out all the rainbow clutter for surgical white, asphalt black, and pure engine redline.
+            </p>
+
+            <div class="direction-swatches">
+              <div class="swatch-item" style="background: #08090b;" title="Deep Paddock #08090B"></div>
+              <div class="swatch-item" style="background: #16181d;" title="Titanium Slate #16181D"></div>
+              <div class="swatch-item" style="background: #dc2626;" title="Factory Crimson #DC2626"></div>
+              <div class="swatch-item" style="background: #e2e8f0;" title="Technical Silver #E2E8F0"></div>
+              <div class="swatch-item" style="background: #ffffff;" title="Pure White #FFFFFF"></div>
+            </div>
+
+            <div class="direction-type-preview">
+              <div class="direction-type-label">Typography Stack</div>
+              <div class="direction-type-sample" style="font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase;">
+                SYNE • BEBAS NEUE
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px; font-family: 'Space Grotesk', sans-serif;">
+                Body: Space Grotesk (Sharp, technical, modern engineering)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button type="button" class="select-direction-btn" style="flex: 1;">
+              <span>Simulate ↓</span>
+            </button>
+            <a href="brand_pitch_2.html" class="select-direction-btn" style="flex: 1.2; text-decoration: none; background: #dc2626; border-color: #ef4444;">
+              <span>Full Showcase ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direction 3: Kinetic Nitro & Stealth -->
+        <div class="direction-card" id="dir-card-3" onclick="switchSandboxTheme('nitro')">
+          <div>
+            <div class="direction-badge" style="color: #d4ff00;">
+              <span>EXTREME ACTION SPORTS</span>
+            </div>
+            <h3 class="direction-title">03. Kinetic Nitro &amp; Stealth</h3>
+            <p class="direction-subtitle">
+              <strong>"Electric Adrenaline &amp; Night Stadium."</strong> Inspired by Monster Supercross night mains, Troy Lee Designs, and Ken Block. Stealth matte basalt paired with high-voltage electric acid volt.
+            </p>
+
+            <div class="direction-swatches">
+              <div class="swatch-item" style="background: #07080a;" title="Stealth Void #07080A"></div>
+              <div class="swatch-item" style="background: #14171d;" title="Matte Basalt #14171D"></div>
+              <div class="swatch-item" style="background: #d4ff00;" title="Acid Volt #D4FF00"></div>
+              <div class="swatch-item" style="background: #71717a;" title="Gunmetal #71717A"></div>
+              <div class="swatch-item" style="background: #ffffff;" title="High-Beam White #FFFFFF"></div>
+            </div>
+
+            <div class="direction-type-preview">
+              <div class="direction-type-label">Typography Stack</div>
+              <div class="direction-type-sample" style="font-family: 'Unbounded', sans-serif; font-weight: 800; text-transform: uppercase;">
+                UNBOUNDED • CHIVO
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                Body: Plus Jakarta Sans (Balanced contrast with aggressive display)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button type="button" class="select-direction-btn" style="flex: 1;">
+              <span>Simulate ↓</span>
+            </button>
+            <a href="brand_pitch_3.html" class="select-direction-btn" style="flex: 1.2; text-decoration: none; background: #d4ff00; color: #07080a; border-color: #e5ff4d;">
+              <span>Full Showcase ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direction 4: NorCal Facility Model (Club Moto) -->
+        <div class="direction-card" id="dir-card-4" onclick="switchSandboxTheme('moto')">
+          <div>
+            <div class="direction-badge" style="color: #fbbf24;">
+              <span>AMERICAN TRACK &amp; CLUB FACILITY</span>
+            </div>
+            <h3 class="direction-title">04. NorCal Track Facility (Club Moto)</h3>
+            <p class="direction-subtitle">
+              <strong>"Natural Terrain &amp; Youth Development."</strong> Inspired by <em>Club Moto (Livermore, CA)</em>. Practice schedules, "Keeping Kids On The Right Track", mini bike tracks, and trackside sponsor boarding.
+            </p>
+
+            <div class="direction-swatches">
+              <div class="swatch-item" style="background: #0c0e12;" title="Dark Asphalt #0C0E12"></div>
+              <div class="swatch-item" style="background: #1f2532;" title="Paddock Concrete #1F2532"></div>
+              <div class="swatch-item" style="background: #f59e0b;" title="Sunburst Gold #F59E0B"></div>
+              <div class="swatch-item" style="background: #ef4444;" title="Caution Red #EF4444"></div>
+              <div class="swatch-item" style="background: #ffffff;" title="High-Beam White #FFFFFF"></div>
+            </div>
+
+            <div class="direction-type-preview">
+              <div class="direction-type-label">Typography Stack</div>
+              <div class="direction-type-sample" style="font-family: 'Russo One', sans-serif; text-transform: uppercase;">
+                RUSSO ONE • BEBAS NEUE
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px; font-family: 'Inter', sans-serif;">
+                Body: Inter (Utility schedules, waiver readability, billboard stance)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button type="button" class="select-direction-btn" style="flex: 1;">
+              <span>Simulate ↓</span>
+            </button>
+            <a href="brand_pitch_4.html" class="select-direction-btn" style="flex: 1.2; text-decoration: none; background: #f59e0b; color: #0c0e12; border-color: #fbbf24;">
+              <span>Full Showcase ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direction 5: Swiss Alpine Precision (MX Academy EU) -->
+        <div class="direction-card" id="dir-card-5" onclick="switchSandboxTheme('swiss')">
+          <div>
+            <div class="direction-badge" style="color: #38bdf8;">
+              <span>EUROPEAN STRUCTURED ACADEMY</span>
+            </div>
+            <h3 class="direction-title">05. Swiss Precision (MX-Academy.eu)</h3>
+            <p class="direction-subtitle">
+              <strong>"Technique Over Brute Force."</strong> Inspired by <em>MX-Academy.eu (Chris Möckli)</em>. 4-tier color-coded progression tracks (Green, Blue, Red, Black), official Honda fleet, and zero-injury biomechanics.
+            </p>
+
+            <div class="direction-swatches">
+              <div class="swatch-item" style="background: #0a0d14;" title="Alpine Basalt #0A0D14"></div>
+              <div class="swatch-item" style="background: #1c263a;" title="Academy Slate #1C263A"></div>
+              <div class="swatch-item" style="background: #0ea5e9;" title="Alpine Cyan #0EA5E9"></div>
+              <div class="swatch-item" style="background: #e11d2a;" title="Honda Red #E11D2A"></div>
+              <div class="swatch-item" style="background: #ffffff;" title="High-Beam White #FFFFFF"></div>
+            </div>
+
+            <div class="direction-type-preview">
+              <div class="direction-type-label">Typography Stack</div>
+              <div class="direction-type-sample" style="font-family: 'Outfit', sans-serif; font-weight: 800; text-transform: uppercase;">
+                OUTFIT • SPACE GROTESK
+              </div>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px; font-family: 'Inter', sans-serif;">
+                Body: Inter (Scientific coaching, biomechanics clarity, curriculum tiers)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button type="button" class="select-direction-btn" style="flex: 1;">
+              <span>Simulate ↓</span>
+            </button>
+            <a href="brand_pitch_5.html" class="select-direction-btn" style="flex: 1.2; text-decoration: none; background: #0ea5e9; color: #0a0d14; border-color: #38bdf8;">
+              <span>Full Showcase ↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03. Interactive Live Simulator -->
+    <section id="interactive-sandbox">
+      <div class="section-title-wrap">
+        <div>
+          <span class="section-num">03 / Live Interactive Proof</span>
+          <h2 class="section-heading">Brand Identity Live Simulator</h2>
+          <p class="section-desc">Click the buttons below to instantly morph the entire UI sandbox between the current baseline and all five proposed pivots.</p>
+        </div>
+      </div>
+
+      <div class="sandbox-wrapper">
+        <!-- Simulator Toolbar -->
+        <div class="sandbox-toolbar">
+          <div class="sandbox-toolbar-title">
+            <span style="font-size: 1.2rem;">🕹️</span>
+            <span>Active Brand Engine: <strong id="active-theme-name" style="color: #fb923c;">Direction 01: Raw Terra &amp; Apex Ochre</strong></span>
+          </div>
+
+          <div class="theme-selector-pills">
+            <button type="button" class="theme-pill-btn active" id="pill-terra" onclick="switchSandboxTheme('terra')">
+              <span>01: Raw Terra</span>
+            </button>
+            <button type="button" class="theme-pill-btn" id="pill-factory" onclick="switchSandboxTheme('factory')">
+              <span>02: Factory</span>
+            </button>
+            <button type="button" class="theme-pill-btn" id="pill-nitro" onclick="switchSandboxTheme('nitro')">
+              <span>03: Nitro</span>
+            </button>
+            <button type="button" class="theme-pill-btn" id="pill-moto" onclick="switchSandboxTheme('moto')">
+              <span>04: Club Moto</span>
+            </button>
+            <button type="button" class="theme-pill-btn" id="pill-swiss" onclick="switchSandboxTheme('swiss')">
+              <span>05: Swiss MX</span>
+            </button>
+            <button type="button" class="theme-pill-btn" id="pill-baseline" onclick="switchSandboxTheme('baseline')">
+              <span>Legacy Baseline</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- The Live Viewport that changes CSS variables -->
+        <div class="preview-viewport" id="preview-viewport">
+
+          <!-- 1. Live Hero Banner -->
+          <div class="preview-hero-banner">
+            <div class="preview-hero-badge">
+              <span id="preview-badge-text">⚡ Official Dirt Sanctuary • Chittagong, Bangladesh</span>
+            </div>
+            <h2 class="preview-hero-headline" id="preview-headline">
+              LEAVE THE STREETS. <br>
+              <span class="accent-word">CONQUER THE DIRT.</span>
+            </h2>
+            <p class="preview-hero-sub" id="preview-subtext">
+              Bangladesh Motocross Club &amp; Academy unifies championship racers, FIM-standard flag marshals, and progressive rider clinics on our marshaled closed-circuit dirt arena.
+            </p>
+            <div class="preview-btn-group">
+              <a href="#interactive-sandbox" class="preview-btn preview-btn-primary" id="preview-cta-primary">
+                Book Academy Clinic →
+              </a>
+              <a href="#interactive-sandbox" class="preview-btn preview-btn-secondary" id="preview-cta-secondary">
+                View Dirt Arena Specs
+              </a>
+              <a href="#interactive-sandbox" class="preview-btn preview-btn-outline" id="preview-cta-outline">
+                WhatsApp Hotline
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. Typography & Color Specimen Matrix -->
+          <div class="preview-component-grid">
+
+            <!-- Card A: Number Plates -->
+            <div class="preview-card">
+              <div class="preview-card-header">
+                <span class="preview-card-title">Official Paddock Plates</span>
+                <span class="preview-card-badge">Athlete Hardware</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--preview-text-muted); margin-bottom: 14px;">
+                Evaluating typography stance, legibility, and aerodynamic skew on competition hardware.
+              </p>
+
+              <div class="preview-plate-container">
+                <div class="preview-plate">
+                  <div class="preview-plate-num">99</div>
+                  <div class="preview-plate-name">MR99 HAFIZ</div>
+                  <div class="preview-plate-bike">Honda CRF250R</div>
+                </div>
+                <div class="preview-plate">
+                  <div class="preview-plate-num" style="color: var(--preview-secondary);">07</div>
+                  <div class="preview-plate-name">BULBUL #07</div>
+                  <div class="preview-plate-bike">Yamaha YZ250F</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card B: Commercial Academy Package -->
+            <div class="preview-card">
+              <div class="preview-card-header">
+                <span class="preview-card-title">Academy Course Card</span>
+                <span class="preview-card-badge">Conversion UI</span>
+              </div>
+              <div class="preview-package-card">
+                <span class="preview-package-featured-tag">Turnkey Package</span>
+                <h3 style="font-family: var(--preview-font-heading); font-size: 1.25rem; font-weight: 800; text-transform: uppercase;">
+                  Weekend Starter Clinic
+                </h3>
+                <div class="preview-package-price">
+                  ৳15,000 <span style="font-size: 0.9rem; font-weight: 500; color: var(--preview-text-dim);">/ 2 Days Full Access</span>
+                </div>
+                <ul class="preview-feature-list">
+                  <li><span class="preview-check">✓</span> <strong>Fleet 250cc Dirt Bike</strong> + Fuel Included</li>
+                  <li><span class="preview-check">✓</span> <strong>Sanitized Armor</strong> (DOT Helmet, Chest, Boots)</li>
+                  <li><span class="preview-check">✓</span> <strong>1-on-1 Mentor Coach</strong> (Gate Drops &amp; Berms)</li>
+                  <li><span class="preview-check">✓</span> <strong>Paramedic Standby</strong> &amp; Closed Track Gate</li>
+                </ul>
+                <a href="#interactive-sandbox" class="preview-btn preview-btn-primary" style="width: 100%; justify-content: center;">
+                  Lock In Track Spot →
+                </a>
+              </div>
+            </div>
+
+            <!-- Card C: Typography Scale Audit -->
+            <div class="preview-card">
+              <div class="preview-card-header">
+                <span class="preview-card-title">Typography Hierarchy</span>
+                <span class="preview-card-badge">Scale &amp; Legibility</span>
+              </div>
+
+              <div class="type-scale-row">
+                <div class="type-scale-meta">
+                  <span>DISPLAY STACK (LAP TIMES &amp; HERO)</span>
+                  <span id="meta-display-font">Oswald 700</span>
+                </div>
+                <div style="font-family: var(--preview-font-display); font-size: 2.2rem; font-weight: 800; line-height: 1; text-transform: uppercase;">
+                  01:42.85 CHITTAGONG HOLESHOT
+                </div>
+              </div>
+
+              <div class="type-scale-row">
+                <div class="type-scale-meta">
+                  <span>HEADING STACK (SECTION TITLES)</span>
+                  <span id="meta-heading-font">Space Grotesk 700</span>
+                </div>
+                <div style="font-family: var(--preview-font-heading); font-size: 1.25rem; font-weight: 700; text-transform: uppercase;">
+                  Sanctioned Dirt Track Development
+                </div>
+              </div>
+
+              <div class="type-scale-row" style="border: none; margin: 0; padding: 0;">
+                <div class="type-scale-meta">
+                  <span>BODY STACK (EDITORIAL &amp; SPECS)</span>
+                  <span id="meta-body-font">Inter Regular</span>
+                </div>
+                <p style="font-size: 0.9rem; line-height: 1.6; color: var(--preview-text-muted);">
+                  Trainees progress through throttle governing, posture balance, and obstacle berm control. Our Chittagong dirt facility ensures strict adherence to FIM safety regulations.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 3. Active Palette Swatches -->
+          <div style="margin-top: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+              <h3 style="font-family: var(--preview-font-heading); font-size: 1.1rem; text-transform: uppercase; color: var(--preview-text-main);">
+                Active Swatch Matrix (Click Hex to Copy)
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--preview-text-dim);">Meeting WCAG AAA / AA Contrast Standards</span>
+            </div>
+
+            <div class="sandbox-color-matrix" id="swatch-matrix-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. Strategic Comparison Matrix -->
+    <section>
+      <div class="section-title-wrap">
+        <div>
+          <span class="section-num">04 / The Decision Matrix</span>
+          <h2 class="section-heading">Objective Scorecard: Baseline vs. Pivots</h2>
+          <p class="section-desc">Comparing brand performance against real-world user research criteria.</p>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Evaluation Vector</th>
+              <th>Current Baseline</th>
+              <th>01: Raw Terra</th>
+              <th>02: Factory Works</th>
+              <th>03: Kinetic Nitro</th>
+              <th>04: Club Moto (NorCal)</th>
+              <th>05: Swiss MX Academy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dirt &amp; Loam Authenticity</strong></td>
+              <td><span class="score-badge score-poor">Poor (1/5)</span> Dark slate</td>
+              <td><span class="score-badge score-excellent">Exceptional (5/5)</span> Chittagong clay</td>
+              <td><span class="score-badge score-fair">Good (3.5/5)</span> Factory asphalt</td>
+              <td><span class="score-badge score-fair">Fair (3/5)</span> Night supercross</td>
+              <td><span class="score-badge score-excellent">Exceptional (5/5)</span> US outdoor track</td>
+              <td><span class="score-badge score-excellent">High (4.5/5)</span> European Alpine soil</td>
+            </tr>
+            <tr>
+              <td><strong>Rider &amp; Athlete Adrenaline</strong></td>
+              <td><span class="score-badge score-poor">Poor (2/5)</span> SaaS vibe</td>
+              <td><span class="score-badge score-excellent">Superior (4.5/5)</span> Enduro grit</td>
+              <td><span class="score-badge score-excellent">Superior (5/5)</span> HRC racecraft</td>
+              <td><span class="score-badge score-excellent">Hyper (5/5)</span> Extreme youth</td>
+              <td><span class="score-badge score-excellent">High (4.5/5)</span> Paddock gate drops</td>
+              <td><span class="score-badge score-excellent">High (4.5/5)</span> Honda 4-tier speed</td>
+            </tr>
+            <tr>
+              <td><strong>Guardian &amp; Parental Trust</strong></td>
+              <td><span class="score-badge score-fair">Fair (2.5/5)</span> Discord neon</td>
+              <td><span class="score-badge score-excellent">High (5/5)</span> Earth discipline</td>
+              <td><span class="score-badge score-excellent">High (5/5)</span> Prestige stature</td>
+              <td><span class="score-badge score-fair">Moderate (3/5)</span> Can look aggressive</td>
+              <td><span class="score-badge score-excellent">Exceptional (5/5)</span> "Kids on Track" family focus</td>
+              <td><span class="score-badge score-excellent">Exceptional (5/5)</span> Swiss scientific safety</td>
+            </tr>
+            <tr>
+              <td><strong>Merch &amp; Hardware Scalability</strong></td>
+              <td><span class="score-badge score-poor">Poor (1.5/5)</span> Clashing red/green</td>
+              <td><span class="score-badge score-excellent">Pristine (5/5)</span> Clay &amp; leather</td>
+              <td><span class="score-badge score-excellent">Pristine (5/5)</span> Factory kit</td>
+              <td><span class="score-badge score-excellent">High (4.5/5)</span> Stadium neon</td>
+              <td><span class="score-badge score-excellent">Pristine (5/5)</span> Trackside banners &amp; caps</td>
+              <td><span class="score-badge score-excellent">Pristine (5/5)</span> Alpine jersey colors</td>
+            </tr>
+            <tr>
+              <td><strong>Typography Torque &amp; Weight</strong></td>
+              <td><span class="score-badge score-poor">Weak (1.5/5)</span> Pinched Teko</td>
+              <td><span class="score-badge score-excellent">Solid (5/5)</span> Wide Oswald</td>
+              <td><span class="score-badge score-excellent">Dynamic (4.5/5)</span> Muscular Syne</td>
+              <td><span class="score-badge score-fair">Modern (4/5)</span> Unbounded</td>
+              <td><span class="score-badge score-excellent">Heavy (5/5)</span> Russo One billboard</td>
+              <td><span class="score-badge score-excellent">Precision (4.5/5)</span> Outfit + Space Grotesk</td>
+            </tr>
+            <tr>
+              <td><strong>Color Harmony &amp; Semantics</strong></td>
+              <td><span class="score-badge score-poor">Cluttered (1/5)</span> Alert clash</td>
+              <td><span class="score-badge score-excellent">Harmonious (5/5)</span> Terra + ochre</td>
+              <td><span class="score-badge score-excellent">Surgical (5/5)</span> Redline mono</td>
+              <td><span class="score-badge score-fair">Tight (4/5)</span> Acid volt</td>
+              <td><span class="score-badge score-excellent">Clear (5/5)</span> Sunburst gold + concrete</td>
+              <td><span class="score-badge score-excellent">Harmonious (5/5)</span> Cyan + Honda Red</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05. Recommendation & Next Steps -->
+    <section class="decision-panel">
+      <span class="hero-eyebrow" style="color: #fb923c;">★ Comprehensive Brand Strategy Suite</span>
+      <h2 class="decision-title">Five Authentic Motorsport Showcases</h2>
+      <p class="decision-desc">
+        Click any standalone showcase below to review the full brand identity, design tokens, typography specimens, and UI components in detail.
+      </p>
+
+      <div class="action-cta-group">
+        <a href="brand_pitch_1.html" class="cta-btn cta-btn-primary">
+          01. Raw Terra (Chittagong Dirt) →
+        </a>
+        <a href="brand_pitch_2.html" class="cta-btn cta-btn-outline" style="border-color: #dc2626; color: #f87171;">
+          02. Factory Works (Redline) →
+        </a>
+        <a href="brand_pitch_3.html" class="cta-btn cta-btn-outline" style="border-color: #d4ff00; color: #d4ff00;">
+          03. Kinetic Nitro (Action) →
+        </a>
+        <a href="brand_pitch_4.html" class="cta-btn cta-btn-outline" style="border-color: #f59e0b; color: #fbbf24;">
+          04. Club Moto (NorCal Track) →
+        </a>
+        <a href="brand_pitch_5.html" class="cta-btn cta-btn-outline" style="border-color: #0ea5e9; color: #38bdf8;">
+          05. Swiss MX (Honda Academy) →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Sandbox Controller Script -->
+  <script>
+    const themes = {
+      terra: {
+        name: "Direction 01: Raw Terra & Apex Ochre (Recommended)",
+        bgDeep: "#0b0c0e",
+        bgSurface: "#14161b",
+        bgCard: "#1a1d24",
+        border: "rgba(234, 88, 12, 0.35)",
+        accent: "#ea580c",
+        accentHover: "#f97316",
+        accentGlow: "rgba(234, 88, 12, 0.3)",
+        secondary: "#f59e0b",
+        textMain: "#f8fafc",
+        textMuted: "#cbd5e1",
+        textDim: "#94a3b8",
+        fontDisplay: "'Oswald', sans-serif",
+        fontHeading: "'Space Grotesk', sans-serif",
+        fontBody: "'Inter', sans-serif",
+        radius: "6px",
+        badgeBg: "rgba(234, 88, 12, 0.15)",
+        badgeColor: "#fb923c",
+        headlineHtml: "LEAVE THE STREETS. <br><span class=\"accent-word\">CONQUER THE DIRT.</span>",
+        badgeText: "⚡ Chittagong Red Clay & Loam • High-Vis Caution",
+        metaDisplay: "Oswald 700 (Heavy mechanical track)",
+        metaHeading: "Space Grotesk 700 (Contemporary geometric)",
+        metaBody: "Inter (Neutral, high-legibility)",
+        swatches: [
+          { name: "Pitch Asphalt", hex: "#0B0C0E", role: "Primary Deep Canvas", color: "#94a3b8" },
+          { name: "Carbon Mesh", hex: "#1A1D24", role: "Elevated Card Canvas", color: "#cbd5e1" },
+          { name: "Terracotta Clay", hex: "#EA580C", role: "Primary Brand Adrenaline", color: "#ffffff" },
+          { name: "Apex Ochre", hex: "#F59E0B", role: "Track Markers & Podiums", color: "#000000" },
+          { name: "Chalk Dirt White", hex: "#F8FAFC", role: "Primary Reading Type", color: "#0B0C0E" }
+        ]
+      },
+      factory: {
+        name: "Direction 02: Factory Works Redline",
+        bgDeep: "#08090b",
+        bgSurface: "#121418",
+        bgCard: "#181a20",
+        border: "rgba(220, 38, 38, 0.35)",
+        accent: "#dc2626",
+        accentHover: "#ef4444",
+        accentGlow: "rgba(220, 38, 38, 0.3)",
+        secondary: "#e2e8f0",
+        textMain: "#ffffff",
+        textMuted: "#cbd5e1",
+        textDim: "#94a3b8",
+        fontDisplay: "'Syne', sans-serif",
+        fontHeading: "'Bebas Neue', sans-serif",
+        fontBody: "'Space Grotesk', sans-serif",
+        radius: "4px",
+        badgeBg: "rgba(220, 38, 38, 0.15)",
+        badgeColor: "#f87171",
+        headlineHtml: "FACTORY WORKS. <br><span class=\"accent-word\">CHAMPIONSHIP PRECISION.</span>",
+        badgeText: "🏁 Factory Racing Pedigree • Pure Redline",
+        metaDisplay: "Syne 800 (Dynamic, muscular stance)",
+        metaHeading: "Bebas Neue (Punchy, classic motorsports)",
+        metaBody: "Space Grotesk (Sharp technical engineering)",
+        swatches: [
+          { name: "Paddock Obsidian", hex: "#08090B", role: "Base Canvas", color: "#94a3b8" },
+          { name: "Titanium Slate", hex: "#181A20", role: "Card Canvas", color: "#cbd5e1" },
+          { name: "Factory Redline", hex: "#DC2626", role: "Primary Adrenaline", color: "#ffffff" },
+          { name: "Technical Silver", hex: "#E2E8F0", role: "Engineered Accents", color: "#08090B" },
+          { name: "Pure Grid White", hex: "#FFFFFF", role: "High-Contrast Headlines", color: "#08090B" }
+        ]
+      },
+      nitro: {
+        name: "Direction 03: Kinetic Nitro & Stealth",
+        bgDeep: "#07080a",
+        bgSurface: "#101318",
+        bgCard: "#161b22",
+        border: "rgba(212, 255, 0, 0.35)",
+        accent: "#d4ff00",
+        accentHover: "#e5ff4d",
+        accentGlow: "rgba(212, 255, 0, 0.25)",
+        secondary: "#ffffff",
+        textMain: "#f8fafc",
+        textMuted: "#94a3b8",
+        textDim: "#64748b",
+        fontDisplay: "'Unbounded', sans-serif",
+        fontHeading: "'Space Grotesk', sans-serif",
+        fontBody: "'Plus Jakarta Sans', sans-serif",
+        radius: "12px",
+        badgeBg: "rgba(212, 255, 0, 0.12)",
+        badgeColor: "#d4ff00",
+        headlineHtml: "HIGH-VOLTAGE APEX. <br><span class=\"accent-word\">EXTREME FREERIDE.</span>",
+        badgeText: "⚡ Night Supercross • Acid Volt Kinetic",
+        metaDisplay: "Unbounded 800 (Techno-kinetic, futuristic)",
+        metaHeading: "Space Grotesk 700 (Clean geometric)",
+        metaBody: "Plus Jakarta Sans (Modern ergonomic)",
+        swatches: [
+          { name: "Stealth Void", hex: "#07080A", role: "Night Main Canvas", color: "#94a3b8" },
+          { name: "Matte Basalt", hex: "#161B22", role: "Carbon Card Surface", color: "#cbd5e1" },
+          { name: "Acid Volt Nitro", hex: "#D4FF00", role: "Kinetic Shock Accent", color: "#000000" },
+          { name: "Gunmetal Shadow", hex: "#71717A", role: "Subordinate Hardware", color: "#ffffff" },
+          { name: "Hyper White", hex: "#FFFFFF", role: "Stadium Light Text", color: "#000000" }
+        ]
+      },
+      baseline: {
+        name: "Current Identity in brand.html (The Baseline Flaw)",
+        bgDeep: "#07090c",
+        bgSurface: "#141a23",
+        bgCard: "#18202c",
+        border: "rgba(225, 29, 72, 0.35)",
+        accent: "#e11d48",
+        accentHover: "#ff2b56",
+        accentGlow: "rgba(225, 29, 72, 0.35)",
+        secondary: "#22c55e",
+        textMain: "#f8fafc",
+        textMuted: "#cbd5e1",
+        textDim: "#94a3b8",
+        fontDisplay: "'Teko', impact, sans-serif",
+        fontHeading: "'Barlow Semi Condensed', sans-serif",
+        fontBody: "'Plus Jakarta Sans', sans-serif",
+        radius: "12px",
+        badgeBg: "rgba(225, 29, 72, 0.15)",
+        badgeColor: "#ff2b56",
+        headlineHtml: "RIDE. <span class=\"accent-word\">RACE.</span> ACHIEVE.",
+        badgeText: "⚠️ Current Baseline • Clashing Rose & WhatsApp Neon",
+        metaDisplay: "Teko (Pinched vertical display)",
+        metaHeading: "Barlow Semi Condensed (Transit sign)",
+        metaBody: "Plus Jakarta Sans (Fintech SaaS)",
+        swatches: [
+          { name: "Deep Obsidian", hex: "#07090C", role: "GitHub Slate Dark", color: "#94a3b8" },
+          { name: "Card Surface", hex: "#18202C", role: "Blue-Gray Canvas", color: "#cbd5e1" },
+          { name: "Racing Rose", hex: "#E11D48", role: "Conflicting Primary", color: "#ffffff" },
+          { name: "Track Green", hex: "#22C55E", role: "Conflicting Secondary", color: "#000000" },
+          { name: "Trophy Gold", hex: "#F59E0B", role: "Third Accent", color: "#000000" }
+        ]
+      },
+      moto: {
+        name: "Direction 04: NorCal Facility Model (Club Moto)",
+        bgDeep: "#0c0e12",
+        bgSurface: "#181d26",
+        bgCard: "#1f2532",
+        border: "rgba(245, 158, 11, 0.35)",
+        accent: "#f59e0b",
+        accentHover: "#fbbf24",
+        accentGlow: "rgba(245, 158, 11, 0.3)",
+        secondary: "#ef4444",
+        textMain: "#ffffff",
+        textMuted: "#cbd5e1",
+        textDim: "#94a3b8",
+        fontDisplay: "'Russo One', sans-serif",
+        fontHeading: "'Bebas Neue', sans-serif",
+        fontBody: "'Inter', sans-serif",
+        radius: "6px",
+        badgeBg: "rgba(245, 158, 11, 0.15)",
+        badgeColor: "#fbbf24",
+        headlineHtml: "CHITTAGONG DIRT ARENA &amp; <br><span class=\"accent-word\">MOTO CLUB.</span>",
+        badgeText: "🏁 NorCal Outdoor Track • Practice Schedules &amp; Youth Focus",
+        metaDisplay: "Russo One (Heavy billboard block)",
+        metaHeading: "Bebas Neue (American track schedule condensed)",
+        metaBody: "Inter (High-utility reading clarity)",
+        swatches: [
+          { name: "Dark Asphalt", hex: "#0C0E12", role: "Track Paddock Base", color: "#94a3b8" },
+          { name: "Paddock Concrete", hex: "#1F2532", role: "Card Surface", color: "#cbd5e1" },
+          { name: "Sunburst Gold", hex: "#F59E0B", role: "Primary Energy & Hardware", color: "#000000" },
+          { name: "Caution Red", hex: "#EF4444", role: "Track Hold Marshals", color: "#ffffff" },
+          { name: "High-Beam White", hex: "#FFFFFF", role: "Billboard Type", color: "#000000" }
+        ]
+      },
+      swiss: {
+        name: "Direction 05: Swiss Precision (MX-Academy.eu)",
+        bgDeep: "#0a0d14",
+        bgSurface: "#161e2e",
+        bgCard: "#1c263a",
+        border: "rgba(14, 165, 233, 0.35)",
+        accent: "#0ea5e9",
+        accentHover: "#38bdf8",
+        accentGlow: "rgba(14, 165, 233, 0.3)",
+        secondary: "#e11d2a",
+        textMain: "#ffffff",
+        textMuted: "#94a3b8",
+        textDim: "#64748b",
+        fontDisplay: "'Outfit', sans-serif",
+        fontHeading: "'Space Grotesk', sans-serif",
+        fontBody: "'Inter', sans-serif",
+        radius: "10px",
+        badgeBg: "rgba(14, 165, 233, 0.15)",
+        badgeColor: "#38bdf8",
+        headlineHtml: "SWISS PRECISION &amp; <br><span class=\"accent-word\">HONDA ACADEMY.</span>",
+        badgeText: "🇨🇭 Technique Over Brute Force • 4-Tier Honda Progression",
+        metaDisplay: "Outfit 800 (European scientific coaching)",
+        metaHeading: "Space Grotesk 700 (Telemetry precision)",
+        metaBody: "Inter (Ergonomic clarity)",
+        swatches: [
+          { name: "Alpine Basalt", hex: "#0A0D14", role: "Deep Paddock Mineral", color: "#94a3b8" },
+          { name: "Academy Slate", hex: "#1C263A", role: "Telemetry Modules", color: "#cbd5e1" },
+          { name: "Alpine Cyan", hex: "#0EA5E9", role: "Scientific Indicators", color: "#000000" },
+          { name: "Honda Racing Red", hex: "#E11D2A", role: "Adrenaline & CTAs", color: "#ffffff" },
+          { name: "High-Beam White", hex: "#FFFFFF", role: "Championship Text", color: "#000000" }
+        ]
+      }
+    };
+
+    function switchSandboxTheme(key) {
+      const theme = themes[key];
+      if (!theme) return;
+
+      const root = document.documentElement;
+      root.style.setProperty('--preview-bg-deep', theme.bgDeep);
+      root.style.setProperty('--preview-bg-surface', theme.bgSurface);
+      root.style.setProperty('--preview-bg-card', theme.bgCard);
+      root.style.setProperty('--preview-border', theme.border);
+      root.style.setProperty('--preview-accent', theme.accent);
+      root.style.setProperty('--preview-accent-hover', theme.accentHover);
+      root.style.setProperty('--preview-accent-glow', theme.accentGlow);
+      root.style.setProperty('--preview-secondary', theme.secondary);
+      root.style.setProperty('--preview-text-main', theme.textMain);
+      root.style.setProperty('--preview-text-muted', theme.textMuted);
+      root.style.setProperty('--preview-text-dim', theme.textDim);
+      root.style.setProperty('--preview-font-display', theme.fontDisplay);
+      root.style.setProperty('--preview-font-heading', theme.fontHeading);
+      root.style.setProperty('--preview-font-body', theme.fontBody);
+      root.style.setProperty('--preview-radius', theme.radius);
+      root.style.setProperty('--preview-badge-bg', theme.badgeBg);
+      root.style.setProperty('--preview-badge-color', theme.badgeColor);
+
+      // Update Text Elements
+      document.getElementById('active-theme-name').textContent = theme.name;
+      document.getElementById('preview-headline').innerHTML = theme.headlineHtml;
+      document.getElementById('preview-badge-text').textContent = theme.badgeText;
+      document.getElementById('meta-display-font').textContent = theme.metaDisplay;
+      document.getElementById('meta-heading-font').textContent = theme.metaHeading;
+      document.getElementById('meta-body-font').textContent = theme.metaBody;
+
+      // Update Swatches Container
+      const swatchContainer = document.getElementById('swatch-matrix-container');
+      swatchContainer.innerHTML = '';
+      theme.swatches.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'sandbox-swatch-box';
+        item.innerHTML = `
+          <div class="sandbox-swatch-color" style="background: ${s.hex}; color: ${s.color};">
+            ${s.hex}
+          </div>
+          <div class="sandbox-swatch-info">
+            <div class="sandbox-swatch-name">${s.name}</div>
+            <div class="sandbox-swatch-role">${s.role}</div>
+          </div>
+        `;
+        item.style.cursor = 'pointer';
+        item.title = 'Click to copy HEX';
+        item.onclick = () => {
+          navigator.clipboard.writeText(s.hex);
+          alert(`Copied ${s.hex} to clipboard!`);
+        };
+        swatchContainer.appendChild(item);
+      });
+
+      // Update Toolbar Pill State
+      document.querySelectorAll('.theme-pill-btn').forEach(btn => btn.classList.remove('active', 'baseline'));
+      const activePill = document.getElementById(`pill-${key}`);
+      if (activePill) {
+        activePill.classList.add('active');
+        if (key === 'baseline') activePill.classList.add('baseline');
+      }
+
+      // Update Direction Card Active Highlights
+      document.querySelectorAll('.direction-card').forEach(card => card.classList.remove('active-card'));
+      if (key === 'terra') document.getElementById('dir-card-1')?.classList.add('active-card');
+      if (key === 'factory') document.getElementById('dir-card-2')?.classList.add('active-card');
+      if (key === 'nitro') document.getElementById('dir-card-3')?.classList.add('active-card');
+      if (key === 'moto') document.getElementById('dir-card-4')?.classList.add('active-card');
+      if (key === 'swiss') document.getElementById('dir-card-5')?.classList.add('active-card');
+    }
+
+    // Initialize Default
+    document.addEventListener('DOMContentLoaded', () => {
+      switchSandboxTheme('terra');
+    });
+  </script>
+</body>
+</html>
