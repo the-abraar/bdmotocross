@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
+  initHeroVideo();
   initRaceCountdown();
   initRacerFiltersAndModal();
   initCalendarFilters();
@@ -566,4 +567,132 @@ function initRegistrationForm() {
       document.body.removeChild(a);
     }
   });
+}
+
+/* ==========================================================================
+   8. Hero Video Reel & Interactive Sections
+   ========================================================================== */
+function initHeroVideo() {
+  const video = document.getElementById('hero-reel-video');
+  if (!video) return;
+
+  const btnToggle = document.getElementById('btn-video-toggle');
+  const btnSound = document.getElementById('btn-sound-toggle');
+  const playIcon = document.getElementById('play-state-icon');
+  const soundIcon = document.getElementById('sound-state-icon');
+  const timeDisplay = document.getElementById('video-time-display');
+  const progressFill = document.getElementById('video-progress-fill');
+  const progressTrack = document.getElementById('video-progress-track');
+  const sectionPills = Array.from(document.querySelectorAll('.video-section-pill'));
+
+  function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '00:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  // Play / Pause toggle
+  function togglePlay() {
+    if (video.paused) {
+      video.play().catch(() => {});
+      if (playIcon) playIcon.textContent = '❚❚';
+      if (btnToggle) btnToggle.setAttribute('aria-label', 'Pause video');
+    } else {
+      video.pause();
+      if (playIcon) playIcon.textContent = '▶';
+      if (btnToggle) btnToggle.setAttribute('aria-label', 'Play video');
+    }
+  }
+
+  if (btnToggle) {
+    btnToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      togglePlay();
+    });
+  }
+
+  // Clicking video directly toggles play/pause
+  video.addEventListener('click', togglePlay);
+
+  video.addEventListener('play', () => {
+    if (playIcon) playIcon.textContent = '❚❚';
+    if (btnToggle) btnToggle.setAttribute('aria-label', 'Pause video');
+  });
+
+  video.addEventListener('pause', () => {
+    if (playIcon) playIcon.textContent = '▶';
+    if (btnToggle) btnToggle.setAttribute('aria-label', 'Play video');
+  });
+
+  // Sound toggle
+  if (btnSound) {
+    btnSound.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      if (soundIcon) {
+        soundIcon.textContent = video.muted ? '🔇' : '🔊';
+      }
+      btnSound.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+    });
+  }
+
+  // Progress and section pill synchronization
+  function updateProgress() {
+    const cur = video.currentTime || 0;
+    const dur = video.duration || 42;
+
+    if (timeDisplay) {
+      timeDisplay.textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
+    }
+
+    if (progressFill && dur > 0) {
+      const pct = Math.min(100, Math.max(0, (cur / dur) * 100));
+      progressFill.style.inlineSize = `${pct}%`;
+    }
+
+    // Determine active section pill based on current playback timestamp
+    let activePill = sectionPills[0];
+    for (let i = 0; i < sectionPills.length; i++) {
+      const pillTime = parseFloat(sectionPills[i].getAttribute('data-time') || '0');
+      if (cur >= pillTime) {
+        activePill = sectionPills[i];
+      }
+    }
+
+    sectionPills.forEach(pill => {
+      const isActive = pill === activePill;
+      pill.classList.toggle('active', isActive);
+      pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  video.addEventListener('timeupdate', updateProgress);
+  video.addEventListener('loadedmetadata', updateProgress);
+
+  // Section click navigation
+  sectionPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetTime = parseFloat(pill.getAttribute('data-time') || '0');
+      video.currentTime = targetTime;
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+      updateProgress();
+    });
+  });
+
+  // Progress track click seeking
+  if (progressTrack) {
+    progressTrack.addEventListener('click', (e) => {
+      const rect = progressTrack.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      if (width > 0 && video.duration) {
+        const targetTime = (clickX / width) * video.duration;
+        video.currentTime = targetTime;
+        updateProgress();
+      }
+    });
+  }
 }

@@ -70,17 +70,14 @@
 
   <!-- Hero Section -->
   <header class="hero" id="home">
-    <div class="hero-backdrop">
-      <img src="images/hero-bikes.jpg" 
-           alt="Motocross dirt bikes lined on the dirt circuit in Bangladesh" 
-           class="hero-img" 
-           fetchpriority="high"
-           width="1536" 
-           height="865">
-      <div class="hero-overlay"></div>
+    <div class="hero-ambient-bg" aria-hidden="true">
+      <div class="ambient-glow ambient-glow-red"></div>
+      <div class="ambient-glow ambient-glow-green"></div>
+      <div class="hero-grid-pattern"></div>
     </div>
 
-    <div class="container">
+    <div class="container hero-grid">
+      <!-- Left Column: Mission, Calls to Action, Stats -->
       <div class="hero-content">
         <div class="hero-badge-wrap">
           <div class="hero-badge">
@@ -96,7 +93,7 @@
         </h1>
 
         <p class="hero-lead">
-          Bangladesh Motocross Club & Academy is the premier racing institution dedicated to professional dirt bike competition, athlete conditioning, certified track safety, and grassroots motorsports culture across Bangladesh.
+          Bangladesh Motocross Club &amp; Academy is the premier racing institution dedicated to professional dirt bike competition, athlete conditioning, certified track safety, and grassroots motorsports culture across Bangladesh.
         </p>
 
         <!-- Unambiguous Conversion Actions -->
@@ -122,6 +119,101 @@
           <div class="stat-item">
             <span class="stat-number">DOT / ECE</span>
             <span class="stat-label">Certified Gear Protocol</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Official YouTube Video Showcase with Interactive Sections -->
+      <div class="hero-video-showcase" aria-label="Official BMCA Track Reel">
+        <div class="hero-video-card">
+          <!-- Card Header HUD -->
+          <div class="video-card-header">
+            <div class="video-live-tag">
+              <span class="live-rec-dot"></span>
+              <span>TRACK REEL</span>
+            </div>
+            <div class="video-meta-badge">Lal Mai Trial 2025</div>
+          </div>
+
+          <!-- Video Player Box -->
+          <div class="video-player-container">
+            <video id="hero-reel-video" 
+                   playsinline 
+                   autoplay 
+                   muted 
+                   loop 
+                   preload="auto" 
+                   poster="images/video-poster.jpg"
+                   title="Dirt Race in Lal Mai, Cumilla Bangladesh - Furious Track Trial 2025">
+              <source src="images/bmca_short.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Video HUD Quick Controls -->
+            <div class="video-overlay-hud">
+              <div class="video-time-chip" id="video-time-display">00:00 / 00:42</div>
+              <div class="video-actions-quick">
+                <button type="button" class="video-hud-btn" id="btn-video-toggle" aria-label="Pause or play video">
+                  <span class="icon-play-state" id="play-state-icon">❚❚</span>
+                </button>
+                <button type="button" class="video-hud-btn" id="btn-sound-toggle" aria-label="Toggle sound">
+                  <span id="sound-state-icon">🔇</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Video Progress Bar -->
+            <div class="video-progress-track" id="video-progress-track">
+              <div class="video-progress-fill" id="video-progress-fill"></div>
+            </div>
+          </div>
+
+          <!-- Interactive Video Sections / Chapters Navigation -->
+          <div class="video-sections-wrapper">
+            <div class="sections-header">
+              <span class="sections-title">REEL SECTIONS</span>
+              <span class="sections-hint">Click section to jump</span>
+            </div>
+            <div class="video-sections-list" role="tablist" aria-label="Track video sections">
+              <button type="button" class="video-section-pill active" data-time="0" role="tab" aria-selected="true">
+                <span class="pill-time">0:00</span>
+                <span class="pill-title">Staging &amp; Launch</span>
+              </button>
+              <button type="button" class="video-section-pill" data-time="7" role="tab" aria-selected="false">
+                <span class="pill-time">0:07</span>
+                <span class="pill-title">Lal Mai Dirt Circuit</span>
+              </button>
+              <button type="button" class="video-section-pill" data-time="15" role="tab" aria-selected="false">
+                <span class="pill-time">0:15</span>
+                <span class="pill-title">Furious Berm Cornering</span>
+              </button>
+              <button type="button" class="video-section-pill" data-time="24" role="tab" aria-selected="false">
+                <span class="pill-time">0:24</span>
+                <span class="pill-title">High-Speed Dirt Run</span>
+              </button>
+              <button type="button" class="video-section-pill" data-time="34" role="tab" aria-selected="false">
+                <span class="pill-time">0:34</span>
+                <span class="pill-title">Paddock Sprint &amp; Finish</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Footer Channel & External Link -->
+          <div class="video-card-footer">
+            <span class="yt-badge">
+              <svg width="18" height="14" viewBox="0 0 24 17" fill="none" aria-hidden="true">
+                <path d="M23.498 2.628a3.014 3.014 0 0 0-2.122-2.136C19.505 0 12 0 12 0S4.495 0 2.624.492A3.014 3.014 0 0 0 .502 2.628C0 4.514 0 8.444 0 8.444s0 3.93.502 5.816a3.014 3.014 0 0 0 2.122 2.136C4.495 16.888 12 16.888 12 16.888s7.505 0 9.376-.492a3.014 3.014 0 0 0 2.122-2.136C24 12.374 24 8.444 24 8.444s0-3.93-.502-5.816z" fill="#FF0000"/>
+                <polygon points="9.6 12.064 15.84 8.444 9.6 4.824 9.6 12.064" fill="#FFFFFF"/>
+              </svg>
+              <span>@BangladeshmotocrossclubAcademy</span>
+            </span>
+            <a href="https://www.youtube.com/shorts/JQxYo2zIMqw" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="yt-direct-link"
+               title="Watch on official YouTube channel (opens in new tab)">
+              Open on YouTube ↗
+            </a>
           </div>
         </div>
       </div>

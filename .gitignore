@@ -13,3 +13,12 @@ Thumbs.db
 builder/
 
 .agents/mcp_config.json
+
+# Scratch & Scraper caches
+fb_downloads/
+fb_media/
+extract_media.py
+fb_page.html
+parse_fb.py
+extracted_fb_data.txt
+*.tmp
