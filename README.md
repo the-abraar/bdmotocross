@@ -46,8 +46,7 @@ The official web platform for **Bangladesh Motocross Club & Academy (BMCA)**. BM
 │   ├── racers/               # Individual standalone racer profiles
 │   │   ├── mahabubur-rahman-hafiz.html
 │   │   ├── sharif-on-track.html
-│   │   ├── sultan-sheikh.html
-│   │   └── baundal-bulbul.html
+│   │   └── sultan-sheikh.html
 │   ├── mentors/              # Mentor accreditation and coaching bio
 │   │   └── salauddin-ahmed-bulbul.html
 │   ├── gallery.html          # Dedicated full-page media gallery

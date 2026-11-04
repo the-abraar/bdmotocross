@@ -26,8 +26,8 @@
   --yellow-glow: rgba(245, 158, 11, 0.35);
 
   --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --text-muted: #cbd5e1;
+  --text-dim: #94a3b8;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-card: rgba(255, 255, 255, 0.12);
@@ -91,6 +91,15 @@ a {
 button, input, select, textarea {
   font: inherit;
   color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--red-bright);
+  outline-offset: 3px;
 }
 
 /* Common Layout Elements */
@@ -612,6 +621,26 @@ button, input, select, textarea {
   gap: 8px;
 }
 
+.race-alert-action {
+  display: flex;
+  align-items: center;
+}
+
+.alert-entry-btn {
+  background: var(--red-racing);
+  color: #fff;
+  border-color: var(--red-racing);
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 16px var(--red-glow);
+}
+
+.alert-entry-btn:hover {
+  background: var(--red-bright);
+  transform: translateY(-2px);
+}
+
 .timer-block {
   display: flex;
   flex-direction: column;
@@ -1077,14 +1106,117 @@ button, input, select, textarea {
   color: #cbd5e1;
 }
 
+.racer-machine-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--yellow-trophy);
+  margin-block-end: 12px;
+}
+
 .racer-card-actions {
   margin-block-start: auto;
   display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
 .racer-card-actions .btn {
-  flex: 1;
+  inline-size: 100%;
+}
+
+.racer-permalink {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-block: 2px;
+  transition: color var(--transition-fast);
+}
+
+.racer-permalink:hover {
+  color: var(--red-bright);
+}
+
+/* ==========================================================================
+   Academy Logistics Matrix (Prerequisites)
+   ========================================================================== */
+.logistics-section {
+  margin-block-end: 56px;
+}
+
+.logistics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.logistics-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  border-block-start: 3px solid var(--green-track);
+}
+
+.logistics-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-track);
+  background-color: var(--bg-card-hover);
+}
+
+.logistics-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 12px;
+}
+
+.logistics-icon {
+  inline-size: 38px;
+  block-size: 38px;
+  min-inline-size: 38px;
+  background-color: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+}
+
+.logistics-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.logistics-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.logistics-highlight {
+  display: block;
+  font-weight: 700;
+  color: #fff;
+  margin-block-end: 4px;
 }
 
 /* ==========================================================================
@@ -1944,6 +2076,10 @@ button, input, select, textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .logistics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1958,9 +2094,15 @@ button, input, select, textarea {
 }
 
 @media (max-width: 820px) {
-  .nav-links,
-  .nav-actions .btn {
+  .nav-links {
     display: none;
+  }
+
+  .nav-actions .btn {
+    display: inline-flex;
+    font-size: 0.8rem;
+    padding-inline: 14px;
+    padding-block: 8px;
   }
 
   .nav-toggle {
@@ -1979,6 +2121,13 @@ button, input, select, textarea {
     padding: 24px;
     border-block-end: 1px solid var(--border-card);
     gap: 16px;
+  }
+
+  .nav-mobile-cta {
+    display: block;
+    inline-size: 100%;
+    margin-block-start: 10px;
+    text-align: center;
   }
 
   .hero-stats {
@@ -2037,6 +2186,7 @@ button, input, select, textarea {
 @media (max-width: 580px) {
   .racers-grid,
   .pillars-grid,
+  .logistics-grid,
   .gallery-grid {
     grid-template-columns: 1fr;
   }

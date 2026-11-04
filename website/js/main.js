@@ -1,6 +1,6 @@
 /**
  * Bangladesh Motocross Club & Academy (BMCA)
- * Main Interactive Engine
+ * Main Interactive Engine - Production Version
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalendarFilters();
   initGalleryAndLightbox();
   initRegistrationForm();
+  initAlertBarAction();
 });
 
 /* ==========================================================================
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initNavigation() {
   const nav = document.querySelector('.site-nav');
   const toggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link, .nav-mobile-cta a');
   const sections = document.querySelectorAll('section[id], header[id]');
 
   // Scroll effect
@@ -39,7 +40,7 @@ function initNavigation() {
       nav.classList.toggle('mobile-active');
     });
 
-    // Close menu when clicking outside or on a link
+    // Close menu when clicking on a link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('mobile-active');
@@ -56,7 +57,7 @@ function initNavigation() {
       const height = section.offsetHeight;
       const id = section.getAttribute('id');
       if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${id}`) {
             link.classList.add('active');
@@ -68,7 +69,7 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   2. Next Race Countdown Timer
+   2. Next Race Countdown Timer & Alert Bar Action
    ========================================================================== */
 function initRaceCountdown() {
   // Target: Next official event (15 November 2026, 09:00 AM BD Time)
@@ -110,41 +111,53 @@ function initRaceCountdown() {
   setInterval(updateTimer, 1000);
 }
 
+function initAlertBarAction() {
+  const alertBtn = document.querySelector('.alert-entry-btn');
+  if (!alertBtn) return;
+
+  alertBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    triggerEventRegistration('Feni Track Trial (15 Nov 2026)');
+  });
+}
+
 /* ==========================================================================
-   3. Racer Roster Filtering & Interactive Profile Modal
+   3. Racer Roster Filtering & Interactive Profile Modal (Focus-Trapped)
    ========================================================================== */
 const racerProfiles = {
   mr99: {
     number: 'MR99',
     name: 'Md. Mahabubur Rahman Hafiz',
-    role: 'Director & Champion Racer',
-    category: 'Pro Track Champion',
+    role: 'Club Director & Champion Racer',
+    category: 'Pro Track 250cc Champion',
+    machine: 'Honda CRF250R (4-Stroke DOHC)',
     location: 'Chittagong, Bangladesh',
     photo: 'images/race-start.jpg',
     sponsor: 'DCS (Official Sponsor)',
     service: 'Moto Freak Lab (Service Partner)',
     bio: 'Md. Mahabubur Rahman Hafiz (MR99) is the Director of Bangladesh Motocross Club & Academy and an acclaimed pioneer of competitive motocross in Bangladesh. Leading from Chittagong, he spearheads rider training, national championship participation, and youth motorsport development.',
     achievements: [
-      { title: 'Champion of the Curves 2025', detail: 'Category: Pro Track — Champion 🏆' },
-      { title: 'Chittagong Hill Track Trial 2025', detail: 'Category: Pro Track — 1st Runner-Up 🥈' },
-      { title: 'Furious Track Trial 2025', detail: 'Category: Pro Track — 2nd Runner-Up 🥉' },
+      { title: 'Champion of the Curves 2025', detail: 'Category: Pro Track — Champion' },
+      { title: 'Chittagong Hill Track Trial 2025', detail: 'Category: Pro Track — 1st Runner-Up' },
+      { title: 'Furious Track Trial 2025', detail: 'Category: Pro Track — 2nd Runner-Up' },
       { title: 'Moto Madness 2025', detail: 'Category: Pro Track — 4th Runner-Up' }
     ]
   },
   bulbul: {
     number: '#07',
     name: 'Salauddin Ahmed Bulbul (Baundal Bulbul)',
-    role: 'Official Mentor & Pro Category Racer',
-    category: 'Pro Category Racer / Official Academy Mentor',
+    role: 'Official Academy Mentor & Pro Racer',
+    category: 'Pro Track & Enduro 250cc',
+    machine: 'Yamaha YZ250F (4-Stroke DOHC)',
     location: 'Narsingdi, Bangladesh',
     photo: 'images/baundal-bulbul.jpg',
     sponsor: 'DCS / TWM Certified',
     service: 'Moto Freak Lab',
-    bio: 'Salauddin Ahmed Bulbul is the Official Mentor of Bangladesh Motocross Club & Academy, appointed for official rider instruction. He completed an intensive 6-Month Enduro and Motocross training program at the TWM Academy of Moto Adventure in Kolkata, India. He also competes actively in premier off-road events across Bangladesh and India.',
+    bio: 'Salauddin Ahmed Bulbul is the Official Mentor of Bangladesh Motocross Club & Academy, appointed for official rider instruction. He completed an intensive 6-Month Enduro and Motocross training program at the TWM Academy of Moto Adventure in Kolkata, India. He actively competes in premier off-road events across Bangladesh and South Asia.',
     achievements: [
       { title: 'TWM Academy of Moto Adventure (Kolkata, India)', detail: '6-Month Enduro & Motocross Certified Training' },
-      { title: 'Moto Madness 2025 — Season 2', detail: 'Pro Track — 2nd Runner-Up 🥉' },
-      { title: 'Furious Track Trial 2024 — Season 1 & 2', detail: '1st Runner-Up in both Season 1 and Season 2 🥈' },
+      { title: 'Moto Madness 2025 — Season 2', detail: 'Pro Track — 2nd Runner-Up' },
+      { title: 'Furious Track Trial 2024 — Season 1 & 2', detail: '1st Runner-Up in both Season 1 and Season 2' },
       { title: 'SR Dirt Fest 2024 (Singur, West Bengal, India)', detail: 'International Race — 4th Runner-Up' }
     ]
   },
@@ -152,33 +165,38 @@ const racerProfiles = {
     number: '#05',
     name: 'Sharif ON Track',
     role: 'Official Pro Racer',
-    category: 'Pro Track Racer',
+    category: 'Pro Track 250cc',
+    machine: 'Suzuki RM-Z250 (4-Stroke Fuel Injected)',
     location: 'Chittagong, Bangladesh',
     photo: 'images/sharif-on-track.jpg',
     sponsor: 'DCS / BMCA Racing Team',
     service: 'Moto Freak Lab',
-    bio: 'Sharif ON Track (Racing Code: 05) is a high-speed off-road and circuit competitor representing Chittagong and Bangladesh Motocross Club & Academy. Known for his fearless throttle discipline and technical control in treacherous mud and dirt conditions.',
+    bio: 'Sharif ON Track (Racing Code: 05) is a high-speed circuit and off-road competitor representing Chittagong and Bangladesh Motocross Club & Academy. Known for fearless throttle discipline and technical control in treacherous mud and clay conditions.',
     achievements: [
-      { title: 'Suzuki Off-Road Championship 2026', detail: 'Pro Category — 2nd Runner-Up 🥉' },
-      { title: 'FBR Mega Get Together CampFest 2025', detail: 'Off-Road Racing — 1st Runner-Up 🥈 (Organizer: Feni Bike Riders)' }
+      { title: 'Suzuki Off-Road Championship 2026', detail: 'Pro Category — 2nd Runner-Up' },
+      { title: 'FBR Mega Get Together CampFest 2025', detail: 'Off-Road Racing — 1st Runner-Up (Organizer: Feni Bike Riders)' }
     ]
   },
   sultan: {
     number: '#77',
     name: 'Sultan Sheikh',
     role: 'Official Pro Racer',
-    category: 'Pro Category Racer',
+    category: 'Pro Open Category (250cc–450cc)',
+    machine: 'KTM 250 SX-F (4-Stroke DOHC)',
     location: 'Bangladesh',
     photo: 'images/sultan-sheikh.jpg',
     sponsor: 'DCS / BMCA Racing Team',
     service: 'Moto Freak Lab',
     bio: 'Sultan Sheikh (Racing Number #77) is an elite competitor for Bangladesh Motocross Club & Academy. With exceptional agility on technical hill climbs and high-speed tracks, he has clinched top podium positions in major national motocross tournaments.',
     achievements: [
-      { title: 'Moto Madness 2025 — Season 2', detail: 'Pro Track — 1st Runner-Up 🥈' },
-      { title: 'Chattogram Hill Track Champion 2025', detail: 'Pro Category — 2nd Runner-Up 🥉' }
+      { title: 'Moto Madness 2025 — Season 2', detail: 'Pro Track — 1st Runner-Up' },
+      { title: 'Chattogram Hill Track Champion 2025', detail: 'Pro Category — 2nd Runner-Up' }
     ]
   }
 };
+
+let lastActiveTrigger = null;
+let removeFocusTrap = null;
 
 function initRacerFiltersAndModal() {
   const filterBtns = document.querySelectorAll('.roster-filter-bar .filter-btn');
@@ -205,10 +223,12 @@ function initRacerFiltersAndModal() {
     });
   });
 
-  // Open Modal
+  // Open Modal with Focus Trapping
   document.querySelectorAll('[data-racer-id]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      lastActiveTrigger = btn;
+
       const id = btn.getAttribute('data-racer-id');
       const data = racerProfiles[id];
       if (!data || !modal) return;
@@ -216,6 +236,7 @@ function initRacerFiltersAndModal() {
       document.getElementById('modal-racer-num').textContent = data.number;
       document.getElementById('modal-racer-name').textContent = data.name;
       document.getElementById('modal-racer-role').textContent = data.role;
+      document.getElementById('modal-racer-machine').textContent = data.machine;
       document.getElementById('modal-racer-location').textContent = data.location;
       document.getElementById('modal-racer-sponsor').textContent = data.sponsor;
       document.getElementById('modal-racer-bio').textContent = data.bio;
@@ -229,12 +250,16 @@ function initRacerFiltersAndModal() {
       data.achievements.forEach(ach => {
         const div = document.createElement('div');
         div.className = 'achievement-item';
-        div.innerHTML = `<strong>🏆 ${ach.title}</strong><span>${ach.detail}</span>`;
+        div.innerHTML = `<strong>${ach.title}</strong><span>${ach.detail}</span>`;
         listEl.appendChild(div);
       });
 
       modal.classList.add('active');
       document.body.classList.add('modal-open');
+
+      // Trap focus
+      if (removeFocusTrap) removeFocusTrap();
+      removeFocusTrap = setupFocusTrap(modal, closeModal);
     });
   });
 
@@ -243,6 +268,14 @@ function initRacerFiltersAndModal() {
     if (modal) {
       modal.classList.remove('active');
       document.body.classList.remove('modal-open');
+      if (removeFocusTrap) {
+        removeFocusTrap();
+        removeFocusTrap = null;
+      }
+      if (lastActiveTrigger) {
+        lastActiveTrigger.focus();
+        lastActiveTrigger = null;
+      }
     }
   }
 
@@ -255,10 +288,43 @@ function initRacerFiltersAndModal() {
       if (e.target === modal) closeModal();
     });
   }
+}
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+/* Focus Trap Helper */
+function setupFocusTrap(containerEl, closeFn) {
+  const focusable = containerEl.querySelectorAll(
+    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  );
+  if (!focusable.length) return () => {};
+
+  const firstEl = focusable[0];
+  const lastEl = focusable[focusable.length - 1];
+
+  firstEl.focus();
+
+  function keyHandler(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeFn();
+      return;
+    }
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+  }
+
+  containerEl.addEventListener('keydown', keyHandler);
+  return () => containerEl.removeEventListener('keydown', keyHandler);
 }
 
 /* ==========================================================================
@@ -290,30 +356,43 @@ function initCalendarFilters() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const eventName = btn.getAttribute('data-event-name');
-      const programSelect = document.getElementById('form-program');
-      const commentsInput = document.getElementById('form-message');
-
-      if (programSelect) {
-        programSelect.value = 'race_event';
-      }
-      if (commentsInput) {
-        commentsInput.value = `Inquiry regarding participation in: ${eventName}`;
-      }
-
-      // Smooth scroll to contact
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-          if (commentsInput) commentsInput.focus();
-        }, 600);
-      }
+      triggerEventRegistration(eventName);
     });
   });
 }
 
+function triggerEventRegistration(eventName) {
+  const programSelect = document.getElementById('form-program');
+  const commentsInput = document.getElementById('form-message');
+  const formTitle = document.getElementById('form-card-title');
+  const formSubtitle = document.getElementById('form-card-subtitle');
+
+  if (formTitle) {
+    formTitle.textContent = 'Racer Entry Application';
+  }
+  if (formSubtitle) {
+    formSubtitle.textContent = `Official entry submission for: ${eventName}`;
+  }
+  if (programSelect) {
+    programSelect.value = 'race_event';
+  }
+  if (commentsInput) {
+    commentsInput.value = `Official Entry Request for: ${eventName}`;
+  }
+
+  // Smooth scroll to contact
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const nameInput = document.getElementById('form-name');
+      if (nameInput) nameInput.focus();
+    }, 600);
+  }
+}
+
 /* ==========================================================================
-   5. Racing Gallery & Lightbox
+   5. Racing Gallery & Lightbox (Accessible & Focus-Trapped)
    ========================================================================== */
 function initGalleryAndLightbox() {
   const filterBtns = document.querySelectorAll('.gallery-filter-bar .filter-btn');
@@ -327,6 +406,8 @@ function initGalleryAndLightbox() {
 
   let activeList = [];
   let currentIndex = 0;
+  let galleryLastTrigger = null;
+  let galleryFocusTrap = null;
 
   // Filter gallery
   filterBtns.forEach(btn => {
@@ -346,13 +427,13 @@ function initGalleryAndLightbox() {
     });
   });
 
-  // Open Lightbox
   function updateActiveList() {
     activeList = Array.from(items).filter(item => item.style.display !== 'none');
   }
 
   items.forEach(item => {
     item.addEventListener('click', () => {
+      galleryLastTrigger = item;
       updateActiveList();
       currentIndex = activeList.indexOf(item);
       showLightbox(currentIndex);
@@ -377,6 +458,9 @@ function initGalleryAndLightbox() {
     if (lightbox) {
       lightbox.classList.add('active');
       document.body.classList.add('modal-open');
+
+      if (galleryFocusTrap) galleryFocusTrap();
+      galleryFocusTrap = setupFocusTrap(lightbox, closeLightbox);
     }
   }
 
@@ -384,6 +468,14 @@ function initGalleryAndLightbox() {
     if (lightbox) {
       lightbox.classList.remove('active');
       document.body.classList.remove('modal-open');
+      if (galleryFocusTrap) {
+        galleryFocusTrap();
+        galleryFocusTrap = null;
+      }
+      if (galleryLastTrigger) {
+        galleryLastTrigger.focus();
+        galleryLastTrigger = null;
+      }
     }
   }
 
@@ -409,14 +501,13 @@ function initGalleryAndLightbox() {
 
   window.addEventListener('keydown', (e) => {
     if (!lightbox || !lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
     if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
   });
 }
 
 /* ==========================================================================
-   6. Academy Registration & Contact Form
+   6. Academy Registration & Contact Form (Synchronous Mobile Dispatch)
    ========================================================================== */
 function initRegistrationForm() {
   const form = document.getElementById('academy-form');
@@ -444,30 +535,25 @@ function initRegistrationForm() {
 
     // Build WhatsApp Message Payload
     const text = encodeURIComponent(
-      `🏍️ *BMCA Official Inquiry / Registration*\n` +
+      `*BMCA Official Inquiry / Registration*\n` +
       `------------------------------------\n` +
-      `👤 *Name:* ${name}\n` +
-      `📞 *Phone / WhatsApp:* ${phone}\n` +
-      `📍 *City:* ${city || 'Chittagong'}\n` +
-      `🎯 *Program / Subject:* ${program}\n` +
-      `🏁 *Riding Experience:* ${experience}\n` +
-      `💬 *Message:* ${message || 'I would like to join Bangladesh Motocross Club & Academy.'}`
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*City:* ${city || 'Chittagong'}\n` +
+      `*Subject / Program:* ${program}\n` +
+      `*Experience Level:* ${experience}\n` +
+      `*Message:* ${message || 'I would like to connect with Bangladesh Motocross Club & Academy.'}`
     );
 
     const waUrl = `https://wa.me/8801975376114?text=${text}`;
 
     if (statusEl) {
-      statusEl.textContent = 'Redirecting to BMCA WhatsApp...';
+      statusEl.textContent = 'Opening WhatsApp...';
       statusEl.className = 'form-status success';
     }
 
-    // Open WhatsApp in new tab
-    setTimeout(() => {
-      window.open(waUrl, '_blank');
-      form.reset();
-      if (statusEl) {
-        statusEl.textContent = 'Thank you! Your message was prepared on WhatsApp.';
-      }
-    }, 600);
+    // Direct synchronous dispatch prevents mobile browser popup blocking
+    // Note: Form values are preserved so user doesn't lose inputs if they return
+    window.location.href = waUrl;
   });
 }
