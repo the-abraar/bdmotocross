@@ -1,0 +1,14 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs & Local Config
+*.log
+*.local
+
+# Internal tools & secrets
+.agentsroom/
+.claude/
+.mcp.json
+builder/
+
