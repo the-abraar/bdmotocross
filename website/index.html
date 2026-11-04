@@ -114,7 +114,7 @@
   <header class="hero" id="home">
     <div class="hero-ambient-bg" aria-hidden="true">
       <div class="ambient-glow ambient-glow-red"></div>
-      <div class="ambient-glow ambient-glow-green"></div>
+      <div class="ambient-glow ambient-glow-silver"></div>
       <div class="hero-grid-pattern"></div>
     </div>
 
@@ -131,7 +131,7 @@
 
         <h1 class="hero-title">
           Ride. <span class="text-red">Race.</span><br>
-          <span class="text-green">Achieve.</span>
+          <span class="text-crimson">Achieve.</span>
         </h1>
 
         <p class="hero-lead">
@@ -155,7 +155,7 @@
             <span class="stat-label">Pro Racers &amp; Mentors</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number accent-green">4-Stage</span>
+            <span class="stat-number accent-red">4-Stage</span>
             <span class="stat-label">Curriculum Track</span>
           </div>
           <div class="stat-item">
@@ -250,7 +250,7 @@
               <span>@BangladeshmotocrossclubAcademy</span>
             </span>
             <div style="display: flex; gap: 12px; align-items: center;">
-              <a href="gallery.html" class="yt-direct-link" title="Watch full Srimongol Sylhet trail video in Gallery" style="color: var(--green-track);">
+              <a href="gallery.html" class="yt-direct-link" title="Watch full Srimongol Sylhet trail video in Gallery" style="color: var(--red-bright); font-weight: 700;">
                 Sylhet Trail Reel ↗
               </a>
               <a href="https://www.youtube.com/shorts/JQxYo2zIMqw" 
@@ -563,7 +563,7 @@
         <!-- Dedicated Academy Prerequisites & Logistics Matrix -->
         <div class="logistics-section">
           <div class="section-header" style="margin-block-end: 28px;">
-            <span class="eyebrow eyebrow-green">Academy Prerequisites &amp; Fleet Logistics</span>
+            <span class="eyebrow">Academy Prerequisites &amp; Fleet Logistics</span>
             <h3 style="font-family: var(--font-heading); font-size: 1.85rem; text-transform: uppercase;">Essential Information Before Enrolling</h3>
             <p style="font-size: 0.95rem; color: var(--text-muted);">Practical guidelines answering key questions on motorcycle availability, armor requirements, age tiers, and track conditions.</p>
           </div>
@@ -618,7 +618,7 @@
         <!-- Academy Admissions Packages (3 Clear Packages) -->
         <div class="packages-section" id="packages">
           <div class="section-header" style="margin-block-end: 28px;">
-            <span class="eyebrow eyebrow-green">Academy Enrollment Tiers</span>
+            <span class="eyebrow">Academy Enrollment Tiers</span>
             <h3 class="section-title" style="font-size: 2rem;">Choose Your Training Pathway</h3>
             <p class="section-desc">Transparent coaching options whether you need an academy-supplied motorcycle and armor, or want to develop on your personal machine.</p>
           </div>
@@ -641,7 +641,7 @@
               <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" 
                  target="_blank" 
                  rel="noopener noreferrer" 
-                 class="btn btn-green btn-full">
+                 class="btn btn-primary btn-full">
                 Book Starter Clinic →
               </a>
             </div>
@@ -756,13 +756,13 @@
         <!-- 4-Stage Progressive Curriculum -->
         <div class="academy-grid">
           <div class="academy-overview">
-            <span class="eyebrow eyebrow-green">Skill Progression</span>
+            <span class="eyebrow">Skill Progression</span>
             <h2 class="section-title">Train With Purpose &amp; Precision</h2>
             <p>
               Under the direct oversight of certified mentor Salauddin Ahmed Bulbul (trained at Kolkata's TWM Academy), our curriculum progresses riders from fundamental clutch control to high-speed racecraft.
             </p>
             <div class="hero-actions">
-              <a href="#contact" class="btn btn-green">Enroll in Academy</a>
+              <a href="#contact" class="btn btn-primary">Enroll in Academy</a>
               <a href="tel:+8801975376114" class="btn btn-outline">Call Academy Coach</a>
             </div>
           </div>
@@ -824,6 +824,37 @@
         </div>
 
         <div class="calendar-wrapper">
+
+          <!-- Impending Fixture Jumping Spotlight Banner -->
+          <div class="calendar-spotlight-card">
+            <div class="spotlight-top">
+              <div class="spotlight-pill">
+                <span class="jump-icon">🔥</span>
+                <span>NEXT OFFICIAL RACE GATE DROP</span>
+              </div>
+              <span class="spotlight-circuit-tag">📍 Feni Off-Road Arena • 15 November 2026</span>
+            </div>
+            <div class="spotlight-body">
+              <div class="spotlight-main">
+                <h3 class="spotlight-title">Feni Track Trial (Grand Season Opener)</h3>
+                <p class="spotlight-desc">
+                  20-Gate electronic release • Hardpack Red Clay &amp; Sand-Loam Circuit • Pro Track (250cc–450cc) &amp; Novice (150cc) Heats • Electronic Transponder Timing
+                </p>
+              </div>
+              <div class="spotlight-actions">
+                <button class="btn btn-primary event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">
+                  Register Competitor Entry →
+                </button>
+                <a href="https://wa.me/8801975376114?text=Hello%20BMCA%20Team,%20I%20want%20to%20inquire%20about%20the%20Feni%20Track%20Trial%20on%2015%20Nov%202026" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-secondary">
+                  WhatsApp Paddock Desk ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div class="calendar-filter">
             <div class="calendar-tabs">
               <button class="calendar-tab active" data-year="all">All Fixtures</button>
@@ -837,9 +868,10 @@
 
           <div class="events-table">
 
-            <!-- Event 1 -->
-            <div class="event-row" data-year="2026">
+            <!-- Event 1 (Featured Impending Race with Jumping Badge) -->
+            <div class="event-row event-featured" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
+                <span class="event-jump-badge"><span class="jump-icon">⚡</span> NEXT RACE</span>
                 <span class="event-day-month">15 Nov</span>
                 <span class="event-year">2026</span>
               </div>
@@ -852,11 +884,40 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Feni Track Trial">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Hardpack Red Clay &amp; Loam Berms</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">1.4 KM • 4 Table-Tops &amp; Whoops</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">20-Gate Drop • 3 Heats + Main Event</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">250cc Pro Track &amp; 150cc Novice</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Sanctioned marshals, full ambulance on standby, transponder scoring.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Event 2 -->
-            <div class="event-row" data-year="2026">
+            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
                 <span class="event-day-month">03 Dec</span>
                 <span class="event-year">2026</span>
@@ -870,11 +931,40 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Chittagong Hill Track Champion (03 Dec 2026)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Chittagong Hill Track Champion">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Natural Forest Loam &amp; Red Hill Clay</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">2.1 KM • Steep Climbs &amp; Step-Downs</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">Full Grid Paddock • Double Championship Points</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">Open Pro Track, 250cc, Novice Academy</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Rigorous hill climb flag signaling, tech inspection, mechanic support pits.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Chittagong Hill Track Champion (03 Dec 2026)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Event 3 -->
-            <div class="event-row" data-year="2026">
+            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
                 <span class="event-day-month">18 Dec</span>
                 <span class="event-year">2026</span>
@@ -888,11 +978,40 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Furious Track Trial (18 Dec 2026)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Furious Track Trial">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Compact Red Earth &amp; High-Speed Sweepers</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">1.2 KM • Rapid Corner Transitions &amp; Berms</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">16-Gate Release • Sprint Heats</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">Pro Speed Trial &amp; Club Amateur</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Speed radar tracking, marshaled corners, DOT/ECE mandatory armor.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Furious Track Trial (18 Dec 2026)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Event 4 -->
-            <div class="event-row" data-year="2026">
+            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
                 <span class="event-day-month">30 Dec</span>
                 <span class="event-year">2026</span>
@@ -906,11 +1025,40 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MRF Rajshahi (30 Dec 2026)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for MRF Rajshahi Invitational">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Sandy Alluvial Dirt &amp; Rhythm Section</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">1.6 KM • Triple Jumps &amp; Long Straight</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">Invitational Paddock • Cash Prize Pool</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">Pro Open Class, 250cc, 150cc Invitational</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Official MRF tire service pit, full emergency responder unit.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MRF Rajshahi (30 Dec 2026)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Event 5 -->
-            <div class="event-row" data-year="2027">
+            <div class="event-row" data-year="2027" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
                 <span class="event-day-month">15 Jan</span>
                 <span class="event-year">2027</span>
@@ -924,11 +1072,40 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Jessore Hash-gasib (15 Jan 2027)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Jessore Enduro Cup">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Natural Mud Bog, Hardpack Trail &amp; Water Cross</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">4.5 KM Trail Loop • 45-Minute Endurance Moto</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">Staggered Flag Launch • Survival Format</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">Open Enduro, Trail Modified, Stock Dual-Sport</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Trail recovery sweepers, wilderness first-aid checkpoint, mandatory tool pack.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Jessore Hash-gasib (15 Jan 2027)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Event 6 -->
-            <div class="event-row" data-year="2027">
+            <div class="event-row" data-year="2027" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
               <div class="event-date">
                 <span class="event-day-month">15 Feb</span>
                 <span class="event-year">2027</span>
@@ -942,6 +1119,35 @@
               </div>
               <div class="event-action">
                 <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MotoMadness (15 Feb 2027)">Register Entry</button>
+                <button class="event-specs-btn" aria-label="Toggle circuit specifications for MotoMadness 2027">Specs <span class="toggle-arrow">▾</span></button>
+              </div>
+
+              <!-- Interactive Expandable Circuit Telemetry Drawer -->
+              <div class="event-telemetry-drawer">
+                <div class="event-telemetry-inner">
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Track Surface</span>
+                      <span class="telemetry-value">Engineered Supercross Loam &amp; Mega Obstacles</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Circuit Length</span>
+                      <span class="telemetry-value">1.5 KM • Quad Jumps, Whoops &amp; Finish Line Table</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Starting Gate</span>
+                      <span class="telemetry-value">22-Gate Drop • Qualifiers, Semis &amp; 20-Lap Main</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="telemetry-label">Competition Classes</span>
+                      <span class="telemetry-value">Pro MX1 (450cc), Pro MX2 (250cc), Youth Cadet</span>
+                    </div>
+                  </div>
+                  <div class="telemetry-footer">
+                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> FIM-grade flag marshals, televised transponder scoring, live grandstand broadcast.</span>
+                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MotoMadness (15 Feb 2027)">Confirm Entry →</button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1155,7 +1361,7 @@
     <section class="section section-dark" id="sponsors">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow eyebrow-green">Powering Bangladeshi Motocross</span>
+          <span class="eyebrow">Powering Bangladeshi Motocross</span>
           <h2 class="section-title">Official Sponsors &amp; Service Partners</h2>
           <p class="section-desc">Backed by organizations dedicated to advancing motorsports and mechanical engineering in Bangladesh.</p>
         </div>
@@ -1269,7 +1475,7 @@
           <!-- Right Interactive Registration Form -->
           <div class="form-card">
             <div class="form-header">
-              <span class="eyebrow eyebrow-green">Direct Application</span>
+              <span class="eyebrow">Direct Application</span>
               <h3 id="form-card-title">Academy &amp; Membership Inquiry</h3>
               <p id="form-card-subtitle">Submit your details to receive instant coaching registration information via WhatsApp or Email.</p>
             </div>

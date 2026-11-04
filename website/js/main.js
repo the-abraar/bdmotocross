@@ -381,26 +381,76 @@ function setupFocusTrap(containerEl, closeFn) {
 }
 
 /* ==========================================================================
-   4. Racing Event Calendar Filters & Registration Prefill
+   4. Racing Event Calendar Filters & Registration Prefill & Interactive Jump
    ========================================================================== */
 function initCalendarFilters() {
   const tabs = document.querySelectorAll('.calendar-tab');
   const rows = document.querySelectorAll('.event-row');
 
+  // Interactive filtering with staggered physical jump-in animation
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
       const filter = tab.getAttribute('data-year');
+      let visibleIndex = 0;
+
       rows.forEach(row => {
         const year = row.getAttribute('data-year');
         if (filter === 'all' || year === filter) {
           row.style.display = 'grid';
+          // Re-trigger bouncy jump entrance with staggered timing
+          row.classList.remove('anim-jump');
+          void row.offsetWidth; // Force reflow
+          row.style.animationDelay = `${visibleIndex * 0.05}s`;
+          row.classList.add('anim-jump');
+          visibleIndex++;
         } else {
           row.style.display = 'none';
+          row.classList.remove('anim-jump');
         }
       });
+    });
+  });
+
+  // Interactive expandable telemetry drawer toggle
+  rows.forEach(row => {
+    const specsBtn = row.querySelector('.event-specs-btn');
+
+    function toggleDrawer(e) {
+      if (e) e.stopPropagation();
+      const isExpanded = row.classList.toggle('is-expanded');
+      row.setAttribute('data-expanded', isExpanded ? 'true' : 'false');
+      row.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      if (specsBtn) {
+        specsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      }
+    }
+
+    if (specsBtn) {
+      specsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDrawer(e);
+      });
+    }
+
+    // Keyboard accessibility: Enter or Space on row toggles drawer
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target === row) {
+          e.preventDefault();
+          toggleDrawer();
+        }
+      }
+    });
+
+    // Clicking row header area toggles drawer (ignoring button/anchor clicks)
+    row.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('a')) {
+        return;
+      }
+      toggleDrawer();
     });
   });
 
@@ -408,6 +458,7 @@ function initCalendarFilters() {
   document.querySelectorAll('.event-inquire-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       const eventName = btn.getAttribute('data-event-name');
       triggerEventRegistration(eventName);
     });

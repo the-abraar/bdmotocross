@@ -149,7 +149,7 @@
 
     .copy-btn:hover {
       color: var(--text-main);
-      border-color: var(--green-track);
+      border-color: var(--red-bright);
     }
 
     /* Typography Specimen Section */
@@ -327,7 +327,7 @@
           </span>
         </button>
         <a href="index.html" class="btn btn-outline btn-sm nav-subpage-back"><span class="desktop-text">← Main Website</span><span class="mobile-text">← Home</span></a>
-        <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-sm nav-subpage-extra">Hotline</a>
+        <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm nav-subpage-extra">Hotline</a>
       </div>
     </div>
   </nav>
@@ -380,7 +380,7 @@
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
           <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
-            <span class="eyebrow eyebrow-green">Official Motto</span>
+            <span class="eyebrow">Official Motto</span>
             <h3 style="font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin: 8px 0 12px; color: var(--text-main);">
               Ride Safe • Train Hard • Race Strong
             </h3>
@@ -392,7 +392,7 @@
           <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
             <span class="eyebrow eyebrow-yellow">Hero Tagline</span>
             <h3 style="font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; margin: 8px 0 12px; color: var(--text-main);">
-              Ride. <span class="text-red">Race.</span> <span class="text-green">Achieve.</span>
+              Ride. <span class="text-red">Race.</span> <span class="text-crimson" style="color: var(--red-bright);">Achieve.</span>
             </h3>
             <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
               Concise, high-impact call to action driving prospective riders from grassroots balance to gate-drop competition and podium success.
@@ -416,7 +416,7 @@
     <section class="section section-surface" id="colors">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 32px;">
-          <span class="eyebrow eyebrow-green">Design Tokens</span>
+          <span class="eyebrow">Design Tokens</span>
           <h2 class="section-title">Color Palette &amp; Contrast System</h2>
           <p class="section-desc">Dark obsidian paddocks paired with high-voltage motorsports accents. All text tokens meet WCAG AA contrast standards (> 4.5:1).</p>
         </div>
@@ -466,6 +466,17 @@
               <div class="color-meta"><span>HEX: #f59e0b</span><span>RGB: 245, 158, 11</span></div>
               <p style="font-size: 0.8rem; color: var(--text-muted);">Accreditations, championship titles, mentor status badges.</p>
               <button class="copy-btn" onclick="navigator.clipboard.writeText('#f59e0b'); this.textContent='Copied!'">Copy HEX</button>
+            </div>
+          </div>
+
+          <!-- Confirmation Green (Strictly for Verified Status) -->
+          <div class="color-card">
+            <div class="color-swatch" style="background: #22c55e; color: #07090c;">--green-track</div>
+            <div class="color-info">
+              <span class="color-title">Confirmation Green (Verification Only)</span>
+              <div class="color-meta"><span>HEX: #22c55e</span><span>Strict Context</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Strictly reserved for verified credentials, successful submissions, and confirmed states. All primary CTAs use Redline.</p>
+              <button class="copy-btn" onclick="navigator.clipboard.writeText('#22c55e'); this.textContent='Copied!'">Copy HEX</button>
             </div>
           </div>
         </div>
@@ -574,7 +585,7 @@
     <section class="section section-surface" id="heraldry">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 32px;">
-          <span class="eyebrow eyebrow-green">Paddock Lineup</span>
+          <span class="eyebrow">Paddock Lineup</span>
           <h2 class="section-title">Official Racing Number Plates &amp; Machines</h2>
           <p class="section-desc">Every active athlete is officially recognized by their racing plate, machine model, displacement, and origin.</p>
         </div>
@@ -599,8 +610,8 @@
           </div>
 
           <!-- Sharif ON Track -->
-          <div class="plate-card" style="border-top: 4px solid var(--green-track);">
-            <div class="plate-number" style="color: var(--green-track);">#05</div>
+          <div class="plate-card" style="border-top: 4px solid var(--red-bright);">
+            <div class="plate-number" style="color: var(--red-bright);">#05</div>
             <div class="plate-rider">Sharif ON Track</div>
             <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Pro Track Racer</div>
             <div class="plate-spec">Suzuki RM-Z250 • Pro 250cc</div>
@@ -660,7 +671,7 @@
     <section class="section section-surface" id="components">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 32px;">
-          <span class="eyebrow eyebrow-green">Component Library</span>
+          <span class="eyebrow">Component Library</span>
           <h2 class="section-title">Live Production Components</h2>
           <p class="section-desc">Core interactive elements implemented across the BMCA web platform.</p>
         </div>
@@ -671,7 +682,7 @@
         </h3>
         <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 40px; background: var(--bg-card); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
           <button class="btn btn-primary">Primary Action (.btn-primary)</button>
-          <button class="btn btn-green">WhatsApp Hotline (.btn-green)</button>
+          <button class="btn btn-confirm">Verified / Confirmed State (.btn-confirm)</button>
           <button class="btn btn-secondary">Secondary Action (.btn-secondary)</button>
           <button class="btn btn-outline">Outline Action (.btn-outline)</button>
           <button class="btn btn-primary btn-sm">Small Button (.btn-sm)</button>
@@ -695,7 +706,7 @@
               <li><span class="feature-bullet">✓</span> 1-on-1 Certified Coach (Clutch, Posture, Pegs)</li>
               <li><span class="feature-bullet">✓</span> Track Fuel &amp; Chittagong Dirt Arena Access</li>
             </ul>
-            <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-full">
+            <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">
               Book Starter Clinic →
             </a>
           </div>
@@ -735,7 +746,7 @@
           <div style="background: var(--bg-surface); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--border-card);">
             <h4 style="font-family: var(--font-heading); font-size: 1.2rem; text-transform: uppercase; color: var(--text-main); margin-bottom: 12px;">Official Channels</h4>
             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: var(--text-muted);">
-              <li><strong>Hotline / WhatsApp:</strong> <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" style="color: var(--green-track);">+880 1975-376114</a></li>
+              <li><strong>Hotline / WhatsApp:</strong> <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer" style="color: var(--red-bright); font-weight: 700;">+880 1975-376114</a></li>
               <li><strong>Official Email:</strong> <a href="mailto:bangladeshmotocrossclubacademy@gmail.com" style="color: var(--red-bright);">bangladeshmotocrossclubacademy@gmail.com</a></li>
               <li><strong>Paddock Headquarters:</strong> Chittagong Dirt Arena, Chittagong, Bangladesh</li>
               <li><strong>Director:</strong> Md. Mahabubur Rahman Hafiz (MR99)</li>
