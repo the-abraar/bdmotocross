@@ -548,12 +548,22 @@ function initRegistrationForm() {
     const waUrl = `https://wa.me/8801975376114?text=${text}`;
 
     if (statusEl) {
-      statusEl.textContent = 'Opening WhatsApp...';
+      statusEl.innerHTML = `Opening WhatsApp in a new tab... <a href="${waUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;color:var(--green-track);margin-inline-start:6px;font-weight:700;">Click here if tab didn't open</a>`;
       statusEl.className = 'form-status success';
     }
 
-    // Direct synchronous dispatch prevents mobile browser popup blocking
-    // Note: Form values are preserved so user doesn't lose inputs if they return
-    window.location.href = waUrl;
+    // Open WhatsApp in a separate tab/window so the current website remains open
+    // Synchronous call inside submit event handler ensures popup blockers don't intercept it
+    const newWindow = window.open(waUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      // Fallback via virtual anchor click
+      const a = document.createElement('a');
+      a.href = waUrl;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   });
 }
