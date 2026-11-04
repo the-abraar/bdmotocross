@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initNavigation();
   initHeroVideo();
   initRaceCountdown();
@@ -13,6 +14,47 @@ document.addEventListener('DOMContentLoaded', () => {
   initRegistrationForm();
   initAlertBarAction();
 });
+
+/* ==========================================================================
+   0. Theme Mode Toggle (Dark vs Light)
+   ========================================================================== */
+function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('.theme-toggle');
+  if (!toggleBtns.length) return;
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('bmca_theme', theme);
+    } catch (e) {}
+
+    const isLight = theme === 'light';
+    toggleBtns.forEach(btn => {
+      btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
+      btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    });
+  }
+
+  // Determine current active theme
+  const saved = (function() {
+    try {
+      return localStorage.getItem('bmca_theme');
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  const currentTheme = saved || (document.documentElement.getAttribute('data-theme') || 'dark');
+  applyTheme(currentTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const active = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(active);
+    });
+  });
+}
 
 /* ==========================================================================
    1. Navigation & Scrollspy
