@@ -51,6 +51,7 @@ The official web platform for **Bangladesh Motocross Club & Academy (BMCA)**. BM
 │   │   └── salauddin-ahmed-bulbul.html
 │   ├── gallery.html          # Dedicated full-page media gallery
 │   └── index.html            # Main flagship single-page hub
+├── BRAND_IDENTITY.md         # Master Brand Identity & Design System Specification
 ├── .gitignore
 └── README.md
 ```
