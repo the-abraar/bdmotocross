@@ -3,2042 +3,619 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bangladesh Motocross Club & Academy | Chittagong, Bangladesh</title>
-  <meta name="description" content="Official Web Platform of Bangladesh Motocross Club & Academy (BMCA). Leading motocross racing, rider development academy, and motorsports community based in Chittagong, Bangladesh.">
-  <meta name="keywords" content="Bangladesh Motocross Club, Motocross Academy Bangladesh, Dirt Bike Bangladesh, Chittagong Motocross, MR99, Baundal Bulbul, Motocross Racing Bangladesh">
-  <meta name="author" content="Bangladesh Motocross Club & Academy">
-  <meta name="theme-color" content="#08090b">
-  <link rel="canonical" href="https://bdmotocross.com/">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:site_name" content="Bangladesh Motocross Club & Academy (BMCA)">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bdmotocross.com/">
-  <meta property="og:title" content="Bangladesh Motocross Club & Academy | Chittagong">
-  <meta property="og:description" content="Ride Safe • Train Hard • Race Strong. The official platform for motocross racing, champion riders, and academy training in Bangladesh.">
-  <meta property="og:image" content="https://bdmotocross.com/images/logo-transparent.png">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Bangladesh Motocross Club & Academy | Chittagong">
-  <meta property="twitter:description" content="Ride Safe • Train Hard • Race Strong. The official platform for motocross racing, champion riders, and academy training in Bangladesh.">
-  <meta property="twitter:image" content="https://bdmotocross.com/images/logo-transparent.png">
-
-  <!-- Favicon & PWA Manifest -->
+  <title>Bangladesh Motocross Club &amp; Academy — Ride Safe. Train Hard. Race Strong.</title>
+  <meta name="description" content="Bangladesh Motocross Club & Academy (BMCA). Motocross racing, rider development academy and motorsports community based in Chittagong, Bangladesh.">
+  <meta name="theme-color" content="#0b0b0a">
+  <meta property="og:title" content="Bangladesh Motocross Club & Academy">
+  <meta property="og:description" content="Ride Safe • Train Hard • Race Strong. Motocross racing, champion riders and academy training in Bangladesh.">
+  <meta property="og:image" content="images/team-trail-srimongol-sylhet.jpg">
   <link rel="icon" type="image/png" href="images/logo-transparent.png">
-  <link rel="apple-touch-icon" href="images/logo-transparent.png">
   <link rel="manifest" href="manifest.webmanifest">
-
-  <!-- Schema.org JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SportsClub",
-        "@id": "https://bdmotocross.com/#club",
-        "name": "Bangladesh Motocross Club & Academy (BMCA)",
-        "alternateName": "BMCA",
-        "url": "https://bdmotocross.com/",
-        "logo": "https://bdmotocross.com/images/logo-transparent.png",
-        "image": "https://bdmotocross.com/images/team-photo.jpg",
-        "description": "Official motocross racing club, athlete development academy, and motorsports community based in Chittagong, Bangladesh.",
-        "telephone": "+8801975376114",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Chittagong",
-          "addressRegion": "Chittagong Division",
-          "addressCountry": "BD"
-        },
-        "sport": "Motocross",
-        "location": {
-          "@type": "Place",
-          "name": "Chittagong Dirt Arena",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Chittagong",
-            "addressCountry": "BD"
-          }
-        }
-      },
-      {
-        "@type": "SportsEvent",
-        "@id": "https://bdmotocross.com/#feni-trial",
-        "name": "BMCA Feni Track Trial 2026",
-        "description": "20-Gate Sanctioned Motocross & Enduro Season Opener at Feni Off-Road Arena featuring Pro 250cc-450cc and Novice heats.",
-        "startDate": "2026-11-15T09:00:00+06:00",
-        "endDate": "2026-11-15T18:00:00+06:00",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "location": {
-          "@type": "Place",
-          "name": "Feni Off-Road Arena",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Feni",
-            "addressCountry": "BD"
-          }
-        },
-        "organizer": {
-          "@id": "https://bdmotocross.com/#club"
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Paddock VIP Spectator Pass",
-            "price": "500",
-            "priceCurrency": "BDT",
-            "availability": "https://schema.org/InStock",
-            "url": "https://bdmotocross.com/#fixtures"
-          },
-          {
-            "@type": "Offer",
-            "name": "Competitor Racer Heat Registration",
-            "price": "1500",
-            "priceCurrency": "BDT",
-            "availability": "https://schema.org/InStock",
-            "url": "https://bdmotocross.com/#fixtures"
-          }
-        ]
-      },
-      {
-        "@type": "Course",
-        "@id": "https://bdmotocross.com/#starter-clinic",
-        "name": "Weekend Starter Clinic (Turnkey Arrive & Ride)",
-        "description": "Intensive 2-day beginner motocross training clinic including BMCA fleet 150cc-250cc motorcycle, sanitized DOT/ECE armor, and 1-on-1 coach.",
-        "provider": {
-          "@id": "https://bdmotocross.com/#club"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "3500",
-          "priceCurrency": "BDT",
-          "category": "Paid"
-        }
-      },
-      {
-        "@type": "Course",
-        "@id": "https://bdmotocross.com/#academy-cadet",
-        "name": "Monthly Academy Cadet Program",
-        "description": "4-week progressive motocross racing curriculum covering rut cornering, gate starts, suspension setup, and FIM flag protocols.",
-        "provider": {
-          "@id": "https://bdmotocross.com/#club"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "12000",
-          "priceCurrency": "BDT",
-          "category": "Paid"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Hybrid Typography Stack: Pitch 03 Kinetic Stance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Theme Mode Preloader -->
-  <script>
-    (function() {
-      try {
-        var saved = localStorage.getItem('bmca_theme');
-        if (saved) {
-          document.documentElement.setAttribute('data-theme', saved);
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
-  <nav class="site-nav" aria-label="Main Navigation">
-    <div class="container nav-container">
-      <a href="#home" class="nav-brand" aria-label="Bangladesh Motocross Club and Academy Homepage">
-        <img src="images/logo-transparent.png" alt="BMCA Crest Logo" class="nav-logo" width="46" height="46">
-        <div class="brand-text">
-          <span class="brand-name">BD Motocross Club & Academy</span>
-          <span class="brand-sub">Chittagong • Bangladesh</span>
-        </div>
-      </a>
+<!-- Intro loader: shown once per session -->
+<div class="loader" aria-hidden="true">
+  <img src="images/logo-transparent.png" alt="" class="loader-crest">
+  <div class="loader-count"><span id="loader-num">00</span><small>%</small></div>
+  <div class="loader-bar"><i></i></div>
+</div>
 
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#roster" class="nav-link">Racers</a></li>
-        <li><a href="#academy" class="nav-link">Academy</a></li>
-        <li><a href="#calendar" class="nav-link">Events</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li class="nav-mobile-cta" style="display:none;">
-          <a href="#contact" class="btn btn-primary btn-sm">Enroll in Academy</a>
-        </li>
-      </ul>
+<div class="progress" aria-hidden="true"><i></i></div>
 
-      <div class="nav-actions">
-        <!-- Dark vs Light Mode Switch Button -->
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle Dark/Light Mode" role="switch" aria-checked="false">
-          <span class="theme-toggle-track">
-            <span class="theme-toggle-icon icon-sun" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            <span class="theme-toggle-thumb"></span>
-            <span class="theme-toggle-icon icon-moon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            </span>
-          </span>
-        </button>
-        <a href="#contact" class="btn btn-primary btn-sm">Enroll Now</a>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo" aria-label="BMCA home">
+    <img src="images/logo-transparent.png" alt="" width="64" height="51">
+    <span>BMCA<small>Chittagong · BD</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#club">Club</a>
+    <a href="#riders">Riders</a>
+    <a href="#academy">Academy</a>
+    <a href="#fixtures">Fixtures</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </nav>
+  <a href="#join" class="btn btn-red btn-sm nav-cta">Join the academy</a>
+  <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+</header>
 
-  <!-- Hero Section -->
-  <header class="hero" id="home">
-    <div class="hero-ambient-bg" aria-hidden="true">
-      <div class="ambient-glow ambient-glow-red"></div>
-      <div class="ambient-glow ambient-glow-silver"></div>
-      <div class="hero-grid-pattern"></div>
-    </div>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Mobile">
+    <a href="#club"><small>01</small>Club</a>
+    <a href="#riders"><small>02</small>Riders</a>
+    <a href="#academy"><small>03</small>Academy</a>
+    <a href="#join"><small>04</small>Join</a>
+    <a href="#fixtures"><small>05</small>Fixtures</a>
+    <a href="#gallery"><small>06</small>Gallery</a>
+    <a href="#contact"><small>07</small>Contact</a>
+  </nav>
+  <p class="menu-foot mono">Ride Safe • Train Hard • Race Strong</p>
+</div>
 
-    <div class="container hero-grid">
-      <!-- Left Column: Mission, Calls to Action, Stats -->
-      <div class="hero-content">
-        <div class="hero-badge-wrap">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Official Motorsports Platform
-          </div>
-          <span class="eyebrow eyebrow-yellow">Chittagong • Bangladesh</span>
-        </div>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="topo" data-speed="0.15" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-ghost" aria-hidden="true" data-speed="-0.25">99</div>
 
-        <h1 class="hero-title">
-          Ride. <span class="text-red">Race.</span><br>
-          <span class="text-crimson">Achieve.</span>
-        </h1>
-
-        <p class="hero-lead">
-          Bangladesh Motocross Club &amp; Academy is the premier racing institution dedicated to professional dirt bike competition, athlete conditioning, certified track safety, and grassroots motorsports culture across Bangladesh.
-        </p>
-
-        <!-- Unambiguous Conversion Actions -->
-        <div class="hero-actions">
-          <a href="#academy" class="btn btn-primary">Enroll in Academy</a>
-          <a href="#calendar" class="btn btn-secondary">2026–2027 Race Fixtures</a>
-        </div>
-
-        <!-- Operational Metrics Stats Grid -->
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number accent-red">10+</span>
-            <span class="stat-label">Podium Finishes</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number accent-yellow">4+</span>
-            <span class="stat-label">Pro Racers &amp; Mentors</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number accent-red">4-Stage</span>
-            <span class="stat-label">Curriculum Track</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">DOT / ECE</span>
-            <span class="stat-label">Certified Gear Protocol</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Official YouTube Video Showcase with Interactive Sections -->
-      <div class="hero-video-showcase" aria-label="Official BMCA Track Reel">
-        <div class="hero-video-card">
-          <!-- Card Header HUD -->
-          <div class="video-card-header">
-            <div class="video-live-tag">
-              <span class="live-rec-dot"></span>
-              <span>TRACK REEL</span>
-            </div>
-            <div class="video-meta-badge">Lal Mai Trial 2025</div>
-          </div>
-
-          <!-- Video Player Box -->
-          <div class="video-player-container">
-            <video id="hero-reel-video" 
-                   playsinline 
-                   autoplay 
-                   muted 
-                   loop 
-                   preload="metadata" 
-                   poster="images/video-poster.jpg"
-                   title="Dirt Race in Lal Mai, Cumilla Bangladesh - Furious Track Trial 2025">
-              <source src="images/bmca_short.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-
-            <!-- Video HUD Quick Controls -->
-            <div class="video-overlay-hud">
-              <div class="video-time-chip" id="video-time-display">00:00 / 00:42</div>
-              <div class="video-actions-quick">
-                <button type="button" class="video-hud-btn" id="btn-video-toggle" aria-label="Pause or play video">
-                  <span class="icon-play-state" id="play-state-icon">▶</span>
-                </button>
-                <button type="button" class="video-hud-btn" id="btn-sound-toggle" aria-label="Toggle sound">
-                  <span id="sound-state-icon">🔇</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Video Progress Bar -->
-            <div class="video-progress-track" id="video-progress-track">
-              <div class="video-progress-fill" id="video-progress-fill"></div>
-            </div>
-          </div>
-
-          <!-- Interactive Video Sections / Chapters Navigation -->
-          <div class="video-sections-wrapper">
-            <div class="sections-header">
-              <span class="sections-title">REEL SECTIONS</span>
-              <span class="sections-hint">Click section to jump</span>
-            </div>
-            <div class="video-sections-list" role="tablist" aria-label="Track video sections">
-              <button type="button" class="video-section-pill active" data-time="0" role="tab" aria-selected="true">
-                <span class="pill-time">0:00</span>
-                <span class="pill-title">Staging &amp; Launch</span>
-              </button>
-              <button type="button" class="video-section-pill" data-time="7" role="tab" aria-selected="false">
-                <span class="pill-time">0:07</span>
-                <span class="pill-title">Lal Mai Dirt Circuit</span>
-              </button>
-              <button type="button" class="video-section-pill" data-time="15" role="tab" aria-selected="false">
-                <span class="pill-time">0:15</span>
-                <span class="pill-title">Furious Berm Cornering</span>
-              </button>
-              <button type="button" class="video-section-pill" data-time="24" role="tab" aria-selected="false">
-                <span class="pill-time">0:24</span>
-                <span class="pill-title">High-Speed Dirt Run</span>
-              </button>
-              <button type="button" class="video-section-pill" data-time="34" role="tab" aria-selected="false">
-                <span class="pill-time">0:34</span>
-                <span class="pill-title">Paddock Sprint &amp; Finish</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Footer Channel & External Link -->
-          <div class="video-card-footer">
-            <span class="yt-badge">
-              <svg width="18" height="14" viewBox="0 0 24 17" fill="none" aria-hidden="true">
-                <path d="M23.498 2.628a3.014 3.014 0 0 0-2.122-2.136C19.505 0 12 0 12 0S4.495 0 2.624.492A3.014 3.014 0 0 0 .502 2.628C0 4.514 0 8.444 0 8.444s0 3.93.502 5.816a3.014 3.014 0 0 0 2.122 2.136C4.495 16.888 12 16.888 12 16.888s7.505 0 9.376-.492a3.014 3.014 0 0 0 2.122-2.136C24 12.374 24 8.444 24 8.444s0-3.93-.502-5.816z" fill="#FF0000"/>
-                <polygon points="9.6 12.064 15.84 8.444 9.6 4.824 9.6 12.064" fill="#FFFFFF"/>
-              </svg>
-              <span>@BangladeshmotocrossclubAcademy</span>
-            </span>
-            <div style="display: flex; gap: 12px; align-items: center;">
-              <a href="gallery.html" class="yt-direct-link" title="Watch full Srimongol Sylhet trail video in Gallery" style="color: var(--red-bright); font-weight: 700;">
-                Sylhet Trail Reel ↗
-              </a>
-              <a href="https://www.youtube.com/shorts/JQxYo2zIMqw" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="yt-direct-link"
-                 title="Watch on official YouTube channel (opens in new tab)">
-                YouTube ↗
-              </a>
-            </div>
-          </div>
-        </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span> Bangladesh Motocross Club &amp; Academy</p>
+      <h1 class="hero-title">
+        <span class="line"><span>Ride safe.</span></span>
+        <span class="line"><span class="outline">Train hard.</span></span>
+        <span class="line"><span class="red">Race strong.</span></span>
+      </h1>
+      <p class="hero-lead" data-reveal>The racing institution for professional dirt bike competition, athlete conditioning, certified track safety and grassroots motorsport culture across Bangladesh.</p>
+      <div class="hero-ctas" data-reveal>
+        <a href="#join" class="btn btn-red">Enroll in academy <span class="arr">→</span></a>
+        <a href="#fixtures" class="btn btn-ghost">2026–27 fixtures</a>
       </div>
     </div>
-  </header>
 
-  <!-- Next Race Actionable Countdown Alert Banner -->
-  <aside class="race-alert-bar" aria-label="Upcoming Race Announcement">
-    <div class="container race-alert-inner">
-      <div class="race-alert-info">
-        <span class="race-flag-icon">🏁</span>
-        <div>
-          <div class="race-alert-title">NEXT OFFICIAL RACE: FENI TRACK TRIAL</div>
-          <div class="race-alert-sub">15 November 2026 • Feni Off-Road Track • Pro &amp; Novice Categories</div>
-        </div>
+    <div class="hero-media">
+      <div class="phone" data-tilt>
+        <video autoplay muted loop playsinline preload="metadata" poster="images/video-poster.jpg" aria-label="Track reel: Furious Track Trial 2025, Lal Mai, Cumilla">
+          <source src="images/bmca_short.mp4" type="video/mp4">
+        </video>
+        <div class="phone-hud"><span class="rec"></span> Track reel <b>Lal Mai Trial ’25</b></div>
+        <button class="phone-sound" type="button" aria-label="Unmute reel" aria-pressed="false">🔇</button>
       </div>
+      <a href="#fixtures" class="next-card" data-reveal>
+        <span class="mono tag">Next gate drop</span>
+        <strong>Feni Track Trial</strong>
+        <span class="countdown mini" data-countdown>
+          <span><b data-d>00</b>d</span><span><b data-h>00</b>h</span><span><b data-m>00</b>m</span><span><b data-s>00</b>s</span>
+        </span>
+        <span class="mono sub">15 Nov 2026 · Feni Off-Road Arena</span>
+      </a>
+    </div>
 
-      <div class="race-timer" aria-label="Time remaining until next race">
-        <div class="timer-block">
-          <span class="timer-num" id="count-days">00</span>
-          <span class="timer-unit">Days</span>
-        </div>
-        <div class="timer-block">
-          <span class="timer-num" id="count-hours">00</span>
-          <span class="timer-unit">Hours</span>
-        </div>
-        <div class="timer-block">
-          <span class="timer-num" id="count-mins">00</span>
-          <span class="timer-unit">Mins</span>
-        </div>
-        <div class="timer-block">
-          <span class="timer-num" id="count-secs">00</span>
-          <span class="timer-unit">Secs</span>
-        </div>
+    <p class="hero-vert mono" aria-hidden="true">Chittagong · Bangladesh — Est. club &amp; academy</p>
+  </div>
+
+  <dl class="wrap hero-stats">
+    <div><dt><span data-count="10">0</span>+</dt><dd>Podium finishes</dd></div>
+    <div><dt><span data-count="4">0</span></dt><dd>Pro racers &amp; mentors</dd></div>
+    <div><dt><span data-count="4">0</span>-stage</dt><dd>Academy curriculum</dd></div>
+    <div><dt>DOT/ECE</dt><dd>Certified gear protocol</dd></div>
+  </dl>
+</section>
+
+<div class="ticker-wrap" aria-hidden="true"><div class="ticker">
+  <div class="ticker-track">
+    <span>Next race</span><b>Feni Track Trial</b><span>15 Nov 2026</span><b>Pro &amp; Novice</b><span>Hill Track Champion · 03 Dec</span><b>MotoMadness 2027</b>
+    <span>Next race</span><b>Feni Track Trial</b><span>15 Nov 2026</span><b>Pro &amp; Novice</b><span>Hill Track Champion · 03 Dec</span><b>MotoMadness 2027</b>
+  </div>
+</div></div>
+
+<main id="main">
+
+<!-- ============ CLUB ============ -->
+<section class="sec paper" id="club">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker"><span>01</span> The club</p>
+    <h2 class="statement" data-scrub>Building the motocross community from the hills of Chittagong — and racing it to every corner of Bangladesh.</h2>
+
+    <div class="club-grid">
+      <div class="club-copy" data-reveal>
+        <p>Operating from the rugged hills and challenging coastal terrain of Chittagong, Bangladesh Motocross Club &amp; Academy unifies active riders, factory tuners, off-road enthusiasts and national championship contenders.</p>
+        <p>Whether competing in regional track trials or navigating demanding hill trails across Chittagong, Feni, Rajshahi and Jessore, BMCA delivers structured athletic coaching, certified track marshaling and sanctioned race entries.</p>
+        <ul class="badges">
+          <li><b>Track safety protocol</b>Mandatory DOT/ECE full-face helmets, chest/roost armor and trained track marshals.</li>
+          <li><b>Certified coaching</b>Mentors hold international certification from TWM Academy of Moto Adventure, Kolkata.</li>
+        </ul>
       </div>
-
-      <div class="race-alert-action">
-        <button class="btn alert-entry-btn" id="alert-feni-register-btn" aria-haspopup="dialog" aria-controls="feni-trial-modal">Register for Feni Trial</button>
+      <div class="club-photo">
+        <figure data-reveal="clip">
+          <img src="images/team-trail-srimongol-sylhet.jpg" alt="BMCA riders kneeling with their bikes on a trail in Srimongol, Sylhet" loading="lazy" width="2048" height="1153">
+          <figcaption class="mono">Srimongol trail run · Sylhet</figcaption>
+        </figure>
+        <img src="images/logo-transparent.png" alt="" class="sticker" data-speed="-0.08">
       </div>
     </div>
-  </aside>
 
-  <main id="main">
-
-    <!-- About Section: Operational Track Specifications -->
-    <section class="section section-dark" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-text">
-            <span class="eyebrow">Pioneering Bangladesh Motorsports</span>
-            <h2 class="section-title">Building The Motocross Community From Chittagong</h2>
-            <p>
-              Operating from the rugged hills and challenging coastal terrain of Chittagong, Bangladesh Motocross Club &amp; Academy (BMCA) unifies active riders, factory tuners, off-road enthusiasts, and national championship contenders.
-            </p>
-            <p>
-              Whether competing in regional track trials or navigating demanding hill trails across Chittagong, Feni, Rajshahi, and Jessore, BMCA delivers structured athletic coaching, certified track marshaling, and sanctioned race entries.
-            </p>
-
-            <div class="about-highlights">
-              <div class="highlight-box">
-                <div class="highlight-title">Track Safety Protocol</div>
-                <div class="highlight-desc">Mandatory DOT/ECE full-face helmets, chest/roost armor, and trained track marshals.</div>
-              </div>
-              <div class="highlight-box">
-                <div class="highlight-title">Certified Coaching Credentials</div>
-                <div class="highlight-desc">Mentors hold international certification from TWM Academy of Moto Adventure (Kolkata, India).</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-media">
-            <img src="images/club-team.jpg" 
-                 alt="Bangladesh Motocross Club & Academy Team Photo with Motorcycles" 
-                 class="about-img-main"
-                 loading="lazy"
-                 width="1536" 
-                 height="864">
-            <div class="about-card-badge">
-              <span class="about-badge-icon">🏍️</span>
-              <div class="about-badge-text">
-                <b>Chittagong Dirt Arena</b>
-                <span>Sanctioned Trials &amp; Academy Track</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Operational Track Specifications Grid -->
-        <div class="pillars-grid">
-          <div class="pillar-card">
-            <div class="pillar-icon">🏁</div>
-            <h3 class="pillar-title">Sanctioned Racing Circuits</h3>
-            <p class="pillar-desc">
-              Natural loam and compact red clay tracks featuring elevation drops, banked berms, tabletop jumps, and rhythm sections engineered for 150cc–450cc competition.
-            </p>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon">🎯</div>
-            <h3 class="pillar-title">Dedicated Training Fleet</h3>
-            <p class="pillar-desc">
-              Students have access to BMCA's fleet of maintained training bikes, or may bring their personal motorcycles for trackside suspension sag tuning and gearing optimization.
-            </p>
-          </div>
-
-          <div class="pillar-card">
-            <div class="pillar-icon">🛡️</div>
-            <h3 class="pillar-title">Strict Trackside Marshaling</h3>
-            <p class="pillar-desc">
-              Zero-tolerance safety standard: flag marshals (Yellow, Red, Chequered) at every blind corner, mandatory full body armor, and on-site first-aid medical support.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership Section: Director's Paddock Briefing -->
-    <section class="section section-deep" id="director">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow eyebrow-yellow">Club Leadership</span>
-          <h2 class="section-title">Director's Paddock Briefing</h2>
-          <p class="section-desc">Establishing Bangladesh's motorsport foundation through discipline, physical conditioning, and safety.</p>
-        </div>
-
-        <div class="director-feature">
-          <div class="director-grid">
-            <div class="director-media">
-              <img src="images/award.jpg" 
-                   alt="Md. Mahabubur Rahman Hafiz receiving motocross championship trophy" 
-                   class="director-img"
-                   loading="lazy"
-                   width="1536" 
-                   height="1152">
-              <span class="director-num-badge">MR99</span>
-            </div>
-
-            <div class="director-content">
-              <div class="director-header">
-                <span class="director-role">Director • Pro Track Champion</span>
-                <h3 class="director-name">Md. Mahabubur Rahman Hafiz</h3>
-              </div>
-
-              <blockquote class="director-quote">
-                "Motocross in Bangladesh must not be an uncontrolled thrill. It is an Olympic-caliber discipline requiring exceptional physical stamina, motorcycle mechanical knowledge, and track safety rigor. Our goal at BMCA is to cultivate champions who can compete with confidence on the international stage."
-              </blockquote>
-
-              <p class="director-bio">
-                Leading the club from Chittagong, Md. Mahabubur Rahman Hafiz combines active competitive racing with executive direction. Under his leadership, BMCA established certified coaching curriculums, partnered with technical service facilities like Moto Freak Lab, and fostered relationships with corporate motorsport sponsors.
-              </p>
-
-              <div class="hero-actions" style="margin-block-end:0">
-                <a href="#roster" class="btn btn-primary btn-sm">Explore Team Lineup</a>
-                <a href="racers/mahabubur-rahman-hafiz.html" class="btn btn-outline btn-sm">Director Dossier →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Official Racers & Mentor Roster (Dossier Mode with Machine Specs) -->
-    <section class="section section-dark" id="roster">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Paddock Lineup</span>
-          <h2 class="section-title">Official Racers &amp; Mentors</h2>
-          <p class="section-desc">Certified coaches and pro competitors flying the BMCA colors in 2025–2026 championships.</p>
-        </div>
-
-        <div class="roster-filter-bar" role="toolbar" aria-label="Roster Filter">
-          <button class="filter-btn active" data-filter="all">All Members</button>
-          <button class="filter-btn" data-filter="director">Director &amp; Champion</button>
-          <button class="filter-btn" data-filter="mentor">Official Mentors</button>
-          <button class="filter-btn" data-filter="racer">Pro Racers</button>
-        </div>
-
-        <div class="racers-grid">
-
-          <!-- Racer 1: MR99 -->
-          <article class="racer-card" data-category="director racer">
-            <div class="racer-card-media">
-              <span class="racer-number-badge">#99</span>
-              <span class="racer-status-badge">Director / Champion</span>
-              <img src="images/race-start.jpg" 
-                   alt="Md. Mahabubur Rahman Hafiz MR99" 
-                   class="racer-img"
-                   loading="lazy"
-                   width="1536" 
-                   height="1533">
-            </div>
-            <div class="racer-card-body">
-              <h3 class="racer-name">Mahabubur Rahman Hafiz</h3>
-              <div class="racer-category">Director &amp; Pro Champion</div>
-              <div class="racer-machine-spec">Honda CRF250R • Pro 250cc</div>
-              <ul class="racer-quick-stats">
-                <li><span>Racing Code:</span> <strong>MR99</strong></li>
-                <li><span>Origin:</span> <strong>Chittagong, Bangladesh</strong></li>
-                <li><span>Latest Win:</span> <strong>Champion of Curves 2025</strong></li>
-              </ul>
-              <div class="racer-card-actions">
-                <button class="btn btn-primary btn-sm" data-racer-id="mr99">Career Dossier</button>
-                <a href="racers/mahabubur-rahman-hafiz.html" class="racer-permalink">Full Profile Page →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Racer 2: Baundal Bulbul -->
-          <article class="racer-card" data-category="mentor racer">
-            <div class="racer-card-media">
-              <span class="racer-number-badge">#07</span>
-              <span class="racer-status-badge status-mentor">Official Mentor</span>
-              <img src="images/baundal-bulbul.jpg" 
-                   alt="Salauddin Ahmed Bulbul (Baundal Bulbul #07)" 
-                   class="racer-img"
-                   loading="lazy"
-                   width="600" 
-                   height="600">
-            </div>
-            <div class="racer-card-body">
-              <h3 class="racer-name">Salauddin Ahmed Bulbul</h3>
-              <div class="racer-category">Baundal Bulbul #07 • Official Mentor</div>
-              <div class="racer-machine-spec">Yamaha YZ250F • Enduro 250cc</div>
-              <ul class="racer-quick-stats">
-                <li><span>Accreditation:</span> <strong>TWM Academy (Kolkata, India)</strong></li>
-                <li><span>Origin:</span> <strong>Narsingdi, Bangladesh</strong></li>
-                <li><span>Key Win:</span> <strong>SR Dirt Fest India (4th)</strong></li>
-              </ul>
-              <div class="racer-card-actions">
-                <button class="btn btn-primary btn-sm" data-racer-id="bulbul">Career Dossier</button>
-                <a href="mentors/salauddin-ahmed-bulbul.html" class="racer-permalink">Mentor Accreditation →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Racer 3: Sharif ON Track -->
-          <article class="racer-card" data-category="racer">
-            <div class="racer-card-media">
-              <span class="racer-number-badge">#05</span>
-              <span class="racer-status-badge">Pro Track</span>
-              <img src="images/sharif-on-track.jpg" 
-                   alt="Sharif ON Track #05 in racing gear" 
-                   class="racer-img"
-                   loading="lazy"
-                   width="948" 
-                   height="1280">
-            </div>
-            <div class="racer-card-body">
-              <h3 class="racer-name">Sharif ON Track</h3>
-              <div class="racer-category">Pro Track Racer #05</div>
-              <div class="racer-machine-spec">Suzuki RM-Z250 • Pro 250cc</div>
-              <ul class="racer-quick-stats">
-                <li><span>Racing Code:</span> <strong>05</strong></li>
-                <li><span>Origin:</span> <strong>Chittagong, Bangladesh</strong></li>
-                <li><span>Latest Win:</span> <strong>Suzuki Off-Road 2026 (2nd)</strong></li>
-              </ul>
-              <div class="racer-card-actions">
-                <button class="btn btn-primary btn-sm" data-racer-id="sharif">Career Dossier</button>
-                <a href="racers/sharif-on-track.html" class="racer-permalink">Full Profile Page →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Racer 4: Sultan Sheikh -->
-          <article class="racer-card" data-category="racer">
-            <div class="racer-card-media">
-              <span class="racer-number-badge">#77</span>
-              <span class="racer-status-badge">Pro Open</span>
-              <img src="images/sultan-sheikh.jpg" 
-                   alt="Sultan Sheikh #77" 
-                   class="racer-img"
-                   loading="lazy"
-                   width="1098" 
-                   height="1433">
-            </div>
-            <div class="racer-card-body">
-              <h3 class="racer-name">Sultan Sheikh</h3>
-              <div class="racer-category">Pro Category Racer #77</div>
-              <div class="racer-machine-spec">KTM 250 SX-F • Open Class</div>
-              <ul class="racer-quick-stats">
-                <li><span>Racing Code:</span> <strong>77</strong></li>
-                <li><span>Origin:</span> <strong>Sylhet, Bangladesh</strong></li>
-                <li><span>Latest Win:</span> <strong>Moto Madness S2 (1st Runner-Up)</strong></li>
-              </ul>
-              <div class="racer-card-actions">
-                <button class="btn btn-primary btn-sm" data-racer-id="sultan">Career Dossier</button>
-                <a href="racers/sultan-sheikh.html" class="racer-permalink">Full Profile Page →</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Academy & Rider Development Curriculum -->
-    <section class="section section-surface" id="academy">
-      <div class="container">
-
-        <!-- Dedicated Academy Prerequisites & Logistics Matrix -->
-        <div class="logistics-section">
-          <div class="section-header" style="margin-block-end: 28px;">
-            <span class="eyebrow">Academy Prerequisites &amp; Fleet Logistics</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; text-transform: uppercase;">Essential Information Before Enrolling</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">Practical guidelines answering key questions on motorcycle availability, armor requirements, age tiers, and track conditions.</p>
-          </div>
-
-          <div class="logistics-grid">
-            <div class="logistics-card">
-              <div class="logistics-header">
-                <div class="logistics-icon">🏍️</div>
-                <div class="logistics-title">Bike Fleet &amp; Ownership</div>
-              </div>
-              <p class="logistics-desc">
-                <span class="logistics-highlight">Academy Fleet Available</span>
-                BMCA maintains 150cc–250cc dirt bikes for enrolled trainees. Trainees owning personal off-road or dual-sport motorcycles are encouraged to bring them for personalized setup.
-              </p>
-            </div>
-
-            <div class="logistics-card">
-              <div class="logistics-header">
-                <div class="logistics-icon">🛡️</div>
-                <div class="logistics-title">Mandatory Safety Armor</div>
-              </div>
-              <p class="logistics-desc">
-                <span class="logistics-highlight">DOT / ECE Certified</span>
-                Full-face helmet, goggles, chest/roost protector, knee guards, and rigid motocross boots are compulsory. Sanitized loaner safety sets are available for trial sessions.
-              </p>
-            </div>
-
-            <div class="logistics-card">
-              <div class="logistics-header">
-                <div class="logistics-icon">👥</div>
-                <div class="logistics-title">Age &amp; Experience Levels</div>
-              </div>
-              <p class="logistics-desc">
-                <span class="logistics-highlight">Ages 12+ to Adult Pro</span>
-                Junior Division (12–17 years with parental consent) and Senior Division (18+). Prior off-road experience is not required; basic manual clutch familiarity is beneficial.
-              </p>
-            </div>
-
-            <div class="logistics-card">
-              <div class="logistics-header">
-                <div class="logistics-icon">📍</div>
-                <div class="logistics-title">Chittagong Dirt Arena</div>
-              </div>
-              <p class="logistics-desc">
-                <span class="logistics-highlight">Natural Loam &amp; Clay Circuit</span>
-                Challenging topography with elevation climbs, berms, rhythm whoops, and safety flag marshals. Paddock shade and trackside mechanical pits are provided.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Academy Admissions Packages (3 Clear Packages) -->
-        <div class="packages-section" id="packages">
-          <div class="section-header" style="margin-block-end: 28px;">
-            <span class="eyebrow">Academy Enrollment Tiers</span>
-            <h3 class="section-title" style="font-size: 2rem;">Choose Your Training Pathway</h3>
-            <p class="section-desc">Transparent coaching options whether you need an academy-supplied motorcycle and armor, or want to develop on your personal machine.</p>
-          </div>
-
-          <div class="packages-grid">
-            <!-- Tier 1: Arrive & Ride -->
-            <div class="package-card featured">
-              <div class="package-badge">Most Popular for Beginners</div>
-              <div class="package-header">
-                <h4 class="package-name">Weekend Starter Clinic</h4>
-                <div class="package-type">Turnkey Arrive &amp; Ride</div>
-                <div class="package-price">
-                  <span class="price-prefix">From</span>
-                  <span class="price-currency">৳</span>
-                  <span class="price-amount">3,500</span>
-                  <span class="price-period">/ weekend</span>
-                </div>
-              </div>
-              <p class="package-summary">Ideal for first-time riders. Full training motorcycle and sanitized protective armor provided.</p>
-              <ul class="package-features">
-                <li><span class="feature-bullet">✓</span> BMCA Fleet 150cc–250cc Dirt Bike Included</li>
-                <li><span class="feature-bullet">✓</span> Sanitized DOT/ECE Helmet &amp; Full Body Armor</li>
-                <li><span class="feature-bullet">✓</span> 1-on-1 Certified Coach (Clutch, Posture, Pegs)</li>
-                <li><span class="feature-bullet">✓</span> Track Fuel &amp; Chittagong Dirt Arena Access</li>
-              </ul>
-              <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20would%20like%20to%20book%20the%20Weekend%20Starter%20Clinic" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="btn btn-primary btn-full package-cta-btn"
-                 data-cta-tier="starter_clinic">
-                Book Starter Clinic →
-              </a>
-            </div>
-
-            <!-- Tier 2: Monthly Cadet -->
-            <div class="package-card">
-              <div class="package-header">
-                <h4 class="package-name">Monthly Academy Cadet</h4>
-                <div class="package-type">Junior (12+) &amp; Senior Division</div>
-                <div class="package-price">
-                  <span class="price-prefix">From</span>
-                  <span class="price-currency">৳</span>
-                  <span class="price-amount">12,000</span>
-                  <span class="price-period">/ month</span>
-                </div>
-              </div>
-              <p class="package-summary">Comprehensive 4-week progressive training from cornering ruts to official race gate starts.</p>
-              <ul class="package-features">
-                <li><span class="feature-bullet">✓</span> 4 Weekend Training Blocks (8 Track Sessions)</li>
-                <li><span class="feature-bullet">✓</span> 4-Stage Progressive Curriculum &amp; Assessment</li>
-                <li><span class="feature-bullet">✓</span> Off-the-Bike Physical Conditioning Guidance</li>
-                <li><span class="feature-bullet">✓</span> BMCA Skill Certificate upon Completion</li>
-              </ul>
-              <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20am%20interested%20in%20the%20Monthly%20Academy%20Cadet%20Program" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="btn btn-primary btn-full package-cta-btn"
-                 data-cta-tier="cadet">
-                Enroll as Cadet →
-              </a>
-            </div>
-
-            <!-- Tier 3: Open Paddock Pass -->
-            <div class="package-card">
-              <div class="package-header">
-                <h4 class="package-name">Open Paddock Pass</h4>
-                <div class="package-type">Bring Your Own Machine</div>
-                <div class="package-price">
-                  <span class="price-prefix">From</span>
-                  <span class="price-currency">৳</span>
-                  <span class="price-amount">1,500</span>
-                  <span class="price-period">/ day</span>
-                </div>
-              </div>
-              <p class="package-summary">For licensed off-road and dual-sport owners wanting sanctioned track practice.</p>
-              <ul class="package-features">
-                <li><span class="feature-bullet">✓</span> Full Day Chittagong Dirt Arena Track Access</li>
-                <li><span class="feature-bullet">✓</span> Marshaled Corners &amp; Safety Flag Protocols</li>
-                <li><span class="feature-bullet">✓</span> Paddock Shade Pit Bay &amp; Wash Bay Access</li>
-                <li><span class="feature-bullet">✓</span> Suspension Sag Tuning by Moto Freak Lab</li>
-              </ul>
-              <a href="https://wa.me/8801975376114?text=Hello%20BMCA,%20I%20want%20to%20register%20for%20an%20Open%20Paddock%20Practice%20Pass" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 class="btn btn-secondary btn-full package-cta-btn"
-                 data-cta-tier="paddock_pass">
-                Get Track Pass →
-              </a>
-            </div>
-          </div>
-
-          <!-- Interactive Equipment & Admissions Cost Estimator -->
-          <div class="cost-estimator-container" id="cost-estimator">
-            <div class="estimator-header">
-              <div class="estimator-badge">⚡ Real-Time Price Estimator</div>
-              <h3 class="estimator-title">Equipment &amp; Training Cost Calculator</h3>
-              <p class="estimator-desc">
-                Customize your training pathway: calculate instant pricing based on whether you borrow academy machinery or bring your own equipment.
-              </p>
-            </div>
-
-            <div class="estimator-grid">
-              <!-- Options Column -->
-              <div class="estimator-options">
-                <div class="estimator-group">
-                  <label class="estimator-group-label">1. Select Training Pathway</label>
-                  <div class="estimator-pathway-pills">
-                    <label class="pathway-pill active" id="pill-clinic">
-                      <input type="radio" name="calc-pathway" value="clinic" checked>
-                      <div class="pill-title">Starter Clinic</div>
-                      <div class="pill-price">৳3,500 <span class="pill-unit">/ weekend</span></div>
-                      <div class="pill-note">Includes Fleet Bike &amp; Armor</div>
-                    </label>
-                    <label class="pathway-pill" id="pill-cadet">
-                      <input type="radio" name="calc-pathway" value="cadet">
-                      <div class="pill-title">Monthly Cadet</div>
-                      <div class="pill-price">৳12,000 <span class="pill-unit">/ month</span></div>
-                      <div class="pill-note">4 Weekend Training Blocks</div>
-                    </label>
-                    <label class="pathway-pill" id="pill-paddock">
-                      <input type="radio" name="calc-pathway" value="paddock">
-                      <div class="pill-title">Open Paddock Pass</div>
-                      <div class="pill-price">৳1,500 <span class="pill-unit">/ day</span></div>
-                      <div class="pill-note">Own Bike Track Practice</div>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="estimator-group">
-                  <label class="estimator-group-label">2. Equipment &amp; Track Add-ons</label>
-                  <div class="estimator-addon-list">
-                    <label class="addon-checkbox-card" id="addon-bike-wrapper">
-                      <input type="checkbox" id="addon-bike" value="2000" disabled checked>
-                      <div class="addon-info">
-                        <div class="addon-name">BMCA Fleet 150cc–250cc Dirt Bike</div>
-                        <div class="addon-sub" id="addon-bike-note">Included with Starter Clinic</div>
-                      </div>
-                      <div class="addon-cost" id="addon-bike-cost">৳0</div>
-                    </label>
-
-                    <label class="addon-checkbox-card" id="addon-armor-wrapper">
-                      <input type="checkbox" id="addon-armor" value="800" disabled checked>
-                      <div class="addon-info">
-                        <div class="addon-name">Sanitized DOT/ECE Helmet &amp; Full Armor</div>
-                        <div class="addon-sub" id="addon-armor-note">Included with Starter Clinic</div>
-                      </div>
-                      <div class="addon-cost" id="addon-armor-cost">৳0</div>
-                    </label>
-
-                    <label class="addon-checkbox-card">
-                      <input type="checkbox" id="addon-fuel" value="500">
-                      <div class="addon-info">
-                        <div class="addon-name">Track High-Octane Fuel &amp; Premix</div>
-                        <div class="addon-sub">Full tank track fuel provided at Chittagong Dirt Arena</div>
-                      </div>
-                      <div class="addon-cost">+৳500</div>
-                    </label>
-
-                    <label class="addon-checkbox-card">
-                      <input type="checkbox" id="addon-coach" value="1200">
-                      <div class="addon-info">
-                        <div class="addon-name">1-on-1 Dedicated Coach Supervision</div>
-                        <div class="addon-sub">Dedicated posture, clutch control, and rut cornering coaching</div>
-                      </div>
-                      <div class="addon-cost">+৳1,200</div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Live Total Card -->
-              <div class="estimator-summary-card">
-                <div class="summary-card-inner">
-                  <div class="summary-tag">ESTIMATED INVESTMENT</div>
-                  <div class="summary-total-price">
-                    <span class="total-currency">৳</span>
-                    <span class="total-amount" id="calc-total-amount">3,500</span>
-                    <span class="total-period" id="calc-total-period">/ weekend</span>
-                  </div>
-                  <div class="summary-breakdown" id="calc-summary-breakdown">
-                    <div class="breakdown-item"><span>Weekend Starter Clinic</span> <span>৳3,500</span></div>
-                    <div class="breakdown-item text-muted"><span>BMCA Fleet Dirt Bike</span> <span>Included</span></div>
-                    <div class="breakdown-item text-muted"><span>Helmet &amp; Body Armor</span> <span>Included</span></div>
-                  </div>
-
-                  <button type="button" class="btn btn-primary btn-full" id="calc-book-btn" style="margin-block-start: 20px;">
-                    Book with this Configuration →
-                  </button>
-                  <p class="summary-disclaimer">
-                    * Final pricing confirmed on WhatsApp based on rider experience &amp; session schedule. Zero payment required until on-site safety scrutineering.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guardians' & Parents' Safety Hub & Brand Positioning -->
-        <div class="safety-hub" id="safety">
-          <!-- Brand Positioning Quote Banner -->
-          <div class="brand-positioning-banner">
-            <div class="brand-quote-badge">GROUND ZERO FOR SANCTIONED MOTORSPORTS</div>
-            <blockquote class="brand-quote">
-              “Leave the stunts off the streets. Bring your courage to the dirt.”
-            </blockquote>
-            <p class="brand-quote-sub">
-              BMCA offers a disciplined, athletic, and safe alternative to reckless public street stunting. We train riders on closed, marshaled circuits with certified armor, regulated machines, and medical standby.
-            </p>
-          </div>
-
-          <!-- 4 Pillars Safety Dossier -->
-          <div class="safety-dossier">
-            <div class="section-header" style="margin-block-end: 24px; text-align: left;">
-              <span class="eyebrow eyebrow-yellow">Parental &amp; Guardian Safety Hub</span>
-              <h3 style="font-family: var(--font-heading); font-size: 1.85rem; text-transform: uppercase;">Zero-Compromise Safety Standards</h3>
-              <p style="font-size: 0.95rem; color: var(--text-muted);">
-                Parental confidence is our foundation. Here is how BMCA mitigates risk and ensures every training session in Chittagong adheres to international motorsports safety protocols.
-              </p>
-            </div>
-
-            <div class="safety-grid">
-              <div class="safety-card">
-                <div class="safety-card-icon">🛡️</div>
-                <div class="safety-card-badge">Armor Protocol</div>
-                <h4>Mandatory Personal Armor</h4>
-                <p>
-                  Zero tolerance for unarmored riding. Every rider must wear a certified DOT/ECE full-face helmet, shatterproof goggles, chest &amp; roost protector, heavy-duty knee armor, and rigid motocross boots. No rider enters the staging gate without equipment clearance.
-                </p>
-              </div>
-
-              <div class="safety-card">
-                <div class="safety-card-icon">🚩</div>
-                <div class="safety-card-badge">Marshal Discipline</div>
-                <h4>Track Marshal Flag Rules</h4>
-                <p>
-                  Our track is staffed by trained marshals using official FIM signals. <strong>Yellow Flag:</strong> Immediate incident zone, slow down, zero overtaking allowed. <strong>Red Flag:</strong> Complete track emergency halt. <strong>Chequered Flag:</strong> Controlled session completion.
-                </p>
-              </div>
-
-              <div class="safety-card">
-                <div class="safety-card-icon">⚙️</div>
-                <div class="safety-card-badge">Equipment Control</div>
-                <h4>Low-Speed Throttle Stops</h4>
-                <p>
-                  Beginners and cadets in the Junior Division (ages 12–17) ride machines equipped with adjustable mechanical throttle governor limiters. Power is only unlocked incrementally as rider balance, clutch discipline, and emergency stopping are certified by coaches.
-                </p>
-              </div>
-
-              <div class="safety-card">
-                <div class="safety-card-icon">🏥</div>
-                <div class="safety-card-badge">Emergency Ready</div>
-                <h4>On-Site First-Aid Standby</h4>
-                <p>
-                  Every sanctioned training weekend maintains an on-site medical first-aid post at the paddock, equipped with trauma splints, neck stabilization, burn dressings, and immediate vehicle evacuation routing to Chittagong medical centers.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4-Stage Progressive Curriculum -->
-        <div class="academy-grid">
-          <div class="academy-overview">
-            <span class="eyebrow">Skill Progression</span>
-            <h2 class="section-title">Train With Purpose &amp; Precision</h2>
-            <p>
-              Under the direct oversight of certified mentor Salauddin Ahmed Bulbul (trained at Kolkata's TWM Academy), our curriculum progresses riders from fundamental clutch control to high-speed racecraft.
-            </p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">Enroll in Academy</a>
-              <a href="tel:+8801975376114" class="btn btn-outline">Call Academy Coach</a>
-            </div>
-          </div>
-
-          <div class="curriculum-list">
-            <div class="curriculum-card">
-              <div class="curriculum-step">01</div>
-              <div class="curriculum-info">
-                <h4>Bike Control &amp; Body Stance</h4>
-                <p>Throttle modulation, clutch biting point, standing pegs posture, and center of gravity balance.</p>
-              </div>
-            </div>
-
-            <div class="curriculum-card">
-              <div class="curriculum-step">02</div>
-              <div class="curriculum-info">
-                <h4>Cornering, Berms &amp; Rut Traversal</h4>
-                <p>Leg-out positioning, counter-steering, apex braking, and locking into deep dirt ruts.</p>
-              </div>
-            </div>
-
-            <div class="curriculum-card">
-              <div class="curriculum-step">03</div>
-              <div class="curriculum-info">
-                <h4>Jumping &amp; Suspension Pre-load</h4>
-                <p>Approach speed, flight trajectory control, tabletop absorption, and smooth landing throttle.</p>
-              </div>
-            </div>
-
-            <div class="curriculum-card">
-              <div class="curriculum-step">04</div>
-              <div class="curriculum-info">
-                <h4>Gate Starts &amp; Racecraft</h4>
-                <p>Starting gate reaction, holeshot execution, track lines, defensive passing, and safety flags.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Academy Badges List -->
-        <div class="academy-badges">
-          <span class="skill-tag">Protective Armor &amp; Gear</span>
-          <span class="skill-tag">Track Riding &amp; Flag Signals</span>
-          <span class="skill-tag">Dirt Bike Mechanical Maintenance</span>
-          <span class="skill-tag">Competition Gate Drops</span>
-          <span class="skill-tag">Hill Track &amp; Enduro Navigation</span>
-          <span class="skill-tag">Mental Discipline &amp; Conditioning</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Racing Event Calendar (2026 - 2027) -->
-    <section class="section section-dark" id="calendar">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow eyebrow-yellow">Official Race Fixtures</span>
-          <h2 class="section-title">2026 - 2027 Racing Event Calendar</h2>
-          <p class="section-desc">Sanctioned track trials, provincial championships, and invitational motocross tournaments.</p>
-        </div>
-
-        <div class="calendar-wrapper">
-
-          <!-- Impending Fixture Jumping Spotlight Banner -->
-          <div class="calendar-spotlight-card">
-            <div class="spotlight-top">
-              <div class="spotlight-pill">
-                <span class="jump-icon">🔥</span>
-                <span>NEXT OFFICIAL RACE GATE DROP</span>
-              </div>
-              <span class="spotlight-circuit-tag">📍 Feni Off-Road Arena • 15 November 2026</span>
-            </div>
-            <div class="spotlight-body">
-              <div class="spotlight-main">
-                <h3 class="spotlight-title">Feni Track Trial (Grand Season Opener)</h3>
-                <p class="spotlight-desc">
-                  20-Gate electronic release • Hardpack Red Clay &amp; Sand-Loam Circuit • Pro Track (250cc–450cc) &amp; Novice (150cc) Heats • Electronic Transponder Timing
-                </p>
-              </div>
-              <div class="spotlight-actions">
-                <button class="btn btn-primary event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">
-                  Register Competitor Entry →
-                </button>
-                <a href="https://wa.me/8801975376114?text=Hello%20BMCA%20Team,%20I%20want%20to%20inquire%20about%20the%20Feni%20Track%20Trial%20on%2015%20Nov%202026" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn btn-secondary">
-                  WhatsApp Paddock Desk ↗
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="calendar-filter">
-            <div class="calendar-tabs">
-              <button class="calendar-tab active" data-year="all">All Fixtures</button>
-              <button class="calendar-tab" data-year="2026">2026 Season</button>
-              <button class="calendar-tab" data-year="2027">2027 Season</button>
-            </div>
-            <a href="https://wa.me/8801975376114?text=Hello%20BMCA%20Team,%20I%20want%20to%20inquire%20about%20racing%20event%20registration" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-              Inquire As Competitor
-            </a>
-          </div>
-
-          <div class="events-table">
-
-            <!-- Event 1 (Featured Impending Race with Jumping Badge) -->
-            <div class="event-row event-featured" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-jump-badge"><span class="jump-icon">⚡</span> NEXT RACE</span>
-                <span class="event-day-month">15 Nov</span>
-                <span class="event-year">2026</span>
-              </div>
-              <div class="event-details">
-                <h4>Feni Track Trial</h4>
-                <span class="event-venue">📍 Feni Off-Road Arena • Pro &amp; Novice Classes</span>
-              </div>
-              <div>
-                <span class="event-type-badge">Official Track Trial</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Feni Track Trial">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Hardpack Red Clay &amp; Loam Berms</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">1.4 KM • 4 Table-Tops &amp; Whoops</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">20-Gate Drop • 3 Heats + Main Event</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">250cc Pro Track &amp; 150cc Novice</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Sanctioned marshals, full ambulance on standby, transponder scoring.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Feni Track Trial (15 Nov 2026)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event 2 -->
-            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-day-month">03 Dec</span>
-                <span class="event-year">2026</span>
-              </div>
-              <div class="event-details">
-                <h4>Chittagong Hill Track Champion</h4>
-                <span class="event-venue">📍 Chittagong Hill Circuits • Grand Championship Round</span>
-              </div>
-              <div>
-                <span class="event-type-badge type-championship">Major Championship</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Chittagong Hill Track Champion (03 Dec 2026)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Chittagong Hill Track Champion">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Natural Forest Loam &amp; Red Hill Clay</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">2.1 KM • Steep Climbs &amp; Step-Downs</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">Full Grid Paddock • Double Championship Points</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">Open Pro Track, 250cc, Novice Academy</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Rigorous hill climb flag signaling, tech inspection, mechanic support pits.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Chittagong Hill Track Champion (03 Dec 2026)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event 3 -->
-            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-day-month">18 Dec</span>
-                <span class="event-year">2026</span>
-              </div>
-              <div class="event-details">
-                <h4>Furious Track Trial</h4>
-                <span class="event-venue">📍 Furious Circuit Arena • Speed &amp; Technical Dirt</span>
-              </div>
-              <div>
-                <span class="event-type-badge">Track Trial</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Furious Track Trial (18 Dec 2026)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Furious Track Trial">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Compact Red Earth &amp; High-Speed Sweepers</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">1.2 KM • Rapid Corner Transitions &amp; Berms</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">16-Gate Release • Sprint Heats</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">Pro Speed Trial &amp; Club Amateur</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Speed radar tracking, marshaled corners, DOT/ECE mandatory armor.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Furious Track Trial (18 Dec 2026)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event 4 -->
-            <div class="event-row" data-year="2026" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-day-month">30 Dec</span>
-                <span class="event-year">2026</span>
-              </div>
-              <div class="event-details">
-                <h4>MRF Rajshahi Invitational</h4>
-                <span class="event-venue">📍 Rajshahi Off-Road Arena • Year-End Shootout</span>
-              </div>
-              <div>
-                <span class="event-type-badge type-championship">National Invitational</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MRF Rajshahi (30 Dec 2026)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for MRF Rajshahi Invitational">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Sandy Alluvial Dirt &amp; Rhythm Section</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">1.6 KM • Triple Jumps &amp; Long Straight</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">Invitational Paddock • Cash Prize Pool</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">Pro Open Class, 250cc, 150cc Invitational</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Official MRF tire service pit, full emergency responder unit.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MRF Rajshahi (30 Dec 2026)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event 5 -->
-            <div class="event-row" data-year="2027" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-day-month">15 Jan</span>
-                <span class="event-year">2027</span>
-              </div>
-              <div class="event-details">
-                <h4>Jessore (Hash-gasib) Enduro Cup</h4>
-                <span class="event-venue">📍 Jessore Dirt Track • Endurance &amp; Trail Battle</span>
-              </div>
-              <div>
-                <span class="event-type-badge">Enduro Round</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Jessore Hash-gasib (15 Jan 2027)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for Jessore Enduro Cup">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Natural Mud Bog, Hardpack Trail &amp; Water Cross</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">4.5 KM Trail Loop • 45-Minute Endurance Moto</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">Staggered Flag Launch • Survival Format</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">Open Enduro, Trail Modified, Stock Dual-Sport</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> Trail recovery sweepers, wilderness first-aid checkpoint, mandatory tool pack.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="Jessore Hash-gasib (15 Jan 2027)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event 6 -->
-            <div class="event-row" data-year="2027" data-expanded="false" tabindex="0" role="button" aria-expanded="false">
-              <div class="event-date">
-                <span class="event-day-month">15 Feb</span>
-                <span class="event-year">2027</span>
-              </div>
-              <div class="event-details">
-                <h4>MotoMadness 2027 Championship</h4>
-                <span class="event-venue">📍 National Grand Prix Arena • Season Opener</span>
-              </div>
-              <div>
-                <span class="event-type-badge type-championship">Mega Championship</span>
-              </div>
-              <div class="event-action">
-                <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MotoMadness (15 Feb 2027)">Register Entry</button>
-                <button class="event-specs-btn" aria-label="Toggle circuit specifications for MotoMadness 2027">Specs <span class="toggle-arrow">▾</span></button>
-              </div>
-
-              <!-- Interactive Expandable Circuit Telemetry Drawer -->
-              <div class="event-telemetry-drawer">
-                <div class="event-telemetry-inner">
-                  <div class="telemetry-grid">
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Track Surface</span>
-                      <span class="telemetry-value">Engineered Supercross Loam &amp; Mega Obstacles</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Circuit Length</span>
-                      <span class="telemetry-value">1.5 KM • Quad Jumps, Whoops &amp; Finish Line Table</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Starting Gate</span>
-                      <span class="telemetry-value">22-Gate Drop • Qualifiers, Semis &amp; 20-Lap Main</span>
-                    </div>
-                    <div class="telemetry-item">
-                      <span class="telemetry-label">Competition Classes</span>
-                      <span class="telemetry-value">Pro MX1 (450cc), Pro MX2 (250cc), Youth Cadet</span>
-                    </div>
-                  </div>
-                  <div class="telemetry-footer">
-                    <span class="telemetry-paddock-status">🛡️ <strong>Paddock Standard:</strong> FIM-grade flag marshals, televised transponder scoring, live grandstand broadcast.</span>
-                    <button class="btn btn-primary btn-sm event-inquire-btn" data-event-name="MotoMadness (15 Feb 2027)">Confirm Entry →</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <p class="calendar-disclaimer">
-            * Note: Official event dates and fixture times are subject to sanctioning body verification and track weather conditions.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Racing Gallery & Lightbox -->
-    <section class="section section-deep" id="gallery">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Life On &amp; Off The Dirt</span>
-          <h2 class="section-title">BMCA Racing Photo Gallery</h2>
-          <p class="section-desc">Experience the raw dirt intensity, athlete dedication, and championship victories of Bangladesh motocross.</p>
-        </div>
-
-        <div class="gallery-filter-bar">
-          <button class="filter-btn active" data-filter="all">All Photos</button>
-          <button class="filter-btn" data-filter="track">Track Action</button>
-          <button class="filter-btn" data-filter="training">Academy Training</button>
-          <button class="filter-btn" data-filter="podium">Podiums &amp; Awards</button>
-          <button class="filter-btn" data-filter="team">Team &amp; Community</button>
-        </div>
-
-        <div class="gallery-grid">
-          
-          <div class="gallery-item" data-category="track">
-            <img src="images/race-start.jpg" 
-                 alt="Motocross dirt bike race launch at start gate" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="1533">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Track Action</span>
-              <div class="gallery-caption">Race Start Gate Drop</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="training">
-            <img src="images/riders-training.jpg" 
-                 alt="BMCA riders lined up for track training" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="1024">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Academy Training</span>
-              <div class="gallery-caption">Rider Track Conditioning</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="podium">
-            <img src="images/award.jpg" 
-                 alt="Championship trophy award ceremony" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="1152">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Podiums &amp; Awards</span>
-              <div class="gallery-caption">Champion Podium Celebration</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="track">
-            <img src="images/hero-bikes.jpg" 
-                 alt="Competition dirt bikes lined on the dirt circuit" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="865">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Track Action</span>
-              <div class="gallery-caption">Race Ready Machines</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="team">
-            <img src="images/club-team.jpg" 
-                 alt="BMCA motocross club team group" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="864">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Team &amp; Community</span>
-              <div class="gallery-caption">BMCA Official Team Crew</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="team">
-            <img src="images/team-photo.jpg" 
-                 alt="BMCA members and riders gathering" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="1152">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Team &amp; Community</span>
-              <div class="gallery-caption">Chittagong Rider Collective</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="track">
-            <img src="images/rider-bikes.jpg" 
-                 alt="Motocross riders standing with bikes" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="717" 
-                 height="1536">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Track Action</span>
-              <div class="gallery-caption">Pit Lane Prep &amp; Staging</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="team">
-            <img src="images/event-talk.jpg" 
-                 alt="Motorsports rider briefing and event talk" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="1025">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Team &amp; Community</span>
-              <div class="gallery-caption">Safety Briefing &amp; Event Speech</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="team">
-            <img src="images/eid-greeting.png" 
-                 alt="BMCA community poster" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1024" 
-                 height="1536">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Team &amp; Community</span>
-              <div class="gallery-caption">BMCA Community Artwork</div>
-            </div>
-          </div>
-
-          <!-- Official Facebook Media Additions -->
-          <div class="gallery-item" data-category="track">
-            <img src="images/hero-competition-bike-workshop.jpg" 
-                 alt="Hero Competition Dirt Bike in Pit Workshop" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="2048" 
-                 height="1079">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Track Action</span>
-              <div class="gallery-caption">Hero Competition Machine (Pit Workshop)</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="podium">
-            <img src="images/sharif-fbr-podium-trophy.jpg" 
-                 alt="Sharif Hossain on podium with 1st Runner Up Trophy" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1536" 
-                 height="2048">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Podiums &amp; Awards</span>
-              <div class="gallery-caption">Sharif Hossain 1st Runner-Up (FBR CampFest 2025)</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="track">
-            <img src="images/team-trail-srimongol-sylhet.jpg" 
-                 alt="BMCA riders on trail run in Srimongol Sylhet" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="2048" 
-                 height="1153">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Track Action</span>
-              <div class="gallery-caption">Srimongol Trail Run Expedition (Sylhet)</div>
-            </div>
-          </div>
-
-          <div class="gallery-item" data-category="podium">
-            <img src="images/sharif-suzuki-championship-poster.jpg" 
-                 alt="Suzuki Off-Road Championship 2026 congratulations poster" 
-                 class="gallery-thumb"
-                 loading="lazy"
-                 width="1254" 
-                 height="1254">
-            <div class="gallery-overlay">
-              <span class="gallery-tag">Podiums &amp; Awards</span>
-              <div class="gallery-caption">Suzuki Off-Road Championship (2nd Runner-Up Pro)</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div style="text-align: center; margin-block-start: 36px;">
-          <a href="gallery.html" class="btn btn-secondary">Open Dedicated Gallery Page →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Official Sponsors & Partners Showcase -->
-    <section class="section section-dark" id="sponsors">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Powering Bangladeshi Motocross</span>
-          <h2 class="section-title">Official Sponsors &amp; Service Partners</h2>
-          <p class="section-desc">Backed by organizations dedicated to advancing motorsports and mechanical engineering in Bangladesh.</p>
-        </div>
-
-        <div class="sponsors-grid">
-
-          <!-- Sponsor 1: DCS -->
-          <div class="sponsor-card">
-            <div class="sponsor-logo-wrap">
-              <img src="images/dcs-sponsor.jpg" 
-                   alt="DCS Official Sponsor Logo" 
-                   class="sponsor-logo"
-                   loading="lazy"
-                   width="1000" 
-                   height="1000">
-            </div>
-            <span class="sponsor-badge">Official Sponsor</span>
-            <h3 class="sponsor-name">DCS</h3>
-            <p class="sponsor-desc">
-              Proud official sponsor supporting Bangladesh Motocross Club &amp; Academy's riders, championship events, and training programs.
-            </p>
-            <a href="https://www.facebook.com/share/14vhacSQqj9/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-              Visit DCS Facebook →
-            </a>
-          </div>
-
-          <!-- Sponsor 2: Moto Freak Lab -->
-          <div class="sponsor-card">
-            <div class="sponsor-logo-wrap">
-              <img src="images/moto-freak-lab.jpg" 
-                   alt="Moto Freak Lab Service Partner Logo" 
-                   class="sponsor-logo"
-                   loading="lazy"
-                   width="1254" 
-                   height="1254">
-            </div>
-            <span class="sponsor-badge" style="color:var(--yellow-trophy)">Official Service Partner</span>
-            <h3 class="sponsor-name">Moto Freak Lab</h3>
-            <p class="sponsor-desc">
-              Precision race tuning, specialized suspension valving, dirt bike diagnostics, and official trackside support pits.
-            </p>
-            <a href="https://www.facebook.com/share/1DzcBwjjfJ/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              Visit Moto Freak Lab →
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Application Section -->
-    <section class="section section-surface" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-
-          <!-- Left Info Card -->
-          <div class="contact-info-card">
-            <span class="eyebrow">Connect With BMCA</span>
-            <h3>Get In Touch</h3>
-            <p>
-              Inquire about academy training admissions, equipment requirements, sponsorship partnerships, or race event entries with our team.
-            </p>
-
-            <div class="contact-details-list">
-              <div class="contact-detail-item">
-                <div class="contact-detail-icon">👤</div>
-                <div class="contact-detail-text">
-                  <b>Director &amp; Lead Contact</b>
-                  <span>Md. Mahabubur Rahman Hafiz</span>
-                </div>
-              </div>
-
-              <div class="contact-detail-item">
-                <div class="contact-detail-icon">📍</div>
-                <div class="contact-detail-text">
-                  <b>Headquarters Location</b>
-                  <span>Chittagong, Bangladesh</span>
-                </div>
-              </div>
-
-              <div class="contact-detail-item">
-                <div class="contact-detail-icon">💬</div>
-                <div class="contact-detail-text">
-                  <b>Direct Phone / WhatsApp</b>
-                  <a href="https://wa.me/8801975376114" target="_blank" rel="noopener noreferrer">01975376114 (+880 1975-376114)</a>
-                </div>
-              </div>
-
-              <div class="contact-detail-item">
-                <div class="contact-detail-icon">✉️</div>
-                <div class="contact-detail-text">
-                  <b>Official Email</b>
-                  <a href="mailto:bangladeshmotocrossclubacademy@gmail.com">bangladeshmotocrossclubacademy@gmail.com</a>
-                </div>
-              </div>
-            </div>
-
-            <h4 style="font-family:var(--font-heading); font-size:1.1rem; text-transform:uppercase; margin-block-end:14px; color:var(--text-main);">
-              Official Social Channels
-            </h4>
-            <div class="social-links-wrap">
-              <a href="https://www.facebook.com/share/1J7fKtW8wE/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                Facebook Page
-              </a>
-              <a href="https://youtube.com/@bangladeshmotocrossclubacademy?si=N-alBRnOj76ZNnTn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                YouTube Channel
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Interactive Registration Form -->
-          <div class="form-card">
-            <div class="form-header">
-              <span class="eyebrow">Direct Application</span>
-              <h3 id="form-card-title">Academy &amp; Membership Inquiry</h3>
-              <p id="form-card-subtitle">Submit your details to receive instant coaching registration information via WhatsApp or Email.</p>
-            </div>
-
-            <form id="academy-form">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="form-name" class="form-label">Full Name *</label>
-                  <input type="text" id="form-name" class="form-input" placeholder="e.g. Tanvir Ahmed" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="form-phone" class="form-label">Phone / WhatsApp Number *</label>
-                  <input type="tel" id="form-phone" class="form-input" placeholder="e.g. 017XXXXXXXX" required>
-                </div>
-
-                <div class="form-group">
-                  <label for="form-city" class="form-label">City / District</label>
-                  <input type="text" id="form-city" class="form-input" placeholder="e.g. Chittagong, Dhaka, Feni">
-                </div>
-
-                <div class="form-group">
-                  <label for="form-program" class="form-label">Program of Interest</label>
-                  <select id="form-program" class="form-select">
-                    <option value="Weekend Starter Clinic (Turnkey Arrive & Ride)">Tier 1: Weekend Starter Clinic (Turnkey Arrive &amp; Ride)</option>
-                    <option value="Monthly Academy Cadet (Junior 12+ & Adult)">Tier 2: Monthly Academy Cadet (Junior 12+ &amp; Adult)</option>
-                    <option value="Open Paddock Practice Pass (Bring Own Machine)">Tier 3: Open Paddock Practice Pass (Bring Own Machine)</option>
-                    <option value="Advanced Competition & Jumps">Advanced Competition &amp; Jumps</option>
-                    <option value="Feni Track Trial 2026 Entry">Race Entry — Feni Track Trial 2026</option>
-                    <option value="Sponsorship / Brand Partnership">Sponsorship / Brand Partnership</option>
-                  </select>
-                </div>
-
-                <!-- Interactive Equipment & Machine Status Selector -->
-                <div class="form-group col-full">
-                  <label class="form-label">Equipment &amp; Motorcycle Status *</label>
-                  <div class="equipment-radio-group" role="radiogroup" aria-label="Equipment and motorcycle status">
-                    <label class="radio-card">
-                      <input type="radio" name="form-equipment" value="Need Fleet Bike & Armor" checked>
-                      <div class="radio-card-content">
-                        <span class="radio-title">🏍️ I Need Fleet Bike &amp; Armor</span>
-                        <span class="radio-sub">BMCA provides sanitized DOT/ECE armor and fleet 150cc–250cc dirt bike.</span>
-                      </div>
-                    </label>
-                    <label class="radio-card">
-                      <input type="radio" name="form-equipment" value="Bringing Own Motorcycle & Gear">
-                      <div class="radio-card-content">
-                        <span class="radio-title">🔧 Bringing Own Motorcycle</span>
-                        <span class="radio-sub">I will bring my own off-road / dual-sport motorcycle and personal riding gear.</span>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-group col-full">
-                  <label for="form-exp" class="form-label">Riding Experience Level</label>
-                  <select id="form-exp" class="form-select">
-                    <option value="Novice / First time on dirt">Novice (First time on dirt bike)</option>
-                    <option value="Street Rider wanting to learn Dirt">Street motorcycle rider wanting to learn off-road</option>
-                    <option value="Intermediate Off-Road Rider">Intermediate off-road / trail rider</option>
-                    <option value="Experienced Competitor">Experienced racer aiming for national championships</option>
-                  </select>
-                </div>
-
-                <div class="form-group col-full">
-                  <label for="form-message" class="form-label">Additional Message / Question</label>
-                  <textarea id="form-message" class="form-textarea" placeholder="Tell us about your bike (if any) or what you wish to achieve with BMCA..."></textarea>
-                </div>
-              </div>
-
-              <div class="form-submit-row">
-                <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
-                <span id="form-status" class="form-status"></span>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Interactive Racer Profile Modal (Focus-Trapped) -->
-  <div class="racer-modal" id="racer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-racer-name">
-    <div class="racer-modal-card">
-      <button class="racer-modal-close" aria-label="Close racer profile modal">×</button>
-      <div class="racer-modal-inner">
-        <div class="racer-modal-top">
-          <img src="images/race-start.jpg" alt="Racer profile" id="modal-racer-img" class="racer-modal-img">
-          <div>
-            <div class="eyebrow eyebrow-yellow" id="modal-racer-num">MR99</div>
-            <h3 id="modal-racer-name" style="font-family:var(--font-heading); font-size:2rem; text-transform:uppercase; margin-block-end:6px;">Name</h3>
-            <div id="modal-racer-role" style="color:var(--red-bright); font-weight:700; font-size:0.95rem; margin-block-end:8px;">Role</div>
-            <div style="font-size:0.85rem; color:var(--text-muted); margin-block-end:4px;">🏍️ Machine: <strong id="modal-racer-machine" style="color:var(--text-main);">Honda CRF250R</strong></div>
-            <div style="font-size:0.85rem; color:var(--text-muted); margin-block-end:4px;">📍 Origin: <span id="modal-racer-location">Chittagong</span></div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">🤝 Partners: <span id="modal-racer-sponsor">DCS / Moto Freak Lab</span></div>
-          </div>
-        </div>
-
-        <div style="margin-block-end: 24px;">
-          <h4 style="font-family:var(--font-heading); font-size:1.15rem; text-transform:uppercase; color:var(--text-main); margin-block-end:8px;">Biography &amp; Racing Profile</h4>
-          <p id="modal-racer-bio" style="font-size:0.95rem; color:var(--text-muted); line-height:1.65;"></p>
-        </div>
-
-        <div class="racer-modal-achievements">
-          <h4>Official Achievements &amp; Podium Finishes</h4>
-          <div class="achievements-list" id="modal-racer-achievements"></div>
-        </div>
-      </div>
+    <ol class="specs">
+      <li data-reveal><span class="n">01</span><h3>Sanctioned racing circuits</h3><p>Natural loam and compact red clay tracks with elevation drops, banked berms, tabletop jumps and rhythm sections built for 150cc–450cc competition.</p></li>
+      <li data-reveal><span class="n">02</span><h3>Dedicated training fleet</h3><p>Students ride BMCA's maintained training bikes, or bring their own for trackside suspension sag tuning and gearing optimisation.</p></li>
+      <li data-reveal><span class="n">03</span><h3>Strict trackside marshaling</h3><p>Zero-tolerance safety: yellow, red and chequered flag marshals at every blind corner, mandatory body armor and on-site first aid.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ DIRECTOR ============ -->
+<section class="sec ink director" id="director">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap director-grid">
+    <div class="director-media">
+      <div class="director-ghost" aria-hidden="true" data-speed="0.12">MR99</div>
+      <figure data-reveal="clip">
+        <img src="images/award.jpg" alt="Md. Mahabubur Rahman Hafiz receiving a motocross championship trophy" loading="lazy" width="1536" height="1152">
+      </figure>
+      <span class="plate">#99</span>
+    </div>
+    <div class="director-copy">
+      <p class="kicker light"><span>02</span> Director · Pro track champion</p>
+      <h2 class="h-xl" data-reveal>Md. Mahabubur<br>Rahman Hafiz</h2>
+      <blockquote data-reveal>“Motocross in Bangladesh must not be an uncontrolled thrill. It is an Olympic-caliber discipline requiring exceptional physical stamina, mechanical knowledge and track safety rigor. Our goal is to cultivate champions who can compete with confidence on the international stage.”</blockquote>
+      <p class="muted" data-reveal>Leading the club from Chittagong, MR99 combines active competitive racing with executive direction — establishing certified coaching curriculums, partnering with Moto Freak Lab and building relationships with motorsport sponsors.</p>
+      <ul class="results" data-reveal>
+        <li><b class="gold">Champion</b><span>Champion of the Curves 2025</span></li>
+        <li><b>P2</b><span>Chittagong Hill Track Trial 2025</span></li>
+        <li><b>P3</b><span>Furious Track Trial 2025</span></li>
+        <li><b>P5</b><span>Moto Madness 2025</span></li>
+      </ul>
+      <button class="btn btn-ghost" type="button" data-dossier="mr99">Open director dossier <span class="arr">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIDERS ============ -->
+<section class="sec paper riders" id="riders">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap riders-head">
+    <div>
+      <p class="kicker"><span>03</span> Paddock lineup</p>
+      <h2 class="h-xl" data-reveal>Riders &amp;<br>mentors</h2>
+    </div>
+    <p class="muted" data-reveal>Certified coaches and pro competitors flying the BMCA colours in the 2025–2026 championships.</p>
+    <div class="arrows">
+      <button type="button" class="arrow" data-scroll="-1" aria-label="Previous riders">←</button>
+      <button type="button" class="arrow" data-scroll="1" aria-label="Next riders">→</button>
     </div>
   </div>
 
-  <!-- Interactive Lightbox Modal (Focus-Trapped) -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
-    <button class="lightbox-close" aria-label="Close photo lightbox">×</button>
-    <button class="lightbox-prev" aria-label="Previous photo">‹</button>
-    <button class="lightbox-next" aria-label="Next photo">›</button>
-    <div class="lightbox-content">
-      <img src="images/race-start.jpg" alt="Enlarged photo" class="lightbox-img" id="lightbox-img">
-      <div class="lightbox-caption" id="lightbox-caption"></div>
-    </div>
+  <div class="rider-track" tabindex="0" aria-label="Rider cards, scroll horizontally">
+    <article class="rider" data-reveal>
+      <span class="rider-num" aria-hidden="true">99</span>
+      <img src="images/race-start.jpg" alt="MR99 with his bike at the Moto Madness start arch" loading="lazy">
+      <div class="rider-body">
+        <span class="mono role">Director · Champion</span>
+        <h3>Mahabubur Rahman Hafiz</h3>
+        <p class="mono">Honda CRF250R · Pro 250cc · Chittagong</p>
+        <button type="button" data-dossier="mr99" class="rider-open">Dossier <span>+</span></button>
+      </div>
+    </article>
+    <article class="rider" data-reveal>
+      <span class="rider-num" aria-hidden="true">07</span>
+      <img src="images/baundal-bulbul.jpg" alt="Salauddin Ahmed Bulbul, Baundal Bulbul #07" loading="lazy">
+      <div class="rider-body">
+        <span class="mono role">Official mentor</span>
+        <h3>Salauddin Ahmed Bulbul</h3>
+        <p class="mono">Yamaha YZ250F · Enduro 250cc · Narsingdi</p>
+        <button type="button" data-dossier="bulbul" class="rider-open">Dossier <span>+</span></button>
+      </div>
+    </article>
+    <article class="rider" data-reveal>
+      <span class="rider-num" aria-hidden="true">05</span>
+      <img src="images/sharif-on-track.jpg" alt="Sharif ON Track #05" loading="lazy">
+      <div class="rider-body">
+        <span class="mono role">Pro track racer</span>
+        <h3>Sharif ON Track</h3>
+        <p class="mono">Suzuki RM-Z250 · Pro 250cc · Chittagong</p>
+        <button type="button" data-dossier="sharif" class="rider-open">Dossier <span>+</span></button>
+      </div>
+    </article>
+    <article class="rider" data-reveal>
+      <span class="rider-num" aria-hidden="true">77</span>
+      <img src="images/sultan-sheikh.jpg" alt="Sultan Sheikh #77" loading="lazy">
+      <div class="rider-body">
+        <span class="mono role">Pro open racer</span>
+        <h3>Sultan Sheikh</h3>
+        <p class="mono">KTM 250 SX-F · Open class · Sylhet</p>
+        <button type="button" data-dossier="sultan" class="rider-open">Dossier <span>+</span></button>
+      </div>
+    </article>
+    <a href="#contact" class="rider rider-cta" data-reveal>
+      <span class="rider-num" aria-hidden="true">??</span>
+      <div class="rider-body">
+        <span class="mono role">Your number here</span>
+        <h3>Next on the gate?</h3>
+        <p class="mono">Start at the academy →</p>
+      </div>
+    </a>
   </div>
+</section>
 
-  <!-- Interactive Feni Track Trial Registration Modal (Focus-Trapped) -->
-  <div class="feni-modal" id="feni-trial-modal" role="dialog" aria-modal="true" aria-labelledby="feni-modal-title" style="display: none;">
-    <div class="feni-modal-card">
-      <button class="racer-modal-close" id="feni-modal-close" aria-label="Close Feni race registration modal">×</button>
-      <div class="feni-modal-inner">
-        <div class="feni-modal-header">
-          <div class="feni-modal-badge">⚡ Official Race Entry • 15 November 2026</div>
-          <h3 class="feni-modal-title" id="feni-modal-title">Feni Track Trial Registration</h3>
-          <p class="feni-modal-desc">
-            Sanctioned 20-Gate Motocross &amp; Enduro Competition at Feni Off-Road Arena. Register your machine into official race heats or reserve your Paddock VIP Spectator Pass.
-          </p>
-        </div>
+<!-- ============ ACADEMY ============ -->
+<section class="sec ink academy" id="academy">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="topo dim" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="academy-intro">
+      <p class="kicker light"><span>04</span> The academy</p>
+      <h2 class="h-xxl" data-reveal>Train with<br><span class="red">purpose.</span></h2>
+      <p class="muted" data-reveal>Under the direct oversight of certified mentor Salauddin Ahmed Bulbul (trained at Kolkata's TWM Academy), the curriculum takes riders from fundamental clutch control to high-speed racecraft.</p>
+    </div>
 
-        <form id="feni-registration-form" novalidate>
-          <div class="feni-form-grid">
-            <div class="form-group">
-              <label for="feni-name" class="form-label">Competitor / Attendee Name *</label>
-              <input type="text" id="feni-name" class="form-input" placeholder="e.g. Tanvir Ahmed" required autocomplete="name">
-            </div>
+    <div class="stages">
+      <div class="stage-sticky" aria-hidden="true">
+        <span class="mono">Stage</span>
+        <div class="stage-big"><span id="stage-num">01</span><small>/04</small></div>
+        <div class="stage-rail"><i id="stage-fill"></i></div>
+      </div>
+      <ol class="stage-list">
+        <li class="stage" data-stage="01"><h3>Bike control &amp; body stance</h3><p>Throttle modulation, clutch biting point, standing-on-the-pegs posture and centre-of-gravity balance.</p></li>
+        <li class="stage" data-stage="02"><h3>Cornering, berms &amp; ruts</h3><p>Leg-out positioning, counter-steering, apex braking and locking into deep dirt ruts.</p></li>
+        <li class="stage" data-stage="03"><h3>Jumping &amp; suspension pre-load</h3><p>Approach speed, flight trajectory control, tabletop absorption and smooth landing throttle.</p></li>
+        <li class="stage" data-stage="04"><h3>Gate starts &amp; racecraft</h3><p>Starting-gate reaction, holeshot execution, track lines, defensive passing and safety flags.</p></li>
+      </ol>
+    </div>
 
-            <div class="form-group">
-              <label for="feni-phone" class="form-label">WhatsApp Number *</label>
-              <input type="tel" id="feni-phone" class="form-input" placeholder="e.g. 017XXXXXXXX" required autocomplete="tel">
-            </div>
+    <ul class="tags" data-reveal>
+      <li>Protective armor &amp; gear</li><li>Track riding &amp; flag signals</li><li>Dirt bike maintenance</li><li>Competition gate drops</li><li>Hill track &amp; enduro navigation</li><li>Mental discipline &amp; conditioning</li>
+    </ul>
 
-            <div class="form-group">
-              <label for="feni-entry-type" class="form-label">Registration Type *</label>
-              <select id="feni-entry-type" class="form-select" required>
-                <option value="Competitor Racer Entry">Competitor Racer Entry (Track Trial)</option>
-                <option value="Paddock VIP Spectator / Pit Crew">Paddock VIP Spectator / Pit Crew</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="feni-category" class="form-label">Competition Class / Category *</label>
-              <select id="feni-category" class="form-select" required>
-                <option value="Pro Track 250cc–450cc">Pro Track (250cc–450cc 4-Stroke)</option>
-                <option value="Novice / Beginner 150cc">Novice / Beginner (150cc Class)</option>
-                <option value="Junior Division (Ages 12–17)">Junior Division (Ages 12–17)</option>
-                <option value="Open Enduro Trail">Open Enduro Trail</option>
-                <option value="Spectator Paddock Pass">Spectator Paddock Access Pass</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="feni-machine" class="form-label">Motorcycle Model &amp; CC *</label>
-              <input type="text" id="feni-machine" class="form-input" placeholder="e.g. Honda CRF250R / Borrow BMCA Fleet Bike" required>
-            </div>
-
-            <div class="form-group">
-              <label for="feni-city" class="form-label">Home City / District *</label>
-              <input type="text" id="feni-city" class="form-input" placeholder="e.g. Feni, Chittagong, Dhaka" required>
-            </div>
-
-            <div class="form-group">
-              <label for="feni-blood" class="form-label">Rider Blood Group (Optional for Trauma Standby)</label>
-              <select id="feni-blood" class="form-select">
-                <option value="Not Disclosed">Select Blood Group (Optional)</option>
-                <option value="A+">A Positive (A+)</option>
-                <option value="A-">A Negative (A-)</option>
-                <option value="B+">B Positive (B+)</option>
-                <option value="B-">B Negative (B-)</option>
-                <option value="O+">O Positive (O+)</option>
-                <option value="O-">O Negative (O-)</option>
-                <option value="AB+">AB Positive (AB+)</option>
-                <option value="AB-">AB Negative (AB-)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="feni-emergency" class="form-label">Emergency Contact (Name &amp; Phone) *</label>
-              <input type="text" id="feni-emergency" class="form-input" placeholder="e.g. Father/Guardian: 018XXXXXXXX" required>
-            </div>
-
-            <div class="form-group col-full">
-              <div class="feni-safety-box">
-                🛡️ <strong>Safety &amp; Scrutineering Standard:</strong> Full-face DOT/ECE helmet, chest &amp; roost protector, rigid motocross boots, and knee guards mandatory. FIM flag marshal signals strictly enforced. Ambulance &amp; paramedic standby on site.
-              </div>
-              <label class="feni-safety-checkbox-label">
-                <input type="checkbox" id="feni-safety-ack" required checked>
-                <span>I agree to BMCA track safety standards, vehicle scrutineering, and marshal rules.</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-actions" style="margin-block-start: 20px;">
-            <button type="submit" class="btn btn-primary btn-full" id="feni-submit-btn">
-              Confirm &amp; Dispatch Race Entry via WhatsApp →
-            </button>
-          </div>
-          <div class="form-status" id="feni-form-status" role="status" aria-live="polite" style="margin-block-start: 12px;"></div>
-        </form>
+    <div class="facts">
+      <h3 class="h-md" data-reveal>Before you enroll</h3>
+      <div class="facts-grid">
+        <div class="fact" data-reveal><span class="mono">Bike fleet</span><b>Academy fleet available</b><p>BMCA maintains 150cc–250cc dirt bikes for enrolled trainees. Own an off-road or dual-sport bike? Bring it for personalised setup.</p></div>
+        <div class="fact" data-reveal><span class="mono">Safety armor</span><b>DOT / ECE certified</b><p>Full-face helmet, goggles, chest/roost protector, knee guards and rigid MX boots are compulsory. Sanitised loaner sets for trial sessions.</p></div>
+        <div class="fact" data-reveal><span class="mono">Age &amp; level</span><b>12+ to adult pro</b><p>Junior Division (12–17, with parental consent) and Senior Division (18+). No off-road experience needed; manual clutch familiarity helps.</p></div>
+        <div class="fact" data-reveal><span class="mono">Home track</span><b>Chittagong Dirt Arena</b><p>Natural loam &amp; clay with elevation climbs, berms and rhythm whoops. Flag marshals, paddock shade and trackside mechanical pits.</p></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Interactive Paddock Desk Lead Vault & CSV Manager Modal -->
-  <div class="feni-modal" id="paddock-vault-modal" role="dialog" aria-modal="true" aria-labelledby="paddock-vault-title" style="display: none;">
-    <div class="feni-modal-card paddock-vault-card">
-      <button class="racer-modal-close" id="paddock-vault-close" aria-label="Close Paddock Lead Vault modal">×</button>
-      <div class="feni-modal-inner">
-        <div class="feni-modal-header">
-          <div class="feni-modal-badge">🛡️ Paddock Desk Operations • Offline Lead Vault</div>
-          <h3 class="feni-modal-title" id="paddock-vault-title">Paddock Lead Vault &amp; Export</h3>
-          <p class="feni-modal-desc">
-            All admission inquiries and Feni trial race registrations committed to browser storage. Export as CSV for Excel/Google Sheets or follow up with riders via WhatsApp.
-          </p>
-        </div>
+<!-- ============ PRICING ============ -->
+<section class="sec ink2 join" id="join">
+  <div class="wrap">
+    <div class="join-head">
+      <p class="kicker light"><span>05</span> Enrollment</p>
+      <h2 class="h-xl" data-reveal>Pick your line.</h2>
+      <p class="muted" data-reveal>Clear coaching options — whether you need an academy bike and armor, or want to develop on your own machine.</p>
+    </div>
+    <div class="tiers">
+      <article class="tier hot" data-reveal>
+        <span class="tier-flag mono">Most popular for beginners</span>
+        <h3>Weekend Starter Clinic</h3>
+        <p class="mono tier-type">Turnkey arrive &amp; ride</p>
+        <p class="price"><small>From ৳</small>3,500<small>/ weekend</small></p>
+        <p>Ideal for first-time riders. Full training motorcycle and sanitised protective armor provided.</p>
+        <ul><li>BMCA fleet 150cc–250cc dirt bike</li><li>Sanitised DOT/ECE helmet &amp; body armor</li><li>1-on-1 certified coach</li><li>Track fuel &amp; Dirt Arena access</li></ul>
+        <button type="button" class="btn btn-ink" data-enquire="Weekend Starter Clinic">Book starter clinic <span class="arr">→</span></button>
+      </article>
+      <article class="tier" data-reveal>
+        <h3>Monthly Academy Cadet</h3>
+        <p class="mono tier-type">Junior (12+) &amp; senior division</p>
+        <p class="price"><small>From ৳</small>12,000<small>/ month</small></p>
+        <p>Progressive 4-week training — from cornering ruts to official race gate starts.</p>
+        <ul><li>4 weekend blocks (8 track sessions)</li><li>4-stage curriculum &amp; assessment</li><li>Off-bike conditioning guidance</li><li>BMCA skill certificate</li></ul>
+        <button type="button" class="btn btn-red" data-enquire="Monthly Academy Cadet">Enroll as cadet <span class="arr">→</span></button>
+      </article>
+      <article class="tier" data-reveal>
+        <h3>Open Paddock Pass</h3>
+        <p class="mono tier-type">Bring your own machine</p>
+        <p class="price"><small>From ৳</small>1,500<small>/ day</small></p>
+        <p>For off-road and dual-sport owners who want sanctioned track practice.</p>
+        <ul><li>Full-day Dirt Arena access</li><li>Marshaled corners &amp; flag protocol</li><li>Shaded pit bay &amp; wash bay</li><li>Sag tuning by Moto Freak Lab</li></ul>
+        <button type="button" class="btn btn-ghost" data-enquire="Open Paddock Pass">Get track pass <span class="arr">→</span></button>
+      </article>
+    </div>
+    <p class="fine mono">* Final pricing confirmed on WhatsApp based on rider experience &amp; schedule. No payment until on-site safety scrutineering.</p>
+  </div>
+</section>
 
-        <div class="vault-toolbar">
-          <div class="vault-stats">
-            <span class="vault-stat-pill" id="vault-total-count">Total: 0</span>
-            <span class="vault-stat-pill feni-pill" id="vault-feni-count">Feni Entries: 0</span>
-            <span class="vault-stat-pill academy-pill" id="vault-inquiry-count">Inquiries: 0</span>
-          </div>
-          <div class="vault-actions">
-            <button type="button" class="btn btn-primary btn-sm" id="vault-export-csv-btn">📥 Export to CSV</button>
-            <button type="button" class="btn btn-secondary btn-sm" id="vault-clear-btn">Clear Vault</button>
-          </div>
-        </div>
+<!-- ============ SAFETY ============ -->
+<section class="sec red-band" id="safety">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker ink-k"><span>06</span> Ground zero for sanctioned motorsport</p>
+    <blockquote class="mega-quote" data-scrub>Leave the stunts off the streets. Bring your courage to the dirt.</blockquote>
+    <p class="band-sub" data-reveal>A disciplined, athletic and safe alternative to reckless street stunting: closed, marshaled circuits, certified armor, regulated machines and medical standby.</p>
+  </div>
+  <div class="tear tear-bottom" aria-hidden="true"></div>
+</section>
 
-        <div class="vault-filter-tabs">
-          <button type="button" class="vault-tab-btn active" data-vault-filter="all">All Submissions</button>
-          <button type="button" class="vault-tab-btn" data-vault-filter="feni_race_entry">Feni Race Entries</button>
-          <button type="button" class="vault-tab-btn" data-vault-filter="admission_inquiry">Admission Inquiries</button>
-        </div>
-
-        <div class="vault-leads-list" id="vault-leads-list" role="region" aria-live="polite">
-          <!-- Populated dynamically via main.js -->
-        </div>
-      </div>
+<section class="sec ink safety">
+  <div class="wrap">
+    <div class="safety-head">
+      <h2 class="h-xl" data-reveal>Zero-compromise<br>safety.</h2>
+      <p class="muted" data-reveal>For parents and guardians: here is how BMCA manages risk and keeps every training session in Chittagong in line with international motorsport safety protocol.</p>
+    </div>
+    <div class="safety-grid">
+      <article data-reveal><span class="mono">Armor protocol</span><h3>Mandatory personal armor</h3><p>No unarmored riding, ever. Certified DOT/ECE full-face helmet, shatterproof goggles, chest &amp; roost protector, knee armor and rigid boots. No clearance, no staging gate.</p></article>
+      <article data-reveal><span class="mono">Marshal discipline</span><h3>Track marshal flag rules</h3>
+        <ul class="flags">
+          <li><i class="f-yellow"></i><span><b>Yellow</b> incident zone — slow down, no overtaking</span></li>
+          <li><i class="f-red"></i><span><b>Red</b> full track emergency halt</span></li>
+          <li><i class="f-chq"></i><span><b>Chequered</b> controlled session finish</span></li>
+        </ul>
+      </article>
+      <article data-reveal><span class="mono">Equipment control</span><h3>Low-speed throttle stops</h3><p>Junior Division riders (12–17) ride machines with adjustable throttle limiters. Power unlocks step by step as balance, clutch discipline and emergency stopping are certified.</p></article>
+      <article data-reveal><span class="mono">Emergency ready</span><h3>On-site first-aid standby</h3><p>Every training weekend runs a paddock first-aid post — trauma splints, neck stabilisation, burn dressings and evacuation routing to Chittagong medical centres.</p></article>
     </div>
   </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="nav-brand">
-            <img src="images/logo.png" alt="BMCA Logo" class="nav-logo" width="46" height="46" loading="lazy">
-            <div class="brand-text">
-              <span class="brand-name">BD Motocross Club &amp; Academy</span>
-              <span class="brand-sub">Chittagong • Bangladesh</span>
-            </div>
-          </div>
-          <p class="footer-brand-desc">
-            The national destination for motocross competition, rider safety education, and youth sports development. Proudly organized and operating from Chittagong.
-          </p>
-        </div>
+<!-- ============ FIXTURES ============ -->
+<section class="sec ink fixtures" id="fixtures">
+  <div class="wrap">
+    <p class="kicker light"><span>07</span> Race calendar 2026 – 2027</p>
 
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-nav">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About the Club</a></li>
-            <li><a href="#director">Leadership</a></li>
-            <li><a href="#roster">Official Racers</a></li>
-            <li><a href="#academy">Training Academy</a></li>
-            <li><a href="brand.html" style="color: var(--yellow-trophy); font-weight: 700;">Brand Identity &amp; System →</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Roster &amp; Profiles</h4>
-          <ul class="footer-nav">
-            <li><a href="racers/mahabubur-rahman-hafiz.html">Md. Mahabubur Rahman (MR99)</a></li>
-            <li><a href="mentors/salauddin-ahmed-bulbul.html">Salauddin Bulbul (#07)</a></li>
-            <li><a href="racers/sharif-on-track.html">Sharif ON Track (#05)</a></li>
-            <li><a href="racers/sultan-sheikh.html">Sultan Sheikh (#77)</a></li>
-            <li><a href="gallery.html">Racing Photo Gallery</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact &amp; Connect</h4>
-          <ul class="footer-nav">
-            <li><span>📍 Chittagong, Bangladesh</span></li>
-            <li><a href="tel:+8801975376114">📞 01975376114</a></li>
-            <li><a href="mailto:bangladeshmotocrossclubacademy@gmail.com">✉️ bangladeshmotocrossclubacademy@gmail.com</a></li>
-            <li><a href="https://www.facebook.com/share/1J7fKtW8wE/" target="_blank" rel="noopener noreferrer">Facebook Page</a></li>
-            <li><a href="https://youtube.com/@bangladeshmotocrossclubacademy?si=N-alBRnOj76ZNnTn" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
-          </ul>
+    <div class="gate" data-reveal>
+      <div class="gate-info">
+        <span class="mono tag red-t">● Next official gate drop</span>
+        <h2 class="h-xxl">Feni Track<br>Trial</h2>
+        <p class="mono">15 November 2026 · Feni Off-Road Arena · Grand season opener</p>
+        <p class="muted">20-gate electronic release · hardpack red clay &amp; sand-loam circuit · Pro (250–450cc) &amp; Novice (150cc) heats · transponder timing.</p>
+        <div class="hero-ctas">
+          <button type="button" class="btn btn-red" data-enquire="Race entry — Feni Track Trial 2026">Register entry <span class="arr">→</span></button>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/8801975376114?text=Hello%20BMCA%2C%20I%20want%20to%20ask%20about%20the%20Feni%20Track%20Trial%20on%2015%20Nov%202026">WhatsApp paddock desk ↗</a>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <div>
-          © 2026 Bangladesh Motocross Club &amp; Academy • All Rights Reserved.
-        </div>
-        <div class="footer-paddock-access">
-          <a href="#paddock-vault-modal" id="paddock-vault-trigger" class="footer-paddock-link" title="Open Paddock Desk Lead Vault">
-            🛡️ Paddock Desk Leads Vault
-          </a>
-        </div>
-        <div class="footer-motto">
-          Ride Safe • Train Hard • Race Strong
-        </div>
+      <div class="countdown big" data-countdown aria-label="Time until the Feni Track Trial">
+        <div><b data-d>00</b><span>Days</span></div>
+        <div><b data-h>00</b><span>Hours</span></div>
+        <div><b data-m>00</b><span>Mins</span></div>
+        <div><b data-s>00</b><span>Secs</span></div>
       </div>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+    <div class="season-tabs" role="tablist" aria-label="Season">
+      <button role="tab" aria-selected="true" data-year="all">All</button>
+      <button role="tab" aria-selected="false" data-year="2026">2026</button>
+      <button role="tab" aria-selected="false" data-year="2027">2027</button>
+    </div>
+
+    <div class="events">
+      <details class="event" data-year="2026">
+        <summary><span class="date"><b>15</b>Nov ’26</span><span class="ev-name"><b>Feni Track Trial</b><small>Feni Off-Road Arena · Pro &amp; Novice</small></span><span class="pill pill-red">Next race</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Hardpack red clay &amp; loam berms</dd></div><div><dt>Length</dt><dd>1.4 km · 4 table-tops &amp; whoops</dd></div><div><dt>Gate</dt><dd>20-gate drop · 3 heats + main</dd></div><div><dt>Classes</dt><dd>250cc Pro Track &amp; 150cc Novice</dd></div></dl>
+          <p class="mono">Paddock standard: sanctioned marshals, ambulance on standby, transponder scoring.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — Feni Track Trial 2026">Register →</button>
+        </div>
+      </details>
+      <details class="event" data-year="2026">
+        <summary><span class="date"><b>03</b>Dec ’26</span><span class="ev-name"><b>Chittagong Hill Track Champion</b><small>Chittagong Hill Circuits · Grand championship round</small></span><span class="pill">Major championship</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Forest loam &amp; red hill clay</dd></div><div><dt>Length</dt><dd>2.1 km · steep climbs &amp; step-downs</dd></div><div><dt>Gate</dt><dd>Full grid · double championship points</dd></div><div><dt>Classes</dt><dd>Open Pro, 250cc, Novice Academy</dd></div></dl>
+          <p class="mono">Paddock standard: hill-climb flag signalling, tech inspection, mechanic support pits.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — Chittagong Hill Track Champion">Register →</button>
+        </div>
+      </details>
+      <details class="event" data-year="2026">
+        <summary><span class="date"><b>18</b>Dec ’26</span><span class="ev-name"><b>Furious Track Trial</b><small>Furious Circuit Arena · Speed &amp; technical dirt</small></span><span class="pill">Track trial</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Compact red earth &amp; fast sweepers</dd></div><div><dt>Length</dt><dd>1.2 km · rapid transitions &amp; berms</dd></div><div><dt>Gate</dt><dd>16-gate release · sprint heats</dd></div><div><dt>Classes</dt><dd>Pro Speed Trial &amp; Club Amateur</dd></div></dl>
+          <p class="mono">Paddock standard: speed radar, marshaled corners, DOT/ECE armor mandatory.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — Furious Track Trial">Register →</button>
+        </div>
+      </details>
+      <details class="event" data-year="2026">
+        <summary><span class="date"><b>30</b>Dec ’26</span><span class="ev-name"><b>MRF Rajshahi Invitational</b><small>Rajshahi Off-Road Arena · Year-end shootout</small></span><span class="pill">National invitational</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Sandy alluvial dirt &amp; rhythm section</dd></div><div><dt>Length</dt><dd>1.6 km · triple jumps &amp; long straight</dd></div><div><dt>Gate</dt><dd>Invitational paddock · cash prize pool</dd></div><div><dt>Classes</dt><dd>Pro Open, 250cc, 150cc Invitational</dd></div></dl>
+          <p class="mono">Paddock standard: MRF tyre service pit, full emergency responder unit.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — MRF Rajshahi Invitational">Register →</button>
+        </div>
+      </details>
+      <details class="event" data-year="2027">
+        <summary><span class="date"><b>15</b>Jan ’27</span><span class="ev-name"><b>Jessore (Hash-gasib) Enduro Cup</b><small>Jessore Dirt Track · Endurance &amp; trail battle</small></span><span class="pill">Enduro round</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Mud bog, hardpack trail &amp; water cross</dd></div><div><dt>Length</dt><dd>4.5 km loop · 45-minute moto</dd></div><div><dt>Gate</dt><dd>Staggered flag launch · survival format</dd></div><div><dt>Classes</dt><dd>Open Enduro, Trail Modified, Stock Dual-Sport</dd></div></dl>
+          <p class="mono">Paddock standard: trail sweepers, wilderness first-aid checkpoint, mandatory tool pack.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — Jessore Enduro Cup">Register →</button>
+        </div>
+      </details>
+      <details class="event" data-year="2027">
+        <summary><span class="date"><b>15</b>Feb ’27</span><span class="ev-name"><b>MotoMadness 2027 Championship</b><small>National Grand Prix Arena · Season opener</small></span><span class="pill">Mega championship</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="ev-body">
+          <dl><div><dt>Surface</dt><dd>Engineered supercross loam</dd></div><div><dt>Length</dt><dd>1.5 km · quad jumps, whoops &amp; finish table</dd></div><div><dt>Gate</dt><dd>22-gate drop · qualifiers, semis, 20-lap main</dd></div><div><dt>Classes</dt><dd>Pro MX1 (450cc), Pro MX2 (250cc), Youth Cadet</dd></div></dl>
+          <p class="mono">Paddock standard: FIM-grade marshals, televised transponder scoring, live broadcast.</p>
+          <button type="button" class="btn btn-red btn-sm" data-enquire="Race entry — MotoMadness 2027">Register →</button>
+        </div>
+      </details>
+    </div>
+    <p class="fine mono">* Dates and times are subject to sanctioning body verification and track weather conditions.</p>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec paper gallery" id="gallery">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <p class="kicker"><span>08</span> On &amp; off the dirt</p>
+        <h2 class="h-xl" data-reveal>Paddock<br>archive</h2>
+      </div>
+      <div class="chips" role="group" aria-label="Filter photos">
+        <button aria-pressed="true" data-filter="all">All</button>
+        <button aria-pressed="false" data-filter="track">Track</button>
+        <button aria-pressed="false" data-filter="training">Training</button>
+        <button aria-pressed="false" data-filter="podium">Podiums</button>
+        <button aria-pressed="false" data-filter="team">Team</button>
+      </div>
+    </div>
+
+    <div class="masonry">
+      <button class="shot" data-cat="track" data-video="images/bmca-srimongol-trail-run.mp4"><img src="images/srimongol-trail-still.jpg" alt="Srimongol trail run video" loading="lazy"><span class="play" aria-hidden="true">▶</span><span class="cap">Video · Srimongol Sylhet trail run</span></button>
+      <button class="shot" data-cat="training"><img src="images/riders-training.jpg" alt="BMCA riders on the training track" loading="lazy"><span class="cap">Rider track conditioning</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-fbr-podium-trophy.jpg" alt="Sharif Hossain on the podium with the 1st runner-up trophy" loading="lazy"><span class="cap">Sharif · 1st runner-up, FBR CampFest 2025</span></button>
+      <button class="shot" data-cat="track"><img src="images/race-start.jpg" alt="Rider at the Moto Madness 2025 start gate" loading="lazy"><span class="cap">Start gate · Moto Madness 2025</span></button>
+      <button class="shot" data-cat="team"><img src="images/club-team.jpg" alt="BMCA team group photo" loading="lazy"><span class="cap">BMCA official crew</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-suzuki-championship-poster.jpg" alt="Suzuki Off-Road Championship 2026 runner-up poster" loading="lazy"><span class="cap">Suzuki Off-Road Championship 2026</span></button>
+      <button class="shot" data-cat="track"><img src="images/hero-competition-bike-workshop.jpg" alt="Hero competition dirt bike in the pit workshop" loading="lazy"><span class="cap">Competition machine · pit workshop</span></button>
+      <button class="shot" data-cat="podium"><img src="images/award.jpg" alt="Championship trophy ceremony" loading="lazy"><span class="cap">Champion podium</span></button>
+      <button class="shot" data-cat="team"><img src="images/team-photo.jpg" alt="BMCA riders gathering" loading="lazy"><span class="cap">Chittagong rider collective</span></button>
+      <button class="shot" data-cat="track"><img src="images/rider-bikes.jpg" alt="Riders standing with their bikes" loading="lazy"><span class="cap">Pit lane prep &amp; staging</span></button>
+      <button class="shot" data-cat="team"><img src="images/event-talk.jpg" alt="Rider safety briefing" loading="lazy"><span class="cap">Safety briefing</span></button>
+      <button class="shot" data-cat="team"><img src="images/hero-bikes.jpg" alt="BMCA riders with new Hero dual-sport bikes" loading="lazy"><span class="cap">New machines day</span></button>
+      <button class="shot" data-cat="track"><img src="images/team-trail-srimongol-sylhet.jpg" alt="BMCA trail expedition crew in Srimongol" loading="lazy"><span class="cap">Srimongol trail expedition</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section class="sec ink partners" id="partners">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap partners-grid">
+    <div>
+      <p class="kicker light"><span>09</span> Powering BD motocross</p>
+      <h2 class="h-xl" data-reveal>Our<br>partners</h2>
+    </div>
+    <a class="partner" href="https://www.facebook.com/share/14vhacSQqj9/" target="_blank" rel="noopener" data-reveal>
+      <img src="images/dcs-sponsor.jpg" alt="DCS logo" loading="lazy">
+      <span class="mono">Official sponsor</span><b>DCS</b>
+      <p>Backing BMCA's riders, championship events and training programmes.</p>
+    </a>
+    <a class="partner" href="https://www.facebook.com/share/1DzcBwjjfJ/" target="_blank" rel="noopener" data-reveal>
+      <img src="images/moto-freak-lab.jpg" alt="Moto Freak Lab logo" loading="lazy">
+      <span class="mono">Official service partner</span><b>Moto Freak Lab</b>
+      <p>Race tuning, suspension valving, dirt bike diagnostics and trackside support pits.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec ink2 contact" id="contact">
+  <div class="topo dim" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="lets" data-reveal>Let’s <span class="red">ride.</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info" data-reveal>
+        <p class="muted">Academy admissions, equipment questions, race entries or sponsorship — talk to the team directly.</p>
+        <dl>
+          <div><dt class="mono">Director</dt><dd>Md. Mahabubur Rahman Hafiz</dd></div>
+          <div><dt class="mono">Base</dt><dd>Chittagong, Bangladesh</dd></div>
+          <div><dt class="mono">Phone / WhatsApp</dt><dd><a href="https://wa.me/8801975376114" target="_blank" rel="noopener">+880 1975-376114</a></dd></div>
+          <div><dt class="mono">Email</dt><dd><a href="mailto:bangladeshmotocrossclubacademy@gmail.com">bangladeshmotocrossclubacademy@gmail.com</a></dd></div>
+        </dl>
+        <div class="socials">
+          <a href="https://www.facebook.com/share/1J7fKtW8wE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Facebook ↗</a>
+          <a href="https://youtube.com/@bangladeshmotocrossclubacademy" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">YouTube ↗</a>
+        </div>
+      </div>
+
+      <form class="form" id="enquiry" novalidate data-reveal>
+        <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" required autocomplete="name" placeholder="Tanvir Ahmed"></div>
+        <div class="field"><label for="f-phone">WhatsApp number *</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="017XXXXXXXX" pattern="^(\+?88)?0?1[3-9]\d{8}$"></div>
+        <div class="field"><label for="f-city">City / district</label><input id="f-city" name="city" placeholder="Chittagong, Dhaka, Feni"></div>
+        <div class="field"><label for="f-interest">I'm interested in</label>
+          <select id="f-interest" name="interest">
+            <option>Weekend Starter Clinic</option>
+            <option>Monthly Academy Cadet</option>
+            <option>Open Paddock Pass</option>
+            <option>Advanced competition &amp; jumps</option>
+            <option>Race entry — Feni Track Trial 2026</option>
+            <option>Race entry — Chittagong Hill Track Champion</option>
+            <option>Race entry — Furious Track Trial</option>
+            <option>Race entry — MRF Rajshahi Invitational</option>
+            <option>Race entry — Jessore Enduro Cup</option>
+            <option>Race entry — MotoMadness 2027</option>
+            <option>Sponsorship / brand partnership</option>
+          </select>
+        </div>
+        <fieldset class="field full seg">
+          <legend>Bike &amp; gear</legend>
+          <label><input type="radio" name="equipment" value="Need fleet bike & armor" checked><span>I need a fleet bike &amp; armor</span></label>
+          <label><input type="radio" name="equipment" value="Bringing own motorcycle & gear"><span>I'm bringing my own</span></label>
+        </fieldset>
+        <div class="field full"><label for="f-exp">Riding experience</label>
+          <select id="f-exp" name="experience">
+            <option>Novice — first time on dirt</option>
+            <option>Street rider wanting to learn off-road</option>
+            <option>Intermediate off-road / trail rider</option>
+            <option>Experienced racer aiming for nationals</option>
+          </select>
+        </div>
+
+        <div class="race-fields full" hidden>
+          <div class="field"><label for="f-class">Class *</label>
+            <select id="f-class" name="class"><option>Pro Track (250–450cc)</option><option>Novice (150cc)</option><option>Junior Division (12–17)</option><option>Open Enduro Trail</option><option>Spectator / paddock pass</option></select></div>
+          <div class="field"><label for="f-machine">Motorcycle &amp; CC *</label><input id="f-machine" name="machine" placeholder="Honda CRF250R / BMCA fleet bike"></div>
+          <div class="field"><label for="f-blood">Blood group (for trauma standby)</label>
+            <select id="f-blood" name="blood"><option>Not disclosed</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>O+</option><option>O-</option><option>AB+</option><option>AB-</option></select></div>
+          <div class="field"><label for="f-emergency">Emergency contact *</label><input id="f-emergency" name="emergency" placeholder="Father: 018XXXXXXXX"></div>
+          <label class="check full"><input type="checkbox" id="f-ack" name="ack"><span>I agree to BMCA track safety standards, scrutineering and marshal rules.</span></label>
+        </div>
+
+        <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="3" placeholder="Tell us about your bike, or what you want to achieve…"></textarea></div>
+        <div class="form-foot full">
+          <button type="submit" class="btn btn-red">Send on WhatsApp <span class="arr">→</span></button>
+          <p class="form-status mono" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="images/logo-transparent.png" alt="Bangladesh Motocross Club & Academy crest" width="150" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <a href="#club">Club</a><a href="#riders">Riders</a><a href="#academy">Academy</a><a href="#join">Enroll</a><a href="#safety">Safety</a><a href="#fixtures">Fixtures</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </nav>
+      <a href="#top" class="to-top mono">Back to top ↑</a>
+    </div>
+    <p class="foot-word" aria-hidden="true">Bangladesh Motocross</p>
+    <div class="foot-bottom mono">
+      <span>© 2026 Bangladesh Motocross Club &amp; Academy</span>
+      <span>Ride Safe • Train Hard • Race Strong</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Rider dossier drawer -->
+<dialog class="dossier" id="dossier" aria-labelledby="d-name">
+  <button class="x" type="button" aria-label="Close dossier">×</button>
+  <div class="d-media"><img id="d-img" alt=""><span class="d-num" id="d-num"></span></div>
+  <div class="d-body">
+    <p class="mono red-t" id="d-role"></p>
+    <h2 id="d-name"></h2>
+    <p id="d-bio" class="muted"></p>
+    <dl class="d-specs" id="d-specs"></dl>
+    <h3 class="mono">Podium record</h3>
+    <ul class="results" id="d-results"></ul>
+    <div id="d-extra"></div>
+    <a class="btn btn-red" target="_blank" rel="noopener" id="d-wa">Message the club on WhatsApp ↗</a>
+  </div>
+</dialog>
+
+<!-- Lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="x" type="button" aria-label="Close">×</button>
+  <button class="lb-nav prev" type="button" aria-label="Previous">←</button>
+  <figure><div class="lb-stage"></div><figcaption class="mono"></figcaption></figure>
+  <button class="lb-nav next" type="button" aria-label="Next">→</button>
+</dialog>
+
+<script src="js/site.js"></script>
 </body>
 </html>
