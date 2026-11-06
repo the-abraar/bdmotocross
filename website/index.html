@@ -9,7 +9,7 @@
   <meta property="og:title" content="Bangladesh Motocross Club & Academy">
   <meta property="og:description" content="Ride Safe • Train Hard • Race Strong. Motocross racing, champion riders and academy training in Bangladesh.">
   <meta property="og:image" content="images/team-trail-srimongol-sylhet.jpg">
-  <link rel="icon" type="image/png" href="images/logo-transparent.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,13 +19,6 @@
 </head>
 <body>
 
-<!-- Intro loader: shown once per session -->
-<div class="loader" aria-hidden="true">
-  <img src="images/logo-transparent.png" alt="" class="loader-crest">
-  <div class="loader-count"><span id="loader-num">00</span><small>%</small></div>
-  <div class="loader-bar"><i></i></div>
-</div>
-
 <div class="progress" aria-hidden="true"><i></i></div>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +26,7 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <a href="#top" class="nav-logo" aria-label="BMCA home">
-    <img src="images/logo-transparent.png" alt="" width="64" height="51">
+    <img src="images/logo-360.webp" alt="" width="64" height="51">
     <span>BMCA<small>Chittagong · BD</small></span>
   </a>
   <nav class="nav-links" aria-label="Main">
@@ -84,19 +77,21 @@
 
     <div class="hero-media">
       <div class="phone" data-tilt>
-        <video autoplay muted loop playsinline preload="metadata" poster="images/video-poster.jpg" aria-label="Track reel: Furious Track Trial 2025, Lal Mai, Cumilla">
+        <!-- no autoplay attribute: site.js starts it only on fast, non-data-saver connections -->
+        <video muted loop playsinline preload="none" poster="images/video-poster.jpg" aria-label="Track reel: Furious Track Trial 2025, Lal Mai, Cumilla">
           <source src="images/bmca_short.mp4" type="video/mp4">
         </video>
-        <div class="phone-hud"><span class="rec"></span> Track reel <b>Lal Mai Trial ’25</b></div>
-        <button class="phone-sound" type="button" aria-label="Unmute reel" aria-pressed="false">🔇</button>
+        <div class="phone-hud"><span class="rec"></span> <b>Lal Mai Trial ’25</b></div>
+        <button class="phone-sound" type="button" aria-label="Play reel with sound" aria-pressed="false">
+          <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l5 6m0-6l-5 6"/></svg>
+          <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/></svg>
+        </button>
       </div>
       <a href="#fixtures" class="next-card" data-reveal>
         <span class="mono tag">Next gate drop</span>
         <strong>Feni Track Trial</strong>
-        <span class="countdown mini" data-countdown>
-          <span><b data-d>00</b>d</span><span><b data-h>00</b>h</span><span><b data-m>00</b>m</span><span><b data-s>00</b>s</span>
-        </span>
         <span class="mono sub">15 Nov 2026 · Feni Off-Road Arena</span>
+        <span class="mono more">Full race calendar →</span>
       </a>
     </div>
 
@@ -105,16 +100,16 @@
 
   <dl class="wrap hero-stats">
     <div><dt><span data-count="10">0</span>+</dt><dd>Podium finishes</dd></div>
-    <div><dt><span data-count="4">0</span></dt><dd>Pro racers &amp; mentors</dd></div>
-    <div><dt><span data-count="4">0</span>-stage</dt><dd>Academy curriculum</dd></div>
+    <div><dt><span data-count="6">0</span></dt><dd>Races on the 2026–27 calendar</dd></div>
+    <div><dt><span data-count="12">0</span>+</dt><dd>Starting age, junior to pro</dd></div>
     <div><dt>DOT/ECE</dt><dd>Certified gear protocol</dd></div>
   </dl>
 </section>
 
 <div class="ticker-wrap" aria-hidden="true"><div class="ticker">
   <div class="ticker-track">
-    <span>Next race</span><b>Feni Track Trial</b><span>15 Nov 2026</span><b>Pro &amp; Novice</b><span>Hill Track Champion · 03 Dec</span><b>MotoMadness 2027</b>
-    <span>Next race</span><b>Feni Track Trial</b><span>15 Nov 2026</span><b>Pro &amp; Novice</b><span>Hill Track Champion · 03 Dec</span><b>MotoMadness 2027</b>
+    <span>Motocross</span><b>Ride safe</b><span>Enduro</span><b>Train hard</b><span>Hill track</span><b>Race strong</b><span>Academy</span><b>Chittagong</b>
+    <span>Motocross</span><b>Ride safe</b><span>Enduro</span><b>Train hard</b><span>Hill track</span><b>Race strong</b><span>Academy</span><b>Chittagong</b>
   </div>
 </div></div>
 
@@ -141,7 +136,7 @@
           <img src="images/team-trail-srimongol-sylhet.jpg" alt="BMCA riders kneeling with their bikes on a trail in Srimongol, Sylhet" loading="lazy" width="2048" height="1153">
           <figcaption class="mono">Srimongol trail run · Sylhet</figcaption>
         </figure>
-        <img src="images/logo-transparent.png" alt="" class="sticker" data-speed="-0.08">
+        <img src="images/logo-360.webp" alt="" class="sticker" data-speed="-0.08" loading="lazy" width="360" height="289">
       </div>
     </div>
 
@@ -267,7 +262,7 @@
       <ol class="stage-list">
         <li class="stage" data-stage="01"><h3>Bike control &amp; body stance</h3><p>Throttle modulation, clutch biting point, standing-on-the-pegs posture and centre-of-gravity balance.</p></li>
         <li class="stage" data-stage="02"><h3>Cornering, berms &amp; ruts</h3><p>Leg-out positioning, counter-steering, apex braking and locking into deep dirt ruts.</p></li>
-        <li class="stage" data-stage="03"><h3>Jumping &amp; suspension pre-load</h3><p>Approach speed, flight trajectory control, tabletop absorption and smooth landing throttle.</p></li>
+        <li class="stage" data-stage="03"><h3>Jumping &amp; suspension <span class="nw">pre-load</span></h3><p>Approach speed, flight trajectory control, tabletop absorption and smooth landing throttle.</p></li>
         <li class="stage" data-stage="04"><h3>Gate starts &amp; racecraft</h3><p>Starting-gate reaction, holeshot execution, track lines, defensive passing and safety flags.</p></li>
       </ol>
     </div>
@@ -301,7 +296,7 @@
         <span class="tier-flag mono">Most popular for beginners</span>
         <h3>Weekend Starter Clinic</h3>
         <p class="mono tier-type">Turnkey arrive &amp; ride</p>
-        <p class="price"><small>From ৳</small>3,500<small>/ weekend</small></p>
+        <p class="price"><small class="from">From</small>৳3,500<small>/ weekend</small></p>
         <p>Ideal for first-time riders. Full training motorcycle and sanitised protective armor provided.</p>
         <ul><li>BMCA fleet 150cc–250cc dirt bike</li><li>Sanitised DOT/ECE helmet &amp; body armor</li><li>1-on-1 certified coach</li><li>Track fuel &amp; Dirt Arena access</li></ul>
         <button type="button" class="btn btn-ink" data-enquire="Weekend Starter Clinic">Book starter clinic <span class="arr">→</span></button>
@@ -309,7 +304,7 @@
       <article class="tier" data-reveal>
         <h3>Monthly Academy Cadet</h3>
         <p class="mono tier-type">Junior (12+) &amp; senior division</p>
-        <p class="price"><small>From ৳</small>12,000<small>/ month</small></p>
+        <p class="price"><small class="from">From</small>৳12,000<small>/ month</small></p>
         <p>Progressive 4-week training — from cornering ruts to official race gate starts.</p>
         <ul><li>4 weekend blocks (8 track sessions)</li><li>4-stage curriculum &amp; assessment</li><li>Off-bike conditioning guidance</li><li>BMCA skill certificate</li></ul>
         <button type="button" class="btn btn-red" data-enquire="Monthly Academy Cadet">Enroll as cadet <span class="arr">→</span></button>
@@ -317,7 +312,7 @@
       <article class="tier" data-reveal>
         <h3>Open Paddock Pass</h3>
         <p class="mono tier-type">Bring your own machine</p>
-        <p class="price"><small>From ৳</small>1,500<small>/ day</small></p>
+        <p class="price"><small class="from">From</small>৳1,500<small>/ day</small></p>
         <p>For off-road and dual-sport owners who want sanctioned track practice.</p>
         <ul><li>Full-day Dirt Arena access</li><li>Marshaled corners &amp; flag protocol</li><li>Shaded pit bay &amp; wash bay</li><li>Sag tuning by Moto Freak Lab</li></ul>
         <button type="button" class="btn btn-ghost" data-enquire="Open Paddock Pass">Get track pass <span class="arr">→</span></button>
@@ -383,10 +378,10 @@
       </div>
     </div>
 
-    <div class="season-tabs" role="tablist" aria-label="Season">
-      <button role="tab" aria-selected="true" data-year="all">All</button>
-      <button role="tab" aria-selected="false" data-year="2026">2026</button>
-      <button role="tab" aria-selected="false" data-year="2027">2027</button>
+    <div class="season-tabs" role="group" aria-label="Filter by season">
+      <button type="button" aria-pressed="true" data-year="all">All</button>
+      <button type="button" aria-pressed="false" data-year="2026">2026</button>
+      <button type="button" aria-pressed="false" data-year="2027">2027</button>
     </div>
 
     <div class="events">
@@ -462,19 +457,19 @@
     </div>
 
     <div class="masonry">
-      <button class="shot" data-cat="track" data-video="images/bmca-srimongol-trail-run.mp4"><img src="images/srimongol-trail-still.jpg" alt="Srimongol trail run video" loading="lazy"><span class="play" aria-hidden="true">▶</span><span class="cap">Video · Srimongol Sylhet trail run</span></button>
-      <button class="shot" data-cat="training"><img src="images/riders-training.jpg" alt="BMCA riders on the training track" loading="lazy"><span class="cap">Rider track conditioning</span></button>
-      <button class="shot" data-cat="podium"><img src="images/sharif-fbr-podium-trophy.jpg" alt="Sharif Hossain on the podium with the 1st runner-up trophy" loading="lazy"><span class="cap">Sharif · 1st runner-up, FBR CampFest 2025</span></button>
-      <button class="shot" data-cat="track"><img src="images/race-start.jpg" alt="Rider at the Moto Madness 2025 start gate" loading="lazy"><span class="cap">Start gate · Moto Madness 2025</span></button>
-      <button class="shot" data-cat="team"><img src="images/club-team.jpg" alt="BMCA team group photo" loading="lazy"><span class="cap">BMCA official crew</span></button>
-      <button class="shot" data-cat="podium"><img src="images/sharif-suzuki-championship-poster.jpg" alt="Suzuki Off-Road Championship 2026 runner-up poster" loading="lazy"><span class="cap">Suzuki Off-Road Championship 2026</span></button>
-      <button class="shot" data-cat="track"><img src="images/hero-competition-bike-workshop.jpg" alt="Hero competition dirt bike in the pit workshop" loading="lazy"><span class="cap">Competition machine · pit workshop</span></button>
-      <button class="shot" data-cat="podium"><img src="images/award.jpg" alt="Championship trophy ceremony" loading="lazy"><span class="cap">Champion podium</span></button>
-      <button class="shot" data-cat="team"><img src="images/team-photo.jpg" alt="BMCA riders gathering" loading="lazy"><span class="cap">Chittagong rider collective</span></button>
-      <button class="shot" data-cat="track"><img src="images/rider-bikes.jpg" alt="Riders standing with their bikes" loading="lazy"><span class="cap">Pit lane prep &amp; staging</span></button>
-      <button class="shot" data-cat="team"><img src="images/event-talk.jpg" alt="Rider safety briefing" loading="lazy"><span class="cap">Safety briefing</span></button>
-      <button class="shot" data-cat="team"><img src="images/hero-bikes.jpg" alt="BMCA riders with new Hero dual-sport bikes" loading="lazy"><span class="cap">New machines day</span></button>
-      <button class="shot" data-cat="track"><img src="images/team-trail-srimongol-sylhet.jpg" alt="BMCA trail expedition crew in Srimongol" loading="lazy"><span class="cap">Srimongol trail expedition</span></button>
+      <button class="shot" data-cat="track" data-video="images/bmca-srimongol-trail-run.mp4"><img src="images/srimongol-trail-still.jpg" width="720" height="420" alt="Srimongol trail run video" loading="lazy"><span class="play" aria-hidden="true">▶</span><span class="cap">Video · Srimongol Sylhet trail run</span></button>
+      <button class="shot" data-cat="training"><img src="images/riders-training.jpg" width="1536" height="1024" alt="BMCA riders on the training track" loading="lazy"><span class="cap">Rider track conditioning</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-fbr-podium-trophy.jpg" width="1536" height="2048" alt="Sharif Hossain on the podium with the 1st runner-up trophy" loading="lazy"><span class="cap">Sharif · 1st runner-up, FBR CampFest 2025</span></button>
+      <button class="shot" data-cat="track"><img src="images/race-start.jpg" width="1536" height="1533" alt="Rider at the Moto Madness 2025 start gate" loading="lazy"><span class="cap">Start gate · Moto Madness 2025</span></button>
+      <button class="shot" data-cat="team"><img src="images/club-team.jpg" width="1536" height="864" alt="BMCA team group photo" loading="lazy"><span class="cap">BMCA official crew</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-suzuki-championship-poster.jpg" width="1254" height="1254" alt="Suzuki Off-Road Championship 2026 runner-up poster" loading="lazy"><span class="cap">Suzuki Off-Road Championship 2026</span></button>
+      <button class="shot" data-cat="track"><img src="images/hero-competition-bike-workshop.jpg" width="2048" height="1079" alt="Hero competition dirt bike in the pit workshop" loading="lazy"><span class="cap">Competition machine · pit workshop</span></button>
+      <button class="shot" data-cat="podium"><img src="images/award.jpg" width="1536" height="1152" alt="Championship trophy ceremony" loading="lazy"><span class="cap">Champion podium</span></button>
+      <button class="shot" data-cat="team"><img src="images/team-photo.jpg" width="1536" height="1152" alt="BMCA riders gathering" loading="lazy"><span class="cap">Chittagong rider collective</span></button>
+      <button class="shot" data-cat="track"><img src="images/rider-bikes.jpg" width="717" height="1536" alt="Riders standing with their bikes" loading="lazy"><span class="cap">Pit lane prep &amp; staging</span></button>
+      <button class="shot" data-cat="team"><img src="images/event-talk.jpg" width="1536" height="1025" alt="Rider safety briefing" loading="lazy"><span class="cap">Safety briefing</span></button>
+      <button class="shot" data-cat="team"><img src="images/hero-bikes.jpg" width="1536" height="865" alt="BMCA riders with new Hero dual-sport bikes" loading="lazy"><span class="cap">New machines day</span></button>
+      <button class="shot" data-cat="track"><img src="images/team-trail-srimongol-sylhet.jpg" width="2048" height="1153" alt="BMCA trail expedition crew in Srimongol" loading="lazy"><span class="cap">Srimongol trail expedition</span></button>
     </div>
   </div>
 </section>
@@ -521,9 +516,9 @@
       </div>
 
       <form class="form" id="enquiry" novalidate data-reveal>
-        <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" required autocomplete="name" placeholder="Tanvir Ahmed"></div>
-        <div class="field"><label for="f-phone">WhatsApp number *</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="017XXXXXXXX" pattern="^(\+?88)?0?1[3-9]\d{8}$"></div>
-        <div class="field"><label for="f-city">City / district</label><input id="f-city" name="city" placeholder="Chittagong, Dhaka, Feni"></div>
+        <div class="field"><label for="f-name">Full name *</label><input id="f-name" name="name" required autocomplete="name" placeholder="e.g. Tanvir Ahmed"></div>
+        <div class="field"><label for="f-phone">WhatsApp number *</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. 017XXXXXXXX" pattern="^(\+?88)?0?1[3-9]\d{8}$"></div>
+        <div class="field"><label for="f-city">City / district</label><input id="f-city" name="city" placeholder="e.g. Chittagong"></div>
         <div class="field"><label for="f-interest">I'm interested in</label>
           <select id="f-interest" name="interest">
             <option>Weekend Starter Clinic</option>
@@ -556,10 +551,10 @@
         <div class="race-fields full" hidden>
           <div class="field"><label for="f-class">Class *</label>
             <select id="f-class" name="class"><option>Pro Track (250–450cc)</option><option>Novice (150cc)</option><option>Junior Division (12–17)</option><option>Open Enduro Trail</option><option>Spectator / paddock pass</option></select></div>
-          <div class="field"><label for="f-machine">Motorcycle &amp; CC *</label><input id="f-machine" name="machine" placeholder="Honda CRF250R / BMCA fleet bike"></div>
+          <div class="field"><label for="f-machine">Motorcycle &amp; CC *</label><input id="f-machine" name="machine" placeholder="e.g. Honda CRF250R or BMCA fleet bike"></div>
           <div class="field"><label for="f-blood">Blood group (for trauma standby)</label>
             <select id="f-blood" name="blood"><option>Not disclosed</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>O+</option><option>O-</option><option>AB+</option><option>AB-</option></select></div>
-          <div class="field"><label for="f-emergency">Emergency contact *</label><input id="f-emergency" name="emergency" placeholder="Father: 018XXXXXXXX"></div>
+          <div class="field"><label for="f-emergency">Emergency contact *</label><input id="f-emergency" name="emergency" placeholder="e.g. Father, 018XXXXXXXX"></div>
           <label class="check full"><input type="checkbox" id="f-ack" name="ack"><span>I agree to BMCA track safety standards, scrutineering and marshal rules.</span></label>
         </div>
 
@@ -578,7 +573,7 @@
 <footer class="footer">
   <div class="wrap">
     <div class="foot-top">
-      <img src="images/logo-transparent.png" alt="Bangladesh Motocross Club & Academy crest" width="150" height="120" loading="lazy">
+      <img src="images/logo-360.webp" alt="Bangladesh Motocross Club & Academy crest" width="150" height="120" loading="lazy">
       <nav aria-label="Footer">
         <a href="#club">Club</a><a href="#riders">Riders</a><a href="#academy">Academy</a><a href="#join">Enroll</a><a href="#safety">Safety</a><a href="#fixtures">Fixtures</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
       </nav>
@@ -591,6 +586,12 @@
     </div>
   </div>
 </footer>
+
+<!-- Mobile action bar -->
+<div class="mbar" id="mbar">
+  <a href="#join" class="btn btn-red btn-sm">Enroll</a>
+  <a href="https://wa.me/8801975376114" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">WhatsApp ↗</a>
+</div>
 
 <!-- Rider dossier drawer -->
 <dialog class="dossier" id="dossier" aria-labelledby="d-name">

@@ -7,24 +7,8 @@
   const WA = '8801975376114';
   const RACE_START = new Date('2026-11-15T09:00:00+06:00').getTime();
 
-  /* ---------- intro loader (once per session) ---------- */
-  const loader = $('.loader');
-  let seen = false;
-  try { seen = sessionStorage.getItem('bmca-intro') === '1'; sessionStorage.setItem('bmca-intro', '1'); } catch (e) {}
-  const start = () => document.body.classList.add('ready');
-  if (seen || reduce) {
-    loader.classList.add('skip-intro'); start();
-  } else {
-    const num = $('#loader-num'), t0 = performance.now(), dur = 1100;
-    const step = (t) => {
-      const p = Math.min(1, (t - t0) / dur), v = Math.round((1 - Math.pow(1 - p, 3)) * 100);
-      num.textContent = String(v).padStart(2, '0');
-      loader.style.setProperty('--p', v + '%');
-      if (p < 1) requestAnimationFrame(step);
-      else setTimeout(() => { loader.classList.add('done'); start(); }, 180);
-    };
-    requestAnimationFrame(step);
-  }
+  /* ---------- hero entrance: next frame so the headline transition runs ---------- */
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('ready')));
 
   /* ---------- nav, progress, menu ---------- */
   const nav = $('#nav'), bar = $('.progress');
@@ -105,11 +89,15 @@
       phone.style.setProperty('--rx', (4 - y * 10).toFixed(2) + 'deg');
     });
   }
+  // Autoplay only when it won't eat a visitor's data: no Data Saver, no reduced motion, not 2g/3g.
+  const reel = phone && $('video', phone), conn = navigator.connection;
+  const cheap = !conn || (!conn.saveData && !/(^|-)(2g|3g)$/.test(conn.effectiveType || ''));
+  if (reel && cheap && !reduce) addEventListener('load', () => reel.play().catch(() => {}), { once: true });
   const snd = $('.phone-sound');
   snd?.addEventListener('click', () => {
-    const v = $('video', phone); v.muted = !v.muted; v.play().catch(() => {});
-    snd.textContent = v.muted ? '🔇' : '🔊'; snd.setAttribute('aria-pressed', !v.muted);
-    snd.setAttribute('aria-label', v.muted ? 'Unmute reel' : 'Mute reel');
+    reel.muted = !reel.muted; reel.play().catch(() => {});
+    snd.setAttribute('aria-pressed', !reel.muted);
+    snd.setAttribute('aria-label', reel.muted ? 'Play reel with sound' : 'Mute reel');
   });
 
   /* ---------- count-up stats ---------- */
@@ -156,7 +144,7 @@
   /* ---------- fixtures season tabs ---------- */
   const tabs = $$('.season-tabs button');
   tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+    tabs.forEach(x => x.setAttribute('aria-pressed', x === t));
     $$('.event').forEach(ev => { ev.hidden = t.dataset.year !== 'all' && ev.dataset.year !== t.dataset.year; });
   }));
 
@@ -246,6 +234,10 @@
   $$('[data-dossier]').forEach(b => b.addEventListener('click', () => openDossier(b.dataset.dossier)));
   $('.x', dlg).addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+  /* ---------- mobile action bar: hide while the contact form is on screen ---------- */
+  const mbar = $('#mbar');
+  new IntersectionObserver(([en]) => mbar.classList.toggle('off', en.isIntersecting)).observe($('#contact'));
 
   /* ---------- enquiry form → WhatsApp ---------- */
   const form = $('#enquiry'), interest = $('#f-interest'), raceBox = $('.race-fields', form), status = $('.form-status', form);
