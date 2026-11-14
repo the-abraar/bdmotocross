@@ -1,69 +1,42 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 text-center">
+      <div className="max-w-2xl mx-auto space-y-8">
+        <div className="inline-block px-3 py-1 bg-rose-950/80 border border-rose-800 text-rose-400 text-xs font-bold tracking-widest uppercase rounded-full">
+          BMCA Paddock Platform
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <h1 className="text-4xl sm:text-6xl font-black italic tracking-wider text-white">
+          BANGLADESH <span className="text-rose-600">MOTOCROSS</span> CLUB & ACADEMY
+        </h1>
+
+        <p className="text-neutral-400 text-base sm:text-lg max-w-xl mx-auto">
+          The official zero-latency community platform for verified racers, cadets, and track coaches. Showcase your race setup, read track updates, and connect with mentors.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <Link
+            href="/feed"
+            className="px-6 py-3 bg-rose-600 hover:bg-rose-500 font-bold uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-rose-900/30"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Explore Paddock Feed
+          </Link>
+          <Link
+            href="/login"
+            className="px-6 py-3 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 font-bold uppercase tracking-wider rounded-xl transition-all"
           >
-            Documentation
+            Member Login
+          </Link>
+          <a
+            href="https://bdmotocross.com"
+            className="px-6 py-3 text-neutral-400 hover:text-white font-medium text-sm transition-colors"
+          >
+            ← Back to Main Website
           </a>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
