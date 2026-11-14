@@ -1,4 +1,4 @@
-# BMCA Public Profiles & Social Platform: Technical Architecture Specification (v2.0 Hardened)
+# BMCA Public Profiles & Social Platform: Technical Architecture Specification (v2.1 Production-Ready)
 
 > **Target Systems:** Bangladesh Motocross Club & Academy (BMCA)  
 > **Specification Document:** `docs/architecture_for_profiles.md`  
@@ -226,6 +226,23 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE PROCEDURE public.handle_new_user();
+
+-- Automated trigger to release must_change_password lock upon password reset
+CREATE OR REPLACE FUNCTION public.handle_password_changed()
+RETURNS trigger AS $$
+BEGIN
+  IF (OLD.encrypted_password IS DISTINCT FROM NEW.encrypted_password) THEN
+    UPDATE public.profiles
+    SET must_change_password = FALSE
+    WHERE id = NEW.id;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE TRIGGER on_auth_user_password_changed
+  AFTER UPDATE OF encrypted_password ON auth.users
+  FOR EACH ROW EXECUTE PROCEDURE public.handle_password_changed();
 ```
 
 ---
@@ -276,12 +293,12 @@ RETURNS BOOLEAN AS $$
   );
 $$ LANGUAGE sql SECURITY DEFINER STABLE;
 
--- Helper function to verify executive permissions
+-- Helper function to verify executive permissions (checks primary and secondary roles)
 CREATE OR REPLACE FUNCTION public.is_club_exec(user_id UUID)
 RETURNS BOOLEAN AS $$
   SELECT EXISTS (
     SELECT 1 FROM public.profiles
-    WHERE id = user_id AND role = 'exec'
+    WHERE id = user_id AND (role = 'exec' OR secondary_role = 'exec')
   );
 $$ LANGUAGE sql SECURITY DEFINER STABLE;
 ```
@@ -349,6 +366,29 @@ WITH CHECK (
     SELECT 1 FROM public.posts 
     WHERE id = post_id AND author_id = auth.uid()
   )
+);
+
+-- STORAGE BUCKET & RLS POLICIES (1 GB Free Object Storage)
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES ('paddock-media', 'paddock-media', true, 2097152, ARRAY['image/webp', 'image/jpeg', 'image/png'])
+ON CONFLICT (id) DO NOTHING;
+
+CREATE POLICY "Public read for paddock media"
+ON storage.objects FOR SELECT USING (bucket_id = 'paddock-media');
+
+CREATE POLICY "Active members can upload paddock media"
+ON storage.objects FOR INSERT TO authenticated
+WITH CHECK (
+  bucket_id = 'paddock-media' 
+  AND public.is_active_member(auth.uid())
+  AND (storage.foldername(name))[1] = auth.uid()::text
+);
+
+CREATE POLICY "Authors can delete their uploaded media"
+ON storage.objects FOR DELETE TO authenticated
+USING (
+  bucket_id = 'paddock-media' 
+  AND (storage.foldername(name))[1] = auth.uid()::text
 );
 ```
 
@@ -483,10 +523,19 @@ When an executive updates track credentials or a rider changes their setup, Next
 // app/actions/purgeProfileCache.ts
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 export async function purgeEdgeProfileCache(username: string) {
+  const cleanUser = username.toLowerCase().trim();
+  
+  // 1. Invalidate Next.js internal ISR cache
+  revalidatePath(`/u/${cleanUser}`);
+
+  // 2. Invalidate Cloudflare Edge CDN Cache
   const zoneId = process.env.CLOUDFLARE_ZONE_ID;
   const apiToken = process.env.CLOUDFLARE_API_TOKEN;
-  const url = `https://bdmotocross.com/u/${username.toLowerCase()}`;
+  const appDomain = process.env.NEXT_PUBLIC_APP_DOMAIN || "paddock.bdmotocross.com";
+  const url = `https://${appDomain}/u/${cleanUser}`;
 
   if (!zoneId || !apiToken) return;
 
@@ -510,40 +559,75 @@ export async function purgeEdgeProfileCache(username: string) {
 ## 8. Trackside Operations & Club Realities
 
 ### 8.1 Mobile Admin Panel (`/admin/roster`)
-Instead of expecting marshals to run terminal commands trackside, directors provision accounts through an authenticated mobile view:
+Instead of expecting marshals to run terminal commands trackside, directors provision accounts through an authenticated mobile view guarded by executive authorization:
 
 ```typescript
 // app/actions/provisionRider.ts
 "use server";
 
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/server";
+import { createClient as createAdminClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
 
-const supabaseAdmin = createClient(
+const supabaseAdmin = createAdminClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
 export async function provisionRiderAccount(formData: FormData) {
-  const username = (formData.get("username") as string).toLowerCase().trim();
-  const fullName = formData.get("fullName") as string;
-  const role = formData.get("role") as string;
-  const tempPassword = formData.get("tempPassword") as string;
-  const email = `${username}@members.bdmotocross.com`; // Virtual routing address
+  // 1. Authenticate caller session & enforce executive authority
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Unauthorized");
 
-  // 1. Create auth user with service_role privileges
-  const { data: user, error: authError } = await supabaseAdmin.auth.admin.createUser({
+  const { data: caller } = await supabase
+    .from("profiles")
+    .select("role, secondary_role")
+    .eq("id", user.id)
+    .single();
+
+  if (caller?.role !== "exec" && caller?.secondary_role !== "exec") {
+    throw new Error("Forbidden: Executive authority required.");
+  }
+
+  // 2. Validate and sanitize inputs
+  const rawUsername = (formData.get("username") as string).toLowerCase().trim();
+  if (!/^[a-z0-9_]{3,32}$/.test(rawUsername)) {
+    throw new Error("Invalid username. Use 3-32 lowercase letters, numbers, or underscores.");
+  }
+
+  const fullName = (formData.get("fullName") as string).trim();
+  const role = (formData.get("role") as string) || "rider";
+  const tempPassword = formData.get("tempPassword") as string;
+  const email = `${rawUsername}@members.bdmotocross.com`; // Virtual routing address
+
+  // 3. Create auth user with service_role privileges
+  const { data: newUser, error: authError } = await supabaseAdmin.auth.admin.createUser({
     email,
     password: tempPassword,
     email_confirm: true,
-    user_metadata: { username, full_name: fullName, role },
+    user_metadata: { username: rawUsername, full_name: fullName, role },
   });
 
   if (authError) throw new Error(authError.message);
 
   revalidatePath("/admin/roster");
-  return { success: true, username, tempPassword };
+  return { success: true, username: rawUsername, tempPassword };
 }
+```
+
+#### Client Login Form Resolution Contract (`/login`)
+When members log in, the client form automatically normalizes entered usernames into the virtual routing email address:
+```typescript
+// app/login/page.tsx
+const email = inputUsername.includes("@")
+  ? inputUsername.trim()
+  : `${inputUsername.toLowerCase().trim()}@members.bdmotocross.com`;
+
+const { error } = await supabase.auth.signInWithPassword({
+  email,
+  password,
+});
 ```
 
 ### 8.2 Inactivity Auto-Pause Prevention (GitHub Action Keep-Alive)
@@ -563,7 +647,7 @@ jobs:
     steps:
       - name: Send Keep-Alive Ping
         run: |
-          curl -f -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/profiles?select=count&limit=1" \
+          curl -f -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/profiles?select=id&limit=1" \
                -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
                -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
 ```
