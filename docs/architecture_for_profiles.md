@@ -216,7 +216,7 @@ BEGIN
     new.id,
     LOWER(COALESCE(NULLIF(new.raw_user_meta_data->>'username', ''), 'rider_' || SUBSTRING(new.id::text, 1, 8))),
     COALESCE(NULLIF(new.raw_user_meta_data->>'full_name', ''), 'BMCA Member'),
-    COALESCE(NULLIF(new.raw_user_meta_data->>'role', '')::user_role, 'rider'::user_role),
+    COALESCE(NULLIF(new.raw_app_meta_data->>'role', '')::user_role, 'rider'::user_role),
     TRUE
   );
   RETURN new;
@@ -606,7 +606,8 @@ export async function provisionRiderAccount(formData: FormData) {
     email,
     password: tempPassword,
     email_confirm: true,
-    user_metadata: { username: rawUsername, full_name: fullName, role },
+    user_metadata: { username: rawUsername, full_name: fullName },
+    app_metadata: { role }, // server-only; user_metadata is client-writable
   });
 
   if (authError) throw new Error(authError.message);
