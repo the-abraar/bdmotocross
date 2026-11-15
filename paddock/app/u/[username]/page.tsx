@@ -1,11 +1,16 @@
 import { notFound } from "next/navigation";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 import { RoleBadge, UserRole } from "@/components/RoleBadge";
 import { MentorContactButton } from "@/components/MentorContactButton";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 // Revalidate edge cache every 3600 seconds (1 hour)
 export const revalidate = 3600;
+
+// Empty list: no build-time pages, but each profile is cached (ISR) after its first request.
+export function generateStaticParams() {
+  return [];
+}
 
 export default async function ProfilePage({
   params,
@@ -14,7 +19,12 @@ export default async function ProfilePage({
 }) {
   const { username } = await params;
   const cleanUser = username.toLowerCase();
-  const supabase = await createClient();
+  // Cookie-less anon client: reading cookies() would force dynamic rendering and defeat ISR.
+  // Profiles and posts are public (RLS "Public read").
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
   // 1. Fetch Profile
   const { data: profile } = await supabase

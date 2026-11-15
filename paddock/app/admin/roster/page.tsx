@@ -16,9 +16,9 @@ export default function AdminRosterPage() {
     try {
       const res = await provisionRiderAccount(formData);
       setStatusMsg(`Rider @${res.username} provisioned! Temp Pass: ${res.tempPassword}`);
-    } catch (err: any) {
+    } catch (err) {
       setIsError(true);
-      setStatusMsg(err.message || "Failed to provision account");
+      setStatusMsg(err instanceof Error ? err.message : "Failed to provision account");
     } finally {
       setLoading(false);
     }
