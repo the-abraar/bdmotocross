@@ -9,8 +9,9 @@ export async function deletePost(postId: string) {
   if (!user) throw new Error("Unauthorized");
 
   // Supabase RLS enforces auth.uid() = author_id OR public.is_club_exec()
-  const { error } = await supabase.from("posts").delete().eq("id", postId);
+  const { data, error } = await supabase.from("posts").delete().eq("id", postId).select("id");
   if (error) throw new Error(error.message);
+  if (!data?.length) throw new Error("Not found or not permitted.");
 
   revalidatePath("/feed");
   return { success: true };
@@ -21,8 +22,9 @@ export async function deleteComment(commentId: string) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error("Unauthorized");
 
-  const { error } = await supabase.from("comments").delete().eq("id", commentId);
+  const { data, error } = await supabase.from("comments").delete().eq("id", commentId).select("id");
   if (error) throw new Error(error.message);
+  if (!data?.length) throw new Error("Not found or not permitted.");
 
   return { success: true };
 }

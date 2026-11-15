@@ -39,11 +39,20 @@ describe("Moderation Actions", () => {
 
     it("deletes post and revalidates /feed when authorized", async () => {
       mockGetUser.mockResolvedValue({ data: { user: { id: "user-1" } } });
-      mockEq.mockResolvedValue({ error: null });
+      mockEq.mockReturnValue({ select: () => Promise.resolve({ data: [{ id: "x" }], error: null }) });
 
       const res = await deletePost("post-1");
       expect(res).toEqual({ success: true });
       expect(revalidatePath).toHaveBeenCalledWith("/feed");
+    });
+  });
+
+  describe("RLS no-op", () => {
+    it("throws when RLS deletes zero rows instead of reporting success", async () => {
+      mockGetUser.mockResolvedValue({ data: { user: { id: "user-1" } } });
+      mockEq.mockReturnValue({ select: () => Promise.resolve({ data: [], error: null }) });
+      await expect(deletePost("someone-elses")).rejects.toThrow(/not permitted/);
+      await expect(deleteComment("someone-elses")).rejects.toThrow(/not permitted/);
     });
   });
 
@@ -55,7 +64,7 @@ describe("Moderation Actions", () => {
 
     it("deletes comment when authorized", async () => {
       mockGetUser.mockResolvedValue({ data: { user: { id: "user-1" } } });
-      mockEq.mockResolvedValue({ error: null });
+      mockEq.mockReturnValue({ select: () => Promise.resolve({ data: [{ id: "x" }], error: null }) });
 
       const res = await deleteComment("comment-1");
       expect(res).toEqual({ success: true });
