@@ -9,6 +9,11 @@ describe("YouTubeEmbed Component", () => {
     expect(screen.getByRole("button", { name: /Play: Rick Roll/i })).toBeInTheDocument();
   });
 
+  it("renders nothing for a malformed video id", () => {
+    const { container } = render(<YouTubeEmbed videoId={"x/../../evil?a=b"} />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
   it("renders iframe when clicked", () => {
     render(<YouTubeEmbed videoId="dQw4w9WgXcQ" title="Rick Roll" />);
     fireEvent.click(screen.getByRole("button", { name: /Play: Rick Roll/i }));

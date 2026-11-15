@@ -8,10 +8,14 @@ interface YouTubeEmbedProps {
 }
 
 export function YouTubeEmbed({ videoId, title = "BMCA Motocross Track Video" }: YouTubeEmbedProps) {
+  const validId = /^[A-Za-z0-9_-]{11}$/.test(videoId);
   const [isPlaying, setIsPlaying] = useState(false);
   const [thumbSrc, setThumbSrc] = useState(
     `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`
   );
+
+  // videoId comes from user-written DB rows: never interpolate an unvalidated value into a URL.
+  if (!validId) return null;
 
   if (isPlaying) {
     return (
