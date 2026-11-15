@@ -724,3 +724,7 @@ To preserve the existing static marketing website (`website/` deployed via GitHu
 | **Cloudflare Edge CDN** | Unlimited requests & bandwidth | Absorbs 99% of profile reads | **$0.00** |
 | **GitHub Actions** | 2,000 free runner mins / month | 2 mins / week for keep-alive | **$0.00** |
 | **Total Operating Cost** | | | **$0.00 / month** |
+
+## WhatsApp number visibility (migration 0005)
+
+Each member decides whether their WhatsApp number is public. RLS filters rows, not columns, and `profiles` is world-readable, so `profiles.whatsapp_number` moved to `profile_contacts (profile_id, whatsapp_number, whatsapp_public)`. A row is visible to its owner, and to everyone (anon included) only when `whatsapp_public` is true. Only the owner can insert, update or delete it. Existing numbers migrate as private. `/u/[username]` reads it with the anon client, so the ISR page only ever caches public numbers; saving settings purges the page. Check: `paddock/supabase/tests/rls_check.sql`.

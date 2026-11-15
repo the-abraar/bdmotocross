@@ -22,6 +22,7 @@ function SettingsForm() {
   const [bikeModel, setBikeModel] = useState("");
   const [bio, setBio] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
+  const [whatsappPublic, setWhatsappPublic] = useState(false);
 
   // Password reset state
   const [newPassword, setNewPassword] = useState("");
@@ -49,7 +50,16 @@ function SettingsForm() {
         setRacingNumber(profile.racing_number || "");
         setBikeModel(profile.bike_model || "");
         setBio(profile.bio || "");
-        setWhatsappNumber(profile.whatsapp_number || "");
+      }
+
+      const { data: contact } = await supabase
+        .from("profile_contacts")
+        .select("whatsapp_number, whatsapp_public")
+        .eq("profile_id", user.id)
+        .maybeSingle();
+      if (contact) {
+        setWhatsappNumber(contact.whatsapp_number || "");
+        setWhatsappPublic(contact.whatsapp_public);
       }
       setLoading(false);
     }
@@ -112,13 +122,22 @@ function SettingsForm() {
         racing_number: racingNumber || null,
         bike_model: bikeModel || null,
         bio,
-        whatsapp_number: whatsappNumber || null,
       })
       .eq("id", user.id);
 
-    if (error) {
+    // The number lives in profile_contacts: RLS shows it only to its owner unless they opt in.
+    const { error: contactError } = error
+      ? { error: null }
+      : await supabase.from("profile_contacts").upsert({
+          profile_id: user.id,
+          whatsapp_number: whatsappNumber.trim() || null,
+          whatsapp_public: whatsappPublic && whatsappNumber.trim() !== "",
+          updated_at: new Date().toISOString(),
+        });
+
+    if (error || contactError) {
       setIsError(true);
-      setStatusMsg(error.message);
+      setStatusMsg((error || contactError)!.message);
       setSaving(false);
       return;
     }
@@ -269,6 +288,14 @@ function SettingsForm() {
                 onChange={(e) => setWhatsappNumber(e.target.value)}
                 className="w-full px-4 py-2.5 bg-neutral-950 border border-neutral-800 rounded-lg text-white"
               />
+              <label className="mt-2 flex items-center gap-2 text-xs text-neutral-400">
+                <input
+                  type="checkbox"
+                  checked={whatsappPublic}
+                  onChange={(e) => setWhatsappPublic(e.target.checked)}
+                />
+                Show my WhatsApp number on my public profile
+              </label>
             </div>
           </div>
 

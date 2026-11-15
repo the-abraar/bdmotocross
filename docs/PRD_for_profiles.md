@@ -110,7 +110,8 @@ The BMCA Paddock Platform (`paddock.bdmotocross.com`) is a high-speed, zero-cost
 - **Actor:** Profile Owner.
 - **Route:** `/settings`.
 - **Behavior:**
-  1. Owner can update `full_name`, `racing_number`, `bike_model`, `bio`, `avatar_url`, `banner_url`, `whatsapp_number`.
+  1. Owner can update `full_name`, `racing_number`, `bike_model`, `bio`, `avatar_url`, `banner_url`.
+     - WhatsApp number and its visibility live in `profile_contacts` (migration `0005`). Private by default: only the owner sees it until they tick "Show my WhatsApp number on my public profile".
   2. Database column-level grants and `protect_profile_system_fields` trigger reject any attempt to update `role`, `secondary_role`, or `must_change_password`.
   3. Upon save, Server Action calls `purgeEdgeProfileCache(username)` to invalidate Cloudflare and Next.js ISR caches.
 

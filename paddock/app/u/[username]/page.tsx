@@ -35,6 +35,13 @@ export default async function ProfilePage({
 
   if (!profile) notFound();
 
+  // Anon client: RLS returns the number only if the member made it public.
+  const { data: contact } = await supabase
+    .from("profile_contacts")
+    .select("whatsapp_number")
+    .eq("profile_id", profile.id)
+    .maybeSingle();
+
   // 2. Fetch User's Posts
   const { data: posts } = await supabase
     .from("posts")
@@ -85,10 +92,10 @@ export default async function ProfilePage({
               </div>
             </div>
 
-            {profile.whatsapp_number && (
+            {contact?.whatsapp_number && (
               <MentorContactButton
                 mentorName={profile.full_name}
-                whatsappNumber={profile.whatsapp_number}
+                whatsappNumber={contact.whatsapp_number}
               />
             )}
           </div>
