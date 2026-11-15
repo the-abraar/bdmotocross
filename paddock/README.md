@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BMCA Rider Paddock — Official Community Platform
 
-## Getting Started
+> **Live Production URL:** [https://paddock.bdmotocross.com](https://paddock.bdmotocross.com)  
+> **Parent Organization:** Bangladesh Motocross Club & Academy (BMCA)  
+> **Framework:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS  
+> **Database & Backend:** Supabase (PostgreSQL, Row-Level Security, Storage, Auth)  
+> **Hosting:** Vercel
 
-First, run the development server:
+The **BMCA Rider Paddock** is the official digital paddock and social networking platform for riders, coaches, cadets, and club executives of the Bangladesh Motocross Club & Academy.
+
+---
+
+## ⚡ Key Features
+
+- **Public Rider Profiles (`/u/:username`):** High-speed vanity URLs with dynamic role badges (`[DIRECTOR]`, `[HEAD COACH]`, `[PRO RACER]`, `[CADET]`, `[RIDER]`).
+- **Paddock Live Feed (`/feed`):** Trackside discussion board supporting rich commentary, user mentions, and YouTube facades.
+- **Client-Side Compressed Media:** Native 1200px WebP photo uploads stored in Supabase's `paddock-media` bucket (zero broken Discord CDN links).
+- **Trackside Mobile Roster Admin (`/admin/roster`):** Secure mobile provisioning for club officials to onboard riders trackside without database CLI tools.
+- **WhatsApp Privacy Opt-in:** Separate `profile_contacts` table ensuring personal WhatsApp contact details remain private by default unless explicitly made public by the rider.
+- **Hardened PostgreSQL Security:** Strict column-level write permissions, non-bypassable password reset policies, and SECURITY DEFINER search path pinning.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Framework:** Next.js 16.4+ (Turbopack, Server Actions, App Router)
+- **Styling:** Tailwind CSS 4, Lucide React icons
+- **State & Data Access:** Supabase SSR (`@supabase/ssr`), Supabase JS (`@supabase/supabase-js`)
+- **Testing:** Vitest, Testing Library (`npm test`)
+
+---
+
+## 📦 Environment Variables
+
+Configured in Vercel and locally in `.env.local`:
+
+| Variable | Description |
+| :--- | :--- |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL (`https://xyz.supabase.co`) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public anonymous Supabase key for client-side reads |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only secret key for admin operations (`/admin/roster`) |
+| `NEXT_PUBLIC_APP_DOMAIN` | Canonical domain (`paddock.bdmotocross.com`) |
+
+---
+
+## 🗄️ Database Setup & Migrations
+
+All SQL migrations are stored under `supabase/migrations/` and consolidated in `supabase/full_setup.sql`:
+
+1. `20261115000001_initial_schema.sql` — Enums, `profiles`, `posts`, `comments`, `post_mentions`.
+2. `20261115000002_triggers_and_functions.sql` — Auto-provisioning triggers, password change triggers, system field protection.
+3. `20261115000003_rls_and_storage.sql` — Row-Level Security policies and `paddock-media` storage bucket.
+4. `20261115000004_security_hardening.sql` — Security definer search_path pinning, app_metadata role protection, YouTube ID validation.
+5. `20261115000005_whatsapp_opt_in.sql` — Standalone `profile_contacts` table with privacy opt-in RLS.
+
+To apply migrations on a remote database:
+```bash
+supabase db push --db-url "<DATABASE_CONNECTION_STRING>"
+```
+*(Or execute `supabase/full_setup.sql` in the Supabase Dashboard SQL Editor).*
+
+---
+
+## 💻 Local Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Run test suite
+npm test
+
+# Run build check
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 Bangladesh Motocross Club & Academy

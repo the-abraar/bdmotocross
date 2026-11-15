@@ -705,11 +705,12 @@ To preserve the existing static marketing website (`website/` deployed via GitHu
   • Advantages: Single domain for everything; requires converting HTML/JS to React components.
 ```
 
-### Recommended Strategy: Subdomain Topology (`paddock.bdmotocross.com`)
-1. Keep `website/` untouched on GitHub Pages.
-2. Deploy the Next.js platform to `paddock.bdmotocross.com` (or `community.bdmotocross.com`).
-3. Add a "Rider Paddock" navigation link in `website/index.html`.
+### Recommended Strategy: Subdomain Topology (`paddock.bdmotocross.com`) — LIVE & DEPLOYED
+1. `website/` deployed to GitHub Pages at `https://bdmotocross.com` with Namecheap BasicDNS and HTTPS enforced.
+2. Next.js 16 platform deployed on Vercel at `https://paddock.bdmotocross.com` with Supabase integration.
+3. Master database schema deployed via `paddock/supabase/full_setup.sql` (migrations 0001–0005).
 4. Vanity links share cleanly: `paddock.bdmotocross.com/u/mr99`.
+5. "Paddock ↗" navigation link in `website/index.html` connects visitors from the marketing site to the community platform.
 
 ---
 

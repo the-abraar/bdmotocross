@@ -1,7 +1,7 @@
 # Domain Selection & Strategic Pricing Comparison
 **Project:** Bangladesh Motocross Club Academy (`bdmotocross`)  
 **Date:** November 2026  
-**Status:** Decided — Dual Strategy (`bdmotocross.com` + `motocrossacademy.bd`)
+**Status:** Executed & Live — `bdmotocross.com` (Main Website) + `paddock.bdmotocross.com` (Community App)
 
 ---
 
@@ -84,10 +84,15 @@ Many specialized new TLDs (nTLDs) like `.academy` and `.bike` offer cheap introd
 
 ## 5. Implementation Roadmap for the Dual Strategy
 
-1. **Phase 1: Secure Canonical Domain (`bdmotocross.com`)**
-   * Register on Namecheap or Porkbun.
-   * Connect to Cloudflare DNS for Anycast routing, DDoS protection, and SSL termination.
-2. **Phase 2: Secure National Trademark Anchor (`motocrossacademy.bd`)**
+1. **Phase 1: Secure Canonical Domain (`bdmotocross.com`) — COMPLETED**
+   * Registered on Namecheap (November 2026).
+   * Configured Namecheap BasicDNS:
+     - 4 A Records & 4 AAAA Records pointing root (`@`) to GitHub Pages IP infrastructure.
+     - CNAME for `www` pointing to `the-abraar.github.io.`.
+     - Automated Let's Encrypt SSL/TLS provisioned with **Enforce HTTPS** enabled.
+   * Configured Subdomain Routing for Rider Paddock:
+     - CNAME Record for `paddock` pointing to `cname.vercel-dns.com.` for the Next.js 16 full-stack community application.
+2. **Phase 2: Secure National Trademark Anchor (`motocrossacademy.bd`) — PLANNED**
    * Register via Hostever (1,500 BDT) submitting required NID / Club paperwork.
 3. **Phase 3: Routing & Forwarding**
    * Configure a permanent HTTP 301 redirect from `motocrossacademy.bd` to `https://bdmotocross.com/` (or `https://bdmotocross.com/academy`).
