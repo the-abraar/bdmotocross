@@ -64,6 +64,7 @@ describe("provisionRiderAccount Server Action", () => {
     formData.append("tempPassword", "TempPass123!");
 
     await expect(provisionRiderAccount(formData)).rejects.toThrow(/Forbidden: Executive authority required/);
+    expect(mockCreateUser).not.toHaveBeenCalled();
   });
 
   it("TC-SA-03: throws error when username format is invalid", async () => {
@@ -105,11 +106,20 @@ describe("provisionRiderAccount Server Action", () => {
       email: "test_rider@members.bdmotocross.com",
       password: "TempPass123!",
       email_confirm: true,
-      user_metadata: {
-        username: "test_rider",
-        full_name: "Test Cadet",
-        role: "cadet",
-      },
+      user_metadata: { username: "test_rider", full_name: "Test Cadet" },
+      app_metadata: { role: "cadet" },
     });
+  });
+
+  it("rejects an unknown role and never calls createUser", async () => {
+    mockGetUser.mockResolvedValue({ data: { user: { id: "exec-123" } } });
+    mockSingle.mockResolvedValue({ data: { role: "exec", secondary_role: null } });
+    const formData = new FormData();
+    formData.append("username", "test_rider");
+    formData.append("role", "superadmin");
+    formData.append("tempPassword", "TempPass123!");
+
+    await expect(provisionRiderAccount(formData)).rejects.toThrow(/Invalid role/);
+    expect(mockCreateUser).not.toHaveBeenCalled();
   });
 });
