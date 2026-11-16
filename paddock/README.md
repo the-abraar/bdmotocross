@@ -61,6 +61,22 @@ supabase db push --db-url "<DATABASE_CONNECTION_STRING>"
 
 ---
 
+## 👥 Seed Accounts & Core Roster
+
+Active member accounts provisioned in Supabase Auth and `public.profiles`:
+
+| Username | Email | Role | Machine & Number | Profile URL |
+| :--- | :--- | :--- | :--- | :--- |
+| `abraar` | `abraar@members.bdmotocross.com` | `[DIRECTOR] [MEMBER]` | Hero XPulse 200 4V Pro (`#01`) | [/u/abraar](https://paddock.bdmotocross.com/u/abraar) |
+| `mr99` | `mr99@members.bdmotocross.com` | `[DIRECTOR] [PRO RACER]` | Honda CRF450R (`MR99`) | [/u/mr99](https://paddock.bdmotocross.com/u/mr99) |
+| `baundal_bulbul` | `baundal_bulbul@members.bdmotocross.com` | `[HEAD COACH]` | Yamaha YZ250F (`#07`) | [/u/baundal_bulbul](https://paddock.bdmotocross.com/u/baundal_bulbul) |
+| `sharif_on_track` | `sharif_on_track@members.bdmotocross.com` | `[PRO RACER]` | Kawasaki KX250 (`#05`) | [/u/sharif_on_track](https://paddock.bdmotocross.com/u/sharif_on_track) |
+| `demo_cadet` | `demo_cadet@members.bdmotocross.com` | `[CADET]` | Cadet Training (`#99C`) | [/u/demo_cadet](https://paddock.bdmotocross.com/u/demo_cadet) |
+
+*Seed scripts are committed at `supabase/seed_demo_accounts.sql` and `supabase/seed_abraar_profile.sql`.*
+
+---
+
 ## 💻 Local Development
 
 ```bash
