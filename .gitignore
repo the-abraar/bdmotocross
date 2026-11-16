@@ -22,3 +22,4 @@ fb_page.html
 parse_fb.py
 extracted_fb_data.txt
 *.tmp
+.vercel
