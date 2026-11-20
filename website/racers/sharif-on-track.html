@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <title>Sharif ON Track (#05) | Bangladesh Motocross Club & Academy</title>
   <meta name="description" content="Official Racer Profile of Sharif ON Track (#05), Pro Track Racer for Bangladesh Motocross Club & Academy.">
   <link rel="canonical" href="https://bdmotocross.com/racers/sharif-on-track.html">
@@ -41,6 +42,7 @@
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
+        document.querySelector('meta[name="color-scheme"]').content = document.documentElement.getAttribute('data-theme');
       } catch (e) {}
     })();
   </script>

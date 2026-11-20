@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <title>Salauddin Ahmed Bulbul (Baundal Bulbul #07) | Official Mentor & Pro Racer | BMCA</title>
   <meta name="description" content="Official Mentor and Pro Racer Profile of Salauddin Ahmed Bulbul (Baundal Bulbul #07). Certified Enduro & Motocross coach at Bangladesh Motocross Club & Academy.">
   <link rel="canonical" href="https://bdmotocross.com/mentors/salauddin-ahmed-bulbul.html">
@@ -41,6 +42,7 @@
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
+        document.querySelector('meta[name="color-scheme"]').content = document.documentElement.getAttribute('data-theme');
       } catch (e) {}
     })();
   </script>

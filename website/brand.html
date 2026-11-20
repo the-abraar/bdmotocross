@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>Brand Identity & Design System | Bangladesh Motocross Club & Academy</title>
   <meta name="description" content="Official Brand Identity, Design System, Color Tokens, Typography, and Voice Guidelines for Bangladesh Motocross Club & Academy (BMCA).">
   <link rel="canonical" href="https://bdmotocross.com/brand.html">
@@ -34,13 +35,9 @@
   <script>
     (function() {
       try {
-        var saved = localStorage.getItem('bmca_theme');
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (saved === 'light' || (!saved && !prefersDark && false)) {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        var theme = localStorage.getItem('bmca_theme') === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        document.querySelector('meta[name="color-scheme"]').content = theme;
       } catch (e) {}
     })();
   </script>

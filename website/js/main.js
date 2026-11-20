@@ -90,6 +90,7 @@ function initThemeToggle() {
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
+    document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', theme);
     try {
       localStorage.setItem('bmca_theme', theme);
     } catch (e) {}

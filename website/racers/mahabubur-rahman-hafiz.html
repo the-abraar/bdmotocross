@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <title>Md. Mahabubur Rahman Hafiz (MR99) | Bangladesh Motocross Club & Academy</title>
   <meta name="description" content="Official Racer Profile of Md. Mahabubur Rahman Hafiz (MR99), Champion Racer and Director of Bangladesh Motocross Club & Academy.">
   <link rel="canonical" href="https://bdmotocross.com/racers/mahabubur-rahman-hafiz.html">
@@ -41,6 +42,7 @@
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
+        document.querySelector('meta[name="color-scheme"]').content = document.documentElement.getAttribute('data-theme');
       } catch (e) {}
     })();
   </script>

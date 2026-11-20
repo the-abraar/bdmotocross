@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>Racing Photo Gallery | Bangladesh Motocross Club & Academy</title>
   <meta name="description" content="High-octane motocross racing, dirt track training, podium ceremonies, and team photos from Bangladesh Motocross Club & Academy in Chittagong.">
   <link rel="canonical" href="https://bdmotocross.com/gallery.html">
@@ -41,6 +42,7 @@
         } else {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
+        document.querySelector('meta[name="color-scheme"]').content = document.documentElement.getAttribute('data-theme');
       } catch (e) {}
     })();
   </script>
