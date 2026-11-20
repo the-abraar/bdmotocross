@@ -233,7 +233,8 @@
   };
   $$('[data-dossier]').forEach(b => b.addEventListener('click', () => openDossier(b.dataset.dossier)));
   $('.x', dlg).addEventListener('click', () => dlg.close());
-  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  // Safari lacks closedby: fall back to closing on backdrop clicks
+  if (!('closedBy' in HTMLDialogElement.prototype)) dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
   /* ---------- mobile action bar: hide while the contact form is on screen ---------- */
   const mbar = $('#mbar');
