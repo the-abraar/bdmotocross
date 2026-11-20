@@ -2,6 +2,10 @@
 
 Five reviews in one pass: SEO, accessibility (WCAG 2.1 AA), modern web platform guidance, design system, and a design + copy critique of Paddock. Report only: nothing in the code was changed.
 
+> **Status (2026-11-21).** None of the findings below is fixed yet. Already live before this report: the 2026-11-20 modern-web-guidance fixes (`d391bec`..`a3ca539`: dark `color-scheme`, dossier `closedby`, Paddock login/password autofill).
+>
+> **Pricing rule (owner, 2026-11-21).** The site shows no prices except one line, "Starts from 1,000 BDT", in the enrollment intro (`e1d8d9b`). Don't add prices back anywhere: tiers, JSON-LD `offers`, copy or new pages. Race prize money in rider results is not a price and stays. `js/main.js` still holds the old prices in its dead cost-estimator code; delete them along with `main.js` (§4).
+
 **Method.** Lighthouse 12 (mobile emulation) on 6 live pages, a script that extracts on-page SEO data from every `website/` page, contrast ratios computed from the CSS tokens, a code review of every Paddock page, headless screenshots, 4 web searches for the keyword landscape, and targeted `modern-web-guidance` searches covering the ~80% of the catalogue that `legacy-scan` doesn't check.
 
 ## Lighthouse (live, mobile)
