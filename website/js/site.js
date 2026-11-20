@@ -174,7 +174,7 @@
   $('.prev', lb).addEventListener('click', () => lbShow(lbIdx - 1));
   $('.next', lb).addEventListener('click', () => lbShow(lbIdx + 1));
   $('.x', lb).addEventListener('click', () => lb.close());
-  lb.addEventListener('close', () => { stage.innerHTML = ''; });
+  lb.addEventListener('close', () => stage.replaceChildren());
   lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
   lb.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft') lbShow(lbIdx - 1);

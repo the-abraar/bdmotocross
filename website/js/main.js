@@ -367,7 +367,7 @@ function initRacerFiltersAndModal() {
       imgEl.alt = data.name;
 
       const listEl = document.getElementById('modal-racer-achievements');
-      listEl.innerHTML = '';
+      listEl.replaceChildren();
       data.achievements.forEach(ach => {
         const div = document.createElement('div');
         div.className = 'achievement-item';
@@ -1100,7 +1100,7 @@ function initCostEstimator() {
 
     // Render breakdown items
     if (breakdownListEl) {
-      breakdownListEl.innerHTML = '';
+      breakdownListEl.replaceChildren();
       breakdown.forEach(b => {
         const div = document.createElement('div');
         div.className = 'breakdown-item' + (b.price === 'Included' ? ' text-muted' : '');
@@ -1229,14 +1229,14 @@ function renderVaultLeads(activeFilter = 'all') {
 
   const filtered = leads.filter(l => activeFilter === 'all' || l.type === activeFilter);
 
-  listEl.innerHTML = '';
+  listEl.replaceChildren();
   if (!filtered.length) {
     listEl.innerHTML = `<div class="vault-empty-state">No submissions found in the offline vault. Submit an inquiry or Feni trial registration to see it recorded here.</div>`;
     return;
   }
 
   // Render leads newest first
-  filtered.slice().reverse().forEach(lead => {
+  filtered.toReversed().forEach(lead => {
     const card = document.createElement('div');
     card.className = 'vault-lead-card';
 
