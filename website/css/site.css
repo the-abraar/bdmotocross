@@ -353,16 +353,13 @@ ul, ol { padding: 0; list-style: none; }
 .tier:hover { transform: translateY(-6px); border-color: rgba(244, 240, 231, .3); }
 .tier h3 { font: 400 34px/1 var(--f-display); text-transform: uppercase; }
 .tier-type { color: var(--mute); }
-.price { font: 400 72px/1 var(--f-display); margin: 8px 0 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
-.price .from { flex-basis: 100%; }
-.price small { font: 700 .75rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute); white-space: nowrap; }
 .tier > p:not(.price):not(.tier-type) { color: var(--mute); font-size: .95rem; }
 .tier ul { display: grid; gap: 10px; margin: 8px 0 22px; padding-top: 18px; border-top: 1px solid var(--line); flex: 1; }
 .tier li { display: flex; gap: 10px; font-size: .92rem; }
 .tier li::before { content: ""; flex: 0 0 14px; height: 8px; margin-top: 7px; background: var(--red); clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%); }
 .tier .btn { justify-content: center; }
 .tier.hot { background: var(--red); border-color: var(--red); color: #fff; }
-.tier.hot .tier-type, .tier.hot .price small, .tier.hot > p:not(.price):not(.tier-type) { color: #fff; }
+.tier.hot .tier-type, .tier.hot > p:not(.price):not(.tier-type) { color: #fff; }
 .tier.hot ul { border-color: rgba(255, 255, 255, .25); }
 .tier.hot li::before { background: var(--ink); }
 .tier-flag { position: absolute; top: -12px; left: 30px; background: var(--ink); color: var(--bone); padding: 6px 10px; font-size: .75rem; }
@@ -621,7 +618,6 @@ dialog::backdrop { background: rgba(5, 5, 4, .78); backdrop-filter: blur(6px); }
   .ticker-track { font-size: 22px; }
   .masonry { columns: 2; column-gap: 8px; }
   .shot { margin-bottom: 8px; }
-  .price { font-size: 60px; }
   .lb-nav { top: auto; bottom: 16px; margin: 0; }
 }
 
