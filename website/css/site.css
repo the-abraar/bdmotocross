@@ -1,6 +1,7 @@
 /* BMCA — site.css
    Palette from the crest: ink black, racing red, flag green; bone "race programme" paper. */
 :root {
+  color-scheme: dark;
   --ink: #0b0b0a;
   --ink-2: #121210;
   --ink-3: #1b1a17;
