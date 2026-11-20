@@ -61,11 +61,17 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">
+            <label htmlFor="identifier" className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">
               Username or Email
             </label>
             <input
+              id="identifier"
+              name="identifier"
               type="text"
+              autoComplete="username"
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
               required
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
@@ -75,11 +81,14 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">
+            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">
               Password
             </label>
             <input
+              id="password"
+              name="password"
               type="password"
+              autoComplete="current-password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
