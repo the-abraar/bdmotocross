@@ -1,12 +1,12 @@
 # Bangladesh Motocross Club & Academy (BMCA) — Official Platform
 
 > **Version:** `v0.2`  
-> **Headquarters:** Chittagong, Bangladesh  
+> **Riders in:** Dhaka, Narsingdi, Sylhet, Chittagong, Cumilla (nationwide, not Chittagong-based)  
 > **Motto:** *Ride Safe • Train Hard • Race Strong*  
 > **Official Web Platform:** [https://bdmotocross.com](https://bdmotocross.com)  
 > **Rider Paddock Community:** [https://paddock.bdmotocross.com](https://paddock.bdmotocross.com)
 
-The official web platform and digital ecosystem for **Bangladesh Motocross Club & Academy (BMCA)**. BMCA is Bangladesh's premier racing club and motocross rider development academy, fostering grassroots dirt bike competition, athlete conditioning, track discipline, and certified safety standards from Chittagong to national events nationwide.
+The official web platform and digital ecosystem for **Bangladesh Motocross Club & Academy (BMCA)**. BMCA is Bangladesh's premier racing club and motocross rider development academy, fostering grassroots dirt bike competition, athlete conditioning, track discipline, and certified safety standards at national events nationwide.
 
 ---
 
@@ -122,4 +122,4 @@ npm test
 
 ---
 
-© 2026 Bangladesh Motocross Club & Academy • Chittagong, Bangladesh
+© 2026 Bangladesh Motocross Club & Academy • Bangladesh

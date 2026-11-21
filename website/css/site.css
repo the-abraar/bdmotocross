@@ -227,7 +227,7 @@ ul, ol { padding: 0; list-style: none; }
 .next-card strong { font: 400 30px/1 var(--f-display); text-transform: uppercase; }
 .next-card .sub { color: var(--mute-ink); font-size: .75rem; }
 
-.hero-vert { position: absolute; right: calc(var(--gut) - 30px); top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; color: var(--mute); font-size: .75rem; }
+.hero-vert { position: absolute; right: calc(var(--gut) - 30px); top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; white-space: nowrap; color: var(--mute); font-size: .75rem; }
 
 .hero-stats { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); margin-top: 48px; }
 .hero-stats > div { padding: 22px 20px 0 0; }
