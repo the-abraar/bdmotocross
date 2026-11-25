@@ -427,6 +427,22 @@ ul, ol { padding: 0; list-style: none; }
 .ev-body .mono { text-transform: none; letter-spacing: .02em; color: var(--mute); }
 .event[hidden] { display: none; }
 
+/* completed races: one compact scrolling strip under the calendar */
+.record { margin-top: clamp(56px, 7vw, 96px); padding-top: 32px; border-top: 2px solid var(--bone); }
+.record-head { display: flex; align-items: center; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.record-head .mono { color: var(--mute); margin-right: auto; }
+.record .arrow { width: 44px; height: 44px; border-color: var(--line); font-size: 16px; }
+.record .arrow:hover { background: var(--bone); color: var(--ink); }
+.record-track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 10px; }
+.record-track li { flex: 0 0 236px; scroll-snap-align: start; display: grid; gap: 8px; align-content: start; padding: 18px; background: var(--ink-2); border: 1px solid var(--line); border-top: 3px solid var(--red); }
+.record-track li:first-child { border-top-color: var(--bone); }
+.record-track .mono { color: var(--mute); text-transform: none; letter-spacing: .02em; }
+.record-track b { font: 400 24px/1 var(--f-display); text-transform: uppercase; }
+.record-track small { color: var(--mute); font-size: .85rem; }
+.record-track em { font-style: normal; font-weight: 800; color: var(--red-hi); }
+.record-track em.gold { color: var(--gold); }
+.intl { display: inline-block; vertical-align: middle; margin-left: 6px; padding: 3px 7px; font: 700 .6rem var(--f-mono); letter-spacing: .1em; font-style: normal; background: var(--green); color: var(--ink); }
+
 /* ---------- gallery ---------- */
 .gallery-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -611,6 +627,7 @@ dialog::backdrop { background: rgba(5, 5, 4, .78); backdrop-filter: blur(6px); }
 @media (max-width: 560px) {
   .form, .race-fields, .seg { grid-template-columns: 1fr; }
   .facts-grid, .safety-grid, .partners-grid { grid-template-columns: 1fr; }
+  .record-track li { flex-basis: 78%; }
   .d-specs { grid-template-columns: 1fr; }
   .results li { grid-template-columns: 90px 1fr; }
   .next-card { position: relative; right: auto; bottom: auto; margin-top: -40px; width: min(290px, 100%); }
