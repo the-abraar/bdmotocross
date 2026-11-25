@@ -41,7 +41,7 @@ The BMCA digital ecosystem is split into two complementary production tiers oper
 │   ├── supabase/             # Supabase database migrations, tests & unified setup
 │   │   ├── full_setup.sql    # Single-run master schema script (Migrations 1–5)
 │   │   ├── migrations/       # Sequential individual SQL migrations (0001–0005)
-│   │   └── tests/            # Database RLS test suites (rls_check.sql)
+│   │   └── tests/            # pgTAP RLS tests (rls.test.sql, `npm run test:rls`)
 │   └── utils/                # Supabase client/server/admin utilities
 ├── website/                  # Production static marketing website
 │   ├── CNAME                 # Apex custom domain configuration (bdmotocross.com)

@@ -93,6 +93,15 @@ npm test
 npm run build
 ```
 
+### RLS policy tests
+
+Needs Docker and the Supabase CLI. Runs against the local stack only, never the hosted project:
+
+```bash
+supabase start      # applies supabase/migrations (no seed)
+npm run test:rls    # pgTAP: supabase/tests/rls.test.sql, rolled back after the run
+```
+
 ---
 
 © 2026 Bangladesh Motocross Club & Academy
