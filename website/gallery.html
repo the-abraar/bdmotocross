@@ -1,347 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>Racing Photo Gallery | Bangladesh Motocross Club & Academy</title>
-  <meta name="description" content="High-octane motocross racing, dirt track training, podium ceremonies, and team photos from Bangladesh Motocross Club & Academy.">
+  <title>Paddock Archive — BMCA photo &amp; video gallery</title>
+  <meta name="description" content="Motocross racing, academy training, podiums and team photos from Bangladesh Motocross Club &amp; Academy.">
+  <meta name="theme-color" content="#0b0b0a">
   <link rel="canonical" href="https://bdmotocross.com/gallery.html">
-
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Bangladesh Motocross Club & Academy (BMCA)">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bdmotocross.com/gallery.html">
-  <meta property="og:title" content="Racing Photo Gallery | BMCA">
-  <meta property="og:description" content="High-octane motocross racing, dirt track training, podium ceremonies, and team photos from across Bangladesh.">
+  <meta property="og:title" content="Paddock Archive — BMCA photo &amp; video gallery">
+  <meta property="og:description" content="Motocross racing, academy training, podiums and team photos from Bangladesh Motocross Club &amp; Academy.">
   <meta property="og:image" content="https://bdmotocross.com/images/race-start.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Racing Photo Gallery | BMCA">
-  <meta property="twitter:description" content="High-octane motocross racing, dirt track training, podium ceremonies, and team photos from across Bangladesh.">
-  <meta property="twitter:image" content="https://bdmotocross.com/images/race-start.jpg">
-
-  <link rel="icon" type="image/png" href="images/logo-transparent.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="manifest" href="manifest.webmanifest">
-
-  <!-- Hybrid Typography Stack: Pitch 03 Kinetic Stance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Theme Mode Preloader -->
-  <script>
-    (function() {
-      try {
-        var saved = localStorage.getItem('bmca_theme');
-        if (saved) {
-          document.documentElement.setAttribute('data-theme', saved);
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-        document.querySelector('meta[name="color-scheme"]').content = document.documentElement.getAttribute('data-theme');
-      } catch (e) {}
-    })();
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="js/analytics.js" defer></script>
 </head>
-<body style="padding-top: var(--nav-height);">
+<body id="top">
 
-  <!-- Navbar -->
-  <nav class="site-nav" aria-label="Main Navigation">
-    <div class="container nav-container">
-      <a href="index.html" class="nav-brand">
-        <img src="images/logo-transparent.png" alt="BMCA Logo" class="nav-logo" width="46" height="46">
-        <div class="brand-text">
-          <span class="brand-name">BD Motocross Club & Academy</span>
-          <span class="brand-sub">Bangladesh</span>
-        </div>
-      </a>
-      <div class="nav-actions">
-        <!-- Dark vs Light Mode Switch Button -->
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle Dark/Light Mode" role="switch" aria-checked="false">
-          <span class="theme-toggle-track">
-            <span class="theme-toggle-icon icon-sun" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            <span class="theme-toggle-thumb"></span>
-            <span class="theme-toggle-icon icon-moon" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            </span>
-          </span>
-        </button>
-        <a href="index.html" class="btn btn-primary btn-sm nav-subpage-back"><span class="desktop-text">← Back to Home</span><span class="mobile-text">← Home</span></a>
-        <a href="index.html#roster" class="btn btn-secondary btn-sm nav-subpage-extra">Team Roster</a>
-      </div>
-    </div>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav-logo" aria-label="BMCA home">
+    <img src="images/logo-360.webp" alt="" width="64" height="51">
+    <span>BMCA<small>Bangladesh</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="index.html#club">Club</a>
+    <a href="index.html#riders">Riders</a>
+    <a href="academy.html">Academy</a>
+    <a href="index.html#fixtures">Fixtures</a>
+    <a href="gallery.html" class="on" aria-current="page">Gallery</a>
+    <a href="index.html#partners">Partners</a>
+    <a href="https://paddock.bdmotocross.com" target="_blank" rel="noopener">Paddock ↗</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
+  <a href="index.html#fixtures" class="rail-gate">
+    <span class="mono tag">Next gate drop</span>
+    <strong>Chittagong Hill Track Champion</strong>
+    <span class="mono sub">03 Dec 2026 · Chittagong Hill Circuits</span>
+    <span class="mono more">Full race calendar →</span>
+  </a>
+  <a href="academy.html" class="btn btn-red btn-sm nav-cta">Join the academy</a>
+  <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+</header>
 
-  <main class="section section-dark">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow eyebrow-yellow">Official Media Archive</span>
-        <h1 class="section-title">Racing &amp; Academy Photo Gallery</h1>
-        <p class="section-desc">Experience the raw dirt thrills, athlete dedication, and championship victories of Bangladesh Motocross Club &amp; Academy.</p>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Mobile">
+    <a href="index.html#club"><small>01</small>Club</a>
+    <a href="index.html#riders"><small>02</small>Riders</a>
+    <a href="academy.html"><small>03</small>Academy</a>
+    <a href="index.html#fixtures"><small>04</small>Fixtures</a>
+    <a href="gallery.html"><small>05</small>Gallery</a>
+    <a href="index.html#partners"><small>06</small>Partners</a>
+    <a href="https://paddock.bdmotocross.com" target="_blank" rel="noopener"><small>07</small>Paddock ↗</a>
+    <a href="index.html#contact"><small>08</small>Contact</a>
+  </nav>
+  <p class="menu-foot mono">Ride Safe • Train Hard • Race Strong</p>
+</div>
+
+<main id="main">
+
+<section class="sec ink page-head" id="archive">
+  <div class="topo dim" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker light"><span>BMCA</span> On &amp; off the dirt</p>
+    <h1 class="h-xxl" data-reveal>Paddock<br><span class="red">archive.</span></h1>
+    <p class="muted" data-reveal>Race days, training weekends, podiums and the people behind the club. Tap any frame to open it.</p>
+  </div>
+</section>
+
+<section class="sec paper paper-sage gallery" id="gallery">
+  <div class="tear" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="gallery-head">
+      <p class="kicker"><span>22</span> Frames</p>
+      <div class="chips" role="group" aria-label="Filter photos">
+        <button aria-pressed="true" data-filter="all">All</button>
+        <button aria-pressed="false" data-filter="track">Track</button>
+        <button aria-pressed="false" data-filter="training">Training</button>
+        <button aria-pressed="false" data-filter="podium">Podiums</button>
+        <button aria-pressed="false" data-filter="team">Team</button>
+        <button aria-pressed="false" data-filter="video">Video</button>
       </div>
-
-      <div class="gallery-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Photos</button>
-        <button class="filter-btn" data-filter="track">Track Action</button>
-        <button class="filter-btn" data-filter="training">Academy Training</button>
-        <button class="filter-btn" data-filter="podium">Podiums &amp; Awards</button>
-        <button class="filter-btn" data-filter="team">Team &amp; Community</button>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item" data-category="track">
-          <img src="images/race-start.jpg" alt="Motocross dirt bike race launch at start gate" class="gallery-thumb" loading="lazy" width="1536" height="1533">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Track Action</span>
-            <div class="gallery-caption">Race Start Gate Drop</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="training">
-          <img src="images/riders-training.jpg" alt="BMCA riders lined up for track training" class="gallery-thumb" loading="lazy" width="1536" height="1024">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Academy Training</span>
-            <div class="gallery-caption">Rider Track Conditioning</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="podium">
-          <img src="images/award.jpg" alt="Championship trophy award ceremony" class="gallery-thumb" loading="lazy" width="1536" height="1152">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Podiums &amp; Awards</span>
-            <div class="gallery-caption">Champion Podium Celebration</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="track">
-          <img src="images/hero-bikes.jpg" alt="Competition dirt bikes lined on the dirt circuit" class="gallery-thumb" loading="lazy" width="1536" height="865">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Track Action</span>
-            <div class="gallery-caption">Race Ready Machines</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/club-team.jpg" alt="BMCA motocross club team group" class="gallery-thumb" loading="lazy" width="1536" height="864">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Team &amp; Community</span>
-            <div class="gallery-caption">BMCA Official Team Crew</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/team-photo.jpg" alt="BMCA members and riders gathering" class="gallery-thumb" loading="lazy" width="1536" height="1152">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Team &amp; Community</span>
-            <div class="gallery-caption">Chittagong Rider Collective</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="track">
-          <img src="images/rider-bikes.jpg" alt="Motocross riders standing with bikes" class="gallery-thumb" loading="lazy" width="717" height="1536">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Track Action</span>
-            <div class="gallery-caption">Pit Lane Prep &amp; Staging</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/event-talk.jpg" alt="Motorsports rider briefing and event talk" class="gallery-thumb" loading="lazy" width="1536" height="1025">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Team &amp; Community</span>
-            <div class="gallery-caption">Safety Briefing &amp; Event Speech</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/eid-greeting.png" alt="BMCA community poster" class="gallery-thumb" loading="lazy" width="1024" height="1536">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Team &amp; Community</span>
-            <div class="gallery-caption">BMCA Community Artwork</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/sharif-on-track.jpg" alt="Sharif ON Track #05" class="gallery-thumb" loading="lazy" width="948" height="1280">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Racer Spotlight</span>
-            <div class="gallery-caption">Sharif ON Track #05</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/sultan-sheikh.jpg" alt="Sultan Sheikh #77" class="gallery-thumb" loading="lazy" width="1098" height="1433">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Racer Spotlight</span>
-            <div class="gallery-caption">Sultan Sheikh #77</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="training">
-          <img src="images/baundal-bulbul.jpg" alt="Salauddin Ahmed Bulbul #07" class="gallery-thumb" loading="lazy" width="600" height="600">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Academy Mentor</span>
-            <div class="gallery-caption">Salauddin Ahmed Bulbul #07</div>
-          </div>
-        </div>
-
-        <!-- Newly Integrated Official Facebook Media -->
-        <div class="gallery-item" data-category="track">
-          <img src="images/hero-competition-bike-workshop.jpg" alt="Hero Competition Dirt Bike in Pit Workshop" class="gallery-thumb" loading="lazy" width="2048" height="1079">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Track Action</span>
-            <div class="gallery-caption">Hero Competition Machine (Pit Workshop)</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="podium">
-          <img src="images/sharif-fbr-podium-trophy.jpg" alt="Sharif Hossain on podium with 1st Runner Up Trophy" class="gallery-thumb" loading="lazy" width="1536" height="2048">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Podiums &amp; Awards</span>
-            <div class="gallery-caption">Sharif Hossain 1st Runner-Up (FBR CampFest 2025)</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="podium">
-          <img src="images/sharif-suzuki-championship-poster.jpg" alt="Suzuki Off-Road Championship 2026 congratulations poster" class="gallery-thumb" loading="lazy" width="1254" height="1254">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Podiums &amp; Awards</span>
-            <div class="gallery-caption">Suzuki Off-Road Championship (2nd Runner-Up Pro)</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="track">
-          <img src="images/team-trail-srimongol-sylhet.jpg" alt="BMCA riders on trail run in Srimongol Sylhet" class="gallery-thumb" loading="lazy" width="2048" height="1153">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Track Action</span>
-            <div class="gallery-caption">Srimongol Trail Run Expedition (Sylhet)</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="team">
-          <img src="images/club-delegation-handover-ceremony.jpg" alt="BMCA contract presentation and club ceremony" class="gallery-thumb" loading="lazy" width="1153" height="2048">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Team &amp; Community</span>
-            <div class="gallery-caption">Official Racer Appointment &amp; Handover Ceremony</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="training">
-          <img src="images/sharif-signing-contract.jpg" alt="Sharif Hossain formally signing his BMCA contract" class="gallery-thumb" loading="lazy" width="1153" height="2048">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Academy Training</span>
-            <div class="gallery-caption">Contract Signing &amp; Rider Induction</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="training">
-          <img src="images/appointment-letter-sharif-on-track.jpg" alt="Official BMCA Appointment Letter for Mohammad Sharif Hossain" class="gallery-thumb" loading="lazy" width="1024" height="1536">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Academy Training</span>
-            <div class="gallery-caption">Appointment Letter: Md. Sharif Hossain (#05)</div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="training">
-          <img src="images/appointment-letter-sultan-sheikh.jpg" alt="Official BMCA Appointment Letter for Md. Sultan Ahmed" class="gallery-thumb" loading="lazy" width="1024" height="1536">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Academy Training</span>
-            <div class="gallery-caption">Appointment Letter: Md. Sultan Ahmed (#77)</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Official Track Video Reels Section -->
-      <div style="margin-block-start: 60px;">
-        <div class="section-header" style="margin-block-end: 28px;">
-          <span class="eyebrow eyebrow-red">High-Octane Footage</span>
-          <h2 class="section-title" style="font-size: 2.2rem;">Official Track &amp; Trail Reels</h2>
-          <p class="section-desc">Authentic on-track trials, hill climbs, and competition action captured live across Bangladesh.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-          <!-- Reel 1: Srimongol Sylhet Trail Run -->
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 16px 20px; background: var(--bg-card); border-block-end: 1px solid var(--border-card); display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <span style="color: var(--red-bright); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">● LIVE TRIAL</span>
-                <h3 style="color: var(--text-main); font-size: 1.15rem; margin: 4px 0 0 0; font-family: var(--font-heading);">Srimongol Hill Trail Race Run</h3>
-              </div>
-              <span style="background: rgba(220, 38, 38, 0.15); color: var(--red-bright); padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;">Sylhet Track</span>
-            </div>
-            <div style="position: relative; background: #000; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;">
-              <video controls playsinline preload="metadata" poster="images/srimongol-trail-video-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
-                <source src="images/bmca-srimongol-trail-run.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div style="padding: 16px 20px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55;">
-              Official live off-road hill trial featuring BMCA pro riders navigating natural mud ruts, tree-lined hill sections, and high-speed dirt straights in Srimongol, Sylhet.
-            </div>
-          </div>
-
-          <!-- Reel 2: Lal Mai Track Trial -->
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 16px 20px; background: var(--bg-card); border-block-end: 1px solid var(--border-card); display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <span style="color: var(--red-bright); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">● PRO CIRCUIT</span>
-                <h3 style="color: var(--text-main); font-size: 1.15rem; margin: 4px 0 0 0; font-family: var(--font-heading);">Lal Mai Furious Track Trial</h3>
-              </div>
-              <span style="background: rgba(225, 29, 72, 0.15); color: var(--red-bright); padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;">Cumilla Circuit</span>
-            </div>
-            <div style="position: relative; background: #000; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;">
-              <video controls playsinline preload="metadata" poster="images/video-poster.jpg" style="width: 100%; height: 100%; object-fit: contain;">
-                <source src="images/bmca_short.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div style="padding: 16px 20px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55;">
-              High-velocity circuit trial action at Lal Mai Cumilla showing aggressive berm cornering, rapid throttle bursts, and dirt circuit lines.
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </main>
-
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
-    <button class="lightbox-close" aria-label="Close lightbox modal">×</button>
-    <button class="lightbox-prev" aria-label="Previous photo">‹</button>
-    <button class="lightbox-next" aria-label="Next photo">›</button>
-    <div class="lightbox-content">
-      <img src="images/race-start.jpg" alt="Enlarged photo" class="lightbox-img" id="lightbox-img">
-      <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="masonry">
+      <button class="shot" data-cat="video" data-video="images/bmca-srimongol-trail-run.mp4"><img src="images/srimongol-trail-still.jpg" width="720" height="420" alt="Srimongol trail run video" loading="lazy"><span class="play" aria-hidden="true">▶</span><span class="cap">Video · Srimongol, Sylhet trail run</span></button>
+      <button class="shot" data-cat="training"><img src="images/riders-training.jpg" width="1536" height="1024" alt="BMCA riders on the training track" loading="lazy"><span class="cap">Rider track conditioning</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-fbr-podium-trophy.jpg" width="1536" height="2048" alt="Sharif Hossain on the podium with the 1st runner-up trophy" loading="lazy"><span class="cap">Sharif · 1st runner-up, FBR CampFest 2025</span></button>
+      <button class="shot" data-cat="track"><img src="images/race-start.jpg" width="1536" height="1533" alt="MR99 at the Moto Madness 2025 start gate" loading="lazy"><span class="cap">Start gate · Moto Madness 2025</span></button>
+      <button class="shot" data-cat="team"><img src="images/club-team.jpg" width="1536" height="864" alt="BMCA team group photo" loading="lazy"><span class="cap">BMCA official crew</span></button>
+      <button class="shot" data-cat="video" data-video="images/bmca_short.mp4"><img src="images/video-poster.jpg" width="360" height="640" alt="Furious Track Trial 2025 reel, Lal Mai" loading="lazy"><span class="play" aria-hidden="true">▶</span><span class="cap">Video · Lal Mai, Furious Track Trial 2025</span></button>
+      <button class="shot" data-cat="podium"><img src="images/sharif-suzuki-championship-poster.jpg" width="1254" height="1254" alt="Suzuki Off-Road Championship 2026 runner-up poster" loading="lazy"><span class="cap">Suzuki Off-Road Championship 2026</span></button>
+      <button class="shot" data-cat="track"><img src="images/hero-competition-bike-workshop.jpg" width="2048" height="1079" alt="Hero competition dirt bike in the pit workshop" loading="lazy"><span class="cap">Competition machine · pit workshop</span></button>
+      <button class="shot" data-cat="team"><img src="images/sharif-on-track.jpg" width="948" height="1280" alt="Sharif ON Track #05" loading="lazy"><span class="cap">Sharif ON Track #05</span></button>
+      <button class="shot" data-cat="podium"><img src="images/award.jpg" width="1536" height="1152" alt="Championship trophy ceremony" loading="lazy"><span class="cap">Champion podium</span></button>
+      <button class="shot" data-cat="team"><img src="images/team-photo.jpg" width="1536" height="1152" alt="BMCA riders gathering" loading="lazy"><span class="cap">Chittagong rider collective</span></button>
+      <button class="shot" data-cat="training"><img src="images/baundal-bulbul.jpg" width="600" height="600" alt="Salauddin Ahmed Bulbul #07" loading="lazy"><span class="cap">Mentor · Baundal Bulbul #07</span></button>
+      <button class="shot" data-cat="track"><img src="images/rider-bikes.jpg" width="717" height="1536" alt="Riders standing with their bikes" loading="lazy"><span class="cap">Pit lane prep &amp; staging</span></button>
+      <button class="shot" data-cat="team"><img src="images/sultan-sheikh.jpg" width="1098" height="1433" alt="Sultan Sheikh #77" loading="lazy"><span class="cap">Sultan Sheikh #77</span></button>
+      <button class="shot" data-cat="training"><img src="images/event-talk.jpg" width="1536" height="1025" alt="Rider safety briefing" loading="lazy"><span class="cap">Safety briefing</span></button>
+      <button class="shot" data-cat="team"><img src="images/hero-bikes.jpg" width="1536" height="865" alt="BMCA riders with new Hero dual-sport bikes" loading="lazy"><span class="cap">New machines day</span></button>
+      <button class="shot" data-cat="team"><img src="images/club-delegation-handover-ceremony.jpg" width="1153" height="2048" alt="BMCA contract presentation and club ceremony" loading="lazy"><span class="cap">Racer induction ceremony</span></button>
+      <button class="shot" data-cat="track"><img src="images/team-trail-srimongol-sylhet.jpg" width="2048" height="1153" alt="BMCA trail expedition crew in Srimongol" loading="lazy"><span class="cap">Srimongol trail expedition</span></button>
+      <button class="shot" data-cat="team"><img src="images/sharif-signing-contract.jpg" width="1153" height="2048" alt="Sharif Hossain signing his BMCA contract" loading="lazy"><span class="cap">Contract signing · Sharif</span></button>
+      <button class="shot" data-cat="team"><img src="images/appointment-letter-sharif-on-track.jpg" width="1024" height="1536" alt="BMCA appointment letter for Mohammad Sharif Hossain" loading="lazy"><span class="cap">Appointment letter · Sharif</span></button>
+      <button class="shot" data-cat="team"><img src="images/appointment-letter-sultan-sheikh.jpg" width="1024" height="1536" alt="BMCA appointment letter for Md. Sultan Ahmed" loading="lazy"><span class="cap">Appointment letter · Sultan</span></button>
+      <button class="shot" data-cat="team"><img src="images/eid-greeting.png" width="1024" height="1536" alt="BMCA community poster" loading="lazy"><span class="cap">Club poster</span></button>
     </div>
   </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="site-footer" style="padding-block: 24px;">
-    <div class="container" style="text-align: center; color: var(--text-dim); font-size: 0.85rem;">
-      © 2026 Bangladesh Motocross Club & Academy • Bangladesh<br>
-      <a href="index.html" style="color: var(--red-bright); font-weight: 700; margin-top: 6px; display: inline-block;">Return to Main Website</a>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="images/logo-360.webp" alt="Bangladesh Motocross Club & Academy crest" width="150" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <a href="index.html#club">Club</a><a href="index.html#riders">Riders</a><a href="academy.html">Academy</a><a href="academy.html#join">Enroll</a><a href="index.html#fixtures">Fixtures</a><a href="index.html#results">Results</a><a href="gallery.html">Gallery</a><a href="index.html#partners">Partners</a><a href="index.html#contact">Contact</a>
+      </nav>
+      <a href="#top" class="to-top mono">Back to top ↑</a>
     </div>
-  </footer>
+    <p class="foot-word" aria-hidden="true">Bangladesh Motocross</p>
+    <div class="foot-bottom mono">
+      <span>© 2026 Bangladesh Motocross Club &amp; Academy</span>
+      <span>Ride Safe • Train Hard • Race Strong</span>
+    </div>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<!-- Lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="x" type="button" aria-label="Close">×</button>
+  <button class="lb-nav prev" type="button" aria-label="Previous">←</button>
+  <figure><div class="lb-stage"></div><figcaption class="mono"></figcaption></figure>
+  <button class="lb-nav next" type="button" aria-label="Next">→</button>
+</dialog>
+
+<script src="js/site.js"></script>
 </body>
 </html>
