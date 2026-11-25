@@ -3,12 +3,15 @@
  * Service Worker: Offline Trackside Shell & Circuit Cache
  */
 
-const CACHE_NAME = 'bmca-cache-v3';
+const CACHE_NAME = 'bmca-cache-v4';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  '/academy.html',
+  '/gallery.html',
   '/css/site.css',
   '/js/site.js',
+  '/js/analytics.js',
   '/manifest.webmanifest',
   '/images/logo-360.webp',
   '/images/favicon.png',
