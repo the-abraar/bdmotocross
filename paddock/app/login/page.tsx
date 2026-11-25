@@ -31,14 +31,10 @@ export default function LoginPage() {
       return;
     }
 
-    // Check if password reset is required
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("must_change_password")
-      .eq("id", data.user.id)
-      .single();
+    // Active = temporary password already changed (must_change_password is hidden from API roles).
+    const { data: active } = await supabase.rpc("is_active_member", { user_id: data.user.id });
 
-    if (profile?.must_change_password) {
+    if (active === false) {
       router.push("/settings?forceReset=true");
     } else {
       router.push("/feed");

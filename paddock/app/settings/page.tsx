@@ -40,7 +40,7 @@ function SettingsForm() {
 
       const { data: profile } = await supabase
         .from("profiles")
-        .select("*")
+        .select("username, full_name, racing_number, bike_model, bio")
         .eq("id", user.id)
         .single();
 
