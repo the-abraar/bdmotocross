@@ -5,7 +5,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const WA = '8801975376114';
-  const RACE_START = new Date('2026-11-15T09:00:00+06:00').getTime();
+  const RACE_START = new Date('2026-12-03T09:00:00+06:00').getTime(); // Chittagong Hill Track Champion
   const track = (e, p) => window.track?.(e, p); // analytics.js; no-op when it is blocked or unset
 
   /* ---------- hero entrance: next frame so the headline transition runs ---------- */
