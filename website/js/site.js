@@ -155,7 +155,7 @@
     shots.forEach(s => { s.hidden = c.dataset.filter !== 'all' && s.dataset.cat !== c.dataset.filter; });
   }));
 
-  const lb = $('#lightbox'), stage = $('.lb-stage', lb), cap = $('figcaption', lb);
+  const lb = $('#lightbox'), stage = lb && $('.lb-stage', lb), cap = lb && $('figcaption', lb);
   let lbList = [], lbIdx = 0;
   const lbShow = i => {
     lbIdx = (i + lbList.length) % lbList.length;
@@ -172,6 +172,7 @@
     lbOpen(vis.map(x => ({ src: $('img', x).src, alt: $('img', x).alt, cap: $('.cap', x).textContent, video: x.dataset.video })), vis.indexOf(s));
     track('gallery_open', { caption: $('.cap', s).textContent, video: !!s.dataset.video });
   }));
+  if (lb) {
   $('.prev', lb).addEventListener('click', () => lbShow(lbIdx - 1));
   $('.next', lb).addEventListener('click', () => lbShow(lbIdx + 1));
   $('.x', lb).addEventListener('click', () => lb.close());
@@ -181,6 +182,7 @@
     if (e.key === 'ArrowLeft') lbShow(lbIdx - 1);
     if (e.key === 'ArrowRight') lbShow(lbIdx + 1);
   });
+  }
 
   /* ---------- rider dossiers ---------- */
   const RIDERS = {
@@ -233,17 +235,33 @@
     dlg.showModal(); dlg.scrollTop = 0;
     track('dossier_opened', { rider: id });
   };
-  $$('[data-dossier]').forEach(b => b.addEventListener('click', () => openDossier(b.dataset.dossier)));
-  $('.x', dlg).addEventListener('click', () => dlg.close());
-  // Safari lacks closedby: fall back to closing on backdrop clicks
-  if (!('closedBy' in HTMLDialogElement.prototype)) dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  if (dlg) {
+    $$('[data-dossier]').forEach(b => b.addEventListener('click', () => openDossier(b.dataset.dossier)));
+    $('.x', dlg).addEventListener('click', () => dlg.close());
+    // Safari lacks closedby: fall back to closing on backdrop clicks
+    if (!('closedBy' in HTMLDialogElement.prototype)) dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  }
 
   /* ---------- mobile action bar: hide while the contact form is on screen ---------- */
-  const mbar = $('#mbar');
-  new IntersectionObserver(([en]) => mbar.classList.toggle('off', en.isIntersecting)).observe($('#contact'));
+  const mbar = $('#mbar'), formSec = $('#contact') || $('#enroll');
+  if (mbar && formSec) new IntersectionObserver(([en]) => mbar.classList.toggle('off', en.isIntersecting)).observe(formSec);
+
+  /* ---------- "Book / Register" buttons: pick the option in this page's form and jump to it ---------- */
+  const interest = $('#f-interest');
+  $$('[data-enquire]').forEach(b => b.addEventListener('click', () => {
+    const want = b.dataset.enquire;
+    const opt = [...interest.options].find(o => o.value === want || o.value.startsWith(want));
+    if (opt) interest.value = opt.value;
+    interest.dispatchEvent(new Event('change'));
+    track('enquire_click', { option: interest.value });
+    interest.form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    setTimeout(() => $('input', interest.form).focus({ preventScroll: true }), reduce ? 0 : 700);
+  }));
 
   /* ---------- enquiry form → WhatsApp ---------- */
-  const form = $('#enquiry'), interest = $('#f-interest'), raceBox = $('.race-fields', form), status = $('.form-status', form);
+  const form = $('#enquiry');
+  if (form) {
+  const raceBox = $('.race-fields', form), status = $('.form-status', form);
   const isRace = () => interest.value.startsWith('Race entry');
   const syncRace = () => {
     raceBox.hidden = !isRace();
@@ -251,15 +269,6 @@
   };
   interest.addEventListener('change', syncRace);
   syncRace();
-
-  $$('[data-enquire]').forEach(b => b.addEventListener('click', () => {
-    const want = b.dataset.enquire;
-    const opt = [...interest.options].find(o => o.value === want || o.value.startsWith(want));
-    if (opt) interest.value = opt.value;
-    syncRace();
-    $('#contact').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    setTimeout(() => $('#f-name').focus({ preventScroll: true }), reduce ? 0 : 700);
-  }));
 
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -287,4 +296,5 @@
     status.textContent = 'Opening WhatsApp — hit send there and the paddock desk will reply.';
     track('enquiry_sent', { interest: g('interest'), race: isRace(), city: g('city') });
   });
+  }
 })();
