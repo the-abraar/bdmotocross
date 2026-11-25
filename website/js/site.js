@@ -307,4 +307,39 @@
     track('enquiry_sent', { interest: g('interest'), race: isRace(), city: g('city') });
   });
   }
+
+  /* ---------- academy entrance: name + bike -> rider code -> WhatsApp for a first-session discount ---------- */
+  const codeForm = $('#rider-code');
+  if (codeForm) {
+    const status = $('.form-status', codeForm), card = $('.code-card', codeForm), send = $('#code-send');
+    // No look-alike characters (0/O, 1/I/L) so the code survives being read out or retyped.
+    const ABC = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
+    const newCode = () => 'BMCA-' + [...crypto.getRandomValues(new Uint8Array(5))].map(n => ABC[n % ABC.length]).join('');
+    let code = '';
+    codeForm.addEventListener('submit', e => {
+      e.preventDefault();
+      $$('[aria-invalid]', codeForm).forEach(el => el.removeAttribute('aria-invalid'));
+      const bad = $$('input', codeForm).filter(el => !el.value.trim());
+      if (bad.length) {
+        bad.forEach(el => el.setAttribute('aria-invalid', 'true'));
+        status.className = 'form-status mono err';
+        status.textContent = 'Add your name and your bike to get a code.';
+        bad[0].focus();
+        return;
+      }
+      const name = $('#f-name').value.trim(), bike = $('#f-bike').value.trim(), programme = interest.value;
+      code ||= newCode(); // one code per visit, even if they edit and resubmit
+      $('#code-out').textContent = code;
+      send.href = `https://wa.me/${WA}?text=${encodeURIComponent([
+        `Hi MR99! My BMCA rider code: *${code}*`, `Name: ${name}`, `Bike: ${bike}`, `Programme: ${programme}`,
+        'I want to claim my first-session rider discount.'
+      ].join('\n'))}`;
+      card.hidden = false;
+      status.className = 'form-status mono ok';
+      status.textContent = 'Code ready. Send it on WhatsApp to lock in the discount.';
+      card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+      track('rider_code_created', { code, bike, programme });
+    });
+    send.addEventListener('click', () => track('rider_code_sent', { code, programme: interest.value }));
+  }
 })();
