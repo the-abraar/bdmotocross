@@ -48,10 +48,13 @@ The BMCA digital ecosystem is split into two complementary production tiers oper
 │   ├── css/
 │   │   └── styles.css        # High-octane dark motorsports stylesheet
 │   ├── js/
-│   │   └── main.js           # Navigation, filters, countdown, lightbox, WhatsApp handlers
+│   │   ├── site.js           # Landing, academy & gallery pages: nav, countdown, lightbox, rider codes, WhatsApp forms
+│   │   ├── analytics.js      # PostHog (pageviews, clicks, scroll, heatmaps, replay) + named events; set KEY to enable
+│   │   └── main.js           # Legacy pages (racers/, mentors/, brand.html)
 │   ├── images/               # High-res photography, logos, sponsor assets
 │   ├── racers/               # Individual standalone racer profiles
 │   ├── mentors/              # Mentor accreditation and coaching bio
+│   ├── academy.html          # Academy: curriculum, programmes, rider-code discount entrance, safety
 │   ├── gallery.html          # Dedicated full-page media gallery
 │   └── index.html            # Main flagship single-page hub
 ├── .gitignore
