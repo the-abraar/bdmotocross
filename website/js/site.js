@@ -6,6 +6,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const WA = '8801975376114';
   const RACE_START = new Date('2026-11-15T09:00:00+06:00').getTime();
+  const track = (e, p) => window.track?.(e, p); // analytics.js; no-op when it is blocked or unset
 
   /* ---------- hero entrance: next frame so the headline transition runs ---------- */
   requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('ready')));
@@ -121,10 +122,9 @@
   runCountdown(); setInterval(runCountdown, 1000);
 
   /* ---------- rider track arrows ---------- */
-  const track = $('.rider-track');
   $$('[data-scroll]').forEach(b => b.addEventListener('click', () => {
-    const card = $('.rider', track);
-    track.scrollBy({ left: +b.dataset.scroll * (card.offsetWidth + 20), behavior: reduce ? 'auto' : 'smooth' });
+    const strip = $(b.dataset.scrollTarget || '.rider-track'), card = strip.firstElementChild;
+    strip.scrollBy({ left: +b.dataset.scroll * (card.offsetWidth + 20), behavior: reduce ? 'auto' : 'smooth' });
   }));
 
   /* ---------- academy stage stepper ---------- */
@@ -170,6 +170,7 @@
   shots.forEach(s => s.addEventListener('click', () => {
     const vis = shots.filter(x => !x.hidden);
     lbOpen(vis.map(x => ({ src: $('img', x).src, alt: $('img', x).alt, cap: $('.cap', x).textContent, video: x.dataset.video })), vis.indexOf(s));
+    track('gallery_open', { caption: $('.cap', s).textContent, video: !!s.dataset.video });
   }));
   $('.prev', lb).addEventListener('click', () => lbShow(lbIdx - 1));
   $('.next', lb).addEventListener('click', () => lbShow(lbIdx + 1));
@@ -230,6 +231,7 @@
       lbOpen(r.docs.map(([src, label]) => ({ src, alt: label, cap: label })), +b.dataset.doc)));
     $('#d-wa').href = `https://wa.me/${WA}?text=${encodeURIComponent(`Hello BMCA, I'd like to connect about ${r.name}.`)}`;
     dlg.showModal(); dlg.scrollTop = 0;
+    track('dossier_opened', { rider: id });
   };
   $$('[data-dossier]').forEach(b => b.addEventListener('click', () => openDossier(b.dataset.dossier)));
   $('.x', dlg).addEventListener('click', () => dlg.close());
@@ -283,5 +285,6 @@
     window.open(`https://wa.me/${WA}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
     status.className = 'form-status mono ok';
     status.textContent = 'Opening WhatsApp — hit send there and the paddock desk will reply.';
+    track('enquiry_sent', { interest: g('interest'), race: isRace(), city: g('city') });
   });
 })();
