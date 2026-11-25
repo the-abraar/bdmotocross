@@ -52,6 +52,7 @@ All SQL migrations are stored under `supabase/migrations/` and consolidated in `
 3. `20261115000003_rls_and_storage.sql` — Row-Level Security policies and `paddock-media` storage bucket.
 4. `20261115000004_security_hardening.sql` — Security definer search_path pinning, app_metadata role protection, YouTube ID validation.
 5. `20261115000005_whatsapp_opt_in.sql` — Standalone `profile_contacts` table with privacy opt-in RLS.
+6. `20261125000006_hide_password_flag_server_timestamps.sql` — Hides `must_change_password` from API roles (`is_active_member()` answers only for the caller) and sets post/comment `created_at` on the server. Deploy the app before applying it: older builds read the hidden column.
 
 To apply migrations on a remote database:
 ```bash

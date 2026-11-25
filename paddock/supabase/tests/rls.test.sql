@@ -12,7 +12,7 @@
 -- A failing test here is a policy hole: each one states the secure behaviour.
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(78);
+select plan(84);
 
 create schema tests;
 grant usage on schema tests to anon, authenticated, service_role;
@@ -94,6 +94,9 @@ select results_eq($$select profile_id from public.profile_contacts where profile
   array[tests.id('b')], 'anon: sees only opted-in WhatsApp numbers');
 select throws_ok($$select must_change_password from public.profiles$$, null::char(5), null,
   'anon: cannot see which accounts are still on a temporary password');
+select ok(not public.is_active_member(tests.id('a')), 'anon: is_active_member() RPC reveals nothing about members');
+select lives_ok($$select id, username, full_name, role, secondary_role, racing_number, bike_model, bio, avatar_url, banner_url, created_at, updated_at from public.profiles$$,
+  'anon: reads every public profile column (the /u page)');
 select isnt_empty($$select 1 from storage.objects where bucket_id = 'paddock-media'$$, 'anon: reads the public media bucket');
 
 select throws_ok($$insert into public.profiles (id, username, full_name) values (tests.id('d'), 'ghost_d', 'Ghost')$$, '42501', null,
@@ -118,6 +121,10 @@ select is_empty($$delete from storage.objects where bucket_id = 'paddock-media' 
 -- ---------------------------------------------------------------- member a (rider)
 select tests.act_as('authenticated', 'a');
 -- profiles
+select throws_ok($$select must_change_password from public.profiles$$, '42501', null,
+  'member: cannot see which accounts are still on a temporary password');
+select ok(public.is_active_member(tests.id('a')), 'member: is_active_member() answers for self (login redirect)');
+select ok(not public.is_active_member(tests.id('b')), 'member: is_active_member() reveals nothing about others');
 select isnt_empty($$update public.profiles set full_name = 'A2', bio = 'hi', racing_number = '7', bike_model = 'KX', avatar_url = '', banner_url = ''
   where id = tests.id('a') returning 1$$, 'member: edits own profile fields');
 select throws_ok($$update public.profiles set role = 'exec' where id = tests.id('a')$$, '42501', null, 'member: cannot change own role');
@@ -161,6 +168,12 @@ select lives_ok($$insert into public.comments (id, post_id, author_id, content) 
   'member: comments as self');
 select throws_ok($$insert into public.comments (post_id, author_id, content) values (tests.id('b1'), tests.id('b'), 'x')$$, '42501', null,
   'member: cannot comment as someone else');
+do $$ begin
+  insert into public.comments (id, post_id, author_id, content, created_at) values (tests.id('a6'), tests.id('b1'), tests.id('a'), 'late', '2099-01-01');
+exception when insufficient_privilege then null;
+end $$;
+select ok(not exists (select 1 from public.comments where id = tests.id('a6') and created_at > now() + interval '1 day'),
+  'member: cannot future-date a comment');
 select is_empty($$update public.comments set content = 'edited' where id in (tests.id('ac'), tests.id('bc')) returning 1$$,
   'member: comments are not editable (no UPDATE policy)');
 select is_empty($$delete from public.comments where id = tests.id('bc') returning 1$$,

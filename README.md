@@ -39,8 +39,8 @@ The BMCA digital ecosystem is split into two complementary production tiers oper
 │   ├── app/                  # Next.js App Router (feed, login, settings, admin, /u/:username)
 │   ├── components/           # Reusable UI components & modals
 │   ├── supabase/             # Supabase database migrations, tests & unified setup
-│   │   ├── full_setup.sql    # Single-run master schema script (Migrations 1–5)
-│   │   ├── migrations/       # Sequential individual SQL migrations (0001–0005)
+│   │   ├── full_setup.sql    # Single-run master schema script (Migrations 1–6)
+│   │   ├── migrations/       # Sequential individual SQL migrations (0001–0006)
 │   │   └── tests/            # pgTAP RLS tests (rls.test.sql, `npm run test:rls`)
 │   └── utils/                # Supabase client/server/admin utilities
 ├── website/                  # Production static marketing website
