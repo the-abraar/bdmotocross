@@ -491,12 +491,25 @@ ul, ol { padding: 0; list-style: none; }
 }
 
 /* ---------- partners ---------- */
-.partners-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: stretch; }
+.partners-head { display: grid; grid-template-columns: 1fr minmax(260px, 440px); gap: 24px 40px; align-items: end; margin-bottom: 48px; }
+.partners-head .kicker { grid-column: 1 / -1; margin-bottom: 0; }
+.partner-feature { display: grid; grid-template-columns: minmax(200px, 340px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(20px, 3vw, 32px); margin-bottom: 20px; background: var(--ink-2); border: 1px solid var(--line); border-left: 3px solid var(--red); }
+.partner-feature img { width: 100%; height: auto; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .8); }
+.partner-feature .h-md { margin: 12px 0 14px; }
+.partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
 .partner { display: grid; gap: 8px; align-content: start; padding: 28px; background: var(--ink-2); border: 1px solid var(--line); transition: border-color .3s, transform .5s var(--ease-out); }
 .partner:hover { border-color: var(--red); transform: translateY(-4px); }
-.partner img { width: 96px; height: 96px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; }
+.partner img { width: 100%; height: 110px; object-fit: contain; background: #fff; padding: 14px; margin-bottom: 12px; }
+.partner img.bleed { background: none; padding: 0; } /* logo cropped from a photo: show the whole strip, no white tile */
 .partner .mono { color: var(--red-hi); }
-.partner b { font: 400 40px/1 var(--f-display); text-transform: uppercase; }
+.partner b { font: 400 34px/1 var(--f-display); text-transform: uppercase; }
+.sponsor-cta { display: grid; grid-template-columns: 1fr auto; gap: 24px 48px; align-items: center; margin-top: 20px; padding: clamp(24px, 3vw, 40px); background: var(--bone); color: var(--ink); clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%); }
+.sponsor-cta .h-md { margin-bottom: 10px; }
+.sponsor-cta .red { color: var(--red-ink); }
+.sponsor-cta .muted { color: var(--mute-ink); max-width: 60ch; }
+.sponsor-cta .btn-ghost { --fg: var(--ink); box-shadow: inset 0 0 0 1px var(--line-ink); }
+.sponsor-cta .btn-ghost::before { background: var(--ink); }
+.sponsor-cta .btn-ghost:hover { --fg: var(--bone); }
 .partner p { color: var(--mute); font-size: .92rem; }
 
 /* ---------- contact ---------- */
@@ -624,15 +637,16 @@ dialog::backdrop { background: rgba(5, 5, 4, .78); backdrop-filter: blur(6px); }
   .hero-vert { display: none; }
   .facts-grid, .safety-grid { grid-template-columns: 1fr 1fr; }
   .partners-grid { grid-template-columns: 1fr 1fr; }
-  .partners-grid > div:first-child { grid-column: 1 / -1; }
+  .sponsor-cta { grid-template-columns: 1fr; }
   .gate { grid-template-columns: 1fr; }
 }
 @media (max-width: 820px) {
   .nav-cta { display: none; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .hero-stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .club-grid, .director-grid, .stages, .contact-grid, .academy-intro, .join-head, .safety-head, .enroll-grid { grid-template-columns: 1fr; }
+  .club-grid, .director-grid, .stages, .contact-grid, .academy-intro, .join-head, .safety-head, .enroll-grid, .partners-head, .partner-feature { grid-template-columns: 1fr; }
   .teaser-stages, .peek { grid-template-columns: 1fr 1fr; }
+  .partner-feature img { max-width: 340px; }
   .riders-head { grid-template-columns: 1fr auto; }
   .riders-head .muted { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
   .specs, .tiers { grid-template-columns: 1fr; }
@@ -656,7 +670,12 @@ dialog::backdrop { background: rgba(5, 5, 4, .78); backdrop-filter: blur(6px); }
 }
 @media (max-width: 560px) {
   .form, .race-fields, .seg { grid-template-columns: 1fr; }
-  .facts-grid, .safety-grid, .partners-grid { grid-template-columns: 1fr; }
+  .facts-grid, .safety-grid { grid-template-columns: 1fr; }
+  .partners-grid { gap: 10px; }
+  .partner { padding: 14px; }
+  .partner img { height: 72px; padding: 8px; }
+  .partner b { font-size: 24px; }
+  .partner p { display: none; }
   .record-track li { flex-basis: 78%; }
   .d-specs { grid-template-columns: 1fr; }
   .results li { grid-template-columns: 90px 1fr; }
