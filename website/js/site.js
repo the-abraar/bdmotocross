@@ -70,9 +70,19 @@
     el.style.translate = `0 ${off.toFixed(1)}px`;
   });
 
+  /* ---------- black & white photos that gain colour as they scroll up into view ---------- */
+  const tints = $$('[data-colorize]');
+  const runTint = () => tints.forEach(el => {
+    const r = el.getBoundingClientRect();
+    // 0 when the photo's top enters at the bottom of the screen, 1 once it reaches the upper third
+    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.67)));
+    el.style.setProperty('--g', (1 - p).toFixed(3));
+  });
+
   let ticking = false;
   const frame = () => {
     onScrollNav();
+    runTint();
     if (!reduce) { runScrub(); runPara(); }
     ticking = false;
   };
