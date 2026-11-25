@@ -345,6 +345,27 @@ ul, ol { padding: 0; list-style: none; }
 .fact b { font: 400 26px/1 var(--f-display); text-transform: uppercase; color: var(--bone); }
 .fact p { color: var(--mute); font-size: .9rem; }
 
+/* landing-page teaser */
+.teaser .academy-intro { margin-bottom: 48px; }
+.teaser-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 40px; }
+.teaser-stages li { background: var(--ink); padding: 22px 20px; font: 400 clamp(22px, 2vw, 30px)/1 var(--f-display); text-transform: uppercase; }
+.teaser-stages span { display: block; margin-bottom: 12px; font: 700 .75rem var(--f-mono); letter-spacing: .14em; color: var(--red-hi); }
+.academy-ctas { grid-column: 1 / -1; }
+.u { text-decoration: underline; text-underline-offset: 3px; font-weight: 800; }
+
+/* ---------- academy entrance: rider code ---------- */
+.enroll-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.enroll-copy .h-xl { margin-bottom: 24px; }
+.enroll-copy .muted { max-width: 46ch; margin-bottom: 28px; }
+.steps { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.steps li { display: flex; align-items: baseline; gap: 16px; padding: 16px 18px; background: var(--ink); font-weight: 700; }
+.steps .mono { color: var(--red-hi); }
+.code-card { display: grid; gap: 14px; justify-items: start; padding: 24px; border: 1px dashed var(--red); background: rgba(227, 38, 46, .08); }
+.code-card[hidden] { display: none; }
+.code-card > .mono { color: var(--mute); }
+.code { font: 400 clamp(40px, 6vw, 64px)/1 var(--f-display); letter-spacing: .06em; user-select: all; }
+.code-card .fine { margin-top: 0; }
+
 /* ---------- pricing ---------- */
 .join-head { display: grid; grid-template-columns: 1fr minmax(260px, 420px); gap: 40px; align-items: end; margin-bottom: 64px; }
 .join-head .kicker { grid-column: 1 / -1; margin-bottom: 0; }
@@ -372,6 +393,7 @@ ul, ol { padding: 0; list-style: none; }
 .band-sub { margin-top: 36px; max-width: 56ch; font-size: 1.1rem; font-weight: 600; color: rgba(11, 11, 10, .82); }
 .safety { padding-top: clamp(120px, 14vw, 200px); }
 .safety-head { display: grid; grid-template-columns: 1fr minmax(260px, 440px); gap: 40px; align-items: end; margin-bottom: 64px; }
+.safety-head .kicker { grid-column: 1 / -1; margin-bottom: 0; }
 .safety-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .safety-grid article { padding: 28px 24px; border-top: 3px solid var(--red); background: var(--ink-2); display: grid; gap: 12px; align-content: start; }
 .safety-grid .mono { color: var(--red-hi); }
@@ -602,7 +624,8 @@ dialog::backdrop { background: rgba(5, 5, 4, .78); backdrop-filter: blur(6px); }
   .nav-cta { display: none; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .hero-stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .club-grid, .director-grid, .stages, .contact-grid, .academy-intro, .join-head, .safety-head { grid-template-columns: 1fr; }
+  .club-grid, .director-grid, .stages, .contact-grid, .academy-intro, .join-head, .safety-head, .enroll-grid { grid-template-columns: 1fr; }
+  .teaser-stages { grid-template-columns: 1fr 1fr; }
   .riders-head { grid-template-columns: 1fr auto; }
   .riders-head .muted { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
   .specs, .tiers { grid-template-columns: 1fr; }

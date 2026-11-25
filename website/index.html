@@ -34,7 +34,7 @@
   <nav class="nav-links" aria-label="Main">
     <a href="#club">Club</a>
     <a href="#riders">Riders</a>
-    <a href="#academy">Academy</a>
+    <a href="academy.html">Academy</a>
     <a href="#fixtures">Fixtures</a>
     <a href="#gallery">Gallery</a>
     <a href="https://paddock.bdmotocross.com" target="_blank" rel="noopener">Paddock ↗</a>
@@ -46,7 +46,7 @@
     <span class="mono sub">03 Dec 2026 · Chittagong Hill Circuits</span>
     <span class="mono more">Full race calendar →</span>
   </a>
-  <a href="#join" class="btn btn-red btn-sm nav-cta">Join the academy</a>
+  <a href="academy.html" class="btn btn-red btn-sm nav-cta">Join the academy</a>
   <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
 </header>
 
@@ -54,10 +54,10 @@
   <nav aria-label="Mobile">
     <a href="#club"><small>01</small>Club</a>
     <a href="#riders"><small>02</small>Riders</a>
-    <a href="#academy"><small>03</small>Academy</a>
-    <a href="#join"><small>04</small>Join</a>
-    <a href="#fixtures"><small>05</small>Fixtures</a>
-    <a href="#gallery"><small>06</small>Gallery</a>
+    <a href="academy.html"><small>03</small>Academy</a>
+    <a href="#fixtures"><small>04</small>Fixtures</a>
+    <a href="gallery.html"><small>05</small>Gallery</a>
+    <a href="#partners"><small>06</small>Partners</a>
     <a href="https://paddock.bdmotocross.com" target="_blank" rel="noopener"><small>07</small>Paddock ↗</a>
     <a href="#contact"><small>08</small>Contact</a>
   </nav>
@@ -80,7 +80,7 @@
       </h1>
       <p class="hero-lead" data-reveal>The racing institution for professional dirt bike competition, athlete conditioning, certified track safety and grassroots motorsport culture across Bangladesh.</p>
       <div class="hero-ctas" data-reveal>
-        <a href="#join" class="btn btn-red">Enroll in academy <span class="arr">→</span></a>
+        <a href="academy.html" class="btn btn-red" data-track="cta_academy" data-from="hero">Enroll in academy <span class="arr">→</span></a>
         <a href="#fixtures" class="btn btn-ghost">2026–27 fixtures</a>
       </div>
     </div>
@@ -241,7 +241,7 @@
         <button type="button" data-dossier="sultan" class="rider-open">Dossier <span>+</span></button>
       </div>
     </article>
-    <a href="#contact" class="rider rider-cta" data-reveal>
+    <a href="academy.html#enroll" class="rider rider-cta" data-reveal data-track="cta_academy" data-from="riders">
       <span class="rider-num" aria-hidden="true">??</span>
       <div class="rider-body">
         <span class="mono role">Your number here</span>
@@ -252,80 +252,26 @@
   </div>
 </section>
 
-<!-- ============ ACADEMY ============ -->
-<section class="sec tone-forest academy" id="academy">
+<!-- ============ ACADEMY (teaser: full page is academy.html) ============ -->
+<section class="sec tone-forest academy teaser" id="academy">
   <div class="tear" aria-hidden="true"></div>
   <div class="topo dim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="academy-intro">
       <p class="kicker light"><span>04</span> The academy</p>
       <h2 class="h-xxl" data-reveal>Train with<br><span class="red">purpose.</span></h2>
-      <p class="muted" data-reveal>Under the direct oversight of certified mentor Salauddin Ahmed Bulbul (trained at Kolkata's TWM Academy), the curriculum takes riders from fundamental clutch control to high-speed racecraft.</p>
+      <p class="muted" data-reveal>A four-stage curriculum led by TWM-certified mentor Salauddin Ahmed Bulbul: from clutch control to gate starts. Junior (12+) and senior divisions, fleet bikes and armor available. <strong>Starts from 1,000 BDT.</strong></p>
     </div>
-
-    <div class="stages">
-      <div class="stage-sticky" aria-hidden="true">
-        <span class="mono">Stage</span>
-        <div class="stage-big"><span id="stage-num">01</span><small>/04</small></div>
-        <div class="stage-rail"><i id="stage-fill"></i></div>
-      </div>
-      <ol class="stage-list">
-        <li class="stage" data-stage="01"><h3>Bike control &amp; body stance</h3><p>Throttle modulation, clutch biting point, standing-on-the-pegs posture and centre-of-gravity balance.</p></li>
-        <li class="stage" data-stage="02"><h3>Cornering, berms &amp; ruts</h3><p>Leg-out positioning, counter-steering, apex braking and locking into deep dirt ruts.</p></li>
-        <li class="stage" data-stage="03"><h3>Jumping &amp; suspension <span class="nw">pre-load</span></h3><p>Approach speed, flight trajectory control, tabletop absorption and smooth landing throttle.</p></li>
-        <li class="stage" data-stage="04"><h3>Gate starts &amp; racecraft</h3><p>Starting-gate reaction, holeshot execution, track lines, defensive passing and safety flags.</p></li>
-      </ol>
+    <ol class="teaser-stages" data-reveal>
+      <li><span>01</span>Bike control &amp; stance</li>
+      <li><span>02</span>Cornering, berms &amp; ruts</li>
+      <li><span>03</span>Jumping &amp; suspension</li>
+      <li><span>04</span>Gate starts &amp; racecraft</li>
+    </ol>
+    <div class="hero-ctas" data-reveal>
+      <a href="academy.html" class="btn btn-red" data-track="cta_academy" data-from="teaser">Explore the academy <span class="arr">→</span></a>
+      <a href="academy.html#enroll" class="btn btn-ghost" data-track="cta_rider_code" data-from="teaser">Get your rider discount code</a>
     </div>
-
-    <ul class="tags" data-reveal>
-      <li>Protective armor &amp; gear</li><li>Track riding &amp; flag signals</li><li>Dirt bike maintenance</li><li>Competition gate drops</li><li>Hill track &amp; enduro navigation</li><li>Mental discipline &amp; conditioning</li>
-    </ul>
-
-    <div class="facts">
-      <h3 class="h-md" data-reveal>Before you enroll</h3>
-      <div class="facts-grid">
-        <div class="fact" data-reveal><span class="mono">Bike fleet</span><b>Academy fleet available</b><p>BMCA maintains 150cc–250cc dirt bikes for enrolled trainees. Own an off-road or dual-sport bike? Bring it for personalised setup.</p></div>
-        <div class="fact" data-reveal><span class="mono">Safety armor</span><b>DOT / ECE certified</b><p>Full-face helmet, goggles, chest/roost protector, knee guards and rigid MX boots are compulsory. Sanitised loaner sets for trial sessions.</p></div>
-        <div class="fact" data-reveal><span class="mono">Age &amp; level</span><b>12+ to adult pro</b><p>Junior Division (12–17, with parental consent) and Senior Division (18+). No off-road experience needed; manual clutch familiarity helps.</p></div>
-        <div class="fact" data-reveal><span class="mono">Home track</span><b>Chittagong Dirt Arena</b><p>Natural loam &amp; clay with elevation climbs, berms and rhythm whoops. Flag marshals, paddock shade and trackside mechanical pits.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="sec tone-slate join" id="join">
-  <div class="wrap">
-    <div class="join-head">
-      <p class="kicker light"><span>05</span> Enrollment</p>
-      <h2 class="h-xl" data-reveal>Pick your line.</h2>
-      <p class="muted" data-reveal>Clear coaching options — whether you need an academy bike and armor, or want to develop on your own machine. <strong>Starts from 1,000 BDT.</strong></p>
-    </div>
-    <div class="tiers">
-      <article class="tier hot" data-reveal>
-        <span class="tier-flag mono">Most popular for beginners</span>
-        <h3>Weekend Starter Clinic</h3>
-        <p class="mono tier-type">Turnkey arrive &amp; ride</p>
-        <p>Ideal for first-time riders. Full training motorcycle and sanitised protective armor provided.</p>
-        <ul><li>BMCA fleet 150cc–250cc dirt bike</li><li>Sanitised DOT/ECE helmet &amp; body armor</li><li>1-on-1 certified coach</li><li>Track fuel &amp; Dirt Arena access</li></ul>
-        <button type="button" class="btn btn-ink" data-enquire="Weekend Starter Clinic">Book starter clinic <span class="arr">→</span></button>
-      </article>
-      <article class="tier" data-reveal>
-        <h3>Monthly Academy Cadet</h3>
-        <p class="mono tier-type">Junior (12+) &amp; senior division</p>
-        <p>Progressive 4-week training — from cornering ruts to official race gate starts.</p>
-        <ul><li>4 weekend blocks (8 track sessions)</li><li>4-stage curriculum &amp; assessment</li><li>Off-bike conditioning guidance</li><li>BMCA skill certificate</li></ul>
-        <button type="button" class="btn btn-red" data-enquire="Monthly Academy Cadet">Enroll as cadet <span class="arr">→</span></button>
-      </article>
-      <article class="tier" data-reveal>
-        <h3>Open Paddock Pass</h3>
-        <p class="mono tier-type">Bring your own machine</p>
-        <p>For off-road and dual-sport owners who want sanctioned track practice.</p>
-        <ul><li>Full-day Dirt Arena access</li><li>Marshaled corners &amp; flag protocol</li><li>Shaded pit bay &amp; wash bay</li><li>Sag tuning by Moto Freak Lab</li></ul>
-        <button type="button" class="btn btn-ghost" data-enquire="Open Paddock Pass">Get track pass <span class="arr">→</span></button>
-      </article>
-    </div>
-    <p class="fine mono">* Final pricing confirmed on WhatsApp based on rider experience &amp; schedule. No payment until on-site safety scrutineering.</p>
   </div>
 </section>
 
@@ -333,38 +279,17 @@
 <section class="sec red-band" id="safety">
   <div class="tear" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="kicker ink-k"><span>06</span> Ground zero for sanctioned motorsport</p>
+    <p class="kicker ink-k"><span>05</span> Ground zero for sanctioned motorsport</p>
     <blockquote class="mega-quote" data-scrub>Leave the stunts off the streets. Bring your courage to the dirt.</blockquote>
-    <p class="band-sub" data-reveal>A disciplined, athletic and safe alternative to reckless street stunting: closed, marshaled circuits, certified armor, regulated machines and medical standby.</p>
+    <p class="band-sub" data-reveal>A disciplined, athletic and safe alternative to reckless street stunting: closed, marshaled circuits, certified armor, regulated machines and medical standby. <a href="academy.html#safety-protocol" class="u">Read the safety protocol →</a></p>
   </div>
   <div class="tear tear-bottom" aria-hidden="true"></div>
-</section>
-
-<section class="sec ink safety">
-  <div class="wrap">
-    <div class="safety-head">
-      <h2 class="h-xl" data-reveal>Zero-compromise<br>safety.</h2>
-      <p class="muted" data-reveal>For parents and guardians: here is how BMCA manages risk and keeps every training session in line with international motorsport safety protocol.</p>
-    </div>
-    <div class="safety-grid">
-      <article data-reveal><span class="mono">Armor protocol</span><h3>Mandatory personal armor</h3><p>No unarmored riding, ever. Certified DOT/ECE full-face helmet, shatterproof goggles, chest &amp; roost protector, knee armor and rigid boots. No clearance, no staging gate.</p></article>
-      <article data-reveal><span class="mono">Marshal discipline</span><h3>Track marshal flag rules</h3>
-        <ul class="flags">
-          <li><i class="f-yellow"></i><span><b>Yellow</b> incident zone — slow down, no overtaking</span></li>
-          <li><i class="f-red"></i><span><b>Red</b> full track emergency halt</span></li>
-          <li><i class="f-chq"></i><span><b>Chequered</b> controlled session finish</span></li>
-        </ul>
-      </article>
-      <article data-reveal><span class="mono">Equipment control</span><h3>Low-speed throttle stops</h3><p>Junior Division riders (12–17) ride machines with adjustable throttle limiters. Power unlocks step by step as balance, clutch discipline and emergency stopping are certified.</p></article>
-      <article data-reveal><span class="mono">Emergency ready</span><h3>On-site first-aid standby</h3><p>Every training weekend runs a paddock first-aid post — trauma splints, neck stabilisation, burn dressings and evacuation routing to the nearest medical centre.</p></article>
-    </div>
-  </div>
 </section>
 
 <!-- ============ FIXTURES ============ -->
 <section class="sec tone-ox fixtures" id="fixtures">
   <div class="wrap">
-    <p class="kicker light"><span>07</span> Race calendar 2026 – 2027</p>
+    <p class="kicker light"><span>06</span> Race calendar 2026 – 2027</p>
 
     <div class="gate" data-reveal>
       <div class="gate-info">
@@ -595,7 +520,7 @@
     <div class="foot-top">
       <img src="images/logo-360.webp" alt="Bangladesh Motocross Club & Academy crest" width="150" height="120" loading="lazy">
       <nav aria-label="Footer">
-        <a href="#club">Club</a><a href="#riders">Riders</a><a href="#academy">Academy</a><a href="#join">Enroll</a><a href="#safety">Safety</a><a href="#fixtures">Fixtures</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+        <a href="#club">Club</a><a href="#riders">Riders</a><a href="academy.html">Academy</a><a href="academy.html#join">Enroll</a><a href="#fixtures">Fixtures</a><a href="#results">Results</a><a href="gallery.html">Gallery</a><a href="#partners">Partners</a><a href="#contact">Contact</a>
       </nav>
       <a href="#top" class="to-top mono">Back to top ↑</a>
     </div>
@@ -609,8 +534,8 @@
 
 <!-- Mobile action bar -->
 <div class="mbar" id="mbar">
-  <a href="#join" class="btn btn-red btn-sm">Enroll</a>
-  <a href="https://wa.me/8801975376114" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">WhatsApp ↗</a>
+  <a href="academy.html#join" class="btn btn-red btn-sm" data-track="cta_academy" data-from="mbar">Enroll</a>
+  <a href="https://wa.me/8801975376114" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-track="whatsapp_open" data-from="mbar">WhatsApp ↗</a>
 </div>
 
 <!-- Rider dossier drawer -->
